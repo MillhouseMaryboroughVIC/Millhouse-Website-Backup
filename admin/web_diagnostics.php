@@ -95,19 +95,24 @@
 				Chrome/148.0.0.0 Safari/537.36 Vivaldi/8.4.3067.53
 
 		*/
+		global $g_dbMillhouse;
 		$strKeyword = "";
-		$arrayAllowedKeywords = ["mozilla", "linux", "android", "applewebKit", "khtml", "like", "gecko", 
-									"chrome", "mobile", "safari", "linux", "x86_64", "firefox", "iphone", 
-									"cpu ", "mac", "os", "x", "version", "windows", "nt", "win64", "x64", 
-									"vivaldi", "opr", "x64", "rv", "samsungbrowser", "ipad"];
 		$arrayKeywords = preg_split("/[., \/;()]+/", $strUserAgentString, -1, PREG_SPLIT_NO_EMPTY);
 		
 		for ($nI = 0; $nI < count($arrayKeywords); $nI++)
 		{
-			if (!in_array(strtolower($arrayKeywords[$nI]), $arrayAllowedKeywords) && !is_numeric(strtolower($arrayKeywords[$nI])))
+			if (!is_numeric(strtolower($arrayKeywords[$nI])))
 			{
-				$strKeyWord = $arrayKeywords[$nI];
-				break;
+				$result = DoFindQuery1($g_dbMillhouse, "valid_useragent_keywords", "keyword", strtolower($arrayKeywords[$nI]));
+				if ($result->num_rows > 0)
+				{
+					// Do nothing.
+				}
+				else
+				{
+					$strKeyWord = $arrayKeywords[$nI];
+					break;
+				}
 			}
 		}
 		return $strKeyword;
@@ -551,11 +556,6 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 		return $nNumHits;
 	}
 	
-	function DoAlertLastError($strErrorMessage)
-	{
-		PrintJavascriptLine("alert(\"ERROR: " . $strErrorMessage . "\")", 1, true);
-	}
-	
 	if (isset($_POST["submit_ban_keyword"]))
 	{
 		$strRobotsFileName = DoGetParentOrCurrentDir() . "robots.txt";
@@ -572,6 +572,17 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 		catch (Exception $e)
 		{
 			DoAlertLastError($e->getMessage());
+		}
+	}
+	else if (isset($_POST["submit_allow_keyword"]))
+	{
+		if (DoInsertQuery($g_dbMillhouse, "valid_useragent_keywords", "keyword", $_POST["text_keyword"]))
+		{
+			PrintJavascriptLine("alert(\"" . $_POST["text_keyword"] . " was successfully added to the database...\")", 1, true);
+		}
+		else
+		{
+			PrintJavascriptLine("alert(\"" . $_POST["text_keyword"] . " could not be added to the database...\")", 1, true);
 		}
 	}
 	
@@ -1139,14 +1150,17 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 		<table border="0" cellpadding="5" cellspacing="0">
 			<tr>
 				<td style="text-align:right;"><label for="">Keyword to ban: </label></td>
-				<td><input type="text" id="text_keyword" name="text_keyword" size="20" required /></td>
+				<td colspan="2"><input type="text" id="text_keyword" name="text_keyword" size="20" required /></td>
 			</tr>
 			<tr>
 				<td>
 					<input type="button" value="CLOSE" onclick="DoCloseUserAgentPopup()" />
 				</td>
 				<td>
-					<input type="submit" name="submit_ban_keyword" value="ADD TO BANNED LIST"  />
+					<input type="submit" name="submit_ban_keyword" value="BAN USER AGENT"  />
+				</td>
+				<td>
+					<input type="submit" name="submit_allow_keyword" value="ALLOW USER AGENT"  />				
 				</td>
 			</tr>
 		</table>
