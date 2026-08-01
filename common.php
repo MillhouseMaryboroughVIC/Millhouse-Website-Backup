@@ -14,7 +14,8 @@
 	function DoParseRobotsTxt()
 	{
 		$fileRobots = fopen(DoGetParentOrCurrentDir() . "robots.txt", "r");
-		$mapBannedUserAgents = [];
+		$arrayBannedUserAgents = [];
+		$nI = 0;
 		
 		if ($fileRobots)
 		{
@@ -25,11 +26,11 @@
 					$strLine = str_replace("User-agent: ", "", $strLine);
 					$strLine = str_replace("\r", "", $strLine);
 					$strLine = str_replace("\n", "", $strLine);
-					$mapBannedUserAgents[$strLine] = $strLine;
+					$arrayBannedUserAgents[$nI++] = $strLine;
 				}
 			}
 		}
-		return $mapBannedUserAgents;
+		return $arrayBannedUserAgents;
 	}
 	
 	function DoDenyAccess()
@@ -43,61 +44,72 @@
 		exit();
 	}
 	
-	function DoRecordPageHitOrBlock()
+	function DoRecordPageHit()
 	{
 		global $g_dbMillhouse;
-		
-		if (($_SERVER["HTTP_ACCEPT"] == "") || ($_SERVER["HTTP_ACCEPT_LANGUAGE"] == ""))
+
+		// The request is for a top-level web page (HTML, PHP, ASP)
+		$strPageFilename = DoGetPageFilename();
+	
+		if (IsRequestFromLocalNetwork())
 		{
-			DoDenyAccess();
+			PrintJavascriptLine("console.log('Request is from local network...');", 1, true);
+		}
+		else if (IsAdminPage($strPageFilename))
+		{
+			PrintJavascriptLine("console.log('Requested page is an admin page...');", 1, true);
+		}
+		else if (!DoCheckTableExists("page_hits"))
+		{
+			PrintJavascriptLine("console.log(\"'page_hits' table does not exist...\");", 1, true);
 		}
 		else
 		{
-			$mapUserAgents = DoParseRobotsTxt();
-			foreach ($mapUserAgents as $strKey => $strValue)
-			{
-				
-				if (str_contains($_SERVER["HTTP_USER_AGENT"], $strValue))
-				{
-					DoDenyAccess();
-				}
-				else
-				{
-					$strDestination = $_SERVER["HTTP_SEC_FETCH_DEST"] ?? "";
-					if ($strDestination === "document")
-					{
-    					// The request is for a top-level web page (HTML)
-						$strPageFilename = DoGetPageFilename();
+			$dateNow = new DateTime();
+			
+			$result = DoInsertQuery4($g_dbMillhouse, "page_hits", "page", $strPageFilename, "datetime", $dateNow->format("Y-m-d H:m:s"), "user_agent", $_SERVER["HTTP_USER_AGENT"], "visitor_ip_address", $_SERVER["REMOTE_ADDR"]);
+			if ($result)
+				PrintJavascriptLine("console.log('Page hit added to database...');", 1, true);
+			else
+				PrintJavascriptLine("console.log('Page hit could not be added to database...');", 1, true);
+		}
+	}
+	
+	function IsInRobotsDotText($strUserAgent)
+	{
+		static $arrayBannedUserAgents = NULL;
+		static $nArraySize = 0;
+		
+		if ($arrayBannedUserAgents === null) 
+		{
+        	$arrayBannedUserAgents = DoParseRobotsTxt();
+        	$nArraySize = count($arrayBannedUserAgents);
+        }
+		// 1. Convert the array into a single regex string
+		// preg_quote ensures characters like '.', '/', or '?' don't break the regex
+		$regexPattern = "#" . implode("|", array_map("preg_quote", $arrayBannedUserAgents)) . "#i";
+		
+		// 2. Perform a single match check
+		if (preg_match($regexPattern, $_SERVER["HTTP_USER_AGENT"]))
+			return true;
+	
+		return false;
+	}
+	
+	function DoRecordPageHitOrBlock()
+	{
+		//if (!isset($_SESSION["bBlock"]))
+			$_SESSION["bBlock"] = false;
 					
-						if (IsRequestFromLocalNetwork())
-						{
-							PrintJavascriptLine("console.log('Request is from local network...');", 1, true);
-						}
-						else if (IsAdminPage($strPageFilename))
-						{
-							PrintJavascriptLine("console.log('Requested page is an admin page...');", 1, true);
-						}
-						else if (!DoCheckTableExists("page_hits"))
-						{
-							PrintJavascriptLine("console.log(\"'page_hits' table does not exist...\");", 1, true);
-						}
-						else
-						{
-							$dateNow = new DateTime();
-							
-							$result = DoInsertQuery4($g_dbMillhouse, "page_hits", "page", $strPageFilename, "datetime", $dateNow->format("Y-m-d H:m:s"), "user_agent", $_SERVER["HTTP_USER_AGENT"], "visitor_ip_address", $_SERVER["REMOTE_ADDR"]);
-							if ($result)
-								PrintJavascriptLine("console.log('Page hit added to database...');", 1, true);
-							else
-								PrintJavascriptLine("console.log('Page hit could not be added to database...');", 1, true);
-						}
-					}
-					elseif (in_array($strDestination, ["script", "style", "image", "font", "iframe"]))
-					{
-					    // The request is a dependency needed by the page so do nothing
-					}
-				}
-			}
+		if (($_SERVER["HTTP_ACCEPT"] == "") || ($_SERVER["HTTP_ACCEPT_LANGUAGE"] == "") ||
+			($_SESSION["bBlock"] ? $_SESSION["bBlock"] : IsInRobotsDotText($_SERVER["HTTP_USER_AGENT"])))
+		{
+			DoDenyAccess();
+			$_SESSION["bBlock"] = true;
+		}
+		else
+		{
+			DoRecordPageHit();
 		}
 	}
 
@@ -250,8 +262,15 @@
 	
 	function IsAdminPage($strPageFilename)
 	{
+		
 		return (($strPageFilename == "approve_sponsorship.php") || ($strPageFilename == "renew_sponsorship.php") || 
-				/*($strPageFilename == "web_diagnostics.php") ||*/ ($strPageFilename == "admin.php"));
+				($strPageFilename == "web_diagnostics.php") || ($strPageFilename == "administration.php") || 
+				($strPageFilename == "edit_groups.php") || ($strPageFilename == "friday_feast_menu.php") || 
+				($strPageFilename == "governance.php") || ($strPageFilename == "css_4_beginners.php") || 
+				($strPageFilename == "html_4_beginners.php") || ($strPageFilename == "javascript_4_beginners.php") || 
+				($strPageFilename == "expression_web_4_beginners.php"));
+		
+		//return false;
 	}
 		
 	function IsRequestFromLocalNetwork()
@@ -287,17 +306,16 @@
 	function DoGetParentOrCurrentDir()
 	{
 		$strCWD = "";
-
+		
 		// E.G. index.php or millhouse/index.php or about/about.php or millhouse/about/about.php or 
-		// millhouse/governance/rules/rules.php
-		if (str_contains($_SERVER["REQUEST_URI"], "millhouse"))
+		if (stripos($_SERVER["REQUEST_URI"], "millhouse") !== false)
 		{
-			$strCWD = str_replace("/millhouse/", "", $_SERVER["REQUEST_URI"]);
+			$strCWD = str_replace("/millhouse/", "", strtolower($_SERVER["REQUEST_URI"]));
 		}
 		else
 		{
 			$strCWD = substr($_SERVER["REQUEST_URI"], 1);
-		}		
+		}
 		// E.G. index.php or index.php or about/about.php or about/about.php or 
 		// governance/rules/rules.php
 		$nCount = substr_count($strCWD, "/");

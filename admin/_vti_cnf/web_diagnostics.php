@@ -1,14 +1,14 @@
 vti_encoding:SR|utf8-nl
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
-vti_timelastmodified:TR|29 Jul 2026 08:32:06 -0000
+vti_timelastmodified:TR|29 Jul 2026 10:48:18 -0000
 vti_timecreated:TR|01 Jun 2026 05:49:12 -0000
 vti_title:SR|Web Diagnostics
 vti_extenderversion:SR|12.0.0.0
 vti_backlinkinfo:VX|admin/approve_sponsorship.php milestones/milestones.php admin/html_4_beginners.php groups/groups\\ .php governance/rules/rules.php sponsors/sponsors.php admin/expression_web_4_beginners.php admin/javascript_4_beginners.php governance/forms/forms.php governance/governance.php contribute/join.php room/room.php site_history/site_history.php about/about.php governance/reports/reports.php governance/policies/policies.php request_sponsorship.php governance/plan/plan.php index.php admin/web_diagnostics.php contribute/contribute.php sponsorship_request_sent.php master.dwt admin/css_4_beginners.php contact/contact.php contribute/volunteering.php people/people.php admin/edit_groups.php admin/friday_feast_menu.php Calendar/calendar.php admin/renew_sponsorship.php admin/administration.php contribute/donation.php contribute/why_donate.php admin/governance.php
-vti_nexttolasttimemodified:TW|29 Jul 2026 08:30:12 -0000
-vti_cacheddtm:TX|29 Jul 2026 08:32:06 -0000
-vti_filesize:IR|51148
+vti_nexttolasttimemodified:TW|29 Jul 2026 08:32:06 -0000
+vti_cacheddtm:TX|29 Jul 2026 10:48:18 -0000
+vti_filesize:IR|51149
 vti_cachedtitle:SR|Web Diagnostics
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
 vti_cachedlinkinfo:VX|G|../master.dwt H|https://www.millhouse.org.au/ Q|../styles/style4PC.css H|../favicon.jpg S|../common.js S|https://www.gstatic.com/charts/loader.js H|https://fonts.googleapis.com H|https://fonts.gstatic.com Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 H|../images/MillHouse.jpg S|../images/MillHouse.jpg H|../images/MillHouseNeighborhoodHouse1.jpg S|../images/MillHouseNeighborhoodHouse1.jpg H|../images/MillHouseNeighborhoodHouse2.jpg S|../images/MillHouseNeighborhoodHouse2.jpg S|../sponsors/images/NHHV.png S|../sponsors/images/VicStateGov.jpg S|../sponsors/images/CentralGoldfields.png S|../sponsors/images/FRRR.png S|../sponsors/images/BendigoBank.jpg S|../sponsors/images/JWR.png S|../sponsors/images/WattleOffice.jpg S|../sponsors/images/FoodBank.png S|../sponsors/images/FoodShare.png S|../sponsors/images/Aldi.png S|../sponsors/images/ParkviewBakery.jpg S|../sponsors/images/MaryboroughFloorCoverings.jpg S|../sponsors/images/SilverService.png S|../sponsors/images/GoldfieldsScreens.png H|../index.php H|../about/about.php H|../Calendar/Calendar.php H|../room/room.php H|../sponsors/sponsors.php H|../contribute/contribute.php H|../contribute/join.php H|../contribute/volunteering.php H|../request_sponsorship.php H|../contribute/donation.php H|../contact/Contact.php H|../site_history/site_history.php H|../governance/governance.php H|https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile H|../governance/rules/rules.php H|../governance/reports/reports.php H|../governance/policies/policies.php H|../governance/plan/plan.php H|administration.php H|edit_groups.php H|approve_sponsorship.php H|renew_sponsorship.php H|friday_feast_menu.php H|governance.php H|../governance/forms/forms.php H|web_diagnostics.php H|html_4_beginners.php H|css_4_beginners.php H|javascript_4_beginners.php H|expression_web_4_beginners.php

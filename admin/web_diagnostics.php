@@ -681,7 +681,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 					pUserAgentPopup = document.getElementById("user_agent_popup_details"),
 					textKeyword = document.getElementById("text_keyword");
 										
-				if (divUserAgentPopup && pUserAgentPopup && textKeyword
+				if (divUserAgentPopup && pUserAgentPopup && textKeyword)
 				{
 					textKeyword = strSuspiciousKeyword;
 					pUserAgentPopup.innerText = strUserAgentString;

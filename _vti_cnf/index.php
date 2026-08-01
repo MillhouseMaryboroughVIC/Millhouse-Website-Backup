@@ -1,14 +1,14 @@
 vti_encoding:SR|utf8-nl
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
-vti_timelastmodified:TR|27 Jul 2026 05:44:57 -0000
+vti_timelastmodified:TR|30 Jul 2026 03:25:10 -0000
 vti_timecreated:TR|26 Jul 2025 05:25:40 -0000
 vti_title:SR|Home
 vti_extenderversion:SR|12.0.0.0
-vti_nexttolasttimemodified:TR|27 Jul 2026 05:43:59 -0000
+vti_nexttolasttimemodified:TW|30 Jul 2026 03:23:49 -0000
 vti_structuredtm:TR|18 Mar 2026 03:49:06 -0000
 vti_backlinkinfo:VX|milestones/milestones.php admin/approve_sponsorship.php Information/annual_reports/annual_reports.php Information/strategic_plan/strategic_plan.html personnel_history/personnel_history.html admin/expression_web_4_beginners.php admin/javascript_4_beginners.php governance/forms/forms.php ACNC/reports/reports.php ACNC/plan/plan.html Information/association_rules/association_rules.html contribute/join.php site_history/site_history.php governance/governance.php governance/reports/reports.php governance/policies/policies.php request_sponsorship.php Information/cool_space/cool_space.html CoolSpace/information.html admin/web_diagnostics.php index.php governance/plan/plan.php contribute/contribute.php sponsorship_request_sent.php ACNC/ACNC.html ACNC/policies_rules/policies_rules.php contact/contact.php master.dwt admin/css_4_beginners.php contribute/volunteering.php people/people.php admin/edit_groups.php admin/friday_feast_menu.php events/cyber_cafe/cybercafe.php Information/Policies/policies.html admin/renew_sponsorship.php Calendar/calendar.php admin/administration.php contribute/donation.php contribute/why_donate.php admin/governance.php about/about.php Information/information.html room/room.php admin/html_4_beginners.php groups/groups\\ .php governance/rules/rules.php sponsors/sponsors.php
-vti_cacheddtm:TX|27 Jul 2026 05:44:57 -0000
+vti_cacheddtm:TX|30 Jul 2026 03:25:10 -0000
 vti_filesize:IR|21997
 vti_cachedtitle:SR|Home
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
