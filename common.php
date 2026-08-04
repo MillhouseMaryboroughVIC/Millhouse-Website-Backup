@@ -90,6 +90,7 @@
 		$regexPattern = "#" . implode("|", array_map("preg_quote", $arrayBannedUserAgents)) . "#i";
 		
 		// 2. Perform a single match check
+		// This is more efficient that looping through the array and doing string comparisons.
 		if (preg_match($regexPattern, $_SERVER["HTTP_USER_AGENT"]))
 			return true;
 	
@@ -236,6 +237,51 @@
 	//** 
 	//******************************************************************************
 	//******************************************************************************
+	
+	function DoCompareSQLTimeNow($strDatetime)
+	{
+		$nResult = 0;
+		
+		$time = new DateTime(is_null($strDatetime) ? "" : $strDatetime);
+		$strTime = $time->format("H:i");
+		
+		$timeNow = new DateTime();
+		$strTimeNow = $timeNow->format("H:i");
+		
+		if ($strTime == $strTimeNow)
+			$nResult = 0;
+		else if ($strTime > $strTimeNow)
+			$nResult = 10;
+		else if ($strTime < $strTimeNow)
+			$nResult = -10;
+		
+		return $nResult;
+	}
+	
+	function SQLTimeGreaterNow($strDatetime)
+	{
+		return DoCompareSQLTimeNow($strDatetime) > 0;
+	}
+	
+	function SQLTimeLessNow($strDatetime)
+	{
+		return DoCompareSQLTimeNow($strDatetime) < 0;
+	}
+	
+	function SQLTimeGreaterEqualNow($strDatetime)
+	{
+		return DoCompareSQLTimeNow($strDatetime) >= 0;
+	}
+	
+	function SQLTimeLessEqualNow($strDatetime)
+	{
+		return DoCompareSQLTimeNow($strDatetime) <= 0;
+	}
+	
+	function SQLTimeEqualNow($strDatetime)
+	{
+		return DoCompareSQLTimeNow($strDatetime) == 0;
+	}
 	
 	function DoRemoveScriptTags($strAdvertHTML)
 	{

@@ -44,7 +44,7 @@
 		
 			.content img
 			{
-				height: 300px;
+				height: 250px;
 			}
 			
 		</style>
@@ -262,6 +262,11 @@ to share with others.</p>
 meals may include soups, vegetable and pasta bakes, chicken and rice dishes, lasagne, pasta bolognese and other family 
 favourites.</p>
 
+<p>
+	<a href="images/FrozenMeals1.jpg"><img src="images/FrozenMeals1.jpg" alt="FrozenMeals1.jpg" /></a>&nbsp;
+	<a href="images/FrozenMeals2.jpg"><img src="images/FrozenMeals2.jpg" alt="FrozenMeals2.jpg" /></a>
+</p>
+
 <h2>Thursday Food Share Market</h2>
 
 <p>Our Food Share Market is held every Thursday from 9.30 am.</p>
@@ -287,7 +292,11 @@ and women’s hygiene products may also be available from time to time.</p>
 
 <p>Friday Feast provides an affordable meal and an opportunity to meet new people and enjoy time together.</p>
 
-<b>Cost: </b>$5 donation.
+<p><b>Cost: </b>$5 donation.</p>
+
+<p>
+	<a href="images/CommunityLunch.jpg"><img src="images/CommunityLunch.jpg" alt="CommunityLunch.jpg" /></a>
+</p>
 
 <h2>Food with Friends</h2>
 
@@ -296,7 +305,9 @@ and women’s hygiene products may also be available from time to time.</p>
 <p>Participants prepare a meal with assistance from their support workers and the Mill House team before sitting down 
 to enjoy the food together.</p>
 
-<b>Cost: </b>$10 per session. Bookings are preferred.
+<p><b>Cost: </b>$10 per session. Bookings are preferred.</p>
+
+<p><a href="../images/FoodWithFriends.jpg"><img src="../images/FoodWithFriends.jpg" alt="FoodWithFriends.jpg" /></a></p>
 
 <h2>Mill House Café</h2>
 
@@ -306,12 +317,19 @@ to enjoy the food together.</p>
 
 <p>Come in for something to eat, enjoy a cuppa and connect with others in the community.</p>
 
+<p>
+	<a href="../images/Cafe.jpg"><img src="../images/Cafe.jpg" alt="Cafe.jpg" /></a>&nbsp;
+	<a href="images/Cafe.jpg"><img src="images/Cafe.jpg" alt="Cafe.jpg" /></a>
+</p>
+
 <h1>Groups and Activities</h1>
 
 <h2>Maker Mums</h2>
 
 <p>A welcoming creative and social group where parents can connect, work on sewing, craft and other projects, and 
 share skills in a child-friendly environment.</p>
+
+<p><a href="../images/MakerMums.jpg"><img src="../images/MakerMums.jpg" alt="MakerMums.jpg" /></a></p>
 
 <h2>Peer Collective</h2>
 
@@ -320,41 +338,70 @@ share skills in a child-friendly environment.</p>
 <p>The group provides a safe and non-judgmental space where people with lived experience can connect, share their 
 stories and offer mutual support.</p>
 
+<p><a href="../images/PeerCollective.jpg"><img src="../images/PeerCollective.jpg" alt="PeerCollective.jpg" /></a></p>
+
 <h2>Dungeons &amp; Dragons</h2>
 
 <p>A social tabletop role-playing group where participants can use their imagination, build characters, work as a 
 team and enjoy new adventures.</p>
+
+<p><a href="../images/DungeonsDragons.jpg"><img src="../images/DungeonsDragons.jpg" alt="DungeonsDragons.jpg" /></a></p>
 
 <h2>The 'House' Youth Activity Hub</h2>
 
 <p>A welcoming space where young people can meet, participate in activities, develop new skills and connect with 
 others.</p>
 
+<p><a href="../images/YouthHub.jpg"><img src="../images/YouthHub.jpg" alt="YouthHub.jpg" /></a></p>
+
 <h2>Mill House Scrappers</h2>
 
 <p>A relaxed social scrapbooking group where participants can work on creative projects, share ideas and enjoy time 
 with others.</p>
+
+<p><a href="../images/ScrapBooking.jpg"><img src="../images/ScrapBooking.jpg" alt="ScrapBooking.jpg" /></a></p>
 
 <h2>Hookers Yarn Craft</h2>
 
 <p>A friendly yarn craft group for people interested in knitting, crochet and other fibre crafts. Beginners and 
 experienced crafters are welcome.</p>
 
+<p><a href="../images/YarnCraft.jpg"><img src="../images/YarnCraft.jpg" alt="YarnCraft.jpg" /></a></p>
+
 <h2>Art for the Soul</h2>
 
 <p>A supportive art group that encourages creativity, self-expression and connection through painting, drawing and 
 other art activities.</p>
 
+<p><a href="../images/Art4Soul.jpg"><img src="../images/Art4Soul.jpg" alt="Art4Soul.jpg" /></a></p>
+
 <h2>Canasta Players</h2>
 
 <p>Join other community members for a friendly and social game of Canasta.</p>
 
-<p><a href="../images/CanastaGroup.jpg"><img src="../images/CanastaGroup.jpg" alt="CanastaGroup.jpg" /></a></p>
+<p>
+	<a href="../images/canasta.jpg"><img src="../images/canasta.jpg" alt="canasta.jpg" /></a>&nbsp;
+	<a href="../images/CanastaGroup.jpg"><img src="../images/CanastaGroup.jpg" alt="CanastaGroup.jpg" /></a>
+</p>
+
+<h2>Level Up Youth Gaming with Lifely Chris Lakey</h2>
+
+<p>
+	A weekly after-school social and gaming group designed for kids and teens aged 9 to 17 who experience disability 
+	or neuro-divergence. The program focuses on building friendships, improving focus, and boosting confidence in a 
+	safe, supportive environment.
+</p>
+
+<p>
+	<a href="images/LevelUpGamers.jpg"><img src="images/LevelUpGamers.jpg" alt="LevelUpGamers.jpg" /></a>
+</p>
 
 <h2>Playgroup</h2>
 
 <p>Our playgroup provides a welcoming environment where children can play and learn while parents and carers connect 
 with other local families.</p>
+
+<p><a href="../images/playgroup.jpg"><img src="../images/playgroup.jpg" alt="playgroup.jpg" /></a></p>
 
 <h1>Community Support Services</h1>
 
@@ -378,6 +425,8 @@ services without interest, fees or charges.</p>
 
 <p>Contact Mill House for information about eligibility and assistance with the application process.</p>
 
+<p><a href="../images/NILoans.png"><img src="../images/NILoans.png" alt="NILoans.png" height="200"/></a></p>
+
 <h2>Parent Pathways</h2>
 
 <p>Parent Pathways provides personalised support for eligible parents and carers of young children.</p>
@@ -385,7 +434,7 @@ services without interest, fees or charges.</p>
 <p>The program can help participants identify their goals, build confidence, access services and take steps towards 
 education, training or future employment.</p>
 
-<p><a href="images/ParentPathways.jpg"><img src="images/ParentPathways.jpg" alt="ParentPathways.jpg" height="200"/></a></p>
+<p><a href="../images/ParentPathways.jpg"><img src="../images/ParentPathways.jpg" alt="ParentPathways.jpg" height="200"/></a></p>
 
 <h2>are-able – Finding and Keeping a Job</h2>
 
@@ -399,10 +448,14 @@ certified.</p>
 
 <p>Please contact Mill House to confirm availability before attending.</p>
 
+<p><a href="../images/JusticePeace.png"><img src="../images/JusticePeace.png" alt="JusticePeace.png" height="200"/></a></p>
+
 <h2>Remedial Massage Therapist</h2>
 
 <p>A remedial massage therapist provides services from Mill House. Appointments and fees are arranged directly with the 
 practitioner.</p>
+
+<p><a href="../images/massage.png"><img src="../images/massage.png" alt="massage.png" height="200"/></a></p>
 
 <h2>Employment and Visiting Services</h2>
 
@@ -425,7 +478,7 @@ others.</p>
     <li>Writers Group</li>
 </ul>
 
-<p><a href="images/U3A.png"><img src="images/U3A.png" alt="U3A.png" height="100"/></a></p>
+<p><a href="../images/U3A.png"><img src="../images/U3A.png" alt="U3A.png" height="100"/></a></p>
 
 <h2>Community Meetings</h2>
 
@@ -434,7 +487,7 @@ others.</p>
     <li>
     	Maryborough Theatre Company<br/><br/>
     	<a href="https://www.liveup.org.au/activities/maryborough-theatre-company">
-    		<img src="images/theatre.jpg" alt="theatre.jpg" height="200"/>
+    		<img src="../images/theatre.jpg" alt="theatre.jpg" height="200"/>
     	</a>
     </li>
     <li>Maryborough Stamp Club</li>

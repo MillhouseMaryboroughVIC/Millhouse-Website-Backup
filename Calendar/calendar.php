@@ -947,6 +947,10 @@
 	}
 		
 </script>
+<h1>Disclaimer</h1>
+<p>
+	While we endeavour to have the correct times and days they are subject to change without prior notice.
+</p>
 <table class="calendar" border="1" cellpadding="5" cellspacing="0">
     <caption>
     	<input type="button" id="left" onclick="DoPrevMonth()" value="◄" /> 

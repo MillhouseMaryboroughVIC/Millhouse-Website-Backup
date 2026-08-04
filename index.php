@@ -48,21 +48,6 @@
 				echo "<ul>";
 				while ($row = $result->fetch_assoc())
 				{
-					$time1 = "";
-					if ($row["time1"] !== NULL)
-					{
-						$time1 = new DateTime($row["time1"]);
-						$time1 = $time1->format("H:i");
-					}
-					$time2 = "";
-					if ($row["time2"] !== NULL)
-					{
-						$time2 = new DateTime($row["time2"]);
-						$time2 = $time2->format("H:i");
-					}
-					$timeNow = new DateTime();
-					$timeNow = $timeNow->format("H:i");				
-	
 					$nDOW1 = -1;
 					if (!is_null($row["dow1"]))
 						$nDOW1 = intval($row["dow1"]);
@@ -95,22 +80,23 @@
 						}
 						else
 						{
-							echo "<li>" . $row["description"] . " at ";
+							echo "<li>" . $row["description"];
 							
-							$strTimes = "";					
-							
-							if ($time1 > $timeNow)
+							$strTimes = "";
+
+							if (SQLTimeGreaterNow($row["time1"]))
 							{
-								$time1 = new DateTime($row["time1"]);
-								$strTimes = $time1->format("h:i a");
+								$strTimes = " at " . $time1->format("h:i a");
 							}
-							if ($time2 > $timeNow)
+							if (SQLTimeGreaterNow($row["time2"]))
 							{
-								$time2 = new DateTime($row["time2"]);
 								if (strlen($strTimes) > 0)
 									$strTimes .= " and ";
 								$strTimes .= $time2->format("h:i a");
 							}
+							if ($strTimes == "")
+								$strTimes = " - you missed it...";
+								
 							echo $strTimes . "</li>";
 							$nCount++;
 						}
@@ -406,8 +392,10 @@ there is a place for you at Mill House.</p>
 
 <div class="acknowledgment">
 	<h1>Acknowledgement</h1>
-	<p>Millhouse pays its respects to the Dja Dja Wurrung people, traditional custodians 
-	of this land, and to their Elders; past, present and emerging.</p>
+	<p>We acknowledge the Dja Dja Wurrung of the Kulin Nation, the traditional Custodians of the land on which we work, 
+	live and play. We wish to acknowledge and show respect to their elders, past, present and emerging, for their 
+	continuing culture and the contributions they make to the life of our community. We also recognize their continuing 
+	connection to the land, water and Country."</p>
 	<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 		<tr>
 			<td style="text-align:center;"><img src="images/IndigenousFlag.jpg" width="150" /></td>
