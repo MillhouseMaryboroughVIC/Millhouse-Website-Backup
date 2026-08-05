@@ -401,7 +401,10 @@ other art activities.</p>
 <p>Our playgroup provides a welcoming environment where children can play and learn while parents and carers connect 
 with other local families.</p>
 
-<p><a href="../images/playgroup.jpg"><img src="../images/playgroup.jpg" alt="playgroup.jpg" /></a></p>
+<p>
+	<a href="../images/playgroup.jpg"><img src="../images/playgroup.jpg" alt="playgroup.jpg" /></a>&nbsp;
+	<a href="images/playgroup.jpg"><img src="images/playgroup.jpg" alt="playgroup.jpg" /></a>
+</p>
 
 <h1>Community Support Services</h1>
 

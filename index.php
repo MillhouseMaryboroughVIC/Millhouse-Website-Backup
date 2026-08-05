@@ -18,6 +18,32 @@
 
 	DoRecordPageHitOrBlock();	
 
+	function DoGetTime($strDateTime, $strDuration)
+	{
+		$strTime = "";
+		
+		if (!is_null($strDateTime))
+		{
+			$datetimeStart = new DateTime($strDateTime);
+			$datetimeEnd = new DateTime($strDateTime);
+			$datetimeEnd->setTime((int)$datetimeEnd->format("h") + (int)$strDuration, (int)$datetimeEnd->format("i"), 0);
+			$datetimeNow = new DateTime();
+
+			$strTime = $datetimeStart->format("h:ia") . " to " . $datetimeEnd->format("h:ia");
+			
+			if ($datetimeStart < $datetimeNow)
+			{
+				$nDiffMinutes = DoGetDiffMinutes($datetimeStart, $datetimeEnd);
+				
+				if ((abs($nDiffMinutes) / (int)$strDuration)  >= 1.0)
+					$strTime .= " (you missed it)";
+				else if ((abs($nDiffMinutes) / (int)$strDuration)  >= 0.5)
+				$strTime .= " (" . ($nDiffMinutes + $row["duration"]) . " minutes or more remaining)";
+			}
+		}
+		return $strTime;
+	}
+	
 	function DoGenerateEventsToday()
 	{
 		global $g_dbMillhouse;
@@ -80,24 +106,12 @@
 						}
 						else
 						{
-							echo "<li>" . $row["description"];
+							echo "<li><b>" . $row["description"];
 							
-							$strTimes = "";
-
-							if (SQLTimeGreaterNow($row["time1"]))
-							{
-								$strTimes = " at " . $time1->format("h:i a");
-							}
-							if (SQLTimeGreaterNow($row["time2"]))
-							{
-								if (strlen($strTimes) > 0)
-									$strTimes .= " and ";
-								$strTimes .= $time2->format("h:i a");
-							}
-							if ($strTimes == "")
-								$strTimes = " - you missed it...";
+							$strTime1 = "</b> at " . DoGetTime($row["time1"], $row["duration"]);
+							$strTime2 = DoGetTime($row["time2"], $row["duration"]);
 								
-							echo $strTimes . "</li>";
+							echo $strTime1 . (($strTime2 == "") ? "" : " and " . $strTime2) . "</li>";
 							$nCount++;
 						}
 						if ($row["name"] == "feast")

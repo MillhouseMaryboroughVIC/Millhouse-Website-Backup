@@ -529,11 +529,12 @@
 				if ((($arrayGroups[$nI]["dow1"] == $nDOW) || ($arrayGroups[$nI]["dow2"] == $nDOW)) || 
 					(($arrayGroups[$nI]["dow1"] == -1) && ($arrayGroups[$nI]["dow2"] == -1) && ($nDOW != 0) && ($nDOW != 6)))
 				{
-					$strTime = "";
-					if ($arrayGroups[$nI]["dow1"] == $nDOW)
-						$strTime = DoObfuscateText($arrayGroups[$nI]["time1"]);
-					else if ($arrayGroups[$nI]["dow2"] == $nDOW)
-						$strTime = DoObfuscateText($arrayGroups[$nI]["time2"]);
+					$strTime1 = "";
+					$strTime2 = "";
+					if (($arrayGroups[$nI]["dow1"] == $nDOW) || ($arrayGroups[$nI]["dow1"] == -1))
+						$strTime1 = $arrayGroups[$nI]["time1"];
+					if (($arrayGroups[$nI]["dow2"] == $nDOW) || ($arrayGroups[$nI]["dow2"] == -1))
+						$strTime2 = $arrayGroups[$nI]["time2"];
 						
 					if (($arrayGroups[$nI]["wom"] == 0) || ($arrayGroups[$nI]["wom"] == $nWOM))
 					{
@@ -562,7 +563,8 @@
 										"\", strGroupID: \"" .  DoObfuscateText($arrayGroups[$nI]["name"]) . 
 										"\", nDOW: \"" .  $nDOW .  
 										"\", nWOM: \"" .  $arrayGroups[$nI]["wom"] . 
-										"\", strTime: \"" .  $strTime . 
+										"\", strTime1: \"" .  $strTime1 . 
+										"\", strTime3: \"" .  $strTime2 . 
 										 "\", strDuration: \"" . DoObfuscateText($arrayGroups[$nI]["duration"]) . 
 									 	"\", strCost: \"" . DoObfuscateText($arrayGroups[$nI]["cost"]) . 
 									 	"\", strDonation: \"" . $arrayGroups[$nI]["donation"] . 
@@ -578,7 +580,8 @@
 										"\", strGroupID: \"" .  $arrayGroups[$nI]["name"] . 
 										"\", nDOW: \"" .  $nDOW .  
 										"\", nWOM: \"" .  (int)$arrayGroups[$nI]["wom"] . 
-										"\", strTime: \"" .  $strTime . 
+										"\", strTime1: \"" .  $strTime1 . 
+										"\", strTime2: \"" .  $strTime2 . 
 										 "\", strDuration: \"" . $arrayGroups[$nI]["duration"] . 
 									 	"\", strCost: \"" . $arrayGroups[$nI]["cost"] . 
 									 	"\", strDonation: \"" . (bool)$arrayGroups[$nI]["donation"] . 
@@ -669,18 +672,13 @@
 		
 		return arrayEvents;
 	}
-	
-	function DoFormatTime(time)
-	{
 		
-	}
-	
-	function DoClickEvent(event, strGroupName, strTime, strDuration, strCost, strDonation, strFacebook, strContact, 
-							strEmail, strPhone, strPurpose)
+	function DoClickEvent(event, strGroupName, strTime1, strTime2, strDuration, strCost, strDonation, strFacebook, 
+							strContact, strEmail, strPhone, strPurpose)
 	{
 		event.preventDefault();
 		let bDonation = Boolean(strDonation),
-			timeStart = new Date(), timeEnd = new Date();
+			strTimes ="";
 		
 		if (bDonation)
 			strDonation = "yes (optional)";
@@ -688,37 +686,35 @@
 			strDonation = "no";
 		
 		let strMessage = "<table border='0' cellpadding='2' cellspacing='0'>";
-		strMessage += "<tr><td class='heading_cell'>GROUP LEADER:</td><td>" + strContact + "</td></tr>";
+		strMessage += "<tr><td class='heading_cell'><b>GROUP LEADER:</b></td><td>" + strContact + "</td></tr>";
 		if (strPhone != "")
-			strMessage += "<tr><td class='heading_cell'>PHONE:</td><td>" + strPhone + "</td></tr>";
+			strMessage += "<tr><td class='heading_cell'><b>PHONE:</b></td><td>" + strPhone + "</td></tr>";
 		if (strEmail != "")
-			strMessage += "<tr><td class='heading_cell'>EMAIL:</td><td>" + strEmail + "</td></tr>";
+			strMessage += "<tr><td class='heading_cell'><b>EMAIL:</b></td><td>" + strEmail + "</td></tr>";
 		if (strFacebook != "")
-			strMessage += "<tr><td class='heading_cell'>FACEBOOK:</td><td>" + strFacebook + "</td></tr>";
+			strMessage += "<tr><td class='heading_cell'><b>FACEBOOK:</b></td><td>" + strFacebook + "</td></tr>";
 		
 		if (strDuration.includes("hrs"))
 			strDuration = strDuration.replace("hrs", "");
 		else if (strDuration.includes("hr"))
-			strDuration = strDuration.replace("hr", "");
-			
-		const nPos = strTime.indexOf(":"), nHour = Number(strTime.substring(0, nPos)), 
-				nMinute = Number(strTime.substring(nPos + 1)), nDuration = Number(strDuration);
-			
-		timeStart.setHours(nHour, nMinute, 0, 0);
-		timeEnd.setHours(nHour + nDuration, nMinute, 0, 0);
-		
-		strTime = String(timeStart.getHours()).padStart(2, "0") + ":" + String(timeStart.getMinutes()).padStart(2, "0") + 
-					" -> " + String(timeEnd.getHours()).padStart(2, "0") + ":" + String(timeEnd.getMinutes()).padStart(2, "0")
-		strMessage += "<tr><td class='heading_cell'>TIME:</td><td>" + strTime + "</td></tr>";
+			strDuration = strDuration.replace("hr", "");	
+				
+		strTimes = DoGetStartTime(strTime1) + " to " + DoGetEndTime(strTime1, strDuration);
+
+		if (strTime2 != "")
+		{
+			strTimes += " and " + DoGetStartTime(strTime2) + " to " + DoGetEndTime(strTime2, strDuration);
+		}
+		strMessage += "<tr><td class='heading_cell'><b>TIME(S):</b></td><td>" + strTimes + "</td></tr>";
 		
 		if (strCost != "$0.00")
 		{
 			if (strDonation == "yes")
-				strMessage += "<tr><td class='heading_cell'>DONATION:</td><td>" + strCost + "</td></tr>";
+				strMessage += "<tr><td class='heading_cell'><b>DONATION:</b></td><td>" + strCost + "</td></tr>";
 			else
-				strMessage += "<tr><td class='heading_cell'>COST:</td><td>" + strCost + "</td></tr>";
+				strMessage += "<tr><td class='heading_cell'><b>COST:</b></td><td>" + strCost + "</td></tr>";
 		}
-		strMessage += "<tr><td class='heading_cell'>DESCRIPTION:</td><td>" + strPurpose + "</td></tr>";
+		strMessage += "<tr><td class='heading_cell'><b>DESCRIPTION</b>:</td><td>" + strPurpose + "</td></tr>";
 		DoOpenPopup(strGroupName, strMessage);
 	}
 	
@@ -730,7 +726,7 @@
 		let colDOM = null;
 		let dateCurrent = new Date();
 		let arrayEvents = [];
-		let strTime = "", strHTML = "";
+		let strTime1 = "", strTime2 = "", strTimes = "", strHTML = "";
 
 		nDayCount = DoGetNumDaysInMonth(nMonthNum);
 		DoClearAllDays();
@@ -741,32 +737,41 @@
 		for (let nDOM = 0, nCellNum = nDOW; nDOM < nDayCount; nDOM++, nCellNum++)
 		{
 			arrayEvents = DoGetEventsForDay(nDOM, nMonthNum + 1);
-			
 			strColID = "Cell" + nCellNum.toString();
 			colDOM = document.getElementById(strColID);
 			if (colDOM)
 			{
-				/**********************************************************************************
-				 * String concatenation directly on colDOM.innerHTML yields unpredictable results!
-				 **********************************************************************************/			
+				//**********************************************************************************
+				//* String concatenation directly on colDOM.innerHTML yields unpredictable results!
+				//**********************************************************************************			
 				strHTML = "<div class=\"date_div\">" + (nDOM + 1).toString() + "</div>";
 				strHTML  += "<div class=\"events_div\">";
 
 				for (let nI = 0; nI < arrayEvents.length; nI++)
 				{
 					// 00-00-0000 00:00:00
-					strTime = arrayEvents[nI].strTime.slice(11, 16);
-					
-					/*
-					    ********** EVENTS FOR 04/01/2026 **********
-					    [{strGroupName: "U3A Writers", strTime1: "0000-01-01 10:00:00", strTime2: "", strDuration: "2.00", 
-					    	strCost: "0.00", strDonation: "000", strFacebook: "", strConact: "Fred Smith", strEmail: "deb.sealey@hotmail.com", strPhone: "0491105356"}],
-					*/
-					strHTML += "<a href=\"#\" title=\"TIME: " + strTime + 
-					"\" onclick=\"DoClickEvent(event, '" + arrayEvents[nI].strGroupName + "', '" + strTime + "', '" + 
-					arrayEvents[nI].strDuration + "hrs', '$" + arrayEvents[nI].strCost + "', '" + arrayEvents[nI].strDonation + "', '" +
-					arrayEvents[nI].strFacebook + "', '" + arrayEvents[nI].strContact + "', '" + arrayEvents[nI].strEmail + "', '" + 
-					arrayEvents[nI].strPhone + "', '" + arrayEvents[nI].strPurpose + "')\">" + arrayEvents[nI].strGroupName + "</a>";
+					strTime1 = arrayEvents[nI].strTime1.slice(11, 16);
+					strTimes = DoGetStartTime(strTime1)  + " to " + DoGetEndTime(strTime1, arrayEvents[nI].strDuration);
+
+					if (arrayEvents[nI].strTime2 != "")
+					{
+						strTime2 = arrayEvents[nI].strTime2.slice(11, 16);
+						strTimes += " and " + DoGetStartTime(strTime2)  + " to " + DoGetEndTime(strTime2, arrayEvents[nI].strDuration);
+					}
+					else
+					{
+						strTime2 = "";
+					}
+					//********** EVENTS FOR 04/01/2026 **********
+					// [{strGroupName: "U3A Writers", strTime1: "0000-01-01 10:00:00", strTime2: "", strDuration: "2.00", 
+					// strCost: "0.00", strDonation: "000", strFacebook: "", strConact: "Fred Smith", strEmail: "deb.sealey@hotmail.com", strPhone: "0491105356"}],
+					//*******************************************				
+					strHTML += "<a href=\"#\" title=\"TIME: " + strTimes +  
+					"\" onclick=\"DoClickEvent(event, '" + arrayEvents[nI].strGroupName + "', '" + strTime1 + "', '" +  
+					strTime2 + "', '" + arrayEvents[nI].strDuration + "hrs', '$" + arrayEvents[nI].strCost + "', '" + 
+					arrayEvents[nI].strDonation + "', '" + arrayEvents[nI].strFacebook + "', '" + 
+					arrayEvents[nI].strContact + "', '" + arrayEvents[nI].strEmail + "', '" + arrayEvents[nI].strPhone + 
+					"', '" + arrayEvents[nI].strPurpose + "') \">" + arrayEvents[nI].strGroupName + "</a>";
 				}
 				strHTML += "</div>";
 				colDOM.innerHTML = strHTML;
@@ -1019,7 +1024,7 @@
 
 <script type="text/javascript">	DoInitMonth(); </script>
 
-<div class="event_popup_container" id="event_popup_container">
+<div class="event_popup_container" id="div_event_popup_container">
 	<h1 id="event_popup_heading" class="event_popup_heading">EVENT DETAILS</h1>
 	<p id="event_details_element"></p>
 	<p style="text-align:center;"><input type="button" value="CLOSE" onclick="DoClosePopup()" /></p>
@@ -1027,20 +1032,20 @@
 
 <script type="text/javascript">
 
-	const popup = document.getElementById("event_popup_container");
-	const details = document.getElementById("event_details_element");
-	const heading = document.getElementById("event_popup_heading");
+	const div_popup = document.getElementById("div_event_popup_container");
+	const p_details = document.getElementById("event_details_element");
+	const h1_heading = document.getElementById("event_popup_heading");
 	
 	function DoOpenPopup(strHeadingHTML, strMessageHTML) 
 	{
-	  popup.style.display = "block";
-	  details.innerHTML = strMessageHTML;
-	  heading.innerHTML = strHeadingHTML;
+	  div_popup.style.display = "block";
+	  p_details.innerHTML = strMessageHTML;
+	  h1_heading.innerHTML = strHeadingHTML;
 	}
 	
 	function DoClosePopup() 
 	{
-	  popup.style.display = "none";
+	  div_popup.style.display = "none";
 	}
 
 </script>

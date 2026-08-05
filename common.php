@@ -238,49 +238,24 @@
 	//******************************************************************************
 	//******************************************************************************
 	
-	function DoCompareSQLTimeNow($strDatetime)
+	function DoGetDiffDays($datetime1, $datetime2)
 	{
-		$nResult = 0;
+		return ($datetime2->getTimestamp() - $datetime1->getTimestamp()) / 60 / 60 / 24;
+	}
+	
+	function DoGetDiffHours($datetime1, $datetime2)
+	{
+		return ($datetime2->getTimestamp() - $datetime1->getTimestamp()) / 60 / 60;
+	}
 		
-		$time = new DateTime(is_null($strDatetime) ? "" : $strDatetime);
-		$strTime = $time->format("H:i");
-		
-		$timeNow = new DateTime();
-		$strTimeNow = $timeNow->format("H:i");
-		
-		if ($strTime == $strTimeNow)
-			$nResult = 0;
-		else if ($strTime > $strTimeNow)
-			$nResult = 10;
-		else if ($strTime < $strTimeNow)
-			$nResult = -10;
-		
-		return $nResult;
+	function DoGetDiffMinutes($datetime1, $datetime2)
+	{
+		return ($datetime2->getTimestamp() - $datetime1->getTimestamp()) / 60;
 	}
 	
-	function SQLTimeGreaterNow($strDatetime)
+	function DoGetDiffSeconds($datetime1, $datetime2)
 	{
-		return DoCompareSQLTimeNow($strDatetime) > 0;
-	}
-	
-	function SQLTimeLessNow($strDatetime)
-	{
-		return DoCompareSQLTimeNow($strDatetime) < 0;
-	}
-	
-	function SQLTimeGreaterEqualNow($strDatetime)
-	{
-		return DoCompareSQLTimeNow($strDatetime) >= 0;
-	}
-	
-	function SQLTimeLessEqualNow($strDatetime)
-	{
-		return DoCompareSQLTimeNow($strDatetime) <= 0;
-	}
-	
-	function SQLTimeEqualNow($strDatetime)
-	{
-		return DoCompareSQLTimeNow($strDatetime) == 0;
+		return $datetime2->getTimestamp() - $datetime1->getTimestamp();
 	}
 	
 	function DoRemoveScriptTags($strAdvertHTML)

@@ -195,6 +195,33 @@ function DoOpenCloseMenu(bDoToggle)
 //******************************************************************************
 //******************************************************************************
 
+function DoGetEndTime(strTime, strDuration)
+{
+	let dateEnd = new Date(),
+		nPos = strTime.indexOf(":"),
+		strHour = strTime.substring(0, nPos),
+		strMinute = strTime.substring(nPos + 1);
+	
+	dateEnd.setHours(parseInt(strHour, 10) + parseFloat(strDuration), parseInt(strMinute, 10));
+	
+	return dateEnd.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit", hour12: true});
+}
+
+function DoGetStartTime(Time)
+{
+	let strTime = "";
+	
+	if (Time instanceof Date && !isNaN(strTime))
+	{
+		strTime = Time.getHours().toString().padStart(2, "0") + ":" + Time.getMinutes().toString().padStart(2, "0");
+	}
+	else if (typeof Time == "string")
+	{
+		strTime = Time;
+	}
+	return DoGetEndTime(strTime, 0);
+}
+
 function DoGetCSSRootColor(strVarName)
 {
 	const rootStyles = window.getComputedStyle(document.documentElement);
