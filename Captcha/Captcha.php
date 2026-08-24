@@ -3,7 +3,7 @@
 	function DoGetTTFFontList()
 	{
 		$arrayTTFFontList = [];
-		$arrayFilesNames = scandir(DoGetParentOrCurrentDir() . "Captcha/ttf_fonts");
+		$arrayFilesNames = scandir(DoGetParentOrCurrentDir() . "captcha/ttf_fonts");
 				
 		return $arrayFilesNames;
 	}
@@ -55,10 +55,13 @@
 		return $strCaptchaText;
 	}
 	
-	function DoGenerateCaptcha()
+	if (!isset($_SESSION["strRandomCaptchaText"]))
+		$_SESSION["strRandomCaptchaText"] = "";
+		
+	function DoGenerateCaptcha($nLength)
 	{
 		$strTTFFontFileName = DoGetRandomCaptchaFont();
-		$strCaptchaText = DoGenerateCaptchaString(10);
+		$strCaptchaText = DoGenerateCaptchaString($nLength);
 		$_SESSION["strRandomCaptchaText"] = $strCaptchaText;		
 		$image = DoCreateCaptchaImageBG();
 		
@@ -100,9 +103,9 @@
 		*/
 		for ($nI = 0; $nI < strlen($strCaptchaText); $nI++)
 		{
-			$nLetterSpace = 170 / strlen($strCaptchaText);
+			$nLetterSpace = ceil(170 / strlen($strCaptchaText));
   			imagettftext($image, 20, rand(-15, 15), 15 + ($nI * $nLetterSpace), rand(20, 40), 
-  				$arrayTextColors[rand(0, 1)], DoGetParentOrCurrentDir() . "Captcha/ttf_fonts/" . $strTTFFontFileName, $strCaptchaText[$nI]);
+  				$arrayTextColors[rand(0, 1)], DoGetParentOrCurrentDir() . "captcha/ttf_fonts/" . $strTTFFontFileName, $strCaptchaText[$nI]);
 		}
 		
 		// 1. Capture the raw image stream using output buffering 

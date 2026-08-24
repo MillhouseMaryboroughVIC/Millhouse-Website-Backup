@@ -1,19 +1,18 @@
-<!--
-*********************************************************************************************
- ********************************************************************************************
- ********************************************************************************************
- ********************************************************************************************
- **** SARAH PLEASE NOTE
- **** ------------------
- **** Don't change this PHP code, between the < ? php and ? > tags. 
- **** 
- ********************************************************************************************
- ********************************************************************************************
- ********************************************************************************************
- ********************************************************************************************
- -->
 <?php 
 
+	/*********************************************************************************************
+	 ********************************************************************************************
+	 ********************************************************************************************
+	 ********************************************************************************************
+	 **** SARAH PLEASE NOTE
+	 **** ------------------
+	 **** Don't change this PHP code, between the < ? php and ? > tags. 
+	 **** 
+	 ********************************************************************************************
+	 ********************************************************************************************
+	 ********************************************************************************************
+	 ********************************************************************************************/
+	 
 	require_once "../common.php";
 	
 	DoRecordPageHitOrBlock();
@@ -41,7 +40,31 @@
 
 
 
-		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			.content img
 			{
 				height: 250px;
@@ -59,33 +82,22 @@
 		<!-- #EndEditable -->
 		<script type="text/javascript">
 			
-			// mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/147.0.0.0 safari/537.36
-			// Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
-			// Mozilla/5.0 (iPod; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
-			// Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15
-			// Mozilla/5.0 (Linux; Android 13; SM-S901B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36
-			// Mozilla/5.0 (Linux; Android 13; SM-X906B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 (Note the absence of the "Mobile" tag)
-			// Mozilla/5.0 (Linux; Android 13; SM-S901B Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/110.0.5481.153 Mobile Safari/537.36
-			if (navigator.userAgent.includes("iPhone") ||
-				navigator.userAgent.includes("iPod") ||
-				navigator.userAgent.includes("Android"))
-			{
-				document.getElementById("style_sheet").setAttribute("href", <?php echo "\"" . DoGetParentOrCurrentDir() . "\""; ?> + "styles/style4Mobile.css");
-			}
+			DoDetectDevice(<?php echo "\"" . DoGetParentOrCurrentDir() . "\""; ?>);
 			
 		</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Permanent+Marker&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
 	</head>
 	<body onload="DoOnPageLoadComplete()">
 
 		<!-- Begin Container -->
-		<div id="container">
+		<div id="div_container">
 			<!-- Begin Masthead -->
-			<div class="masthead">
+			<div class="masthead" id="div_masthead">
 				<table border="0" cellspacing="0" cellpadding="0" class="masthead_table">
 					<tr>
 						<td class="masthead_cell_image_left">
@@ -96,69 +108,51 @@
 							<table border="0" cellpadding="0" cellspacing="0" class="title_table">
 								<tr>
 									<td>
-										<h1 class="gluten">Mill House</h1>
+										<h1 class="gluten" id="h1_title">Mill House</h1>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<h3 class="gluten">Neighbourhood House &#128522;</h3>
+										<h3 class="gluten" id="h3_title">Neighbourhood House &#128522;</h3>
 									</td>
 								</tr>
 							</table>
 						</td>
-						<td class="masthead_cell_image_right">
+						<td class="masthead_cell_image_right1">
 							<a href="../images/MillHouseNeighborhoodHouse1.jpg">
 							<img src="../images/MillHouseNeighborhoodHouse1.jpg" alt="MillHouseNeighborhoodHouse1.jpg" class="masthead_image" /></a>
 						</td>
-						<td class="masthead_cell_image_right">
+						<td class="masthead_cell_image_right2">
 							<a href="../images/MillHouseNeighborhoodHouse2.jpg">
 							<img src="../images/MillHouseNeighborhoodHouse2.jpg" alt="MillHouseNeighborhoodHouse.jpg" class="masthead_image" /></a>
 						</td>
-						<!--
-						<td class="masthead_cell_image_right">
-							<a href="images/Mural.jpg.jpg"><img src="images/Mural.jpg" alt="Mural.jpg" class="masthead_image" /></a>
-						</td>
-						-->
 						<td class="masthead_cell_sponsors">
-<div class="sponsors_container">					
-	<img src="../sponsors/images/NHHV.png" alt="NHHV.png" id="img_NHHV" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/VicStateGov.jpg" alt="VicStateGov.jpg" id="img_VSG" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/CentralGoldfields.png" alt="CentralGoldfields.png" id="img_CGSC" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/FRRR.png" alt="FRRR.png" id="img_FRRR" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/BendigoBank.jpg" alt="BendigoBank.jpg" id="img_BB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/JWR.png" alt="JWR.png" id="img_JWR" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/WattleOffice.jpg" alt="WattleOffice.jpg" id="img_WOS" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/FoodBank.png" alt="FoodBank.png" id="img_FB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/FoodShare.png" alt="FoodShare.png" id="img_FS" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/Aldi.png" alt="Aldi.png" id="img_ALD" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/ParkviewBakery.jpg" alt="ParkviewBakery.jpg" id="img_PVB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/MaryboroughFloorCoverings.jpg" alt="MaryboroughFloorCoverings.jpg" id="img_MFC" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/SilverService.png" alt="SilverService.png" id="img_SS" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/GoldfieldsScreens.png" alt="GoldfieldsScreens.png" id="img_GSAB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
+<div class="sponsors_container">	
+	<?php DoGenerateSponsors(); ?>				
 </div>
 						</td>
 					</tr>
 				</table>				
 			</div>
 			<!-- End Masthead -->
-			<div class="below_masthead">
+			<div class="below_masthead" id="div_below_masthead">
 				<table cellpadding="0" cellspacing="0" border="0">
 					<tr>
 						<td style="vertical-align:top;">
 							<!-- Begin Navigation -->
-							<div class="navigation" id="navigation">
+							<div class="navigation" id="div_navigation">
 							
 								<table border="0" cellpadding="0" cellspacing="0" style="height:var(--nav_height);">
 									<tr>
 										<td>
-<div id="navigation_menu" class="navigation_menu" ontransitionend="DoOnNavMenuTransitioned()">
+<div id="div_navigation_menu" class="navigation_menu">
 	
 	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
 		<li><a href="../index.php">Home</a></li>
 		<li><a href="about.php">About Mill House</a></li>
-		<li><a href="../Calendar/Calendar.php">Events Calendar</a></li>
+		<li><a href="../calendar/calendar.php">Events Calendar</a></li>
 		<li><a href="../room/room.php">Hire a room</a></li>
 		<li><a href="../sponsors/sponsors.php">Our Collaborators</a></li>
 		<li>
@@ -167,13 +161,14 @@
 				<li class="submenu_item"><a href="../contribute/join.php"><b>Become a member</b></a></li>
 				<li class="submenu_item">
 				<a href="../contribute/volunteering.php"><b>Become a volunteer</b></a></li>
-				<li class="submenu_item"><a href="../request_sponsorship.php"><b>Become a sponsor</b></a></li>
+				<li class="submenu_item">
+				<a href="../contribute/request_sponsorship.php"><b>Become a sponsor</b></a></li>
 				<li class="submenu_item"><a href="../contribute/donation.php"><b>Make a donation</b></a></li>
 			</ul>
 		</li>
 		<!--<li><a href="people/people.php">Mill House People</a></li>-->
 		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
-		<li><a href="../contact/Contact.php">Contact</a></li>
+		<li><a href="../contact/contact.php">Contact</a></li>
 		<li><a href="../site_history/site_history.php">Site History</a></li>
 		<li>
 			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
@@ -188,34 +183,20 @@
 				<li class="submenu_item"><a href="../governance/plan/plan.php"><b>Strategic Plan</b></a></li>
 			</ul>
 		</li>
+		<li><a href="../group_events/group_events.php">Group Events</a></li>
 		<li>
-			<a href="../admin/administration.php" onclick="<?php if (IsLoggedIn()) echo "DoClickNavLinkWithSubmenu('admin')"; ?>">Administration</a>
-			<ul style="display:<?php if (isLoggedIn()) echo DoShowHideSubmenu("admin"); else echo "none"; ?>;" id="admin">
-				<li class="submenu_item"><a href="../admin/edit_groups.php"><b>Add &amp; Edit Groups</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/approve_sponsorship.php"><b>Approve a sponsor</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/renew_sponsorship.php"><b>Renew a sponsor</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/friday_feast_menu.php"><b>Update Friday feast menu</b></a></li>
-				<li class="submenu_item"><a href="../admin/governance.php"><b>Upload governance documents</b></a></li>
-				<li class="submenu_item">
-				<a href="../governance/forms/forms.php"><b>Blank Forms</b></a></li>
-				<li class="submenu_item"><a href="../admin/web_diagnostics.php"><b>Website diagnostics</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/html_4_beginners.php"><b>HTML 4 Beginners</b></a></li>
-				<li class="submenu_item"><a href="../admin/css_4_beginners.php"><b>CSS 4 Beginners</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/javascript_4_beginners.php"><b>JavaScript 4 Beginners</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/expression_web_4_beginners.php"><b>Expression Web 4 Beginners</b></a></li>
+			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
+			
+			<?php DoDisplayAdministrationSubmenu(); ?>
+			
 			</ul>
 		</li>
 	</ul>
 </div>
 										</td>
 										<td>
-<div id="navigation_arrow" class="navigation_arrow">
+<div id="div_navigation_arrow" class="navigation_arrow">
 	<span id="span_menu_text" class="span_menu_text" onclick="DoOpenCloseMenu(true)">
 		XXXXX	
 	</span>
@@ -228,9 +209,23 @@
 						</td>
 						<td style="vertical-align:top;">
 							<!-- Begin Content -->
-							<div class="content" id="content">
-								<br/>						
-								<div class="page_heading"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+							<div class="content" id="div_content">
+								<br/>
+								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+									<tr>
+										<td>
+											<div class="page_heading"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+										</td>
+										<td style="text-align:right;">
+											<?php
+											
+												if (isLoggedIn())
+													echo "<button class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
+													
+											?>
+										</td>
+									</tr>
+								</table>			
 
 								<!-- #BeginEditable "CustomContent" -->
 
@@ -263,7 +258,7 @@ meals may include soups, vegetable and pasta bakes, chicken and rice dishes, las
 favourites.</p>
 
 <p>
-	<a href="images/FrozenMeals1.jpg"><img src="images/FrozenMeals1.jpg" alt="FrozenMeals1.jpg" /></a>&nbsp;
+	<a href="images/FrozenMeals1.jpg"><img src="images/FrozenMeals1.jpg" alt="FrozenMeals1.jpg" /></a>
 	<a href="images/FrozenMeals2.jpg"><img src="images/FrozenMeals2.jpg" alt="FrozenMeals2.jpg" /></a>
 </p>
 
@@ -275,14 +270,14 @@ favourites.</p>
 and women’s hygiene products may also be available from time to time.</p>
 
 <p>
-	<a href="images/Market.jpg"><img src="images/Market.jpg" alt="Market.jpg" /></a>&nbsp;
-	<a href="images/Assorted.jpg"><img src="images/Assorted.jpg" alt="Assorted.jpg" /></a>&nbsp;
+	<a href="images/market1.jpg"><img src="images/market1.jpg" alt="Market.jpg" /></a>
+	<a href="images/Assorted.jpg"><img src="images/Assorted.jpg" alt="Assorted.jpg" /></a>
 	<a href="BreakfastCereals.jpg"><img src="images/BreakfastCereals.jpg" alt="BreakfastCereals.jpg" /></a><br/>
-	<a href="images/CannedFoods.jpg"><img src="images/CannedFoods.jpg" alt="CannedFoods.jpg" /></a>&nbsp;
-	<a href="images/FreshProduce1.jpg"><img src="images/FreshProduce1.jpg" alt="FreshProduce1.jpg" /></a>&nbsp;
+	<a href="images/CannedFoods.jpg"><img src="images/CannedFoods.jpg" alt="CannedFoods.jpg" /></a>
+	<a href="images/FreshProduce1.jpg"><img src="images/FreshProduce1.jpg" alt="FreshProduce1.jpg" /></a>
 	<a href="images/FreshProduce2.jpg"><img src="images/FreshProduce2.jpg" alt="FreshProduce2.jpg" /></a><br/>
-	<a href="images/FreshProduce3.jp"><img src="images/FreshProduce3.jpg" alt="FreshProduce3.jpg" /></a>&nbsp;
-	<a href="images/Pasta.jpg"><img src="images/Pasta.jpg" alt="Pasta.jpg" /></a>&nbsp;
+	<a href="images/FreshProduce3.jp"><img src="images/FreshProduce3.jpg" alt="FreshProduce3.jpg" /></a>
+	<a href="images/Pasta.jpg"><img src="images/Pasta.jpg" alt="Pasta.jpg" /></a>
 	<a href="images/Bread.jpg"><img src="images/Bread.jpg" alt="Bread.jpg" /></a><br/>
 </p>
 
@@ -294,8 +289,10 @@ and women’s hygiene products may also be available from time to time.</p>
 
 <p><b>Cost: </b>$5 donation.</p>
 
+<p>This photo is of Christmas in July Friday Feast, 2026. For this particular Friday Feast event you must book. However 
+bookings are not required for regular Friday Feast events.</p>
 <p>
-	<a href="images/CommunityLunch.jpg"><img src="images/CommunityLunch.jpg" alt="CommunityLunch.jpg" /></a>
+	<a href="images/feast.jpg"><img src="images/feast.jpg" alt="feast.jpg" /></a>
 </p>
 
 <h2>Food with Friends</h2>
@@ -307,7 +304,7 @@ to enjoy the food together.</p>
 
 <p><b>Cost: </b>$10 per session. Bookings are preferred.</p>
 
-<p><a href="../images/FoodWithFriends.jpg"><img src="../images/FoodWithFriends.jpg" alt="FoodWithFriends.jpg" /></a></p>
+<p><a href="images/food_friends.jpg"><img src="images/food_friends.jpg" alt="food_friends.jpg" /></a></p>
 
 <h2>Mill House Café</h2>
 
@@ -318,8 +315,8 @@ to enjoy the food together.</p>
 <p>Come in for something to eat, enjoy a cuppa and connect with others in the community.</p>
 
 <p>
-	<a href="../images/Cafe.jpg"><img src="../images/Cafe.jpg" alt="Cafe.jpg" /></a>&nbsp;
-	<a href="images/Cafe.jpg"><img src="images/Cafe.jpg" alt="Cafe.jpg" /></a>
+	<a href="../images/Cafe.jpg"><img src="../images/Cafe.jpg" alt="Cafe.jpg" /></a>
+	<a href="images/cafe.jpg"><img src="images/cafe.jpg" alt="cafe.jpg" /></a>
 </p>
 
 <h1>Groups and Activities</h1>
@@ -329,7 +326,7 @@ to enjoy the food together.</p>
 <p>A welcoming creative and social group where parents can connect, work on sewing, craft and other projects, and 
 share skills in a child-friendly environment.</p>
 
-<p><a href="../images/MakerMums.jpg"><img src="../images/MakerMums.jpg" alt="MakerMums.jpg" /></a></p>
+<p><a href="images/maker_mums.jpg"><img src="images/maker_mums.jpg" alt="maker_mums.jpg" /></a></p>
 
 <h2>Peer Collective</h2>
 
@@ -338,14 +335,14 @@ share skills in a child-friendly environment.</p>
 <p>The group provides a safe and non-judgmental space where people with lived experience can connect, share their 
 stories and offer mutual support.</p>
 
-<p><a href="../images/PeerCollective.jpg"><img src="../images/PeerCollective.jpg" alt="PeerCollective.jpg" /></a></p>
+<p><a href="images/peer_collective.jpg"><img src="images/peer_collective.jpg" alt="peer_collective.jpg" /></a></p>
 
 <h2>Dungeons &amp; Dragons</h2>
 
 <p>A social tabletop role-playing group where participants can use their imagination, build characters, work as a 
 team and enjoy new adventures.</p>
 
-<p><a href="../images/DungeonsDragons.jpg"><img src="../images/DungeonsDragons.jpg" alt="DungeonsDragons.jpg" /></a></p>
+<p><a href="images/dungeons_dragons.jpg"><img src="images/dungeons_dragons.jpg" alt="dungeons_dragons.jpg" /></a></p>
 
 <h2>The 'House' Youth Activity Hub</h2>
 
@@ -359,29 +356,35 @@ others.</p>
 <p>A relaxed social scrapbooking group where participants can work on creative projects, share ideas and enjoy time 
 with others.</p>
 
-<p><a href="../images/ScrapBooking.jpg"><img src="../images/ScrapBooking.jpg" alt="ScrapBooking.jpg" /></a></p>
+<p>
+	<a href="images/scrappers.jpg"><img src="images/scrappers.jpg" alt="scrappers.jpg" /></a>
+	<a href="images/scrappers1.jpg"><img src="images/scrappers1.jpg" alt="scrappers1.jpg" height="100"/></a>
+	<a href="images/scrappers2.jpg"><img src="images/scrappers2.jpg" alt="scrappers2.jpg" height="100"/></a>
+	<a href="images/scrappers3.jpg"><img src="images/scrappers3.jpg" alt="scrappers3.jpg" height="100"/></a>
+	<a href="images/scrappers4.jpg"><img src="images/scrappers4.jpg" alt="scrappers4.jpg" height="100"/></a>
+</p>
 
 <h2>Hookers Yarn Craft</h2>
 
 <p>A friendly yarn craft group for people interested in knitting, crochet and other fibre crafts. Beginners and 
 experienced crafters are welcome.</p>
 
-<p><a href="../images/YarnCraft.jpg"><img src="../images/YarnCraft.jpg" alt="YarnCraft.jpg" /></a></p>
+<p><a href="images/yarn.jpg"><img src="images/yarn.jpg" alt="yarn.jpg" /></a></p>
 
 <h2>Art for the Soul</h2>
 
 <p>A supportive art group that encourages creativity, self-expression and connection through painting, drawing and 
 other art activities.</p>
 
-<p><a href="../images/Art4Soul.jpg"><img src="../images/Art4Soul.jpg" alt="Art4Soul.jpg" /></a></p>
+<p><a href="images/art4soul.jpg"><img src="images/art4soul.jpg" alt="art4soul.jpg" /></a></p>
 
 <h2>Canasta Players</h2>
 
 <p>Join other community members for a friendly and social game of Canasta.</p>
 
 <p>
-	<a href="../images/canasta.jpg"><img src="../images/canasta.jpg" alt="canasta.jpg" /></a>&nbsp;
-	<a href="../images/CanastaGroup.jpg"><img src="../images/CanastaGroup.jpg" alt="CanastaGroup.jpg" /></a>
+	<a href="../images/canasta.jpg"><img src="../images/canasta.jpg" alt="canasta.jpg" /></a>
+	<a href="images/canasta.jpg"><img src="images/canasta.jpg" alt="canasta.jpg" /></a>
 </p>
 
 <h2>Level Up Youth Gaming with Lifely Chris Lakey</h2>
@@ -393,7 +396,8 @@ other art activities.</p>
 </p>
 
 <p>
-	<a href="images/LevelUpGamers.jpg"><img src="images/LevelUpGamers.jpg" alt="LevelUpGamers.jpg" /></a>
+	<a href="images/gamers.jpg"><img src="images/gamers.jpg" alt="gamers.jpg" /></a>
+	<a href="images/gamers.jpg"><img src="images/ChrisLakey.jpg" alt="ChrisLakey.jpg" /></a>
 </p>
 
 <h2>Playgroup</h2>
@@ -402,7 +406,7 @@ other art activities.</p>
 with other local families.</p>
 
 <p>
-	<a href="../images/playgroup.jpg"><img src="../images/playgroup.jpg" alt="playgroup.jpg" /></a>&nbsp;
+	<a href="../images/playgroup.jpg"><img src="../images/playgroup.jpg" alt="playgroup.jpg" /></a>
 	<a href="images/playgroup.jpg"><img src="images/playgroup.jpg" alt="playgroup.jpg" /></a>
 </p>
 
@@ -437,7 +441,7 @@ services without interest, fees or charges.</p>
 <p>The program can help participants identify their goals, build confidence, access services and take steps towards 
 education, training or future employment.</p>
 
-<p><a href="../images/ParentPathways.jpg"><img src="../images/ParentPathways.jpg" alt="ParentPathways.jpg" height="200"/></a></p>
+<p><a href="images/parent_pathways1.jpg"><img src="images/parent_pathways1.jpg" alt="parent_pathways1.jpg" height="200"/></a></p>
 
 <h2>are-able – Finding and Keeping a Job</h2>
 
@@ -451,7 +455,7 @@ certified.</p>
 
 <p>Please contact Mill House to confirm availability before attending.</p>
 
-<p><a href="../images/JusticePeace.png"><img src="../images/JusticePeace.png" alt="JusticePeace.png" height="200"/></a></p>
+<p><a href="images/justice_peace.jpg"><img src="images/justice_peace.jpg" alt="JusticePeace.jpg" height="200"/></a></p>
 
 <h2>Remedial Massage Therapist</h2>
 
@@ -476,12 +480,19 @@ others.</p>
 
 <p>Activities held at Mill House include:</p>
 <ul>
-    <li>Digital Storytellers</li>
-    <li>Book Club</li>
-    <li>Writers Group</li>
+    <li>
+    	Photobooks<br/><br/>
+    	<a href="images/U3A_photobooks.jpg"><img src="images/U3A_photobooks.jpg" alt="U3A_photobooks.jpg" height="100"/></a>
+    </li>
+    <li>
+    	Book Club<br/><br/>
+    	<a href="images/U3A_books.jpg"><img src="images/U3A_books.jpg" alt="U3A_books.jpg" height="100"/></a>
+    </li>
+    <li>
+    	Writers Group<br/><br/>
+    	<a href="images/U3A_writers.jpg"><img src="images/U3A_writers.jpg" alt="U3A_writers.jpg" height="100"/></a>
+    </li>
 </ul>
-
-<p><a href="../images/U3A.png"><img src="../images/U3A.png" alt="U3A.png" height="100"/></a></p>
 
 <h2>Community Meetings</h2>
 
@@ -490,13 +501,33 @@ others.</p>
     <li>
     	Maryborough Theatre Company<br/><br/>
     	<a href="https://www.liveup.org.au/activities/maryborough-theatre-company">
-    		<img src="../images/theatre.jpg" alt="theatre.jpg" height="200"/>
+    		<img src="images/theatre.jpg" alt="theatre.jpg" height="200"/>
     	</a>
     </li>
-    <li>Maryborough Stamp Club</li>
-    <li>Australian Labor Party</li>
-    <li>Friends of the Maryborough Town Hall</li>
-    <li>Friends of Maryborough Outdoor Pool</li>
+    <li>
+    	Maryborough Stamp Club<br/><br/>
+    	<a href="images/stamps.jpg">
+    		<img src="images/stamps.jpg" alt="stamps.jpg" height="200"/>
+    	</a>
+    </li>
+    <li>
+    	Australian Labor Party<br/><br/>
+    	<a href="images/labour_party.jpg">
+    		<img src="images/labour_party.jpg" alt="labour_party.jpg" height="200"/>
+    	</a>
+    </li>
+    <li>
+    	Friends of the Maryborough Town Hall<br/><br/>
+    	<a href="images/fomop.jpg">
+    		<img src="images/fomth.jpg" alt="fomth.jpg" height="200"/>
+    	</a>
+    </li>
+    <li>
+    	Friends of Maryborough Outdoor Pool<br/><br/>
+    	<a href="images/fomop.jpg">
+    		<img src="images/fomop.jpg" alt="fomop.jpg" height="200"/>
+    	</a>
+    </li>
 </ul>
 
 <h2>Spaces for Hire</h2>
@@ -509,6 +540,18 @@ is sure to suit your needs.</p>
 
 <p>Click <a href="../room/room.php">here</a> to view our rooms, hire rates and booking information.</p>
 
+
+<div id="div_page_edit_instructions" class="instruction_popup">
+
+	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
+	
+	<p>There are no parts of the content of this page that automated with PHP code. Feel free to edit the HTML of any 
+	part of the page contents. Make sure you confine your editing to only that code that IS NOT highlighed by a yellow 
+	background.</p>
+	
+	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
+	
+</div>
 
 								<!-- #EndEditable -->
 							</div>
@@ -523,19 +566,13 @@ is sure to suit your needs.</p>
 			</script>
 			<!-- Begin Footer -->
 			<div class="footer">
-				<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
-					<tr class="footer_pc_row">
-						<td class="footer_table_cell">&copy;Mill House, Maryborough, VIC</td>
+				<table border="0" cellpadding="0" cellspacing="0" class="footer_table">
+					<tr>
+						<td class="footer_table_cell footer_left_cell">&copy;Mill House, Maryborough, VIC</td>
 						
 						<td class="footer_table_cell footer_middle_cell">COME ALONG AND JOIN THE MILL HOUSE COMMUNITY <h2 style="display:inline;">&#128522;</h2></td>
 						
-						<td class="footer_table_cell">Web site by: Gregary Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
-					</tr>
-					<tr class="footer_mobile_row">
-						<td class="footer_table_cell">&copy;Mill House, Maryborough, VIC</td>
-					</tr>
-					<tr class="footer_mobile_row">
-						<td class="footer_table_cell footer_web_admin" colspan="6">Web site by: Gregary Boyles, 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
+						<td class="footer_table_cell footer_right_cell">Web site by: Gregary Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
 					</tr>
 				</table>
 			</div>
@@ -544,3 +581,8 @@ is sure to suit your needs.</p>
 	</body>
 	
 </html>
+<!-- #BeginEditable "End" -->
+
+<?php DoShowMessage(); ?>
+
+<!-- #EndEditable -->

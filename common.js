@@ -1,193 +1,4 @@
-﻿function DoClickSponsor(strPath)
-{
-	let arraySponsorLogoImageIDs = ["NHHV", "VSG", "CGSC", "FRRR", "JWR", "WOS", "FB", "FS", "ALDI", "PVB", "MFC", "SS", "GSAB"],
-		imgCurrent = null;
-									
-	for (let nI = 0; nI < arraySponsorLogoImageIDs.length; nI++)
-	{
-		imgCurrent = document.getElementById("img_" + arraySponsorLogoImageIDs[nI]);
-		if (imgCurrent)
-		{
-			if (window.getComputedStyle(imgCurrent).opacity > 0)
-				window.open(strPath + "sponsors/sponsors.php#" + arraySponsorLogoImageIDs[nI], "_self");
-		}
-	}
-}
-
-function DoPopupName(strPopupID, strName)
-{
-	let pName = document.getElementById(strPopupID);
-	
-	if (pName)
-	{		
-		pName.innerText = " " + strName + " ";
-	}
-}
-
-//******************************************************************************
-//******************************************************************************
-//** 
-//** EXPLICITLY SET FAVICON.ICO
-//** 
-//******************************************************************************
-//******************************************************************************
-
-function DoSetFavicon(strURL)
-{
-	// Find the existing favicon link element
-	let linkIcon = document.querySelector("link[rel*='icon']");
-	
-	// If no link element exists, create a new one
-	if (!linkIcon) 
-	{
-		linkIcon = document.createElement('link');
-		linkIcon.rel = 'icon';
-		document.head.appendChild(linkIcon);
-	}
-	// Update the href attribute with your new .ico or .png path
-	linkIcon.href = strURL;
-}
-
-//******************************************************************************
-//******************************************************************************
-//** 
-//** MENU SHOW & HIDE FUNCTIONS
-//** 
-//******************************************************************************
-//******************************************************************************
-
-if (sessionStorage.getItem("menu_open") === null)
-{
-	sessionStorage.setItem("menu_open", JSON.stringify(false));
-}
-
-function DoHideAllSubmenus()
-{
-	let ulSubmenu = document.getElementById("admin");
-	
-	if (ulSubmenu)
-		ulSubmenu.style.display = "none";
-		
-	ulSubmenu = document.getElementById("governance");
-	if (ulSubmenu)
-		ulSubmenu.style.display = "none";
-
-	ulSubmenu = document.getElementById("governance");
-	if (ulSubmenu)
-		ulSubmenu.style.display = "none";
-}
-
-function DoClickNavLinkWithSubmenu(strSubmenuID)
-{
-	let ulSubmenu = document.getElementById(strSubmenuID);
-	
-	if (ulSubmenu)
-	{
-		DoHideAllSubmenus();
-		ulSubmenu.style.display = "block";
-	}
-}
-
-function DoChangeHamburgerFontSizeSmall(bMakeSmall)
-{
-	// Select all elements with the class "myClass"
-	let elements = document.querySelectorAll(".hamburger");
-	
-	// Loop through the NodeList and change the font size
-	for (let nI = 0; nI < elements.length; nI++)
-	{
-	    if (bMakeSmall)
-	    	elements[nI].style.fontSize = "large"; // Set the new font size
-	    else
-	    	elements[nI].style.fontSize = "x-large"; // Set the new font size
-	}
-}
-
-function DoResizePageContent()
-{
-	let divNav = document.getElementById("navigation"),
-		divNavArrow = document.getElementById("navigation_arrow"),
-		divNavMenu = document.getElementById("navigation_menu"),
-		divContent = document.getElementById("content"),
-		divContainer = document.getElementById("container"),
-		rectContainer, rectNavMenu, rectNavArrow,
-		bOpen = JSON.parse(sessionStorage.getItem("menu_open"));
-	
-	if (divNav && divNavArrow && divContent && divContainer && divNavMenu)
-	{
-		rectContainer = divContainer.getBoundingClientRect();
-		rectNavArrow = divNavArrow.getBoundingClientRect();
-		rectNavMenu = divNavMenu.getBoundingClientRect();
-		
-		if (bOpen)
-			divContent.style.width = (rectContainer.width - rectNavMenu.width - rectNavArrow.width - 37) + "px";
-		else
-			divContent.style.width = (rectContainer.width - rectNavMenu.width - rectNavArrow.width - 35) + "px";
-	}
-}
-
-function DoOnNavMenuTransitioned()
-{
-	let divNavMenu = document.getElementById("navigation_menu"),
-	    divNavArrow = document.getElementById("navigation_arrow"),
-		divContent = document.getElementById("content"),
-		divContainer = document.getElementById("container"),
-		rectContainer, rectNav, rectNavArrow,
-		bOpen = JSON.parse(sessionStorage.getItem("menu_open"));;
-	
-	if (divNavMenu && divNavArrow && divContent && divContainer)
-	{
-		if (divNavMenu.style.width == "0px")
-		{
-			//divNavArrow.style.left = "0px";
-			//divNavArrow.style.top = "0px";
-			divNavMenu.style.display = "none";
-			DoResizePageContent();
-		}
-	}
-}
-
-function DoOpenCloseMenu(bDoToggle)
-{
-	let spanMenuText = document.getElementById("span_menu_text"),
-		divNav = document.getElementById("navigation"),
-		divNavMenu = document.getElementById("navigation_menu"),
-		divNavArrow = document.getElementById("navigation_arrow"),
-		divContent = document.getElementById("content"),
-		divContainer = document.getElementById("container"),
-		strMenuText = "◄ <span class=hamburger>≡</span> MENU ◄",
-		bOpen = JSON.parse(sessionStorage.getItem("menu_open"));
-		
-	if (spanMenuText && divNav && divNavMenu && divNavArrow)
-	{
-		if (bDoToggle)
-		{
-			sessionStorage.setItem("menu_open", JSON.stringify(!bOpen));
-			bOpen = JSON.parse(sessionStorage.getItem("menu_open"));
-		}					
-		if (bOpen)
-		{
-			spanMenuText.innerHTML = strMenuText.replaceAll("≡", "X");
-			divNav.style.width = "calc(var(--nav_width) - 3px)";
-			DoChangeHamburgerFontSizeSmall(true);
-			divNavMenu.style.display = "inline-block";
-			divNavMenu.style.width = "var(--nav_menu_width)";
-		}
-		else
-		{
-			spanMenuText.innerHTML = strMenuText.replaceAll("◄", "►");
-			divNav.style.width = "var(--nav_menu_arrow_width)";
-			DoChangeHamburgerFontSizeSmall(false);
-			divNavMenu.style.width = "0px";
-		}
-		DoResizePageContent();
-	}
-}
-
-
-
-
-//******************************************************************************
+﻿//******************************************************************************
 //******************************************************************************
 //** 
 //** MISCELLANEOUS FUNCTIONS
@@ -195,14 +6,103 @@ function DoOpenCloseMenu(bDoToggle)
 //******************************************************************************
 //******************************************************************************
 
+function DoDisplayHidePopup(strDivID, bShow)
+{
+	let divInstructions = document.getElementById(strDivID);
+	
+	if (divInstructions)
+	{
+		divInstructions.style.display = bShow ? "block" : "none";
+	}
+	else
+	{
+		alert("Working on it...");
+	}
+}
+			
+function DoGetCSSVarValStr(strCSSVarName)
+{
+	// 1. Get the root element html
+	const rootElement = document.documentElement;
+	
+	// 2. Get all computed styles for the element
+	const rootStyles = window.getComputedStyle(rootElement);
+	
+	// 3. Read the exact CSS variable name (include the double dashes)
+	let strCSSVarVal = rootStyles.getPropertyValue(strCSSVarName).trim();
+		
+	return strCSSVarVal;
+}
+
+function DoGetCSSVarValInt(strCSSVarName)
+{
+	let strCSSVarVal = DoGetCSSVarValStr(strCSSVarName),
+		nPos = strCSSVarVal.search(/[^0-9.-]/);
+
+	strCSSVarVal = strCSSVarVal.substring(0, nPos);
+	
+	return Number(strCSSVarVal);
+}
+
+function OnResize()
+{
+}	
+
+window.onresize = OnResize;
+
+var g_bIsMobileDevice = false;
+
+function DoDetectDevice(strPath)
+{
+	// mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/147.0.0.0 safari/537.36
+	// Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
+	// Mozilla/5.0 (iPod; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
+	// Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15
+	// Mozilla/5.0 (Linux; Android 13; SM-S901B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36
+	// Mozilla/5.0 (Linux; Android 13; SM-X906B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 (Note the absence of the "Mobile" tag)
+	// Mozilla/5.0 (Linux; Android 13; SM-S901B Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/110.0.5481.153 Mobile Safari/537.36
+	if (navigator.userAgent.includes("iPhone") ||
+		navigator.userAgent.includes("iPod") ||
+		navigator.userAgent.includes("Android"))
+	{
+		document.getElementById("style_sheet").setAttribute("href", strPath + "styles/style4Mobile.css");
+		g_bIsMobileDevice = true;
+	}
+}
+
+function DoGetElementWidth(Element)
+{
+	let nWidth = 0, divElement = null, rectClient = null;
+	
+	if (typeof Element == "string")
+	{
+		divElement = document.getElementById(Element);
+		
+		if (!divElement)
+			alert("element with id '" + strElementID + "' was not found!");
+	}
+	else if (typeof Element == "object")
+	{
+		divElement = Element;
+	}
+	if (divElement)
+	{
+		rectClient = divElement.getBoundingClientRect();
+		nWidth = rectClient.width;
+	}
+	return nWidth;
+}
+
 function DoGetEndTime(strTime, strDuration)
 {
 	let dateEnd = new Date(),
 		nPos = strTime.indexOf(":"),
 		strHour = strTime.substring(0, nPos),
-		strMinute = strTime.substring(nPos + 1);
-	
-	dateEnd.setHours(parseInt(strHour, 10) + parseFloat(strDuration), parseInt(strMinute, 10));
+		strMinute = strTime.substring(nPos + 1),
+		nMillis = parseFloat(strDuration) * 60 * 60 * 1000;
+
+	dateEnd.setHours(parseInt(strHour), parseInt(strMinute));
+	dateEnd.setTime(dateEnd.getTime() + nMillis);
 	
 	return dateEnd.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit", hour12: true});
 }
@@ -303,10 +203,188 @@ function DoGetDontationHTML()
 //******************************************************************************
 //******************************************************************************
 //** 
+//** MENU SHOW & HIDE FUNCTIONS
+//** 
+//******************************************************************************
+//******************************************************************************
+
+if (sessionStorage.getItem("menu_open") === null)
+{
+	sessionStorage.setItem("menu_open", JSON.stringify(false));
+}
+
+function DoHideAllSubmenus()
+{
+	let ulSubmenu = document.getElementById("admin");
+	
+	if (ulSubmenu)
+		ulSubmenu.style.display = "none";
+		
+	ulSubmenu = document.getElementById("governance");
+	if (ulSubmenu)
+		ulSubmenu.style.display = "none";
+
+	ulSubmenu = document.getElementById("governance");
+	if (ulSubmenu)
+		ulSubmenu.style.display = "none";
+}
+
+function DoClickNavLinkWithSubmenu(strSubmenuID)
+{
+	let ulSubmenu = document.getElementById(strSubmenuID);
+	
+	if (ulSubmenu)
+	{
+		DoHideAllSubmenus();
+		ulSubmenu.style.display = "block";
+	}
+}
+
+function DoChangeHamburgerFontSizeSmall(bMakeSmall)
+{
+	// Select all elements with the class "myClass"
+	let elements = document.querySelectorAll(".hamburger");
+	
+	// Loop through the NodeList and change the font size
+	for (let nI = 0; nI < elements.length; nI++)
+	{
+	    if (bMakeSmall)
+	    	elements[nI].style.fontSize = "large"; // Set the new font size
+	    else
+	    	elements[nI].style.fontSize = "x-large"; // Set the new font size
+	}
+}
+
+function DoOnNavMenuTransitioned()
+{
+	let divNavMenu = document.getElementById("div_navigation_menu"),
+		divContent = document.getElementById("div_content"),
+		bOpen = JSON.parse(sessionStorage.getItem("menu_open")),
+		nContentWidthCorrection = 0;
+	
+	if (divNavMenu && divContent)
+	{
+		if (divNavMenu.style.width == "0px")
+		{
+			divNavMenu.style.display = "none";
+			nContentWidthCorrection = DoGetCSSVarValInt("--content_width_adjust_decreasing");
+		}
+		else
+		{
+			nContentWidthCorrection = DoGetCSSVarValInt("--content_width_adjust_increasing");
+		}
+		if (!g_bIsMobileDevice)
+		{
+			let nDivBelowMastheadWidth = DoGetElementWidth("div_below_masthead"),
+				nDivNavMenuArrow = DoGetElementWidth("div_navigation_arrow"),
+				nDivNavMenu = DoGetElementWidth(divNavMenu);
+	
+			divContent.style.width = (nDivBelowMastheadWidth - nDivNavMenuArrow - nDivNavMenu - 
+										nContentWidthCorrection).toString() + "px";
+		}
+		else
+		{
+			if (bOpen)
+			{
+				divContent.style.minWidth = "var(--content_width_nav_menu_open)";
+				divContent.style.maxWidth = "var(--content_width_nav_menu_open)";
+			}
+			else
+			{
+				divContent.style.minWidth = "var(--content_width_nav_menu_closed)";
+				divContent.style.maxWidth = "var(--content_width_nav_menu_closed)";
+			}
+		}
+	}
+}
+
+function DoOpenCloseMenu(bDoToggle)
+{
+	let spanMenuText = document.getElementById("span_menu_text"),
+		divNav = document.getElementById("div_navigation"),
+		divNavMenu = document.getElementById("div_navigation_menu"),
+		strMenuText = "◄ <span class=hamburger>≡</span> MENU ◄",
+		bOpen = JSON.parse(sessionStorage.getItem("menu_open"));
+		
+	if (spanMenuText && divNav && divNavMenu)
+	{
+		if (bDoToggle)
+		{
+			sessionStorage.setItem("menu_open", JSON.stringify(!bOpen));
+			bOpen = JSON.parse(sessionStorage.getItem("menu_open"));
+		}					
+		if (bOpen)
+		{
+			spanMenuText.innerHTML = strMenuText.replaceAll("≡", "X");
+			divNavMenu.style.display = "inline-block";
+			divNav.style.width = "var(--nav_width)";
+			DoChangeHamburgerFontSizeSmall(true);
+			divNavMenu.style.width = "var(--nav_menu_width)";
+		}
+		else
+		{
+			spanMenuText.innerHTML = strMenuText.replaceAll("◄", "►");
+			divNav.style.width = "var(--nav_menu_arrow_width)";
+			DoChangeHamburgerFontSizeSmall(false);
+			divNavMenu.style.width = "0px";
+		}
+		// For some reason ontransitionend handler is called only for the transition from full width to zero width!
+		// But not in the other direction. So use setTimeout instead - it is reliable!
+		let nTransition = DoGetCSSVarValInt("--transition");
+		setTimeout(DoOnNavMenuTransitioned, nTransition);
+	}
+}
+
+
+
+
+//******************************************************************************
+//******************************************************************************
+//** 
 //** ADVERT FUNCTIONS
 //** 
 //******************************************************************************
 //******************************************************************************
+let g_arraySponsorBookmarks = [];
+
+function DoClickSponsor(strPath, strSponsorBookmarksList)
+{
+	let img = null,
+		fOpacity = 0
+		nPos = 0,
+		strBookmark = "";
+		
+	if (g_arraySponsorBookmarks.length == 0)
+	{
+		while (strSponsorBookmarksList.length > 0)
+		{
+			nPos = strSponsorBookmarksList.indexOf("#");
+			strBookmark = strSponsorBookmarksList.substring(0, nPos);
+			g_arraySponsorBookmarks.push(strBookmark);
+			strSponsorBookmarksList = strSponsorBookmarksList.substring(nPos + 1);
+		}
+	}
+	for (let nI = 0; nI < g_arraySponsorBookmarks.length; nI++)
+	{
+		img = document.getElementById("img_" + g_arraySponsorBookmarks[nI]);
+		if (img)
+		{
+			fOpacity  = window.getComputedStyle(img).getPropertyValue("opacity");
+			if (fOpacity > 0)
+				window.open(strPath + "sponsors/sponsors.php#" + g_arraySponsorBookmarks[nI], "_self");
+		}
+	}
+}
+
+function DoPopupName(strPopupID, strName)
+{
+	let pName = document.getElementById(strPopupID);
+	
+	if (pName)
+	{		
+		pName.innerText = " " + strName + " ";
+	}
+}
 
 function DoClickRequestAdvert(strAdvertSlotName, strAdvertSlotID)
 {

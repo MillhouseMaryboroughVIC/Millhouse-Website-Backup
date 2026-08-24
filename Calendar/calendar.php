@@ -1,4 +1,6 @@
-<!--****************************************************************************************************
+<?php 
+	
+	/****************************************************************************************************
     ****************************************************************************************************
     ****************************************************************************************************
     ****************************************************************************************************
@@ -14,11 +16,9 @@
     ****************************************************************************************************
     ****************************************************************************************************
     ****************************************************************************************************
-    ****************************************************************************************************-->
+    ****************************************************************************************************/
 
-<?php 
-	
-	require "..\common.php"; 
+	require_once "../common.php"; 
 	
 	DoRecordPageHitOrBlock();
 
@@ -43,14 +43,21 @@
 		
 		<style type="text/css">
 
+
+
+
+
+
+
+
+
+
+
+
+
 			:root
 			{
 				--border: 1px solid #ccc;
-				--background_color: color-mix(in srgb, var(--end_color), white 40%);
-				--font_family: "Playwrite GB J", cursive;
-				--font_sizing: auto;
-				--font_weight: 800;/*100 - 900*/;
-				--font_style: normal;
 			}
 			.calendar
 			{
@@ -61,9 +68,8 @@
 		        border-width: thin;
 		        border-color: var(--end_color);
 				font-family: var(--font_family);
-				font-optical-sizing: var(--font_sizing);
-				font-weight: var(--font_weight);
-				font-style: var(--font_style);
+			  	font-weight: var(--font_weight);
+			  	font-style: var(--font_style);
 			}
 			.calendar th
 			{
@@ -109,7 +115,7 @@
 		    }
 		    .calendar th, .calendar caption
 		    {
-		        background-color: var(--background_color);
+		        background-color: var(--popup_background_color);
 		    }
 			.date_div
 			{
@@ -122,9 +128,8 @@
 				border-width: thin;
 				border-color: green;
 				font-family: var(--font_family);
-				font-optical-sizing: var(--font_sizing);
-				font-weight: var(--font_weight);
-				font-style: var(--font_style);
+			  	font-weight: var(--font_weight);
+			  	font-style: var(--font_style);
 				color: var(--end_color);
 				font-size: small;
 			}
@@ -146,9 +151,8 @@
 				margin-top: 2px;
 				color: var(--start_color);
 				font-family: var(--font_family);
-				font-optical-sizing: var(--font_sizing);
-				font-style: var(--font_style);
-				font-weight: 500; /*100 - 900*/
+			  	font-weight: var(--font_weight);
+			  	font-style: var(--font_style);
 				font-size: x-small;
 			}
 					    						
@@ -167,9 +171,8 @@
 				border-color: white;
 				padding: 10px;
 				font-family: var(--font_family);
-				font-optical-sizing: var(--font_sizing);
-				font-weight: var(--font_weight);
-				font-style: var(--font_style);
+			  	font-weight: var(--font_weight);
+			  	font-style: var(--font_style);
 				font-size: small;
 				cursor: pointer;
 			}
@@ -183,23 +186,22 @@
 				transform: translate(-50%, -50%); /* Centers the popup */
 				z-index: 1000; /* Ensures it is above other elements */
 			
-				background-color: var(--background_color);
+				background-color: var(--popup_background_color);
 				border-style: solid;
 				border-width: medium;
 				border-color: var(--start_color);
 				border-radius: var(--border_radius);
 				padding: 10px;
 				width: 750px;
-				max-height: 400px;
+				max-height: 450px;
 				overflow: auto;
 			};
 			
 			.event_popup_container p
 			{
-				font-family: "Playwrite GB J", cursive;
-				font-optical-sizing: auto;
-				font-weight: 300;/*100 - 900*/;
-				font-style: normal;
+				font-family: var(--font_family);
+			  	font-weight: var(--font_weight);
+			  	font-style: var(--font_style);
 				font-size: small;
 		
 			}
@@ -221,33 +223,22 @@
 		<!-- #EndEditable -->
 		<script type="text/javascript">
 			
-			// mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/147.0.0.0 safari/537.36
-			// Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
-			// Mozilla/5.0 (iPod; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
-			// Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15
-			// Mozilla/5.0 (Linux; Android 13; SM-S901B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36
-			// Mozilla/5.0 (Linux; Android 13; SM-X906B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 (Note the absence of the "Mobile" tag)
-			// Mozilla/5.0 (Linux; Android 13; SM-S901B Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/110.0.5481.153 Mobile Safari/537.36
-			if (navigator.userAgent.includes("iPhone") ||
-				navigator.userAgent.includes("iPod") ||
-				navigator.userAgent.includes("Android"))
-			{
-				document.getElementById("style_sheet").setAttribute("href", <?php echo "\"" . DoGetParentOrCurrentDir() . "\""; ?> + "styles/style4Mobile.css");
-			}
+			DoDetectDevice(<?php echo "\"" . DoGetParentOrCurrentDir() . "\""; ?>);
 			
 		</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Permanent+Marker&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
 	</head>
 	<body onload="DoOnPageLoadComplete()">
 
 		<!-- Begin Container -->
-		<div id="container">
+		<div id="div_container">
 			<!-- Begin Masthead -->
-			<div class="masthead">
+			<div class="masthead" id="div_masthead">
 				<table border="0" cellspacing="0" cellpadding="0" class="masthead_table">
 					<tr>
 						<td class="masthead_cell_image_left">
@@ -258,69 +249,51 @@
 							<table border="0" cellpadding="0" cellspacing="0" class="title_table">
 								<tr>
 									<td>
-										<h1 class="gluten">Mill House</h1>
+										<h1 class="gluten" id="h1_title">Mill House</h1>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<h3 class="gluten">Neighbourhood House &#128522;</h3>
+										<h3 class="gluten" id="h3_title">Neighbourhood House &#128522;</h3>
 									</td>
 								</tr>
 							</table>
 						</td>
-						<td class="masthead_cell_image_right">
+						<td class="masthead_cell_image_right1">
 							<a href="../images/MillHouseNeighborhoodHouse1.jpg">
 							<img src="../images/MillHouseNeighborhoodHouse1.jpg" alt="MillHouseNeighborhoodHouse1.jpg" class="masthead_image" /></a>
 						</td>
-						<td class="masthead_cell_image_right">
+						<td class="masthead_cell_image_right2">
 							<a href="../images/MillHouseNeighborhoodHouse2.jpg">
 							<img src="../images/MillHouseNeighborhoodHouse2.jpg" alt="MillHouseNeighborhoodHouse.jpg" class="masthead_image" /></a>
 						</td>
-						<!--
-						<td class="masthead_cell_image_right">
-							<a href="images/Mural.jpg.jpg"><img src="images/Mural.jpg" alt="Mural.jpg" class="masthead_image" /></a>
-						</td>
-						-->
 						<td class="masthead_cell_sponsors">
-<div class="sponsors_container">					
-	<img src="../sponsors/images/NHHV.png" alt="NHHV.png" id="img_NHHV" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/VicStateGov.jpg" alt="VicStateGov.jpg" id="img_VSG" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/CentralGoldfields.png" alt="CentralGoldfields.png" id="img_CGSC" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/FRRR.png" alt="FRRR.png" id="img_FRRR" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/BendigoBank.jpg" alt="BendigoBank.jpg" id="img_BB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/JWR.png" alt="JWR.png" id="img_JWR" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/WattleOffice.jpg" alt="WattleOffice.jpg" id="img_WOS" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/FoodBank.png" alt="FoodBank.png" id="img_FB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/FoodShare.png" alt="FoodShare.png" id="img_FS" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/Aldi.png" alt="Aldi.png" id="img_ALD" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/ParkviewBakery.jpg" alt="ParkviewBakery.jpg" id="img_PVB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/MaryboroughFloorCoverings.jpg" alt="MaryboroughFloorCoverings.jpg" id="img_MFC" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/SilverService.png" alt="SilverService.png" id="img_SS" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../sponsors/images/GoldfieldsScreens.png" alt="GoldfieldsScreens.png" id="img_GSAB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
+<div class="sponsors_container">	
+	<?php DoGenerateSponsors(); ?>				
 </div>
 						</td>
 					</tr>
 				</table>				
 			</div>
 			<!-- End Masthead -->
-			<div class="below_masthead">
+			<div class="below_masthead" id="div_below_masthead">
 				<table cellpadding="0" cellspacing="0" border="0">
 					<tr>
 						<td style="vertical-align:top;">
 							<!-- Begin Navigation -->
-							<div class="navigation" id="navigation">
+							<div class="navigation" id="div_navigation">
 							
 								<table border="0" cellpadding="0" cellspacing="0" style="height:var(--nav_height);">
 									<tr>
 										<td>
-<div id="navigation_menu" class="navigation_menu" ontransitionend="DoOnNavMenuTransitioned()">
+<div id="div_navigation_menu" class="navigation_menu">
 	
 	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
 		<li><a href="../index.php">Home</a></li>
 		<li><a href="../about/about.php">About Mill House</a></li>
-		<li><a href="Calendar.php">Events Calendar</a></li>
+		<li><a href="calendar.php">Events Calendar</a></li>
 		<li><a href="../room/room.php">Hire a room</a></li>
 		<li><a href="../sponsors/sponsors.php">Our Collaborators</a></li>
 		<li>
@@ -329,13 +302,14 @@
 				<li class="submenu_item"><a href="../contribute/join.php"><b>Become a member</b></a></li>
 				<li class="submenu_item">
 				<a href="../contribute/volunteering.php"><b>Become a volunteer</b></a></li>
-				<li class="submenu_item"><a href="../request_sponsorship.php"><b>Become a sponsor</b></a></li>
+				<li class="submenu_item">
+				<a href="../contribute/request_sponsorship.php"><b>Become a sponsor</b></a></li>
 				<li class="submenu_item"><a href="../contribute/donation.php"><b>Make a donation</b></a></li>
 			</ul>
 		</li>
 		<!--<li><a href="people/people.php">Mill House People</a></li>-->
 		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
-		<li><a href="../contact/Contact.php">Contact</a></li>
+		<li><a href="../contact/contact.php">Contact</a></li>
 		<li><a href="../site_history/site_history.php">Site History</a></li>
 		<li>
 			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
@@ -350,34 +324,20 @@
 				<li class="submenu_item"><a href="../governance/plan/plan.php"><b>Strategic Plan</b></a></li>
 			</ul>
 		</li>
+		<li><a href="../group_events/group_events.php">Group Events</a></li>
 		<li>
-			<a href="../admin/administration.php" onclick="<?php if (IsLoggedIn()) echo "DoClickNavLinkWithSubmenu('admin')"; ?>">Administration</a>
-			<ul style="display:<?php if (isLoggedIn()) echo DoShowHideSubmenu("admin"); else echo "none"; ?>;" id="admin">
-				<li class="submenu_item"><a href="../admin/edit_groups.php"><b>Add &amp; Edit Groups</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/approve_sponsorship.php"><b>Approve a sponsor</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/renew_sponsorship.php"><b>Renew a sponsor</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/friday_feast_menu.php"><b>Update Friday feast menu</b></a></li>
-				<li class="submenu_item"><a href="../admin/governance.php"><b>Upload governance documents</b></a></li>
-				<li class="submenu_item">
-				<a href="../governance/forms/forms.php"><b>Blank Forms</b></a></li>
-				<li class="submenu_item"><a href="../admin/web_diagnostics.php"><b>Website diagnostics</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/html_4_beginners.php"><b>HTML 4 Beginners</b></a></li>
-				<li class="submenu_item"><a href="../admin/css_4_beginners.php"><b>CSS 4 Beginners</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/javascript_4_beginners.php"><b>JavaScript 4 Beginners</b></a></li>
-				<li class="submenu_item">
-				<a href="../admin/expression_web_4_beginners.php"><b>Expression Web 4 Beginners</b></a></li>
+			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
+			
+			<?php DoDisplayAdministrationSubmenu(); ?>
+			
 			</ul>
 		</li>
 	</ul>
 </div>
 										</td>
 										<td>
-<div id="navigation_arrow" class="navigation_arrow">
+<div id="div_navigation_arrow" class="navigation_arrow">
 	<span id="span_menu_text" class="span_menu_text" onclick="DoOpenCloseMenu(true)">
 		XXXXX	
 	</span>
@@ -390,9 +350,23 @@
 						</td>
 						<td style="vertical-align:top;">
 							<!-- Begin Content -->
-							<div class="content" id="content">
-								<br/>						
-								<div class="page_heading"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+							<div class="content" id="div_content">
+								<br/>
+								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+									<tr>
+										<td>
+											<div class="page_heading"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+										</td>
+										<td style="text-align:right;">
+											<?php
+											
+												if (isLoggedIn())
+													echo "<button class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
+													
+											?>
+										</td>
+									</tr>
+								</table>			
 
 								<!-- #BeginEditable "CustomContent" -->
 
@@ -436,10 +410,13 @@
 	}
 	
 	$arrayGroups = [];
-	if ($result = DoFindAllQuery($g_dbMillhouse, "millhouse_db.groups", "", "description"))
+	if ($result = DoFindAllQuery($g_dbMillhouse, "groups", "", "description"))
 	{
 		while ($row = $result->fetch_assoc())
 		{
+			if ($row["name"] == "admin")
+				continue;
+				
 			$arrayGroups[] = $row;
 			$nI = count($arrayGroups) - 1;
 	
@@ -457,11 +434,6 @@
 				$arrayGroups[$nI]["wom"] = (int)$arrayGroups[$nI]["wom"];
 			else
 				$arrayGroups[$nI]["wom"] = -1;
-
-			if ($arrayGroups[$nI]["display"] != null)
-				$arrayGroups[$nI]["display"] = (bool)$arrayGroups[$nI]["display"];
-			else
-				$arrayGroups[$nI]["display"] = false;
 
 			if ($arrayGroups[$nI]["time1"] == null)
 				$arrayGroups[$nI]["time1"] = "";
@@ -528,14 +500,7 @@
 			 
 				if ((($arrayGroups[$nI]["dow1"] == $nDOW) || ($arrayGroups[$nI]["dow2"] == $nDOW)) || 
 					(($arrayGroups[$nI]["dow1"] == -1) && ($arrayGroups[$nI]["dow2"] == -1) && ($nDOW != 0) && ($nDOW != 6)))
-				{
-					$strTime1 = "";
-					$strTime2 = "";
-					if (($arrayGroups[$nI]["dow1"] == $nDOW) || ($arrayGroups[$nI]["dow1"] == -1))
-						$strTime1 = $arrayGroups[$nI]["time1"];
-					if (($arrayGroups[$nI]["dow2"] == $nDOW) || ($arrayGroups[$nI]["dow2"] == -1))
-						$strTime2 = $arrayGroups[$nI]["time2"];
-						
+				{						
 					if (($arrayGroups[$nI]["wom"] == 0) || ($arrayGroups[$nI]["wom"] == $nWOM))
 					{
 						if ($arrayGroups[$nI]["exclude_school_holidays"] && IsSchoolHoliday($dateCurrent))
@@ -556,23 +521,23 @@
 							if ($nCount > 1)
 								echo ",\n     ";
 							
-							$bDebug = true;
+							$bDebug = false;
 							if (!$bDebug)
 							{				
 								echo "{strGroupName: \"" . DoObfuscateText($arrayGroups[$nI]["description"]) . 
 										"\", strGroupID: \"" .  DoObfuscateText($arrayGroups[$nI]["name"]) . 
 										"\", nDOW: \"" .  $nDOW .  
 										"\", nWOM: \"" .  $arrayGroups[$nI]["wom"] . 
-										"\", strTime1: \"" .  $strTime1 . 
-										"\", strTime3: \"" .  $strTime2 . 
-										 "\", strDuration: \"" . DoObfuscateText($arrayGroups[$nI]["duration"]) . 
-									 	"\", strCost: \"" . DoObfuscateText($arrayGroups[$nI]["cost"]) . 
+										"\", strTime1: \"" .  $arrayGroups[$nI]["time1"] . 
+										"\", strTime2: \"" .  $arrayGroups[$nI]["time2"] . 
+										 "\", strDuration: \"" . $arrayGroups[$nI]["duration"] . 
+									 	"\", strCost: \"" . $arrayGroups[$nI]["cost"] . 
 									 	"\", strDonation: \"" . $arrayGroups[$nI]["donation"] . 
 									 	"\", strFacebook: \"" . DoObfuscateText($arrayGroups[$nI]["facebook"]) . 
 									 	"\", strContact: \"" . DoObfuscateText($arrayGroups[$nI]["contact"]) . 
 									 	"\", strEmail: \"" . DoObfuscateText($arrayGroups[$nI]["email"]) . 
 									 	"\", strPhone: \"" . DoObfuscateText($arrayGroups[$nI]["phone"]) . 
-									 	"\", strPurpose: \"" . DoObfuscateText($arrayGroups[$nI]["purpose"]) . "\"}";
+									 	"\", strPurpose: \"" . $arrayGroups[$nI]["purpose"] . "\"}";
 							}
 							else
 							{
@@ -672,9 +637,9 @@
 		
 		return arrayEvents;
 	}
-		
+
 	function DoClickEvent(event, strGroupName, strTime1, strTime2, strDuration, strCost, strDonation, strFacebook, 
-							strContact, strEmail, strPhone, strPurpose)
+							strContact, strEmail, strPhone, strPurpose, strImageFilename)
 	{
 		event.preventDefault();
 		let bDonation = Boolean(strDonation),
@@ -715,7 +680,16 @@
 				strMessage += "<tr><td class='heading_cell'><b>COST:</b></td><td>" + strCost + "</td></tr>";
 		}
 		strMessage += "<tr><td class='heading_cell'><b>DESCRIPTION</b>:</td><td>" + strPurpose + "</td></tr>";
+		strMessage += "<tr><td colspan='2' style='text-align:center;'><a href='..about/" + strImageFilename + 
+					"'><img src='../about/" + strImageFilename + "' alt='IMAGE NEEDED' height='200' />" + 
+					"</a></td></tr>";
+
 		DoOpenPopup(strGroupName, strMessage);
+	}
+		
+	function DoGetPhotoFilename(strGroupID)
+	{
+		return "images/" + strGroupID + ".jpg";
 	}
 	
 	function DoSetDays(nMonthNum)
@@ -771,7 +745,7 @@
 					strTime2 + "', '" + arrayEvents[nI].strDuration + "hrs', '$" + arrayEvents[nI].strCost + "', '" + 
 					arrayEvents[nI].strDonation + "', '" + arrayEvents[nI].strFacebook + "', '" + 
 					arrayEvents[nI].strContact + "', '" + arrayEvents[nI].strEmail + "', '" + arrayEvents[nI].strPhone + 
-					"', '" + arrayEvents[nI].strPurpose + "') \">" + arrayEvents[nI].strGroupName + "</a>";
+					"', '" + arrayEvents[nI].strPurpose + "', '" + DoGetPhotoFilename(arrayEvents[nI].strGroupID) + "') \">" + arrayEvents[nI].strGroupName + "</a>";
 				}
 				strHTML += "</div>";
 				colDOM.innerHTML = strHTML;
@@ -1025,9 +999,21 @@
 <script type="text/javascript">	DoInitMonth(); </script>
 
 <div class="event_popup_container" id="div_event_popup_container">
-	<h1 id="event_popup_heading" class="event_popup_heading">EVENT DETAILS</h1>
-	<p id="event_details_element"></p>
-	<p style="text-align:center;"><input type="button" value="CLOSE" onclick="DoClosePopup()" /></p>
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<h1 id="event_popup_heading" class="event_popup_heading">EVENT DETAILS</h1>
+			</td>
+			<td>
+				<input type="button" value="CLOSE" onclick="DoClosePopup()" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<p id="event_details_element"></p>
+			</td>
+		</tr>
+	</table>
 </div>
 
 <script type="text/javascript">
@@ -1050,14 +1036,17 @@
 
 </script>
 
-<!--
-<p>If the Google calendar below is not displayed correctly in your web browser then click on this link instead: 
-<a href="https://calendar.google.com/calendar/embed?src=reception%40millhousenh.org.au&ctz=Australia%2FMelbourne">MillHouse Calendar</a></p>
+<div id="div_page_edit_instructions" class="instruction_popup">
 
-<div style="overflow:auto;width:99.8%;height:30%;border-style:solid;border-width:thin;border-color:var(--start_color);">
-	<iframe src="https://calendar.google.com/calendar/embed?src=reception%40millhousenh.org.au&ctz=Australia%2FMelbourne" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
+	
+	<p>ALL the contents of this page are automatically generated by either PHP, JavaScript code and the 'groups' table 
+	in the database. So you can ignore this page entirely. To change a group details and/or meeting times in the 
+	calendar then please use the form on the <a href="../admin/edit_groups.php">edit groups</a>web page.</p>
+	
+	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
+	
 </div>
--->
 
 
 
@@ -1074,19 +1063,13 @@
 			</script>
 			<!-- Begin Footer -->
 			<div class="footer">
-				<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
-					<tr class="footer_pc_row">
-						<td class="footer_table_cell">&copy;Mill House, Maryborough, VIC</td>
+				<table border="0" cellpadding="0" cellspacing="0" class="footer_table">
+					<tr>
+						<td class="footer_table_cell footer_left_cell">&copy;Mill House, Maryborough, VIC</td>
 						
 						<td class="footer_table_cell footer_middle_cell">COME ALONG AND JOIN THE MILL HOUSE COMMUNITY <h2 style="display:inline;">&#128522;</h2></td>
 						
-						<td class="footer_table_cell">Web site by: Gregary Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
-					</tr>
-					<tr class="footer_mobile_row">
-						<td class="footer_table_cell">&copy;Mill House, Maryborough, VIC</td>
-					</tr>
-					<tr class="footer_mobile_row">
-						<td class="footer_table_cell footer_web_admin" colspan="6">Web site by: Gregary Boyles, 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
+						<td class="footer_table_cell footer_right_cell">Web site by: Gregary Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
 					</tr>
 				</table>
 			</div>
@@ -1095,3 +1078,8 @@
 	</body>
 	
 </html>
+<!-- #BeginEditable "End" -->
+
+<?php DoShowMessage(); ?>
+
+<!-- #EndEditable -->

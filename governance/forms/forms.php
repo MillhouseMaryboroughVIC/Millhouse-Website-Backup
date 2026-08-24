@@ -36,33 +36,22 @@
 		<!-- #EndEditable -->
 		<script type="text/javascript">
 			
-			// mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/147.0.0.0 safari/537.36
-			// Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
-			// Mozilla/5.0 (iPod; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1
-			// Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15
-			// Mozilla/5.0 (Linux; Android 13; SM-S901B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36
-			// Mozilla/5.0 (Linux; Android 13; SM-X906B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 (Note the absence of the "Mobile" tag)
-			// Mozilla/5.0 (Linux; Android 13; SM-S901B Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/110.0.5481.153 Mobile Safari/537.36
-			if (navigator.userAgent.includes("iPhone") ||
-				navigator.userAgent.includes("iPod") ||
-				navigator.userAgent.includes("Android"))
-			{
-				document.getElementById("style_sheet").setAttribute("href", <?php echo "\"" . DoGetParentOrCurrentDir() . "\""; ?> + "styles/style4Mobile.css");
-			}
+			DoDetectDevice(<?php echo "\"" . DoGetParentOrCurrentDir() . "\""; ?>);
 			
 		</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Permanent+Marker&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
 	</head>
 	<body onload="DoOnPageLoadComplete()">
 
 		<!-- Begin Container -->
-		<div id="container">
+		<div id="div_container">
 			<!-- Begin Masthead -->
-			<div class="masthead">
+			<div class="masthead" id="div_masthead">
 				<table border="0" cellspacing="0" cellpadding="0" class="masthead_table">
 					<tr>
 						<td class="masthead_cell_image_left">
@@ -73,69 +62,51 @@
 							<table border="0" cellpadding="0" cellspacing="0" class="title_table">
 								<tr>
 									<td>
-										<h1 class="gluten">Mill House</h1>
+										<h1 class="gluten" id="h1_title">Mill House</h1>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<h3 class="gluten">Neighbourhood House &#128522;</h3>
+										<h3 class="gluten" id="h3_title">Neighbourhood House &#128522;</h3>
 									</td>
 								</tr>
 							</table>
 						</td>
-						<td class="masthead_cell_image_right">
+						<td class="masthead_cell_image_right1">
 							<a href="../../images/MillHouseNeighborhoodHouse1.jpg">
 							<img src="../../images/MillHouseNeighborhoodHouse1.jpg" alt="MillHouseNeighborhoodHouse1.jpg" class="masthead_image" /></a>
 						</td>
-						<td class="masthead_cell_image_right">
+						<td class="masthead_cell_image_right2">
 							<a href="../../images/MillHouseNeighborhoodHouse2.jpg">
 							<img src="../../images/MillHouseNeighborhoodHouse2.jpg" alt="MillHouseNeighborhoodHouse.jpg" class="masthead_image" /></a>
 						</td>
-						<!--
-						<td class="masthead_cell_image_right">
-							<a href="images/Mural.jpg.jpg"><img src="images/Mural.jpg" alt="Mural.jpg" class="masthead_image" /></a>
-						</td>
-						-->
 						<td class="masthead_cell_sponsors">
-<div class="sponsors_container">					
-	<img src="../../sponsors/images/NHHV.png" alt="NHHV.png" id="img_NHHV" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/VicStateGov.jpg" alt="VicStateGov.jpg" id="img_VSG" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/CentralGoldfields.png" alt="CentralGoldfields.png" id="img_CGSC" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/FRRR.png" alt="FRRR.png" id="img_FRRR" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/BendigoBank.jpg" alt="BendigoBank.jpg" id="img_BB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/JWR.png" alt="JWR.png" id="img_JWR" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/WattleOffice.jpg" alt="WattleOffice.jpg" id="img_WOS" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/FoodBank.png" alt="FoodBank.png" id="img_FB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/FoodShare.png" alt="FoodShare.png" id="img_FS" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/Aldi.png" alt="Aldi.png" id="img_ALD" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/ParkviewBakery.jpg" alt="ParkviewBakery.jpg" id="img_PVB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/MaryboroughFloorCoverings.jpg" alt="MaryboroughFloorCoverings.jpg" id="img_MFC" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/SilverService.png" alt="SilverService.png" id="img_SS" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
-	<img src="../../sponsors/images/GoldfieldsScreens.png" alt="GoldfieldsScreens.png" id="img_GSAB" onclick="DoClickSponsor('<?php echo DoGetParentOrCurrentDir(); ?>')" />
+<div class="sponsors_container">	
+	<?php DoGenerateSponsors(); ?>				
 </div>
 						</td>
 					</tr>
 				</table>				
 			</div>
 			<!-- End Masthead -->
-			<div class="below_masthead">
+			<div class="below_masthead" id="div_below_masthead">
 				<table cellpadding="0" cellspacing="0" border="0">
 					<tr>
 						<td style="vertical-align:top;">
 							<!-- Begin Navigation -->
-							<div class="navigation" id="navigation">
+							<div class="navigation" id="div_navigation">
 							
 								<table border="0" cellpadding="0" cellspacing="0" style="height:var(--nav_height);">
 									<tr>
 										<td>
-<div id="navigation_menu" class="navigation_menu" ontransitionend="DoOnNavMenuTransitioned()">
+<div id="div_navigation_menu" class="navigation_menu">
 	
 	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
 		<li><a href="../../index.php">Home</a></li>
 		<li><a href="../../about/about.php">About Mill House</a></li>
-		<li><a href="../../Calendar/Calendar.php">Events Calendar</a></li>
+		<li><a href="../../calendar/calendar.php">Events Calendar</a></li>
 		<li><a href="../../room/room.php">Hire a room</a></li>
 		<li><a href="../../sponsors/sponsors.php">Our Collaborators</a></li>
 		<li>
@@ -145,14 +116,14 @@
 				<li class="submenu_item">
 				<a href="../../contribute/volunteering.php"><b>Become a volunteer</b></a></li>
 				<li class="submenu_item">
-				<a href="../../request_sponsorship.php"><b>Become a sponsor</b></a></li>
+				<a href="../../contribute/request_sponsorship.php"><b>Become a sponsor</b></a></li>
 				<li class="submenu_item">
 				<a href="../../contribute/donation.php"><b>Make a donation</b></a></li>
 			</ul>
 		</li>
 		<!--<li><a href="people/people.php">Mill House People</a></li>-->
 		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
-		<li><a href="../../contact/Contact.php">Contact</a></li>
+		<li><a href="../../contact/contact.php">Contact</a></li>
 		<li><a href="../../site_history/site_history.php">Site History</a></li>
 		<li>
 			<a href="../governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
@@ -164,35 +135,20 @@
 				<li class="submenu_item"><a href="../plan/plan.php"><b>Strategic Plan</b></a></li>
 			</ul>
 		</li>
+		<li><a href="../../group_events/group_events.php">Group Events</a></li>
 		<li>
-			<a href="../../admin/administration.php" onclick="<?php if (IsLoggedIn()) echo "DoClickNavLinkWithSubmenu('admin')"; ?>">Administration</a>
-			<ul style="display:<?php if (isLoggedIn()) echo DoShowHideSubmenu("admin"); else echo "none"; ?>;" id="admin">
-				<li class="submenu_item"><a href="../../admin/edit_groups.php"><b>Add &amp; Edit Groups</b></a></li>
-				<li class="submenu_item">
-				<a href="../../admin/approve_sponsorship.php"><b>Approve a sponsor</b></a></li>
-				<li class="submenu_item">
-				<a href="../../admin/renew_sponsorship.php"><b>Renew a sponsor</b></a></li>
-				<li class="submenu_item">
-				<a href="../../admin/friday_feast_menu.php"><b>Update Friday feast menu</b></a></li>
-				<li class="submenu_item"><a href="../../admin/governance.php"><b>Upload governance documents</b></a></li>
-				<li class="submenu_item"><a href="forms.php"><b>Blank Forms</b></a></li>
-				<li class="submenu_item">
-				<a href="../../admin/web_diagnostics.php"><b>Website diagnostics</b></a></li>
-				<li class="submenu_item">
-				<a href="../../admin/html_4_beginners.php"><b>HTML 4 Beginners</b></a></li>
-				<li class="submenu_item">
-				<a href="../../admin/css_4_beginners.php"><b>CSS 4 Beginners</b></a></li>
-				<li class="submenu_item">
-				<a href="../../admin/javascript_4_beginners.php"><b>JavaScript 4 Beginners</b></a></li>
-				<li class="submenu_item">
-				<a href="../../admin/expression_web_4_beginners.php"><b>Expression Web 4 Beginners</b></a></li>
+			<a href="../../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
+			
+			<?php DoDisplayAdministrationSubmenu(); ?>
+			
 			</ul>
 		</li>
 	</ul>
 </div>
 										</td>
 										<td>
-<div id="navigation_arrow" class="navigation_arrow">
+<div id="div_navigation_arrow" class="navigation_arrow">
 	<span id="span_menu_text" class="span_menu_text" onclick="DoOpenCloseMenu(true)">
 		XXXXX	
 	</span>
@@ -205,9 +161,23 @@
 						</td>
 						<td style="vertical-align:top;">
 							<!-- Begin Content -->
-							<div class="content" id="content">
-								<br/>						
-								<div class="page_heading"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+							<div class="content" id="div_content">
+								<br/>
+								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+									<tr>
+										<td>
+											<div class="page_heading"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+										</td>
+										<td style="text-align:right;">
+											<?php
+											
+												if (isLoggedIn())
+													echo "<button class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
+													
+											?>
+										</td>
+									</tr>
+								</table>			
 
 								<!-- #BeginEditable "CustomContent" -->
 								
@@ -216,6 +186,18 @@
 								<p><b>Millhouse Membership form: <a href="../../contribute/VolunteerRegistrationForm.pdf">Download</a></b></p>
 
 								<p><b>Millhouse AGM Reporting Pack form: <a href="MHAGM ReportingPack.pdf">Download</a></b></p>
+
+<div id="div_page_edit_instructions" class="instruction_popup">
+
+	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
+	
+	<p>ALL the contents of this page are automatically generated so please ignore this page. If you need to update the 
+	displayed documents then please do so via the approriate form on the <a href="../admin/governance.php">governance</a> admin web page.</p>
+	
+	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
+	
+</div>
+
 
 								<!-- #EndEditable -->
 							</div>
@@ -230,19 +212,13 @@
 			</script>
 			<!-- Begin Footer -->
 			<div class="footer">
-				<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
-					<tr class="footer_pc_row">
-						<td class="footer_table_cell">&copy;Mill House, Maryborough, VIC</td>
+				<table border="0" cellpadding="0" cellspacing="0" class="footer_table">
+					<tr>
+						<td class="footer_table_cell footer_left_cell">&copy;Mill House, Maryborough, VIC</td>
 						
 						<td class="footer_table_cell footer_middle_cell">COME ALONG AND JOIN THE MILL HOUSE COMMUNITY <h2 style="display:inline;">&#128522;</h2></td>
 						
-						<td class="footer_table_cell">Web site by: Gregary Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
-					</tr>
-					<tr class="footer_mobile_row">
-						<td class="footer_table_cell">&copy;Mill House, Maryborough, VIC</td>
-					</tr>
-					<tr class="footer_mobile_row">
-						<td class="footer_table_cell footer_web_admin" colspan="6">Web site by: Gregary Boyles, 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
+						<td class="footer_table_cell footer_right_cell">Web site by: Gregary Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
 					</tr>
 				</table>
 			</div>
@@ -251,3 +227,8 @@
 	</body>
 	
 </html>
+<!-- #BeginEditable "End" -->
+
+<?php DoShowMessage(); ?>
+
+<!-- #EndEditable -->

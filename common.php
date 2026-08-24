@@ -65,8 +65,7 @@
 		}
 		else
 		{
-			$dateNow = new DateTime();
-			
+			$dateNow = new DateTime();	
 			$result = DoInsertQuery4($g_dbMillhouse, "page_hits", "page", $strPageFilename, "datetime", $dateNow->format("Y-m-d H:m:s"), "user_agent", $_SERVER["HTTP_USER_AGENT"], "visitor_ip_address", $_SERVER["REMOTE_ADDR"]);
 			if ($result)
 				PrintJavascriptLine("console.log('Page hit added to database...');", 1, true);
@@ -99,7 +98,7 @@
 	
 	function DoRecordPageHitOrBlock()
 	{
-		//if (!isset($_SESSION["bBlock"]))
+		if (!isset($_SESSION["bBlock"]))
 			$_SESSION["bBlock"] = false;
 					
 		if (($_SERVER["HTTP_ACCEPT"] == "") || ($_SERVER["HTTP_ACCEPT_LANGUAGE"] == "") ||
@@ -121,7 +120,7 @@
 	//** 
 	//******************************************************************************
 	//******************************************************************************
-	$g_strPatternPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}";
+	$g_strPatternPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}";
 	$g_strPatternPhoneNumber = "(?:(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}|(?:1300|1800|1900|1902)[ -]?[0-9]{3}[ -]?[0-9]{3})";
 	$g_strPatternEmail = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}";
 	$g_strPatternURL = "https?:\/\/([\w-]+\.)+[\w-]+(\/[\w .\/-]*)?";
@@ -129,7 +128,7 @@
 	$g_strPatternGroupName = "[a-zA-Z0-9_]{4,24}";
 	$g_strPatternGroupDesc = "[a-zA-Z'() -]{4,24}";
 	$g_strPatternComment = "(?!.*<script)(?!.*<\/script>).*";
-	$g_strPatternCurrency = "\d+\.\d{2}";
+	$g_strPatternCurrency = "^\d{1,3}(?:,\d{3})*(?:\.\d{2})?$|^\d+(\.\d{2})?$";
 	$g_strPatternPostcode = "^\d{4}$";	
 
 	//******************************************************************************
@@ -202,7 +201,7 @@
 			echo "\n";
 		if ($bDisplayBottom)
 		{
-			DoDisplayBottom($bIsDoGenerateJavascriptAdvertSlots);
+			DoDisplayBottom($bIsJavascript);
 		}
 	}
 	
@@ -238,38 +237,54 @@
 	//******************************************************************************
 	//******************************************************************************
 	
-	function DoGetDiffDays($datetime1, $datetime2)
+	function DoGetMelbourneTimeNow()
 	{
-		return ($datetime2->getTimestamp() - $datetime1->getTimestamp()) / 60 / 60 / 24;
-	}
+		$datetimeNow = new DateTime();
+		//$datetimeNow->setTimeZone(new DateTimeZone("Australia/Melbourne"));
 	
-	function DoGetDiffHours($datetime1, $datetime2)
-	{
-		return ($datetime2->getTimestamp() - $datetime1->getTimestamp()) / 60 / 60;
-	}
+		if (strcmp($datetimeNow->getTimeZone()->getName(), "UTC") == 0)
+			$datetimeNow->modify("+10 hours");
 		
-	function DoGetDiffMinutes($datetime1, $datetime2)
-	{
-		return ($datetime2->getTimestamp() - $datetime1->getTimestamp()) / 60;
+		return $datetimeNow;
 	}
 	
-	function DoGetDiffSeconds($datetime1, $datetime2)
+	function DoSaveFile($strFileInputID, $strDestinationFolder, $strOverewriteFilename = "")
 	{
-		return $datetime2->getTimestamp() - $datetime1->getTimestamp();
-	}
-	
-	function DoRemoveScriptTags($strAdvertHTML)
-	{
-		$nPos1 = strpos($strAdvertHTML, "<script");
-		if (nPos1 >= 0)
+		// 1. Check if the file was actually uploaded without errors
+		if (isset($_FILES["file_logo_image"]) && ($_FILES["file_logo_image"]["error"] === UPLOAD_ERR_OK)) 
 		{
-			$nPos2 = strpos($strAdvertHTML, "</script>");
-			$strBefore = substr($strAdvertHTML, 0, $nPos1);
-			$strAfter = substr($strAdvertHTML, $nPos2 + 9);
+    		$strFileTmpPath = $_FILES[$strFileInputID]["tmp_name"];
+    		$strFileName = $_FILES[$strFileInputID]["name"];
+    
+    		// 2. Sanitize filename to prevent directory traversal attacks
+    		$strCleanFileName = basename($strFileName);
+    
+	        // 3. Define the destination directory (Make sure this folder exists and is writeable)
+	        if ($strOverewriteFilename == "")
+	        	$strDestPath = $strDestinationFolder . $strCleanFileName;
+	        else
+	        	$strDestPath = $strDestinationFolder . $strOverewriteFilename;
+    
+    		// 4. Move the file from the temporary directory to the target directory
+    		if (!move_uploaded_file($strFileTmpPath, $strDestPath))
+    		{
+        		DoFlagMessage("The logo image filename could not be saved...", true);
+    		}
+		} 
+	}
+	
+	function DoRemoveScriptTags($strText)
+	{
+		$nPos1 = strpos($strText, "<script");
+		if ($nPos1 >= 0)
+		{
+			$nPos2 = strpos($strText, "</script>");
+			$strBefore = substr($strText, 0, $nPos1);
+			$strAfter = substr($strText, $nPos2 + 9);
 			
-			$strAdvertHTML = $strBefore + $strAfter;
+			$strText = $strBefore . $strAfter;
 		}
-		return $strAdvertHTML;
+		return $strText;
 	}
 	
 	function DoGetPageFilename()
@@ -299,7 +314,7 @@
 		$bResult = true;
 		
 	    // 1. Get the client's IP address
-	    $strClientIP = $_SERVER['REMOTE_ADDR'] ?? '';
+	    $strClientIP = $_SERVER["REMOTE_ADDR"] ?? '';
 	
 	    // 2. Immediately validate IP presence
 	    if (empty($strClientIP)) 
@@ -358,11 +373,49 @@
 	//******************************************************************************
 	//******************************************************************************
 	
+	function DoGetDisplayedStatus($strGroupName)
+	{
+		global $g_dbMillhouse;
+		global $g_strQuery;
+		$bDisplay = false;
+		
+		$results = DoFindQuery1($g_dbMillhouse, "groups", "name", $strGroupName);
+		if ($results && ($results->num_rows > 0))
+		{
+			if ($row = $results->fetch_assoc())
+				$bDisplay = $row["display"] == "1";
+		}
+		return $bDisplay;
+	}
+	
+	function DoDisplayAdministrationSubmenu()
+	{
+		if (IsAdminLoggedIn())
+		{
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_groups.php\"><b>Add &amp; Edit Groups</b></a></li>\n";
+			//echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_group_events.php\"><b>Promote Groups</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/add_sponsor.php\"><b>Add a sponsor</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_sponsor.php\"><b>Edit a sponsor</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/friday_feast_menu.php\"><b>Update Friday feast menu</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/governance.php\"><b>Upload governance documents</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "governance/forms/forms.php\"><b>Blank Forms</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/web_diagnostics.php\"><b>Website diagnostics</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/html_4_beginners.php\"><b>HTML 4 Beginners</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/css_4_beginners.php\"><b>CSS 4 Beginners</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/javascript_4_beginners.php\"><b>JavaScript 4 Beginners</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/expression_web_4_beginners.php\"><b>Expression Web 4 Beginners</b></a></li>\n";
+		}
+		else if (IsLoggedIn())
+		{
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_group_events.php\"><b>Add &amp; Edit Group Events</b></a></li>\n";
+		}
+	}
+	
 	function DoShowHideSubmenu($strSubmenuName)
 	{	
 		$strDisplay = "none";
 				
-		if (str_contains($_SERVER["REQUEST_URI"], $strSubmenuName . "/"))
+		if (str_contains(strtolower($_SERVER["REQUEST_URI"]), strtolower($strSubmenuName) . "/"))
 			$strDisplay = "block";
 		
 		return $strDisplay;
@@ -415,7 +468,7 @@
 		}
 		return $strDayName;
 	}
-														
+	
 	//******************************************************************************
 	//******************************************************************************
 	//** 
@@ -495,9 +548,37 @@
 	//******************************************************************************
 	//******************************************************************************
 	
+	function DoGetUsernameSelectOptions($bShowAdministration)
+	{
+		global $g_dbMillhouse;
+		$strOptions = "\n";
+		$strSelected = " selected";
+		$results = NULL;
+		
+		$results = DoFindAllQuery($g_dbMillhouse, "groups");
+			
+		if ($results && ($results->num_rows > 0))
+		{
+			while ($row = $results->fetch_assoc())
+			{
+				if (($row["display"] == "1") || ($bShowAdministration && ($row["name"] == "admin")))
+				{
+					$strOptions .= "<option value=\"" . $row["name"] . "\"" . $strSelected . ">" . $row["description"] . "</option>\n";
+					$strSelected = "";
+				}
+			}
+		}
+		return $strOptions;
+	}
+
 	function IsLoggedIn()
 	{
-		return isset($_SESSION["admin_password"]);
+		return isset($_SESSION["username"]);
+	}
+	
+	function IsAdminLoggedIn()
+	{
+		return isset($_SESSION["username"]) && (strcmp($_SESSION["username"], "admin") == 0);
 	}
 	
 	//******************************************************************************
@@ -508,57 +589,163 @@
 	//******************************************************************************
 	//******************************************************************************
 	
+	$g_strDatabaseName = "";
+	
 	function ConnectToDatabase()
 	{
-		$dbFindATradie = null;
-		global $g_strEmailPresident;
+		$dbMillHouse = null;
+		global $g_strDatabaseName;
 		
 		try
 		{		
-			$dbFindATradie = new mysqli("127.0.0.1", "root", "qDHt7vvFvsOvUPG5", "millhouse_db");
+			$dbMillHouse = new mysqli("127.0.0.1", "root", "qDHt7vvFvsOvUPG5", "millhouse_db");
+			$g_strDatabaseName = "millhouse_db";
 		}
 		catch(Exception $e)
 		{
-			$strMsg = $e->getMessage();
-			$strMsg = str_replace("\"", "'", $strMsg);
-			PrintJavascriptLine("alert(\"'" . $strMsg . "'\");", 2, true);
-			//echo "ERROR: '". $e->getMessage() . "'<br/><br/>Trying to connect to database 'find_a_tradie'.<br/><br/>" . $g_strEmailPresident;
+			try
+			{
+				$dbMillHouse = new mysqli("millhouse.org.au", "millhous_website", "xT7SvV#2ac5B74Cp", "millhous_db");
+				$g_strDatabaseName = "millhous_db";
+			}
+			catch(Exception $e)
+			{
+				$strMsg = $e->getMessage();
+				$strMsg = str_replace("\"", "'", $strMsg);
+				echo $strMsg;
+			}
 		}
-		return $dbFindATradie;
+		return $dbMillHouse;
 	}
 	$g_dbMillhouse = ConnectToDatabase();
 	$g_strQuery = "";
 	
+	function DoQuery($dbConnection, $strQuery)
+	{
+		global $g_strEmailPresident;
+		global $g_strDatabaseName;
+		global $g_strQuery;
+		$result = NULL;
+	
+		try
+		{
+			if (str_contains($strQuery, "SELECT MAX"))
+				$g_strQuery = $strQuery;
+			else if (str_contains($strQuery, "INSERT INTO"))
+				$g_strQuery = str_replace("INTO ", "INTO " . $g_strDatabaseName . ".", $strQuery);
+			else if (str_contains($strQuery, "* FROM"))
+				$g_strQuery = str_replace("* FROM ", "* FROM " . $g_strDatabaseName . ".", $strQuery);
+			else if (str_contains($strQuery, "FROM"))
+				$g_strQuery = str_replace("DELETE FROM ", "DELETE FROM " . $g_strDatabaseName . ".", $strQuery);
+			else if (str_contains($strQuery, "UPDATE"))
+				$g_strQuery = str_replace("UPDATE ", "UPDATE " . $g_strDatabaseName . ".", $strQuery);
+			else
+				$g_strQuery = $strQuery;
+			
+			$g_strQuery .= ";";
+			
+			$result = $dbConnection->query($g_strQuery);		
+		}
+		catch(Exception $e) 
+		{
+			DoFlagMessage("'" . $e->getMessage() . "' with query '" . $strQuery . "'", true);
+  			//echo "ERROR: '". $e->getMessage() . "'<br><br>With query '" . $strQuery . "'.<br><br>" . $g_strEmailPresident;
+		}		
+		return $result;
+	}
+	
 	function DoCheckTableExists($strTableName)
 	{
 		global $g_dbMillhouse;
+		global $g_strDatabaseName;
 		$bTableExists = false;
 		
-		$results = DoQuery($g_dbMillhouse, "SHOW TABLES LIKE '" . $strTableName . "'");
-		if ($results && ($results->num_rows > 0))
+		//$strQuery = "SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = '" . $g_strDatabaseName . 
+		//			"' AND table_name = '" . $strTableName . "') AS table_exists;";
+		$strQuery = "SHOW TABLES LIKE '" . $strTableName . "'";
+
+		$results = DoQuery($g_dbMillhouse, $strQuery);
+		if ($results)
 		{
 			$bTableExists = true;
 		}
 		return $bTableExists;
 	}
 	
-	function DoQuery($dbConnection, $strQuery)
+	function DoGetNextAutoIncVal($dbConnection, $strTableName)
 	{
-		global $g_strEmailPresident;
-		$result = NULL;
-
-		try
-		{	
-			$result = $dbConnection->query($strQuery);		
-		}
-		catch(Exception $e) 
+		global $g_strQuery;
+		global $g_strDatabaseName;
+		$nNext = -1;
+		
+		$g_strQuery = "SHOW TABLE STATUS LIKE '" . $strTableName . "'";
+		$result = DoQuery($dbConnection, $g_strQuery);
+		if ($result && ($result->num_rows > 0))
 		{
-			PrintJavascriptLine("alert(\"'" . $e->getMessage() . "' with query '" . $strQuery . "'\");", 2, true);
-  			//echo "ERROR: '". $e->getMessage() . "'<br><br>With query '" . $strQuery . "'.<br><br>" . $g_strEmailPresident;
-		}		
-		return $result;
+			if ($row = $result->fetch_assoc())
+			{
+				$nNext = $row["Auto_increment"];
+			}
+		}
+		return $nNext;
 	}
 
+	function DoFindMaxQuery($dbConnection, $strTableName, $strColumnNameMax, $strCondition = "", $strOrderBy = "", $bAscending = true)
+	{
+		global $g_strQuery;
+		$g_strQuery = "SELECT MAX(" . $strColumnNameMax . ") FROM " . $strTableName;
+		
+		//SELECT MAX(column_name) FROM table_name WHERE condition;
+		
+		if (strcmp($strCondition, "") != 0)
+			$g_strQuery = $g_strQuery . " WHERE " . $strCondition;
+			
+		if (strcmp($strOrderBy, "") != 0)
+		{
+			$g_strQuery = $g_strQuery . " ORDER BY " . $strOrderBy;
+			if ($bAscending)
+				$g_strQuery = $g_strQuery . " ASC";
+			else
+				$g_strQuery = $g_strQuery . " DESC";
+		}		
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+	
+	function DoFindMaxQuery1($dbConnection, $strTableName, $strColumnNameMax, $strColumnName1, $strColumnValue1, $strCondition = "", $strOrderBy = "", $bAscending = true)
+	{
+		global $g_strQuery;
+		
+		$g_strQuery = "SELECT MAX(" . $strColumnNameMax . ") FROM " . $strTableName . " WHERE " . $strColumnName1 . 
+						" = '" . EscapeSingleQuote($strColumnValue1) . "'";
+						
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+	
+	function DoFindMaxQuery2($dbConnection, $strTableName, $strColumnName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strCondition = "", $strOrderBy = "", $bAscending = true)
+	{
+		global $g_strQuery;
+		
+		$g_strQuery = "SELECT MAX(" . $strColumnNameMax . ") FROM " . $strTableName . " WHERE " . $strColumnName1 . 
+						" = '" . EscapeSingleQuote($strColumnValue1) . "' AND " . $strColumnName2 . " = '" . EscapeSingleQuote($strColumnValue2) . "'";
+						
+		if (strlen($strCondition) > 0)
+			$g_strQuery = $g_strQuery . " AND " . $strCondition;
+		if (strlen($strOrderBy) > 0)
+		{
+			$g_strQuery = $g_strQuery . " ORDER BY " . $strOrderBy;
+			if ($bAscending)
+			{
+				$g_strQuery = $g_strQuery . " ASC";
+			}
+			else
+			{
+				$g_strQuery = $g_strQuery . " DESC";
+			}
+		}
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+	
 	function DoFindAllQuery($dbConnection, $strTableName, $strCondition = "", $strOrderBy = "", $bAscending = true)
 	{
 		global $g_strQuery;
@@ -891,7 +1078,7 @@
 		return DoQuery($dbConnection, $g_strQuery);
 	}
 	
-	function DoUpdateQuery9($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, $strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, $strColumnName4, $strColumnValue4, $strColumnName5, $strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, $strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, $strFindColumnName, $strFindColumnValue)
+	function DoUpdateQuery9($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, $strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, $strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, $strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, $strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, $strFindColumnName, $strFindColumnValue)
 	{
 		global $g_strQuery;
 		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "', " . 
@@ -1408,6 +1595,51 @@
 			echo "\t";
 	}
 	
+	function EscapeSingleQuote($strText)
+	{
+		return str_replace("'", "''", $strText);
+	}
+
+	function EscapeDoubbleQuote($strText)
+	{
+		return str_replace("\"", "\\\"", $strText);
+	}
+
+	//******************************************************************************
+	//******************************************************************************
+	//** 
+	//** USER ERROR MESSAGE FUNCTIONS
+	//** 
+	//******************************************************************************
+	//******************************************************************************
+
+	function DoFlagMessage($strMessage, $bIsError = false, $strMySQLErrorMessage = "")
+	{
+		if ($bIsError)
+			$_SESSION["strErrorMessage"] = "ERROR: " . str_replace("'", "`", $strMessage);
+		else
+			$_SESSION["strErrorMessage"] = str_replace("'", "`", $strMessage);
+			
+		$_SESSION["strErrorMessage"] .= (($strMySQLErrorMessage != "") ? " (MySQL error: " . str_replace("'", "`", $strMySQLErrorMessage) : ")");
+	}
+	
+	function DoShowMessage()
+	{
+		if (isset($_SESSION["strErrorMessage"]))
+		{
+			PrintJavascriptLine("alert('" . $_SESSION["strErrorMessage"] . "')", 1, true);
+			unset($_SESSION["strErrorMessage"]);
+		}
+	}
+		
+	//******************************************************************************
+	//******************************************************************************
+	//** 
+	//** JAVASCRIPT GENERATION FUNCTIONS
+	//** 
+	//******************************************************************************
+	//******************************************************************************
+
 	function PrintJavascriptLine($strCode, $nNumIndents, $bScriptTags)
 	{
 		if ($bScriptTags)
@@ -1426,16 +1658,6 @@
 		}
 	}
 
-	function EscapeSingleQuote($strText)
-	{
-		return str_replace("'", "''", $strText);
-	}
-
-	function EscapeDoubbleQuote($strText)
-	{
-		return str_replace("\"", "\\\"", $strText);
-	}
-
 	//******************************************************************************
 	//******************************************************************************
 	//** 
@@ -1444,159 +1666,74 @@
 	//******************************************************************************
 	//******************************************************************************
 	
-	function DoDisplaySponsorMarquee()
-	{
-		$strPage = strtolower($_SERVER["REQUEST_URI"]);
-		
-		if (($strPage == "/") || ($strPage == "/millhouse/") || 
-			str_contains($strPage, "index"))
-		{
-			echo "<hr/>\n";
-			echo "<h1>Our Sponsors</h1>\n";
-			echo "<p>Our activitiess & programs are generously funded by the following sponsors.</p>\n";				
-			echo "<div id=\"advert_marquee\" class=\"advert_marquee\">\n";
-			echo DoGenerateAdvertSlotHTML();
-			echo "</div>\n";
-			echo "<hr/>\n";
-		}
-	}
-	
-	function DoGetAdvertSlotName()
-	{
-		$strAdvertSlotName = basename($_SERVER['PHP_SELF']);
-		$nPos = strpos($strAdvertSlotName, ".");
-		
-		if ($nPos !== FALSE)
-		{
-			$strAdvertSlotName = substr($strAdvertSlotName, 0, $nPos);
-		}
-		return $strAdvertSlotName;
-	}
-	
-	function DoGenerateAdvertSlotHTML()
+	function DoGenerateSponsorTypeSelectOptions($strSelected)
 	{
 		global $g_dbMillhouse;
-		$strHTML = "";
-		$strAdvertHTML = "";
-		$strAdvertSlotName = DoGetAdvertSlotName();
-		$strAdvertExpires = "";
-		$resultsAdvertSlots = NULL;
-		$resultsAdverts = NULL;
-				
-		if (DoCheckTableExists("adverts") && DoCheckTableExists("advert_slots"))
-		{		
-			$resultsAdvertSlots = DoQuery($g_dbMillhouse, "SELECT * FROM advert_slots WHERE id LIKE '" . $strAdvertSlotName . "%';");
-			if ($resultsAdvertSlots && ($resultsAdvertSlots->num_rows > 0))
-			{
-				while ($rowAdvertSlot = $resultsAdvertSlots->fetch_assoc())
-				{
-					$resultsAdverts = DoFindQuery1($g_dbMillhouse, "adverts", "advert_slot_id", $rowAdvertSlot["id"]);
-					
-					if ($resultsAdverts && ($resultsAdverts->num_rows > 0))
-					{
-						$dateNow = new DateTime();
-						$dateExpiry = NULL;
-					
-						while ($rowAdvert = $resultsAdverts->fetch_assoc())
-						{
-							if ($rowAdvert["expiry_date"] !== NULL)
-								$dateExpiry = new DateTime($rowAdvert["expiry_date"]);
-							else
-								$dateExpiry = new DateTime("2050-01-01");
-							
-							if ($dateExpiry > $dateNow)
-							{
-$strAdvertHTML = "<a href=\"\" onclick=\"DoClickAdvert('" . 
-					$rowAdvert["website"] . "', '" . $rowAdvert["advert_slot_id"] . "')\">" . 
-					"<img class=\"advert_image\" src=\"" . DoGetParentOrCurrentDir() . "sponsors/images/" . $rowAdvert["logo_image"] . "\" alt=\"" . $rowAdvert["logo_image"] . "\" \></a>" . 
-					"<div class=\"advert_expires\" id=\"advert_expires_" . 
-					$rowAdvert["advert_slot_id"] . "\" onmouseleave=\"DoMouseLeaveExpiresDiv(this)\"\">Sponsorship valid until" . 
-					$dateExpiry->format("l jS F Y") . "<br/>Clicks: " . (int)$rowAdvert["clicks"] . "</div>\n";
-							}
-						}
-					}
-					else
-					{
-						$strAdvertHTML = "    <button type=\"button\" onclick=\"DoClickRequestAdvert('" . $strAdvertSlotName . "', '" . $rowAdvertSlot["id"] . "')\" class=\"advert_button\">\n" . 
-										"            <img class=\"advert_button_image\" src=\"" . DoGetParentOrCurrentDir() . "images/sponsor.png\" alt=\"sponsor.png\" />\n" . 
-										"        </button>\n";
-						$strAdvertExpires = "";
-					}
-					$strHTML .= "<div class=\"advert_slot\" id=\"advert_slot_" . $rowAdvertSlot["id"] . "\" " . 
-					
-					/*"onmouseenter=\"DoMouseEnterAdvertSlot('advert_expires_" . $rowAdvertSlot["id"] . "')\" " . 
-					"onmouseleave=\"DoMouseLeaveAdvertSlot('advert_expires_" . $rowAdvertSlot["id"] . "')\">\n" . "    " . */
-					$strAdvertHTML . "</div>\n";
-				}
-			}
-		}
-		return $strHTML;
-	}
-	
-	function DoGetAdvertSlotOptions($strAdvertSlotID)
-	{
-		global $g_dbMillhouse;
-		$strHTML = "";
-		$bAdvertSlotTableExists = DoCheckTableExists("advert_slots");
-		$bAdvertTableExists = DoCheckTableExists("adverts");
-		$strCurrentAdvertSlotID = "";
-		$strDisabled = "";
-		$strDisabledText = "";
-		$strSelected = "";
+		global $g_strQuery;
+		$strSelectOptions = "";
 		
-		if ($bAdvertSlotTableExists && $bAdvertTableExists)
-		{
-			$results = DoFindAllQuery($g_dbMillhouse, "advert_slots");
-
-			if ($results && ($results->num_rows > 0))
-			{
-				while ($row = $results->fetch_assoc())
-				{
-					if ($strAdvertSlotID === $row["id"])
-						$strSelected = "selected";
-					else
-						$strSelected = "";
-					
-					$strDateExpiry = "";
-					if (IsAdvertSlotTaken($row["id"], $strDateExpiry))
-					{
-						$strDisabled = "disabled";
-						$strDisabledText = "(taken until " . $strDateExpiry . ")";
-					}
-					else
-					{
-						$strDisabled = "";
-						$strDisabledText = "";
-					}
-					$strHTML .= "    <option value=\"" .  $row["id"] . "\" " . $strSelected . " " . $strDisabled . ">" . $row["desc"]  . " " . $strDisabledText . "</option>\n";
-				}
-			}
-		}
-		return $strHTML;
-	}
-		
-	function IsAdvertSlotTaken($strAdvertSlotID, &$stExpiryDate)
-	{
-		$bTaken = false;
-		global $g_dbMillhouse;
-
-		$results = DoFindQuery1($g_dbMillhouse, "adverts", "advert_slot_id", $strAdvertSlotID);
+		$results = DoFindAllQuery($g_dbMillhouse, "sponsor_types", "", "type");
 		if ($results && ($results->num_rows > 0))
 		{
-			$dateNow = new DateTime();
-			
 			while ($row = $results->fetch_assoc())
 			{
-				$dateExpiry = new DateTime($row["expiry_date"]);
-				if ($dateExpiry > $dateNow)
+				$strSelectOptions .= "<option " . (((strcmp($strSelected, $row["type"]) == 0) || ($strSelected == "")) ? "selected " : "") . "value=\"" . $row["type"] . "\">" . $row["description"] . "</option>\n";
+			}
+		}
+		return $strSelectOptions;
+	}
+	
+	function DoGenerateBookmark($strBusinessName)
+	{
+		$strBookmark = str_replace(" ", "", $strBusinessName);
+		$strBookmark = preg_replace("/[a-z]/", "", $strBookmark);
+		$strBookmark = preg_replace("/[0-9]/", "", $strBookmark);
+		$strBookmark = preg_replace("/[\[-`]/", "", $strBookmark);
+		$strBookmark = preg_replace("/[:-@]/", "", $strBookmark);
+		$strBookmark = preg_replace("/[!-\/]/", "", $strBookmark);
+		
+		return $strBookmark;
+	}
+	
+	function DoGenerateSponsorBookMarksList()
+	{
+		global $g_dbMillhouse;
+		global $g_strQuery;
+		$strJSArrayBookmarks = "";
+		$datetimeNow = DoGetMelbourneTimeNow();
+		
+		$results = DoFindAllQuery($g_dbMillhouse, "sponsors", "expiry_date >= " . $datetimeNow->format("Y-m-d"));
+		if ($results && ($results->num_rows > 0))
+		{
+			while ($row = $results->fetch_assoc())
+			{
+				$strJSArrayBookmarks .= DoGenerateBookmark($row["business_name"]) . "#";
+			}
+		}
+		return $strJSArrayBookmarks;
+	}
+
+	function DoGenerateSponsors()
+	{
+		global $g_dbMillhouse;
+		$datetimeNow = new DateTime();
+		$strSponsorBookmarksList = DoGenerateSponsorBookMarksList();
+		$datetimeNow = DoGetMelbourneTimeNow();
+		
+		$results = DoFindAllQuery($g_dbMillhouse, "sponsors", "expiry_date >= " . $datetimeNow->format("Y-m-d"), "ranking ASC, business_name");
+		if ($results && ($results->num_rows > 0))
+		{
+			while ($row = $results->fetch_assoc())
+			{
+				$datetimeExpiry = new DateTime($row["expiry_date"]);
+				if ($datetimeExpiry >= $datetimeNow)
 				{
-					$stExpiryDate = $dateExpiry->format("d/m/Y");					
-					$bTaken = true;
-					break;
+					echo "<img id=\"img_" . DoGenerateBookmark($row["business_name"]) . "\" src=\"" . DoGetParentOrCurrentDir() . "sponsors/images/" . $row["logo_image"] . "\" alt=\"" . 
+						$row["logo_image"] . "\" onclick=\"DoClickSponsor('" . DoGetParentOrCurrentDir() . 
+						"', '" . $strSponsorBookmarksList . "')\" />\n";
 				}
 			}
 		}
-		return $bTaken;
 	}
 	
 ?>

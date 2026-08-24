@@ -1,0 +1,245 @@
+﻿<h1>GENERAL INFORMATION ABOUT THIS PAGE</h1>
+
+<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>
+
+<p><b>The details for this specific page are at the end. So if you are already familiar with this general information,
+then scroll to the <a href="#edit">HOW TO EDIT THIS WEB PAGE'</a>'.</b></p>
+	
+<h2>WHAT SOFTWARE</h2>
+
+<h3>Word Processor Software</h3>
+
+<p>E.G. Microsoft Word and Libre Office Writer</p>
+
+<p><b>Do not not use word processors to edit the code in this web page.</b></p>
+
+<p>If you do then it can result in unexpected strange characters appearing amidst your text when you 
+view your changes in a web browser</p>
+
+<p>You MUST use plain text editor software such as Windows Notepad</p>
+
+<h3>Which Text Editor?</h3>
+
+<p>If you know your way around HTML, CSS, JavaScript and PHP then, in theory, you can use any text editor software.</p>
+
+<p>Notepad++ is an excellent text editor which is far more flexible than plain old Windows Notepad. You can download it 
+(free) from <a href="https://notepad-plus-plus.org/downloads/">here</a></p>
+
+<p>Notepadd++ is also ideal for novices who prefer to re-word any text and then send it to the web admin to update the 
+content of the page.</p>
+
+<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>
+	
+<h3>MS EXPRESSION WEB</h3>
+
+<p><b>HOWEVER</b> this entire website and this web page has been created with MS Expression Web. Now this software was 
+deprecated by Micorosft in 2012, and it is not IT industry standard web editing software. But it is still EXCELENT web 
+editing software for individuals and small organisations. And it it TOTALLY free to use now. You can download it from 
+<a href="https://www.majorgeeks.com/mg/getmirror/microsoft_expression_web,1.html">here</a></p>
+
+<p>As deprecated software it uses older versions of HTML, CSS and Javascript than modern web browsers use. However that 
+does not prevent it being used to create and edit quite sophisticated websites. It will flag certain minor CSS properties 
+as being an error and unsupported, for example, but if you view the web page in a modern web browser then those 'unsupported' 
+CSS properties work just fine!</p>
+
+<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>
+	
+<h4>Dynamic Web Templates</h4>
+
+<p>More importantly MS Expression Web has a feature that does not have a match in any web editing software that I have 
+investigated to date. And that is a 'template' system that is similar to MS Word document templates (.dot). You can create 
+a template file, e.g. maste.dwt, that sets out the basic structure of ALL your web pages, except the specific page contents 
+of each.</p>
+
+<p>You can then use that template ('master.dwt') in all your web pages, to automatically create the bulk of the page's code 
+without you having to physically type it. But you do have to manually type any page content that is specific to each web 
+page. Of course MS Expression Web sets all this up for you when you use its 'site wizard' tool to create an entire working 
+website 'stub' based on the template you select.</p>
+
+<p>If you want to create a new page then you can right mouse click on 'master.dwt' and select 'New from Dynamic Web Template' 
+from the popup menu. After which Expression web will create a new HTML file with most of the new page's content filled in 
+for you from the code in 'master.dwt'.<br/><br/>
+<a href="/admin/images/NewFromDWT.jpg"><img src="/admin/images/NewFromDWT.jpg" alt="NewFromDWT.jpg" height="300" /></a></p>
+
+<p>Then, when you make changes to 'master.dwt' and save your canges, Expression Web runs through all the web pages in your 
+website and updates them for you! And even better! If you rename a file or move it from one folder to another then 
+Expression Web does a text searche through ALL your web pages, looking for any image links, hyperlinks or includes 
+(that use that renamed or moved file) and updates them accordingly so that you do not have any broken links in your web 
+pages.</p>
+
+<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>
+	
+<h4>EDITABLE AND NON EDITABLE REGIONS</h4>
+
+<p>Expression web creates editable and non-editable regions in your web pages by means of HTML comments that are ignored 
+by web browsers. Here are examples...</p>
+
+
+<p>This is an editable region of the web page, whose name is 'CustomContent'. You type the page's specific content between 
+&lt;!-- #BeginEditable "CustomContent" --&gt; and &lt;!-- #EndEditable --&gt;.
+<pre>
+&lt;!-- #BeginEditable "CustomContent" --&gt;
+&lt;p&gt;*******************************************************&lt;/p&gt;
+&lt;p&gt;*******************************************************&lt;/p&gt;
+&lt;p&gt;Insert content here&lt;/p&gt;
+&lt;p&gt;*******************************************************&lt;/p&gt;
+&lt;p&gt;*******************************************************&lt;/p&gt;
+&lt;!-- #EndEditable --&gt;
+</pre></p>
+
+<p>
+This is also another defined region of the web page code, named 'Footer'. However this region is NOT editable! Note the 
+absence of the keyword 'Editable'.
+<pre>
+&lt;!-- Begin Footer --&gt;
+&lt;div class="footer"&gt;
+	&lt;table border="0" cellpadding="0" cellspacing="0" class="footer_table"&gt;
+		&lt;tr&gt;
+			&lt;td class="footer_table_cell footer_left_cell"&gt;&copy;Mill House, Maryborough, VIC&lt;/td&gt;
+			
+			&lt;td class="footer_table_cell footer_middle_cell"&gt;COME ALONG AND JOIN THE MILL HOUSE COMMUNITY &lt;h2 style="display:inline;"&gt;&#128522;&lt;/h2&gt;&lt;/td&gt;
+			
+			&lt;td class="footer_table_cell footer_right_cell"&gt;Web site by: Gregary Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/div&gt;
+&lt;!-- End Footer --&gt;&lt;/div&gt;
+</pre></p>
+
+<p>Now notice that regions that you are not permitted to edit (between &lt;!-- #BeginEditable "CustomContent" --&gt; and 
+&lt;!-- #EndEditable --&gt;) have a yellowish text background color when you view these files in Expression Web. While 
+the regions that you ARE permitted to edit have no background color.<br/><br/>
+<a href="/admin/images/ExpressionWebPage.jpg"><img src="/admin/images/ExpressionWebPage.jpg" alt="ExpressionWebPage.jpg" height="300" /></a></p>
+
+<p>This feature makes it easy for novice web administration staff, contributing to the maintainance of the website, to 
+not make mistakes and wreck the entire structure of the web page accidently. <b>NOTE: </b>You WILL NOT get this warning if 
+you edit this web page with a regular text editor like Notepad++, it is ONLY available in Expression Web.</p>
+
+<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>
+	
+<h4>PLEASE USE EXPRESSION WEB</h4>
+
+<p>All these unique features make maintaining your website VASTLY quicker and easier. And also FAR safer for novices, 
+than if you were using regular text editors like Notepad++ for example.</p>
+
+<p>Novices do not need to understand how to use all the features of Expression Web. They simply need to familiarise 
+themselves with basic web code editing.</p>
+
+<p>I have made some beginner guides to web code editing available to novices as follows:</p>
+
+<ul>
+	<li><a href="html_4_beginners.php">HTML for beginners</a></li>
+	<li><a href="css_4_beginners.php">CSS for beginners</a></li>
+	<li><a href="javascript_4_beginners.php">JavaScript for beginners</a></li>
+	<li><a href="expression_web_4_beginners.php">Expression Web for beginners</a></li>
+</ul>
+
+<h2>CODE</h2>
+
+<h3>HTML CODE</h3>
+
+<p>HTML code looks like this: 
+	<pre>
+		&lt;h1&gt;Grant from Elders&lt;/h1&gt;
+		&lt;p&gt;The Mill House Committee, management and the community would like to thank Elders for their generous grant to our organisation.&lt;/p&gt;
+		&lt;p&gt;&lt;a href="images/EldersGrant.jpg"&gt;&lt;img src="images/EldersGrant.jpg" alt="EldersGrant.jpg" width="300"/&gt;&lt;/a&gt;&lt;/p&gt;
+		&lt;h1&gt;Everyone is welcome at Mill House &#128522;&lt;/h1&gt;
+		&lt;h2&gt;Mill House Activities&lt;/h2&gt;
+	</pre>
+	HTML uses a begin tag, e.g. &lt;h1&gt;, and an end tag, e.g. &lt;/h1&gt;. The tags themselves are not displayed in the web 
+	browser. Only the text or images etc. between them. The tags tell the web browser how to render the text, e.g. a big or a small 
+	font, on a new line or the same line as previous tags, text color, etc.
+</p>
+
+<p>This paragraph, for example, is created by enclosing this text in p tags:</p>
+
+<p>&lt;p&gt;This paragraph, for example, is created by enclosing this text in p tags:&lt;/p&gt;</p>
+
+<p>So it is relatively easy for even raw beginners to edit basic text content in a web page using simple tags like these. 
+For more details on how to use HTML tags refer to <a href="html_4_beginners.php">HTML for beginners</a></p>
+
+<h3>CSS CODE</h3>
+
+<p>CSS code looks like the following...</p>
+
+<h4>IN style4PC.css</h4>
+
+<p><pre>
+body 
+{
+	background-color: var(--end_color);
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.content 
+{
+	display: block;
+	position: relative;
+	left: -10px;
+	min-width:  calc(100% - 28px);
+	max-width: calc(100% - 28px);
+	max-height: var(--nav_height);
+	min-height: var(--nav_height);
+	width: calc(var(--masthead_width) - var(--nav_arrow_width));
+	margin: 0px;
+	margin-top: 10px;
+	margin-left: 10px;
+	padding: 10px;
+	border: 2px solid var(--start_color);
+	background-color: white;
+	transition: var(--transition);
+	border-radius: 0px var(--border_radius) 0px 0px;
+	overflow: auto;
+}
+</pre>
+</p>
+
+<h5>Then in index.php</h5>
+
+<p><pre>
+&lt;div class="content"&gt;
+.
+.
+.
+&lt;/div&gt;
+
+</pre></p>
+
+<h4>INLINE CSS</h4>
+
+<p>
+	E.G. &lt;table border="0" cellpadding="0" cellspacing="0" style="width:100%;"&gt;<br/><br/>
+	Specifically the 'style="width:100%;' property inside the &lt;table .....&gt; tag. The 'width:100%;' 
+	part is the actual CSS code. The 'style' property is how to apply the CSS code to the HTML tag.
+</p>
+
+<p>CSS takes a bit more time to wrap your head around and become confident with it. But you novices will 
+not need to use it much or at all for the most part when editing basic HTML content. But if novices want 
+to try and learn it then they shuld refer to this guide: <a href="css_4_beginners.php">CSS for beginners</a></p>
+
+<h3>JAVASCRIPT CODE</h3>
+
+<p>JavaScript code is always placed between the following two tags: &lt;script type="text/javascript"&gt; and 
+&lt;/script&gt;</p>
+
+<p>JavaScript is full programming language and takes a great deal more effort to master. So novices should not 
+try to edit anything between these tags. Typing HTML code between these tags, for example, will generate a syntax 
+error, as the web browser is rendering the web page. At this point the web browser will stop rendering the page, 
+resulting in the web page appearing messed up in the web browser.</p>
+
+<p>Novices sould steer well clear of JavaScript code.</p>
+
+<h3>PHP CODE</h3>
+
+<p>PHP code is always placed between the following two tags: &lt;?php; and 
+?&gt;</p>
+
+<p>PHP is also full programming language and also takes a great deal more effort to master. So novices should not 
+try to edit anything between these tags. Typing HTML code between these tags, for example, will also cause a syntax 
+error at the web server, which will then send a black screen with a desription of the syntax error.</p>
+
+<p>Novices sould steer well clear of PHP code.</p>
+
+<h1 id="edit">HOW TO EDIT THIS WEB PAGE</h1>
