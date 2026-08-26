@@ -248,6 +248,69 @@
 		return $datetimeNow;
 	}
 	
+	function DoGetEndTime($strTime, $strDuration, $bShowTimeRemaining = true)
+	{
+		if (!is_null($strTime))
+		{
+			$datetimeNow = DoGetMelbourneTimeNow();
+			$datetimeStart = new DateTime($strTime);
+			$datetimeStart->setDate((int)$datetimeNow->format("Y"), (int)$datetimeNow->format("m"), (int)$datetimeNow->format("d"));
+			$datetimeEnd = $datetimeStart;
+			$datetimeEnd->modify("+" . (int)$strDuration . " hours");
+			$strTime = $datetimeEnd->format("g:i A");
+			
+			if ($bShowTimeRemaining)
+			{
+				if ($datetimeNow > $datetimeEnd)
+					$strTime .= " (finished)";
+				else if ($datetimeNow > $datetimeStart)
+				{
+					$interval = $datetimeEnd->diff($datetimeNow);
+					$nMinutesLeft = ($interval->h * 60) + $interval->i;
+					$nHoursLeft = floor($nMinutesLeft / 60);
+					$nMinutesLeft = $nMinutesLeft % 60;
+					$strTime .= "(";
+					
+					if ($nHoursLeft > 0)
+						$strTime .= number_format($nHoursLeft, 0) . " hours";
+					if ($nMinutesLeft > 0)
+					{
+						if ($nHoursLeft > 0)
+							$strTime .= " and ";
+						$strTime .= number_format($nMinutesLeft, 0) . " minutes";
+					}
+					$strTime .= " remaining)";
+				}
+			}
+		}
+		else
+		{
+			$strTime = "";
+		}
+		return $strTime;
+	}
+	
+	function DoGetStartTime($strTime)
+	{
+		if (!is_null($strTime))
+		{
+			$datetimeNow = DoGetMelbourneTimeNow();
+			$datetimeStart = new DateTime($strTime);
+			$datetimeStart->setDate((int)$datetimeNow->format("Y"), (int)$datetimeNow->format("m"), (int)$datetimeNow->format("d"));
+			$strTime = $datetimeStart->format("g:i A");
+		}
+		else
+		{
+			$strTime = "";
+		}
+		return $strTime;
+	}
+	
+	function DoGetPhotoFilename($strGroupID)
+	{
+		return "images/" . $strGroupID . ".jpg";
+	}
+	
 	function DoSaveFile($strFileInputID, $strDestinationFolder, $strOverewriteFilename = "")
 	{
 		// 1. Check if the file was actually uploaded without errors

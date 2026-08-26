@@ -437,6 +437,13 @@ if ($row["name"] == "canasta")
 method (contact form, email or phone number).</p>
 <p>Enjoy!</p>
 
+<h2>Download the Mill House App</h2>
+<p><b>PLEASE NOTE: </b>This is a sneak peak only and the app is far from complete. You can have a say as to what, if any, 
+additional features you would like to see in the Mill House app. To install open this page on your mobile device a click 
+the link below. You will be asked if you want to trust this app - just say 'yes'.</p>
+
+<p><a href="MobileApp/Mill_House.apk" download><img src="images/MillHouseApp.png" alt="MillHouseApp.png" width="150" /></a></p>
+
 <h1>Who We Are</h1>
 
 <p>Mill House Neighbourhood House is a welcoming and inclusive community space in the heart of Maryborough.</p>

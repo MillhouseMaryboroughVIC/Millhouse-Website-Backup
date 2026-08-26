@@ -1,19 +1,18 @@
-<!--
-*********************************************************************************************
- ********************************************************************************************
- ********************************************************************************************
- ********************************************************************************************
- **** SARAH PLEASE NOTE
- **** ------------------
- **** Don't change this PHP code, between the < ? php and ? > tags. 
- **** 
- ********************************************************************************************
- ********************************************************************************************
- ********************************************************************************************
- ********************************************************************************************
- -->
 <?php 
 
+	/*********************************************************************************************
+	 ********************************************************************************************
+	 ********************************************************************************************
+	 ********************************************************************************************
+	 **** SARAH PLEASE NOTE
+	 **** ------------------
+	 **** Don't change this PHP code, between the < ? php and ? > tags. 
+	 **** 
+	 ********************************************************************************************
+	 ********************************************************************************************
+	 ********************************************************************************************
+	 ********************************************************************************************/
+	
 	require_once "../common.php";
 	
 	DoRecordPageHitOrBlock();
@@ -37,7 +36,7 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>Why Donate?</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -193,7 +192,7 @@
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<h1Why Donate?</h1>
+<h1>Why Donate?</h1>
 
 <p>Across the Central Goldfields, many individuals and families experience financial hardship, social isolation and 
 limited access to services and opportunities.</p>
@@ -300,30 +299,30 @@ Goldfields community.</p>
 			<td colspan="4"><label for="surname">SURNAME</label></td>
 		</tr>
 		<tr>
-			<td colspan="4"><input type="text" name="given_names" id="given_names" required onkeypress="OnKeyPressName(event)"/></td>
-			<td colspan="4"><input type="text" name="surname" id="surname" required onkeypress="OnKeyPressName(event)"/></td>
+			<td colspan="4"><input type="text" name="text_given_names" id="text_given_names" required onkeypress="OnKeyPressName(event)"/></td>
+			<td colspan="4"><input type="text" name="text_surname" id="text_surname" required onkeypress="OnKeyPressName(event)"/></td>
 		</tr>
 		<tr>
 			<td colspan="4"><label for="email">EMAIL ADDRESS</label></td>
 			<td colspan="4"><label for="phone">PHONE NUMBER</label></td>
 		</tr>
 		<tr>
-			<td colspan="4"><input type="text" name="email" id="email" required onkeypress="OnKeyPressEmailAddress(event)"/></td>
-			<td colspan="4"><input type="text" name="phone" id="phone" required onkeypress="OnKeyPressPhone(event)"/></td>
+			<td colspan="4"><input type="text" name="text_email" id="text_email" required onkeypress="OnKeyPressEmailAddress(event)"/></td>
+			<td colspan="4"><input type="text" name="text_phone" id="text_phone" required onkeypress="OnKeyPressPhone(event)"/></td>
 		</tr>
 		<tr>
 			<td colspan="8"><br/><label><b>DONATION AMOUNT</b></label></td>
 		</tr>
 		<tr>
-			<td><input type="radio" id="Amount5" checked name="amount" onclick="OnClickDonationRadio('5')" />&nbsp;<label for="Amount5">$5</label></td>
-			<td><input type="radio" id="Amount10" name="amount" onclick="OnClickDonationRadio('10')" />&nbsp;<label for="Amount5">$10</label></td>
-			<td><input type="radio" id="Amount20" name="amount" onclick="OnClickDonationRadio('20')" />&nbsp;<label for="Amount5">$20</label></td>
-			<td><input type="radio" id="Amount50" name="amount" onclick="OnClickDonationRadio('50')" />&nbsp;<label for="Amount5">$50</label></td>
+			<td><input type="radio" id="radio_amount5" checked name="radio_amount" onclick="OnClickDonationRadio('5')" />&nbsp;<label for="Amount5">$5</label></td>
+			<td><input type="radio" id="radio_amount10" name="radio_amount" onclick="OnClickDonationRadio('10')" />&nbsp;<label for="Amount5">$10</label></td>
+			<td><input type="radio" id="radio_amount20" name="radio_amount" onclick="OnClickDonationRadio('20')" />&nbsp;<label for="Amount5">$20</label></td>
+			<td><input type="radio" id="radio_amount50" name="radio_amount" onclick="OnClickDonationRadio('50')" />&nbsp;<label for="Amount5">$50</label></td>
 			<td>
-			<input type="radio" id="Amount1001" name="amount" onclick="OnClickDonationRadio('100')" />&nbsp;<label for="Amount5">$100</label></td>
-			<td><input type="radio" id="Amount200" name="amount" onclick="OnClickDonationRadio('200')" />&nbsp;<label for="Amount5">$200</label></td>
-			<td><input type="radio" id="Amount500" name="amount" onclick="OnClickDonationRadio('500')" />&nbsp;<label for="Amount5">$500</label></td>
-			<td><input type="radio" id="Amount1000" name="amount" onclick="OnClickDonationRadio('')" />&nbsp;<label for="Amount5">Other</label></td>
+			<input type="radio" id="radio_amount100" name="radio_amount" onclick="OnClickDonationRadio('100')" />&nbsp;<label for="Amount5">$100</label></td>
+			<td><input type="radio" id="radio_amount200" name="radio_amount" onclick="OnClickDonationRadio('200')" />&nbsp;<label for="Amount5">$200</label></td>
+			<td><input type="radio" id="radio_amount500" name="radio_amount" onclick="OnClickDonationRadio('500')" />&nbsp;<label for="Amount5">$500</label></td>
+			<td><input type="radio" id="radio_amount1000" name="radio_amount" onclick="OnClickDonationRadio('')" />&nbsp;<label for="Amount5">Other</label></td>
 		</tr>
 		<tr>
 			<td colspan="8">
@@ -333,7 +332,7 @@ Goldfields community.</p>
 							<label for="amount">$&nbsp;</label>
 						</td>
 						<td>
-							<input type="text" name="amount" id="amount" required onkeypress="OnKeyPressDigitsOnly(event)" />
+							<input type="text" name="text_amount" id="text_amount" required onkeypress="OnKeyPressDigitsOnly(event)" />
 						</td>
 					</tr>
 				</table>
@@ -343,8 +342,21 @@ Goldfields community.</p>
 			<td colspan="8"><label><b>PAYMENT METHOD</b></label></td>
 		</tr>
 		<tr>
-			<td colspan="4"><input type="radio" name="method" id="card" value="Credit card"checked /><label for="card">Credit card</label></td>
-			<td colspan="4"><input type="radio" name="method" id="bank" value ="Bank transfer" /><label for="bank">Bank transfer</label></td>
+			<td colspan="8">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td>
+							<input type="radio" name="radio_method" id="radio_card" value="Credit card"checked /><label for="card">Credit card</label>
+						</td>
+						<td>
+							<input type="radio" name="radio_method" id="radio_bank" value ="Bank transfer" /><label for="bank">Bank transfer</label>
+						</td>
+						<td>
+							<input type="radio" name="radio_method" id="radio_cash" value ="Cash" /><label for="bank">Cash</label>
+						</td>
+					</tr>
+				</table>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="8" style="text-align:right;">

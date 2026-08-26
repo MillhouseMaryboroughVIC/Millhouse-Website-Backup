@@ -43,18 +43,6 @@
 		
 		<style type="text/css">
 
-
-
-
-
-
-
-
-
-
-
-
-
 			:root
 			{
 				--border: 1px solid #ccc;
@@ -141,8 +129,6 @@
 				width: 100%;
 				background-color: white;
 				border-style: none;
-				border-width: thin;
-				border-color: blue;
 				overflow: auto;
 			}
 			.events_div a
@@ -176,7 +162,7 @@
 				font-size: small;
 				cursor: pointer;
 			}
-		
+			
 			.event_popup_container
 			{
 				display: none;
@@ -203,14 +189,14 @@
 			  	font-weight: var(--font_weight);
 			  	font-style: var(--font_style);
 				font-size: small;
-		
+			
 			}
 				
 			.event_popup_heading
 			{
 				text-decoration-color: var(--start_color);
 			}
-				
+			
 		</style>
 		<script type="text/javascript">
 		
@@ -638,60 +624,6 @@
 		return arrayEvents;
 	}
 
-	function DoClickEvent(event, strGroupName, strTime1, strTime2, strDuration, strCost, strDonation, strFacebook, 
-							strContact, strEmail, strPhone, strPurpose, strImageFilename)
-	{
-		event.preventDefault();
-		let bDonation = Boolean(strDonation),
-			strTimes ="";
-		
-		if (bDonation)
-			strDonation = "yes (optional)";
-		else
-			strDonation = "no";
-		
-		let strMessage = "<table border='0' cellpadding='2' cellspacing='0'>";
-		strMessage += "<tr><td class='heading_cell'><b>GROUP LEADER:</b></td><td>" + strContact + "</td></tr>";
-		if (strPhone != "")
-			strMessage += "<tr><td class='heading_cell'><b>PHONE:</b></td><td>" + strPhone + "</td></tr>";
-		if (strEmail != "")
-			strMessage += "<tr><td class='heading_cell'><b>EMAIL:</b></td><td>" + strEmail + "</td></tr>";
-		if (strFacebook != "")
-			strMessage += "<tr><td class='heading_cell'><b>FACEBOOK:</b></td><td>" + strFacebook + "</td></tr>";
-		
-		if (strDuration.includes("hrs"))
-			strDuration = strDuration.replace("hrs", "");
-		else if (strDuration.includes("hr"))
-			strDuration = strDuration.replace("hr", "");	
-				
-		strTimes = DoGetStartTime(strTime1) + " to " + DoGetEndTime(strTime1, strDuration);
-
-		if (strTime2 != "")
-		{
-			strTimes += " and " + DoGetStartTime(strTime2) + " to " + DoGetEndTime(strTime2, strDuration);
-		}
-		strMessage += "<tr><td class='heading_cell'><b>TIME(S):</b></td><td>" + strTimes + "</td></tr>";
-		
-		if (strCost != "$0.00")
-		{
-			if (strDonation == "yes")
-				strMessage += "<tr><td class='heading_cell'><b>DONATION:</b></td><td>" + strCost + "</td></tr>";
-			else
-				strMessage += "<tr><td class='heading_cell'><b>COST:</b></td><td>" + strCost + "</td></tr>";
-		}
-		strMessage += "<tr><td class='heading_cell'><b>DESCRIPTION</b>:</td><td>" + strPurpose + "</td></tr>";
-		strMessage += "<tr><td colspan='2' style='text-align:center;'><a href='..about/" + strImageFilename + 
-					"'><img src='../about/" + strImageFilename + "' alt='IMAGE NEEDED' height='200' />" + 
-					"</a></td></tr>";
-
-		DoOpenPopup(strGroupName, strMessage);
-	}
-		
-	function DoGetPhotoFilename(strGroupID)
-	{
-		return "images/" + strGroupID + ".jpg";
-	}
-	
 	function DoSetDays(nMonthNum)
 	{
 		let nDOW = -1;
@@ -998,43 +930,7 @@
 
 <script type="text/javascript">	DoInitMonth(); </script>
 
-<div class="event_popup_container" id="div_event_popup_container">
-	<table border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<td>
-				<h1 id="event_popup_heading" class="event_popup_heading">EVENT DETAILS</h1>
-			</td>
-			<td>
-				<input type="button" value="CLOSE" onclick="DoClosePopup()" />
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<p id="event_details_element"></p>
-			</td>
-		</tr>
-	</table>
-</div>
-
-<script type="text/javascript">
-
-	const div_popup = document.getElementById("div_event_popup_container");
-	const p_details = document.getElementById("event_details_element");
-	const h1_heading = document.getElementById("event_popup_heading");
-	
-	function DoOpenPopup(strHeadingHTML, strMessageHTML) 
-	{
-	  div_popup.style.display = "block";
-	  p_details.innerHTML = strMessageHTML;
-	  h1_heading.innerHTML = strHeadingHTML;
-	}
-	
-	function DoClosePopup() 
-	{
-	  div_popup.style.display = "none";
-	}
-
-</script>
+<?php require "event_popup.html"; ?>
 
 <div id="div_page_edit_instructions" class="instruction_popup">
 

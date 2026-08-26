@@ -20,6 +20,64 @@ function DoDisplayHidePopup(strDivID, bShow)
 	}
 }
 			
+function DoClickEvent(event, strGroupName, strTime1, strTime2, strDuration, strCost, strDonation, strFacebook, 
+						strContact, strEmail, strPhone, strPurpose, strImageFilename)
+{
+	event.preventDefault();
+	let bDonation = Boolean(strDonation),
+		strTimes ="";
+	
+	if (bDonation)
+		strDonation = "yes (optional)";
+	else
+		strDonation = "no";
+	
+	let strMessage = "<table border='0' cellpadding='2' cellspacing='0'>";
+	strMessage += "<tr><td class='heading_cell'><b>CONTACT:</b></td><td>" + strContact + "</td></tr>";
+	if (strPhone != "")
+		strMessage += "<tr><td class='heading_cell'><b>PHONE:</b></td><td>" + strPhone + "</td></tr>";
+	if (strEmail != "")
+		strMessage += "<tr><td class='heading_cell'><b>EMAIL:</b></td><td>" + strEmail + "</td></tr>";
+	if (strFacebook != "")
+		strMessage += "<tr><td class='heading_cell'><b>FACEBOOK:</b></td><td>" + strFacebook + "</td></tr>";
+	
+	if (strDuration.includes("hrs"))
+		strDuration = strDuration.replace("hrs", "");
+	else if (strDuration.includes("hr"))
+		strDuration = strDuration.replace("hr", "");	
+			
+	strTimes = DoGetStartTime(strTime1) + " to " + DoGetEndTime(strTime1, strDuration);
+
+	if (strTime2 != "")
+	{
+		strTimes += " and " + DoGetStartTime(strTime2) + " to " + DoGetEndTime(strTime2, strDuration);
+	}
+	strMessage += "<tr><td class='heading_cell'><b>TIME(S):</b></td><td>" + strTimes + "</td></tr>";
+	
+	if (strCost != "$0.00")
+	{
+		if (strDonation == "yes")
+			strMessage += "<tr><td class='heading_cell'><b>DONATION:</b></td><td>" + strCost + "</td></tr>";
+		else
+			strMessage += "<tr><td class='heading_cell'><b>COST:</b></td><td>" + strCost + "</td></tr>";
+	}
+	strMessage += "<tr><td class='heading_cell'><b>DESCRIPTION</b>:</td><td>" + strPurpose + "</td></tr>";
+	strMessage += "<tr><td colspan='2' style='text-align:center;'><a href='..about/" + strImageFilename + 
+				"'><img src='../about/" + strImageFilename + "' alt='IMAGE NEEDED' height='200' />" + 
+				"</a></td></tr>";
+
+	const p_details = document.getElementById("event_details_element");
+	const h1_heading = document.getElementById("event_popup_heading");
+	
+	if (p_details)
+  		p_details.innerHTML = strMessage;
+  		
+  	if ( h1_heading)
+  		h1_heading.innerHTML = strGroupName;
+  	
+  	DoDisplayHidePopup('div_event_popup_container', true);
+}
+	
 function DoGetCSSVarValStr(strCSSVarName)
 {
 	// 1. Get the root element html

@@ -1,3 +1,35 @@
+<?php
+
+	require_once "../common.php";
+
+	/*
+	DoInsertQuery5($g_dbMillhouse, "millhouse_db.donations", "given_names", $_POST["text_given_names"], 
+					"surname", $_POST["text_surname"], "email", $_POST["text_email"], 
+					"phone", $_POST["text_phone"], "amount", $_POST["text_amount"]);
+	*/				
+	function is_localhost() 
+	{
+		$whitelist = ['127.0.0.1', '::1'];
+		return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
+	}
+	
+	if (isset($_GET["submit_app"]))
+	{
+		$_POST["text_given_names"] = $_GET["text_given_names"];
+		unset($_GET["text_given_names"]);
+		$_POST["text_surname"] = $_GET["text_surname"];
+		unset($_GET["text_surname"]);
+		$_POST["text_email"] = $_GET["text_email"];
+		unset($_GET["text_email"]);
+		$_POST["text_phone"] = $_GET["text_phone"];
+		unset($_GET["text_phone"]);
+		$_POST["text_amount"] = $_GET["text_amount"];
+		unset($_GET["text_amount"]);
+		$_POST["radio_method"] = $_GET["radio_method"];
+		unset($_GET["radio_method"]);
+	}		
+	
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -68,55 +100,46 @@
 		<p><b>State:</b> VIC</p>
 		<p><b>Postcode:</b> 3465</p>
 		<p><b>ABN:</b> 59 149 634 975</p>
-		<p><b>Payment method:</b> <?php echo $_POST["method"]; ?></p>
+		<p><b>Payment method:</b> <?php echo $_POST["radio_method"]; ?></p>
 		<p><b><u>DONOR DETAILS</u></b></p>
-		<p><b>Name: </b><?php echo $_POST["given_names"] . " " . $_POST["surname"]; ?></p>
-		<p><b>Email: </b><?php echo $_POST["email"]; ?></p>
-		<p><b>Phone: </b><?php echo $_POST["phone"]; ?></p>
+		<p><b>Name: </b><?php echo $_POST["text_given_names"] . " " . $_POST["text_surname"]; ?></p>
+		<p><b>Email: </b><?php echo $_POST["text_email"]; ?></p>
+		<p><b>Phone: </b><?php echo $_POST["text_phone"]; ?></p>
 
 		<?php
-			/*
-			$_POST["given_names"] = "Fred";
-			$_POST["surname"] = "Smith";
-			$_POST["amount"] = "100";
-			*/
-			require "common.php";
-			
-			DoInsertQuery5($g_dbMillhouse, "millhouse_db.donations", "given_names", $_POST["given_names"], "surname", 
-							$_POST["surname"], "email", $_POST["email"], "phone", $_POST["phone"], "amount", $_POST["amount"]);
-							
-			function is_localhost() 
-			{
-				$whitelist = ['127.0.0.1', '::1'];
-    			return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
-			}			
-			
+
 			$strMsg = "";
-			if (strcmp($_POST["method"], "Credit card") == 0)
+			if (strcmp($_POST["radio_method"], "Credit card") == 0)
 			{
-				$strMsg = "Please ring me for my credit card ddetails.";
+				$strMsg = "Please ring me for my credit card details.";
 			}
-			else
+			else if (strcmp($_POST["radio_method"], "Bank transfer") == 0)
 			{
 				$strMsg = "Please ring me and provide me with your bank account details.";
 			}
+			else if (strcmp($_POST["radio_method"], "Cash") == 0)
+			{
+				$strMsg = "I will bring the cash donation to the reception desk.";
+			}
 			if (is_localhost())
 			{
-				echo "<script type=\"text/javascript\">\n";
-				echo "     alert(\"Emails can't be sent from localhost...\\n\\n" . 
+				PrintJavascriptLine("alert(\"Emails can't be sent from localhost...\\n\\n" . 
 					 "SEND TO: " . $g_strEmailManager . "\\nSUBJECT: Donation to Millhouse\\n" . 
-					"NAME: " . $_POST["given_names"] . " " . $_POST["surname"] . "\\nPHONE: " . 
-					$_POST["phone"] . "\\nEMAIL: " . $_POST["email"] . "\\nAMOUNT: " . $_POST["amount"] . 
-					"\\nPAYMENT METHOD: " . $_POST["method"] .
-					"\\n\\n" . $strMsg . "\");\n";
-				echo "</script>\n";
+					"NAME: " . $_POST["text_given_names"] . " " . $_POST["text_surname"] . "\\nPHONE: " . 
+					$_POST["text_phone"] . "\\nEMAIL: " . $_POST["text_email"] . "\\nAMOUNT: " . $_POST["text_amount"] . 
+					"\\nPAYMENT METHOD: " . $_POST["radio_method"] .
+					"\\n\\n" . $strMsg . "\")", 1, true);
+
 			}
 			else
 			{
+			/*
 				mail($g_strEmailManager, "Donation to Millhouse", 
-						"I would like to make a donation to Millhouse...\n\nNAME: " . $_POST["given_names"] . " " . 
-						$_POST["surname"] . "\nPHONE: " . $_POST["phone"] . "\nEMAIL: " . $_POST["email"] . 
-						"\nAMOUNT: " . $_POST["amount"] . "\nPAYMENT METHOD: " . $_POST["method"] . "\n\n" . $strMsg . ".");
+						"I would like to make a donation to Millhouse...\n\nNAME: " . $_POST["text_given_names"] . " " . 
+						$_POST["text_surname"] . "\nPHONE: " . $_POST["text_phone"] . "\nEMAIL: " . $_POST["text_email"] . 
+						"\nAMOUNT: " . $_POST["text_amount"] . "\nPAYMENT METHOD: " . $_POST["radio_method"] . "\n\n" . 
+						$strMsg . ".");
+			*/
 			}		
 			function DoGetAmountInWords($fAmount)
 			{
@@ -127,9 +150,9 @@
 		?>
 		<hr/>
 		<p style="font-size:large;">
-			Thank you <?php echo $_POST["given_names"] . " " . $_POST["surname"]; ?> so much for your generous 
+			Thank you <?php echo $_POST["text_given_names"] . " " . $_POST["text_surname"]; ?> so much for your generous 
 			contribution of 
-			<?php echo DoGetAmountInWords($_POST["amount"]); ?> dollars ($<?php echo $_POST["amount"]; ?>) to 
+			<?php echo DoGetAmountInWords($_POST["text_amount"]); ?> dollars ($<?php echo $_POST["text_amount"]; ?>) to 
 			Millhouse. We are very grateful for your support.
 		</p>
 		<p>
@@ -140,6 +163,7 @@
 		<hr/>
 		<p id="do_not_print">Millhouse will contact you via phone to confirm your donation and obtain your credit card details or provide you 
 		with bank account details.</p>
+		
 		<p><input type="button" value="PRINT" id="do_not_print" onclick="window.print()" /></p>
 		
 	</body>
