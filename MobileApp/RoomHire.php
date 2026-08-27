@@ -51,17 +51,17 @@
 		}
 		$strTimes = $_POST["text_start_hour"] . ":" . $_POST["text_start_minute"];
 		$strTimes .= " to ";
-		$strTimes = $_POST["text_end_hour"] . ":" . $_POST["text_end_minute"];
+		$strTimes .= $_POST["text_end_hour"] . ":" . $_POST["text_end_minute"];
 	
 		$strHeaders = "From: " . $_POST["text_given_names"] . " " . $_POST["text_surname"] . "<" . $_POST["text_email"] . ">\r\nReply-To: " . $_POST["text_given_names"] . " " . $_POST["text_surname"] . "<" . $_POST["text_email"] . ">\r\n";
 		
 		$strMessage = "<p><b>NAME: </b>" . $_POST["text_given_names"] . " " . $_POST["text_surname"] . "</p>";
-		$strMessage = "<p><b>EMAIL: </b>" . $_POST["text_email"] . "</p>";
-		$strMessage = "<p><b>PHONE: </b>" . $_POST["text_phone"] . "</p>";
-		$strMessage = "<p><b>DATES: </b>" .$strDates . "</p>";
-		$strMessage = "<p><b>TIME: </b>" . $strTimes . "</p>";
+		$strMessage .= "<p><b>EMAIL: </b>" . $_POST["text_email"] . "</p>";
+		$strMessage .= "<p><b>PHONE: </b>" . $_POST["text_phone"] . "</p>";
+		$strMessage .= "<p><b>DATES: </b>" .$strDates . "</p>";
+		$strMessage .= "<p><b>TIME: </b>" . $strTimes . "</p>";
 		
-		if (mail($g_strEmailManager, "Room hire request from app...", $strMessage, $strHeaders))
+		if (mail($g_strEmailManager, "Room hire request from mobile app...", $strMessage, $strHeaders))
 		{
 			echo "OK";
 		}
