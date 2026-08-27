@@ -88,33 +88,6 @@
 		
 		<style type="text/css">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			.select_short
 			{
 				box-sizing: border-box;
@@ -322,47 +295,27 @@
 //**************************************************************************************************************************************************
 //**************************************************************************************************************************************************
 
-var g_arrayHireRoom = [{strName: "Board Room", strImageFilename1: "boardroom.jpg", strImageFilename2: "boardroom_cupboards.jpg", 
-						strImageFilename3: "", strImageFilename4: "",
-						nCostPerHour: 40, nCostPerDay: 140, nCostPerMonth: 0, 
-						strDescription: "A professional and flexible space suitable for meetings, staff training, workshops, presentations, planning sessions and group discussions.", 
-						strCapacity: "20 - 24"},
-						
-					   {strName: "Youth Room", strImageFilename1: "training_room.jpg", strImageFilename2: "training_room_television.jpg", 
-						strImageFilename3: "", strImageFilename4: "",
-						nCostPerHour: 40, nCostPerDay: 140, nCostPerMonth: 0, 
-						strDescription: "A welcoming and relaxed space designed for youth programs, group activities, workshops, meetings and community-based activities.", 
-						strCapacity: "12 - 16"},
-						
-					   {strName: "Personal Meeting Room", strImageFilename1: "front_loungeroom.jpg", strImageFilename2: "", nCostPerHour: 30, 
-						strImageFilename3: "", strImageFilename4: "",
-					    nCostPerDay: 130, nCostPerMonth:1200, 
-					    strDescription: "A comfortable and private setting for one-on-one appointments, interviews, counselling sessions, consultations or small informal meetings.", 
-					    strCapacity: "4 - 6"},
-					   
-					   {strName: "General Office x 2", strImageFilename1: "office1.jpg", strImageFilename2: "office2.jpg", nCostPerHour: 30, 
-						strImageFilename3: "", strImageFilename4: "",
-					    nCostPerDay: 130, nCostPerMonth: 1200, 
-					    strDescription: " private and professional workspace suitable for visiting services, client appointments, administration, interviews and short-term or ongoing business use.", 
-					    strCapacity: "2 - 4"},
-					   
-					   {strName: "Art Room", strImageFilename1: "art_room.jpg", strImageFilename2: "", 
-						strImageFilename3: "", strImageFilename4: "",
-					    nCostPerHour: 30, nCostPerDay: 130, nCostPerMonth: 1200, 
-					    strDescription: "A practical and welcoming space for art classes, craft groups, creative workshops, community activities and small group programs.", 
-					    strCapacity: "12"},
-					   
-					   {strName: "Kitchenette – Tea Room", strImageFilename1: "TeaRoom1.jpg", strImageFilename2: "TeaRoom2.jpg", 
-						strImageFilename3: "", strImageFilename4: "",
-					    nCostPerHour: 30, nCostPerDay: 130, nCostPerMonth: 0, 
-					    strDescription: "A convenient space for light food preparation, refreshments, small catering activities and programs that require basic kitchen facilities.", 
-					    strCapacity: "2 - 4"},
-					   
-					   {strName: "Commercial Kitchen and Dining Room", strImageFilename1: "Kitchen1.jpg", strImageFilename2: "Kitchen2.jpg", 
-						strImageFilename3: "DiningRoom1.jpg", strImageFilename4: "DiningRoom3.jpg",
-					    nCostPerHour: 40, nCostPerDay: 140, nCostPerMonth: 0, 
-					    strDescription: "A larger space suitable for cooking programs, food preparation, catering, community meals, demonstrations and group dining activities.", 
-					    strCapacity: "6 - 60"}];
+var g_arrayHireRoom = [
+<?php
+	
+	for ($nI = 0, $nLength = count($g_arrayHireRoom), $nLastI = $nLength - 1; $nI < count($g_arrayHireRoom); $nI++)
+	{
+		echo "{";
+		
+		foreach ($g_arrayHireRoom[$nI] as $strKey => $strValue)
+		{
+			echo $strKey . ": '" . $strValue . "'";
+			if ($strKey != "strCapacity")
+				echo ", ";
+		}
+		echo "}";
+		
+		if ($nI < ($nLastI))
+			echo ",";
+		echo "\n";
+	}
+?>
+					  ];
 
 	function DoLoadRoomSelectOptions(strSelectID)
 	{

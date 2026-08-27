@@ -16,7 +16,7 @@
 				$strTimes = "";
 				$bGo = true;
 				
-				if (($nDOW == (int)$row["dow1"]) && ((int)$row["dow2"] == -1))
+				if ($nDOW == (int)$row["dow1"])
 				{
 					$strTimes = DoGetStartTime($row["time1"]) . " to ";
 					$strTimes .= DoGetEndTime($row["time1"], $row["duration"]);
@@ -29,8 +29,16 @@
 				}
 				else if ($nDOW == (int)$row["dow2"])
 				{
-					$strTimes = DoGetStartTime($row["time2"]) . " to ";
-					$strTimes .= DoGetEndTime($row["time2"], $row["duration"]);	
+					if ($row["time2"] !== NULL)
+					{
+						$strTimes = DoGetStartTime($row["time2"]) . " to ";
+						$strTimes .= DoGetEndTime($row["time2"], $row["duration"]);	
+					}
+					else
+					{
+						$strTimes = DoGetStartTime($row["time1"]) . " to ";
+						$strTimes .= DoGetEndTime($row["time1"], $row["duration"]);	
+					}
 				}
 				else if (((int)$row["dow1"] == 0) && ($nDOW != 0) && ($nDOW != 6))
 				{				

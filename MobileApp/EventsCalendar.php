@@ -56,6 +56,23 @@
 		<title>Events For Date</title>
 		<style type="text/css">
 		
+			a
+			{
+				color: rgba(205,26,120,1);
+				font-size: large;
+			};
+			
+			ul li::marker
+			{
+				color: /*rgba(249,139,11,1)*/blue;
+			}
+			
+			a:hover,
+			a:active
+			{
+				color: rgba(249,139,11,1);
+			}
+			
 			.event_popup_container
 			{
 				display: none;

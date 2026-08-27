@@ -2,11 +2,10 @@
 
 	require_once "../common.php";
 
-	/*
 	DoInsertQuery5($g_dbMillhouse, "millhouse_db.donations", "given_names", $_POST["text_given_names"], 
 					"surname", $_POST["text_surname"], "email", $_POST["text_email"], 
 					"phone", $_POST["text_phone"], "amount", $_POST["text_amount"]);
-	*/				
+			
 	function is_localhost() 
 	{
 		$whitelist = ['127.0.0.1', '::1'];
@@ -133,13 +132,11 @@
 			}
 			else
 			{
-			/*
 				mail($g_strEmailManager, "Donation to Millhouse", 
 						"I would like to make a donation to Millhouse...\n\nNAME: " . $_POST["text_given_names"] . " " . 
 						$_POST["text_surname"] . "\nPHONE: " . $_POST["text_phone"] . "\nEMAIL: " . $_POST["text_email"] . 
 						"\nAMOUNT: " . $_POST["text_amount"] . "\nPAYMENT METHOD: " . $_POST["radio_method"] . "\n\n" . 
 						$strMsg . ".");
-			*/
 			}		
 			function DoGetAmountInWords($fAmount)
 			{
