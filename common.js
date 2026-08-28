@@ -6,6 +6,70 @@
 //******************************************************************************
 //******************************************************************************
 
+if (sessionStorage.getItem("bAudioAssistOn") === null)
+	sessionStorage.setItem("bAudioAssistOn", "false");
+
+function DoSetAudioAssist()
+{
+	let checkboxAudioAssist = document.getElementById("checkbox_audio_assist");
+	
+	if (checkboxAudioAssist)
+		checkboxAudioAssist.checked = sessionStorage.getItem("bAudioAssistOn") == "true";
+}
+
+function DoClickAudioAssist(checkboxAudioAssist)
+{
+	let strChecked = checkboxAudioAssist.checked ? "true" : "false";
+	
+	sessionStorage.setItem("bAudioAssistOn", strChecked);
+}
+
+function DoPlayAudio(strAudioID)
+{
+	if (sessionStorage.getItem("bAudioAssistOn") == "true")
+	{
+		let audio = document.getElementById(strAudioID);
+	
+		if (audio)
+		{
+			audio.pause();
+			audio.currentTime = 0;
+			audio.play();
+		}
+	}
+/*
+	if (g_utterance !== null)
+	{
+		if ("speechSynthesis" in window) 
+		{		
+			// Create a new utterance instance			
+			if (Element.innerText !== null)
+				g_utterance = new SpeechSynthesisUtterance(Element.placeholder);
+			else if ((Element.placeholder !== null) && (Element.placeholder !== ""))
+				g_utterance = new SpeechSynthesisUtterance(Element.placeholder);
+			else
+				g_utterance = new SpeechSynthesisUtterance("Element '" + Element.id + "' has neither innerText nor a 'placeholder' property set!");
+			
+			// Optional: Set properties like pitch, rate, or volume
+			g_utterance.pitch = 1.0; // Range: 0 to 2
+			g_utterance.rate = 1.0;  // Range: 0.1 to 10
+			g_utterance.volume = 1.0; // Range: 0 to 1
+			g_utterance.lang = "en-US";
+			g_utterance.voice = arrayVoices[0];
+		
+			// Stop any ongoing speech
+	    	window.speechSynthesis.cancel();
+			// Speak the text
+			window.speechSynthesis.speak(g_utterance);
+		}
+	    else
+	    {
+	    	console.warn("Speech synthesis is not supported...");
+	    }
+	}
+*/
+}
+
 function DoDisplayHidePopup(strDivID, bShow)
 {
 	let divInstructions = document.getElementById(strDivID);
@@ -356,12 +420,21 @@ function DoOnNavMenuTransitioned()
 	}
 }
 
+function DoKeyPress(Event)
+{
+	if (Event.key === "Enter")
+	{
+		// Trigger the onclick handler
+		Event.target.click(); 
+	}
+}
+
 function DoOpenCloseMenu(bDoToggle)
 {
 	let spanMenuText = document.getElementById("span_menu_text"),
 		divNav = document.getElementById("div_navigation"),
 		divNavMenu = document.getElementById("div_navigation_menu"),
-		strMenuText = "◄ <span class=hamburger>≡</span> MENU ◄",
+		strMenuText = "◄ <span class=hamburger>≡</span> MAIN MENU ◄",
 		bOpen = JSON.parse(sessionStorage.getItem("menu_open"));
 		
 	if (spanMenuText && divNav && divNavMenu)
@@ -376,14 +449,14 @@ function DoOpenCloseMenu(bDoToggle)
 			spanMenuText.innerHTML = strMenuText.replaceAll("≡", "X");
 			divNavMenu.style.display = "inline-block";
 			divNav.style.width = "var(--nav_width)";
-			DoChangeHamburgerFontSizeSmall(true);
+			//DoChangeHamburgerFontSizeSmall(true);
 			divNavMenu.style.width = "var(--nav_menu_width)";
 		}
 		else
 		{
 			spanMenuText.innerHTML = strMenuText.replaceAll("◄", "►");
 			divNav.style.width = "var(--nav_menu_arrow_width)";
-			DoChangeHamburgerFontSizeSmall(false);
+			//DoChangeHamburgerFontSizeSmall(false);
 			divNavMenu.style.width = "0px";
 		}
 		// For some reason ontransitionend handler is called only for the transition from full width to zero width!

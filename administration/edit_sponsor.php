@@ -774,6 +774,9 @@ echo "######################<br>\n";
 		<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
+
+		<audio id="audio_main_menu" src="/voices/MainMenu.mp3" preload="auto"></audio>
+
 	</head>
 	<body onload="DoOnPageLoadComplete()">
 
@@ -880,7 +883,7 @@ echo "######################<br>\n";
 										</td>
 										<td>
 <div id="div_navigation_arrow" class="navigation_arrow">
-	<span id="span_menu_text" class="span_menu_text" onclick="DoOpenCloseMenu(true)">
+	<span id="span_menu_text" class="span_menu_text blink" tabindex="0" onfocus="DoPlayAudio('audio_main_menu')" onmouseenter="DoPlayAudio('audio_main_menu')" onclick="DoOpenCloseMenu(true)" onkeyup="DoKeyPress(event)">
 		XXXXX	
 	</span>
 </div>
@@ -898,6 +901,9 @@ echo "######################<br>\n";
 									<tr>
 										<td>
 											<div class="page_heading"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+										</td>
+										<td style="text-align:right;">
+											<form><input type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssist(this)" /><label for="checkbox_audio_assist"><b>AUDIO ASSIST</b></label></form>
 										</td>
 										<td style="text-align:right;">
 											<?php
@@ -1148,6 +1154,10 @@ echo "######################<br>\n";
 			<script type="text/javascript">
 				/* See nav_menu.js */			
 				DoOpenCloseMenu(false/* Do not toggle the flag */);
+				
+				/* See common.js*/
+				DoSetAudioAssist();
+				
 			</script>
 			<!-- Begin Footer -->
 			<div class="footer">

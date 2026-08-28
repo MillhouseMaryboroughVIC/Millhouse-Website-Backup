@@ -12,7 +12,7 @@
 	--border_radius: 5px;
 	--nav_width: /*318px*/calc(var(--nav_menu_width) + var(--nav_menu_arrow_width));
 	--nav_menu_width: 295px;
-	--nav_menu_arrow_width: 25px;
+	--nav_menu_arrow_width: 30px;
 	--nav_height_adjust: 20px;
 	
 	--nav_menu_close_width_adjust: 36px;
@@ -268,10 +268,14 @@ hr
   	font-size: large;
 	color: white;
 }
+.span_menu_text:focus
+{
+	color: black;
+}
 .hamburger
 {
 	font-size: x-large;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: var(--font_family);
 	font-weight: bolder;
 }
 .navigation_arrow
@@ -480,15 +484,19 @@ hr
 
 {
 	background-color: LightGoldenRodYellow;
-}.blink
+}
+.blink_faster
 {
-	animation: flash 1.5s infinite;
+	animation: flash 3s infinite;
+}
+.blink
+{
+	animation: flash 5s infinite;
 }
 @keyframes flash 
 {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+  0%, 90%, 100% { opacity: 1; }
+  48%, 52% { opacity: 0; }
 }
 .footer 
 {
