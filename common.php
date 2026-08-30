@@ -561,6 +561,7 @@ $g_arrayHireRoom = [
 	{
 		$strHTML = "";
 		$strURI = strtolower($_SERVER["REQUEST_URI"]);
+		$strText = "Click here to learn why Millhouse is a worthy cause.";
 
 		if (!str_contains($strURI, "donation"))
 		{
@@ -574,7 +575,7 @@ $g_arrayHireRoom = [
 					  "    <tr>\n" . 
 					  "        <td style=\"padding-left:10px;vertical-align:middle;overflow-wrap:word-wrap;white-space:normal;\">\n" . 
 					  "            <span class=\"donation_span\">\n" . 
-					  "                Click <a href=\"" . DoGetParentOrCurrentDir() . "contribute/why_donate.php\" class=\"blink\">here</a>" . 
+					  "                Click <a href=\"" . DoGetParentOrCurrentDir() . "contribute/why_donate.php\" class=\"blink\" tabindex=\"0\" onfocus=\"DoSpeakElement(this, '" . $strText . "')\" onmouseenter=\"DoSpeakElement(this, '" . $strText . "')\">here</a>" . 
 					  "                to learn why Millhouse is a worthy cause.\n" . 
 					  "            </span>\n" .
 					  "        </td>\n" . 
