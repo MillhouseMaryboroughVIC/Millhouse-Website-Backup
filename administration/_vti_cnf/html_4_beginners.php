@@ -1,14 +1,14 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|30 Aug 2026 08:33:58 -0000
+vti_timelastmodified:TR|30 Aug 2026 10:38:33 -0000
 vti_extenderversion:SR|12.0.0.0
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
 vti_timecreated:TR|15 Aug 2026 15:38:07 -0000
 vti_title:SR|HTML for Beginners
 vti_backlinkinfo:VX|administration/PageEditInstructions.html
-vti_nexttolasttimemodified:TR|30 Aug 2026 08:17:12 -0000
-vti_cacheddtm:TX|30 Aug 2026 08:17:12 -0000
-vti_filesize:IR|51268
+vti_nexttolasttimemodified:TR|30 Aug 2026 10:35:41 -0000
+vti_cacheddtm:TX|30 Aug 2026 10:38:33 -0000
+vti_filesize:IR|51664
 vti_cachedtitle:SR|HTML for Beginners
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
 vti_cachedlinkinfo:VX|G|../master.dwt H|https://www.millhouse.org.au/ Q|../styles/style4PC.css H|../favicon.jpg S|../common.js H|https://fonts.googleapis.com H|https://fonts.gstatic.com Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 H|../images/MillHouse.jpg S|../images/MillHouse.jpg H|../images/MillHouseNeighborhoodHouse1.jpg S|../images/MillHouseNeighborhoodHouse1.jpg H|../images/MillHouseNeighborhoodHouse2.jpg S|../images/MillHouseNeighborhoodHouse2.jpg H|../index.php H|../about/about.php H|../calendar/calendar.php H|../room/room.php H|../sponsors/sponsors.php H|../contribute/contribute.php H|../contribute/join.php H|../contribute/volunteering.php H|../contribute/request_sponsorship.php H|../contribute/donation.php H|../contact/contact.php H|../site_history/site_history.php H|../governance/governance.php H|https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile H|../governance/rules/rules.php H|../governance/reports/reports.php H|../governance/policies/policies.php H|../governance/plan/plan.php H|../group_events/group_events.php H|administration.php H|https://www.w3schools.com/TAGS/default.asp S|images/CubeOnCube.jpg S|images/CubeInCube.jpg S|images/CubeHalfInCube.jpg S|images/BrowserWindow.jpg S|images/BrowserWindowBoxWidth.jpg S|images/CubeInCubeWidth.jpg S|images/SpansInDiv.jpg S|images/NewHTML.jpg H|https://www.w3schools.com/tags/tag_doctype.ASP H|https://www.w3schools.com/tags/tag_html.asp H|https://www.w3schools.com/tags/tag_head.asp H|https://www.w3schools.com/tags/tag_title.asp H|https://www.w3schools.com/tags/tag_style.asp H|https://www.w3schools.com/tags/tag_link.asp H|https://www.w3schools.com/tags/tag_header.asp H|https://www.w3schools.com/tags/tag_body.asp H|https://www.w3schools.com/tags/tag_footer.asp S|https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/960px-Information_icon.svg.png S|https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/960px-Information_icon.svg.png S|https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/960px-Information_icon.svg.png H|https://google.com H|https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/960px-Information_icon.svg.png S|https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/960px-Information_icon.svg.png H|https://www.w3schools.com/charsets/ref_emoji_smileys.asp

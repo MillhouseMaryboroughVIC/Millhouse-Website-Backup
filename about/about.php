@@ -43,6 +43,13 @@
 
 
 
+
+
+
+
+
+
+
 			.content img
 			{
 				height: 250px;
@@ -249,7 +256,7 @@
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
 										<td>
-											<div class="page_heading"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+											<div class="page_heading" id="div_page_heading" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><u><script type="text/javascript">document.write(document.title);</script></u></div>
 										</td>
 										<td style="text-align:right;">
 											<?php
@@ -631,6 +638,11 @@ is sure to suit your needs.</p>
 		}
 		
 		DoAllAttachListeners("div_content");
+		
+		if (JSON.parse(sessionStorage.getItem("bAudioAssistOn")))
+		{
+			alert("The audio assist feature requires user interaction to 'activate'.\n\nYou will need to click a blank part of the page after you close this message box.\n\nIt is annoying, but it is web browser requirement.");
+		}
 		
 	</script>
 	

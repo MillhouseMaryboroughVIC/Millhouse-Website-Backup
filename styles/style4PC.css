@@ -15,9 +15,6 @@
 	--nav_menu_arrow_width: 30px;
 	--nav_height_adjust: 20px;
 	
-	--nav_menu_close_width_adjust: 36px;
-	--nav_menu_open_width_adjust: 8px;
-	
 	--content_width_adjust_increasing: 40px;
 	--content_width_adjust_decreasing: 32px;
 	
@@ -206,8 +203,8 @@ hr
 	display: block;
 	position: relative;
 	left: -10px;
-	min-width:  calc(100% - 28px);
-	max-width: calc(100% - 28px);
+	min-width:  calc(100% - 32px);
+	max-width: calc(100% - 32px);
 	max-height: var(--nav_height);
 	min-height: var(--nav_height);
 	width: calc(var(--masthead_width) - var(--nav_arrow_width));

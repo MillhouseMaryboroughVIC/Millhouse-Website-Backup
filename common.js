@@ -85,7 +85,7 @@ function DoSpeakElement(Element, strText = "")
 				{
 					strText = Element.alt;
 				}
-				else if ((strTagName == "div") || (strTagName == "spn"))
+				else if ((strTagName == "div") || (strTagName == "span"))
 				{
 					if (Element.id == "div_navigation_arrow")
 					{
@@ -93,6 +93,10 @@ function DoSpeakElement(Element, strText = "")
 							strText = "Close the main menu";
 						else
 							strText = "Open the main menu";
+					}
+					else if (Element.id == "div_page_heading")
+					{
+						strText = Element.innerText;
 					}
 				}
 			}
@@ -533,7 +537,7 @@ function DoKeyPress(Event)
 	if (Event.key === "Enter")
 	{
 		// Trigger the onclick handler
-		Event.target.click(); 
+		Event.target.click();
 	}
 }
 
@@ -550,9 +554,10 @@ function DoOpenCloseMenu(bDoToggle)
 		divNav = document.getElementById("div_navigation"),
 		divNavMenu = document.getElementById("div_navigation_menu"),
 		strMenuText = "◄ <span class=hamburger>≡</span> MAIN MENU ◄",
+		divContent = document.getElementById("div_content"),
 		bOpen = DoGetMainMenuState();
-		
-	if (spanMenuText && divNav && divNavMenu)
+	
+	if (spanMenuText && divNav && divNavMenu && divContent)
 	{
 		if (bDoToggle)
 		{
@@ -564,14 +569,14 @@ function DoOpenCloseMenu(bDoToggle)
 			spanMenuText.innerHTML = strMenuText.replaceAll("≡", "X");
 			divNavMenu.style.display = "inline-block";
 			divNav.style.width = "var(--nav_width)";
-			//DoChangeHamburgerFontSizeSmall(true);
+			DoChangeHamburgerFontSizeSmall(true);
 			divNavMenu.style.width = "var(--nav_menu_width)";
 		}
 		else
 		{
 			spanMenuText.innerHTML = strMenuText.replaceAll("◄", "►");
 			divNav.style.width = "var(--nav_menu_arrow_width)";
-			//DoChangeHamburgerFontSizeSmall(false);
+			DoChangeHamburgerFontSizeSmall(false);
 			divNavMenu.style.width = "0px";
 		}
 		// For some reason ontransitionend handler is called only for the transition from full width to zero width!
