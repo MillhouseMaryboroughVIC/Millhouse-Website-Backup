@@ -451,12 +451,10 @@ body
 {
 	font-weight: 600;/*100 - 900*/;
 }
-.audio_assist_button
+.form_voice_assist_button
 {
-	width: 150px;
-	height: 30px;
-	font-size: medium;
-	font-weight: 600;
+	background-color: transparent!important;
+	border: none!important;
 }
 .form_voice_assist
 {
@@ -591,6 +589,7 @@ footer_table
 	border-width: 2px;
 	padding: 20px;
 	border-radius: 5px;
+	width: 700px;
 }
 .donation_form
 {
@@ -603,10 +602,6 @@ footer_table
 .upload_form
 {
 	width: 500px!important;
-}
-.form
-{
-	width: 700px;
 }
 .form table
 {
@@ -627,6 +622,10 @@ footer_table
 .form input[type=button],
 .form input[type=reset],
 .form button,
+.form_voice_assist_button input[type=submit],
+.form_voice_assist_button input[type=button],
+.form_voice_assist_button input[type=reset],
+.form_voice_assist_button button,
 p input[type=submit],
 p input[type=button],
 p input[type=reset],
