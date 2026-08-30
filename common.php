@@ -528,22 +528,22 @@ $g_arrayHireRoom = [
 	{
 		if (IsAdminLoggedIn())
 		{
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_groups.php\"><b>Add &amp; Edit Groups</b></a></li>\n";
-			//echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_group_events.php\"><b>Promote Groups</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/add_sponsor.php\"><b>Add a sponsor</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_sponsor.php\"><b>Edit a sponsor</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/friday_feast_menu.php\"><b>Update Friday feast menu</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/governance.php\"><b>Upload governance documents</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "governance/forms/forms.php\"><b>Blank Forms</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/web_diagnostics.php\"><b>Website diagnostics</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/html_4_beginners.php\"><b>HTML 4 Beginners</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/css_4_beginners.php\"><b>CSS 4 Beginners</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/javascript_4_beginners.php\"><b>JavaScript 4 Beginners</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/expression_web_4_beginners.php\"><b>Expression Web 4 Beginners</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_groups.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Add &amp; Edit Groups</b></a></li>\n";
+			//echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_group_events.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Promote Groups</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/add_sponsor.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Add a sponsor</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_sponsor.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Edit a sponsor</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/friday_feast_menu.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Update Friday feast menu</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/governance.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Upload governance documents</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "governance/forms/forms.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Blank Forms</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/web_diagnostics.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Website diagnostics</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/html_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>HTML 4 Beginners</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/css_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>CSS 4 Beginners</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/javascript_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>JavaScript 4 Beginners</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/expression_web_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Expression Web 4 Beginners</b></a></li>\n";
 		}
 		else if (IsLoggedIn())
 		{
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_group_events.php\"><b>Add &amp; Edit Group Events</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_group_events.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Add &amp; Edit Group Events</b></a></li>\n";
 		}
 	}
 	

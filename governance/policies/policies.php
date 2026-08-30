@@ -46,8 +46,6 @@
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
 
-		<audio id="audio_main_menu" src="/voices/MainMenu.mp3" preload="auto"></audio>
-
 	</head>
 	<body onload="DoOnPageLoadComplete()">
 
@@ -107,40 +105,53 @@
 	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
-		<li><a href="../../index.php">Home</a></li>
-		<li><a href="../../about/about.php">About Mill House</a></li>
-		<li><a href="../../calendar/calendar.php">Events Calendar</a></li>
-		<li><a href="../../room/room.php">Hire a room</a></li>
-		<li><a href="../../sponsors/sponsors.php">Our Collaborators</a></li>
 		<li>
-			<a href="../../contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">Become a contributor</a>
+		<a href="../../index.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Home</a></li>
+		<li>
+		<a href="../../about/about.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">About Mill House</a></li>
+		<li>
+		<a href="../../calendar/calendar.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Events Calendar</a></li>
+		<li>
+		<a href="../../room/room.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Hire a room</a></li>
+		<li>
+		<a href="../../sponsors/sponsors.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Our Collaborators</a></li>
+		<li>
+			<a href="../../contribute/contribute.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoClickNavLinkWithSubmenu('contribute')">Become a contributor</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../../contribute/join.php"><b>Become a member</b></a></li>
 				<li class="submenu_item">
-				<a href="../../contribute/volunteering.php"><b>Become a volunteer</b></a></li>
+				<a href="../../contribute/join.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Become a member</b></a></li>
 				<li class="submenu_item">
-				<a href="../../contribute/request_sponsorship.php"><b>Become a sponsor</b></a></li>
+				<a href="../../contribute/volunteering.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Become a volunteer</b></a></li>
 				<li class="submenu_item">
-				<a href="../../contribute/donation.php"><b>Make a donation</b></a></li>
+				<a href="../../contribute/request_sponsorship.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Become a sponsor</b></a></li>
+				<li class="submenu_item">
+				<a href="../../contribute/donation.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Make a donation</b></a></li>
 			</ul>
 		</li>
-		<!--<li><a href="people/people.php">Mill House People</a></li>-->
-		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
-		<li><a href="../../contact/contact.php">Contact</a></li>
-		<li><a href="../../site_history/site_history.php">Site History</a></li>
+		<!--<li><a href="people/people.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Mill House People</a></li>-->
+		<!--<li><a href="milestones/milestones.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Milestones</a></li>-->
 		<li>
-			<a href="../governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
+		<a href="../../contact/contact.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Contact</a></li>
+		<li>
+		<a href="../../site_history/site_history.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Site History</a></li>
+		<li>
+			<a href="../governance.php" onclick="DoClickNavLinkWithSubmenu('governance')" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Governance</a> 
 			<ul style="display:<?php echo DoShowHideSubmenu("governance"); ?>;" id="governance">
-				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>ACNC Listing</b></a></li>
-				<li class="submenu_item"><a href="../rules/rules.php"><b>Rules</b></a></li>
-				<li class="submenu_item"><a href="../reports/reports.php"><b>Annual Reports</b></a></li>
-				<li class="submenu_item"><a href="policies.php"><b>Policies</b></a></li>
-				<li class="submenu_item"><a href="../plan/plan.php"><b>Strategic Plan</b></a></li>
+				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>ACNC Listing</b></a></li>
+				<li class="submenu_item">
+				<a href="../rules/rules.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Rules</b></a></li>
+				<li class="submenu_item">
+				<a href="../reports/reports.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Annual Reports</b></a></li>
+				<li class="submenu_item">
+				<a href="policies.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Policies</b></a></li>
+				<li class="submenu_item">
+				<a href="../plan/plan.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Strategic Plan</b></a></li>
 			</ul>
 		</li>
-		<li><a href="../../group_events/group_events.php">Group Events</a></li>
 		<li>
-			<a href="../../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
+		<a href="../../group_events/group_events.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Group Events</a></li>
+		<li>
+			<a href="../../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Administration</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
 			
 			<?php DoDisplayAdministrationSubmenu(); ?>
@@ -151,8 +162,8 @@
 </div>
 										</td>
 										<td>
-<div id="div_navigation_arrow" class="navigation_arrow">
-	<span id="span_menu_text" class="span_menu_text blink" tabindex="0" onfocus="DoPlayAudio('audio_main_menu')" onmouseenter="DoPlayAudio('audio_main_menu')" onclick="DoOpenCloseMenu(true)" onkeyup="DoKeyPress(event)">
+<div id="div_navigation_arrow" class="navigation_arrow" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoOpenCloseMenu(true)" onkeyup="DoKeyPress(event)">
+	<span id="span_menu_text" class="span_menu_text blink">
 		XXXXX	
 	</span>
 </div>
@@ -166,13 +177,55 @@
 							<!-- Begin Content -->
 							<div class="content" id="div_content">
 								<br/>
+								
+								<form id="form_voice_assist" class="form form_voice_assist">
+									<table border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td style="text-align:right;">
+												<label for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
+											</td>
+											<td>
+												<input type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">
+											    <label for="select_voice">Choose Voice:</label>
+											</td>
+											<td>
+											    <select id="select_voice">
+											    </select>
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">
+												<label for="text_to_speak">Text to speak</label>
+											</td>
+											<td>
+												<input type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!"/>
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align:center;">
+												<button type="button" onclick="DoTestVoice('text_to_speak')">TEST</button>
+											</td>
+											<td style="text-align:center;">
+												<button type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)">CLOSE</button>
+											</td>
+										</tr>
+										<tr>
+											<td>
+											</td>
+											<td>
+											</td>
+										</tr>
+									</table>
+								</form>
+								
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
 										<td>
 											<div class="page_heading"><u><script type="text/javascript">document.write(document.title);</script></u></div>
-										</td>
-										<td style="text-align:right;">
-											<form><input type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssist(this)" /><label for="checkbox_audio_assist"><b>AUDIO ASSIST</b></label></form>
 										</td>
 										<td style="text-align:right;">
 											<?php
@@ -184,6 +237,7 @@
 										</td>
 									</tr>
 								</table>			
+								<form><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)" class="audio_assist_button">VOICE ASSIST</button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 
@@ -237,6 +291,20 @@
 			<!-- End Footer --></div>
 		<!-- End Container -->
 	</body>
+	
+	<script type="text/javascript">
+	
+		DoSetAudioAssistCheckbox();
+		
+		let selectVoices = document.getElementById("select_voice");
+		if (selectVoices)
+		{
+			selectVoices.innerHTML = g_strVoiceOptions;
+		}
+		
+		DoAllAttachListeners("div_content");
+		
+	</script>
 	
 </html>
 <!-- #BeginEditable "End" -->

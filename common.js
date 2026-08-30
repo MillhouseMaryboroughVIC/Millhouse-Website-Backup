@@ -1,10 +1,117 @@
 ﻿//******************************************************************************
 //******************************************************************************
 //** 
-//** MISCELLANEOUS FUNCTIONS
+//** AUDIO ASSIST FUNCTIONS
 //** 
 //******************************************************************************
 //******************************************************************************
+
+let g_strVoiceOptions = "",
+	g_arrayVoices = [];
+	
+	
+function DoGetVoiceOptions()
+{
+	let option = null;	
+
+	// Fetch g_arrayVoices from the browser's audio engine.
+	g_arrayVoices = window.speechSynthesis.getVoices();
+	
+	g_strVoiceOptions = "";
+	
+	// Loop through g_arrayVoices and add them to the dropdown list
+	for (let nI = 0; nI < g_arrayVoices.length; nI++)
+	{
+		strSelected = "";
+		if (parseInt(sessionStorage.getItem("nIndexSelectedVoice")) == nI)
+			strSelected = " selected";
+		g_strVoiceOptions += "<option value=\"" + nI.toString() + "\"" + strSelected + ">" + g_arrayVoices[nI].name +  
+				"</option>\n";		
+	}
+}
+
+if ((typeof window.speechSynthesis !== "undefined") && (g_strVoiceOptions.length == 0))
+{
+	window.speechSynthesis.onvoiceschanged = DoGetVoiceOptions;
+	DoGetVoiceOptions(); 
+}
+
+function DoSpeakText(strText)
+{
+	let nIndex = parseInt(sessionStorage.getItem("nIndexSelectedVoice"));
+	
+	if (strText != "")
+	{
+    	// 1. Create a new SpeechSynthesisUtterance object
+    	let utterance = new SpeechSynthesisUtterance(strText);
+
+	    // 2. (Optional) Customize the voice parameters
+	    utterance.rate = 1.0;  // Speed (0.1 to 10)
+	    utterance.pitch = 1.0; // Pitch (0 to 2)
+	    utterance.volume = 1.0; // Volume (0 to 1)
+	    utterance.voice = g_arrayVoices[parseInt(sessionStorage.getItem("nIndexSelectedVoice"))];
+		
+	    // 3. Pass the utterance to the speechSynthesis API to speak it aloud
+	    window.speechSynthesis.cancel();
+	    window.speechSynthesis.speak(utterance);
+	}
+}
+
+function DoSpeakElement(Element, strText = "")
+{
+	if (JSON.parse(sessionStorage.getItem("bAudioAssistOn")))
+	{
+		if (strText.length > 0)
+		{
+			// Do nothing...
+		}
+		else
+		{
+			if (Element)
+			{
+				let strTagName = Element.tagName.toLowerCase();
+				
+				if (strTagName == "input")
+				{
+				}
+				else if ((strTagName == "a") || (strTagName == "p") || (strTagName == "a") || 
+							(strTagName == "li") || (strTagName == "h1") || (strTagName == "h2") || 
+							(strTagName == "h3") || (strTagName == "h4") || (strTagName == "h5") || 
+							(strTagName == "h6"))	
+				{
+					strText = Element.innerText;
+				}
+				else if (strTagName == "area")
+				{
+					strText = Element.alt;
+				}
+				else if ((strTagName == "div") || (strTagName == "spn"))
+				{
+					if (Element.id == "div_navigation_arrow")
+					{
+						if (JSON.parse(sessionStorage.getItem("menu_open")))
+							strText = "Close the main menu";
+						else
+							strText = "Open the main menu";
+					}
+				}
+			}
+		}
+		DoSpeakText(strText);
+	}
+}
+
+function DoTestVoice(strTextInputID)
+{
+	let textToSpeak = document.getElementById(strTextInputID),
+		selectVoice = document.getElementById("select_voice");
+	
+	if (textToSpeak && selectVoice)
+	{
+		sessionStorage.setItem("nIndexSelectedVoice", selectVoice.selectedIndex.toString());
+		DoSpeakText(textToSpeak.value);
+	}
+}
 
 if (sessionStorage.getItem("bAudioAssistOn") === null)
 	sessionStorage.setItem("bAudioAssistOn", "false");
@@ -14,61 +121,62 @@ function DoSetAudioAssist()
 	let checkboxAudioAssist = document.getElementById("checkbox_audio_assist");
 	
 	if (checkboxAudioAssist)
-		checkboxAudioAssist.checked = sessionStorage.getItem("bAudioAssistOn") == "true";
+		checkboxAudioAssist.checked = JSON.parse(sessionStorage.getItem("menu_open"));
 }
 
-function DoClickAudioAssist(checkboxAudioAssist)
+function DoClickAudioAssistCheckbox(checkboxAudioAssist)
 {
 	let strChecked = checkboxAudioAssist.checked ? "true" : "false";
 	
 	sessionStorage.setItem("bAudioAssistOn", strChecked);
 }
 
-function DoPlayAudio(strAudioID)
+function DoSetAudioAssistCheckbox()
 {
-	if (sessionStorage.getItem("bAudioAssistOn") == "true")
-	{
-		let audio = document.getElementById(strAudioID);
+	let checkboxAudioAssist = document.getElementById("checkbox_audio_assist");
 	
-		if (audio)
-		{
-			audio.pause();
-			audio.currentTime = 0;
-			audio.play();
-		}
-	}
-/*
-	if (g_utterance !== null)
+	if (checkboxAudioAssist)
 	{
-		if ("speechSynthesis" in window) 
-		{		
-			// Create a new utterance instance			
-			if (Element.innerText !== null)
-				g_utterance = new SpeechSynthesisUtterance(Element.placeholder);
-			else if ((Element.placeholder !== null) && (Element.placeholder !== ""))
-				g_utterance = new SpeechSynthesisUtterance(Element.placeholder);
-			else
-				g_utterance = new SpeechSynthesisUtterance("Element '" + Element.id + "' has neither innerText nor a 'placeholder' property set!");
-			
-			// Optional: Set properties like pitch, rate, or volume
-			g_utterance.pitch = 1.0; // Range: 0 to 2
-			g_utterance.rate = 1.0;  // Range: 0.1 to 10
-			g_utterance.volume = 1.0; // Range: 0 to 1
-			g_utterance.lang = "en-US";
-			g_utterance.voice = arrayVoices[0];
-		
-			// Stop any ongoing speech
-	    	window.speechSynthesis.cancel();
-			// Speak the text
-			window.speechSynthesis.speak(g_utterance);
-		}
-	    else
-	    {
-	    	console.warn("Speech synthesis is not supported...");
-	    }
+		checkboxAudioAssist.checked = JSON.parse(sessionStorage.getItem("bAudioAssistOn"));
 	}
-*/
 }
+
+function DoAttachListeners(arrayElements)
+{
+	for (let nI = 0; nI < arrayElements.length; nI++)
+	{
+		console.log();
+		arrayElements[nI].addEventListener('mouseenter', function() {DoSpeakElement(this)});
+		arrayElements[nI].addEventListener('focus', function() {DoSpeakElement(this)});
+	}
+}
+
+function DoAllAttachListeners(strElementID)
+{
+	let Element = document.getElementById(strElementID);
+	
+	if (Element)
+	{
+		DoAttachListeners(Element.querySelectorAll("p"));
+		DoAttachListeners(Element.querySelectorAll("a"));
+		DoAttachListeners(Element.querySelectorAll("li"));
+		DoAttachListeners(Element.querySelectorAll("h1"));
+		DoAttachListeners(Element.querySelectorAll("h2"));
+		DoAttachListeners(Element.querySelectorAll("li"));
+		DoAttachListeners(Element.querySelectorAll("h3"));
+		DoAttachListeners(Element.querySelectorAll("h4"));
+		DoAttachListeners(Element.querySelectorAll("h5"));
+		DoAttachListeners(Element.querySelectorAll("h6"));
+	}
+}
+
+//******************************************************************************
+//******************************************************************************
+//** 
+//** MISCELLANEOUS FUNCTIONS
+//** 
+//******************************************************************************
+//******************************************************************************
 
 function DoDisplayHidePopup(strDivID, bShow)
 {
@@ -429,13 +537,20 @@ function DoKeyPress(Event)
 	}
 }
 
+function DoGetMainMenuState()
+{
+	let bOpen = JSON.parse(sessionStorage.getItem("menu_open"));
+	
+	return bOpen;
+}
+
 function DoOpenCloseMenu(bDoToggle)
 {
 	let spanMenuText = document.getElementById("span_menu_text"),
 		divNav = document.getElementById("div_navigation"),
 		divNavMenu = document.getElementById("div_navigation_menu"),
 		strMenuText = "◄ <span class=hamburger>≡</span> MAIN MENU ◄",
-		bOpen = JSON.parse(sessionStorage.getItem("menu_open"));
+		bOpen = DoGetMainMenuState();
 		
 	if (spanMenuText && divNav && divNavMenu)
 	{
@@ -476,6 +591,7 @@ function DoOpenCloseMenu(bDoToggle)
 //** 
 //******************************************************************************
 //******************************************************************************
+
 let g_arraySponsorBookmarks = [];
 
 function DoClickSponsor(strPath, strSponsorBookmarksList)
@@ -504,16 +620,6 @@ function DoClickSponsor(strPath, strSponsorBookmarksList)
 			if (fOpacity > 0)
 				window.open(strPath + "sponsors/sponsors.php#" + g_arraySponsorBookmarks[nI], "_self");
 		}
-	}
-}
-
-function DoPopupName(strPopupID, strName)
-{
-	let pName = document.getElementById(strPopupID);
-	
-	if (pName)
-	{		
-		pName.innerText = " " + strName + " ";
 	}
 }
 

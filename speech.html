@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Text to Speech - Change Voice</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        textarea { width: 100%; max-width: 400px; height: 100px; display: block; margin-bottom: 15px; }
+        select { width: 100%; max-width: 400px; padding: 8px; display: block; margin-bottom: 15px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript Text to Speech (Voice Selector)</h2>
+    
+    <textarea id="textInput" placeholder="Type something to read aloud...">Hello! Choose a different voice from the list below.</textarea>
+    
+    <!-- Dropdown for selecting voices -->
+    <label for="voiceSelect">Choose Voice:</label>
+    <select id="voiceSelect"><option>Loading voices...</option></select>
+    
+    <button onclick="speakText()">Speak</button>
+
+    <script>
+        const voiceSelect = document.getElementById("voiceSelect");
+        let voices = [];
+
+        // 1. Populate the dropdown with available system voices
+        function loadVoices() {
+            // Fetch voices from the browser's audio engine
+            voices = window.speechSynthesis.getVoices();
+            
+            // Clear the temporary loading option
+            voiceSelect.innerHTML = "";
+
+            // Loop through voices and add them to the dropdown list
+            voices.forEach((voice, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        // 2. Trigger voice loading (Chrome/Edge need onvoiceschanged, Safari/Firefox run loadVoices immediately)
+        if (typeof window.speechSynthesis !== "undefined") {
+            window.speechSynthesis.onvoiceschanged = loadVoices;
+            loadVoices(); 
+        }
+
+        // 3. Speak the text using the selected voice
+        function speakText() {
+            const text = document.getElementById("textInput").value;
+
+            if (text.trim() === "") {
+                alert("Please enter some text first!");
+                return;
+            }
+
+            const utterance = new SpeechSynthesisUtterance(text);
+
+            // Set the voice based on the dropdown selection index
+            const selectedVoiceIndex = voiceSelect.value;
+            if (voices[selectedVoiceIndex]) {
+                utterance.voice = voices[selectedVoiceIndex];
+            }
+
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+
+</body>
+</html>

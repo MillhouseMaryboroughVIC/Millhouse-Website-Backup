@@ -460,7 +460,24 @@ hr
 {
 	font-weight: 600;/*100 - 900*/;
 }
+.audio_assist_button
+{
+	width: 150px;
+	height: 30px;
+	font-size: medium;
+	font-weight: 600;
+}
+.form_voice_assist
+{
+	display: none;
+	position: fixed; /* Positions the element relative to the browser window */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Centers the popup */
+	z-index: 1000; /* Ensures it is above other elements */
+}
 .instruction_popup
+
 {
 	display: none;
 	position: fixed; /* Positions the element relative to the browser window */
