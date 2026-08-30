@@ -290,6 +290,7 @@ hr
 	width: var(--nav_arrow_width);
 	padding: 2px;
 	margin: 0px;
+	white-space: nowrap;
 	overflow: hidden;
 }
 .navigation_arrow span:hover

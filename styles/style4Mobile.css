@@ -16,10 +16,7 @@
 	--nav_menu_arrow_width: 30px;
 	--nav_height_adjust: 20px;
 	--content_backround_image_url: url("/images/Mural.jpg");
-	
-	--nav_menu_close_width_adjust: 36px;
-	--nav_menu_open_width_adjust: 8px;
-	
+		
 	--content_width_nav_menu_open: calc(var(--masthead_width) - 274px);
 	--content_width_nav_menu_closed: calc(var(--masthead_width) - 58px);
 	
@@ -286,6 +283,7 @@ body
 	width: var(--nav_arrow_width);
 	padding: 2px;
 	margin: 0px;
+	white-space: nowrap;
 	overflow: hidden;
 }
 .navigation_arrow span:hover
