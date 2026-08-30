@@ -113,6 +113,7 @@
 
 
 
+
 			#green_div,
 			.green_div
 			{
@@ -379,7 +380,7 @@
 										</td>
 									</tr>
 								</table>			
-								<form><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)" class="audio_assist_button">VOICE ASSIST</button></form>
+								<form class="form"><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)" class="audio_assist_button">VOICE ASSIST</button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 

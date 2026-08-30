@@ -700,6 +700,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 
 
 
+
 			.content td
 			{
 				font-size: small;
@@ -1269,7 +1270,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 										</td>
 									</tr>
 								</table>			
-								<form><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)" class="audio_assist_button">VOICE ASSIST</button></form>
+								<form class="form"><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)" class="audio_assist_button">VOICE ASSIST</button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 
