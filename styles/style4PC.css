@@ -617,6 +617,7 @@ footer_table
 .form input[type=submit],
 .form input[type=button],
 .form input[type=reset],
+.form button,
 .form_voice_assist_button input[type=submit],
 .form_voice_assist_button input[type=button],
 .form_voice_assist_button input[type=reset],
