@@ -74,6 +74,33 @@ LOCK TABLES `events` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `group_photo_areas`
+--
+
+DROP TABLE IF EXISTS `group_photo_areas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `group_photo_areas` (
+  `shortkey` int unsigned NOT NULL AUTO_INCREMENT,
+  `area_tag` varchar(512) NOT NULL,
+  `image_height` int unsigned NOT NULL DEFAULT '250',
+  PRIMARY KEY (`shortkey`),
+  UNIQUE KEY `shortkey_UNIQUE` (`shortkey`),
+  UNIQUE KEY `area_tag_UNIQUE` (`area_tag`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `group_photo_areas`
+--
+
+LOCK TABLES `group_photo_areas` WRITE;
+/*!40000 ALTER TABLE `group_photo_areas` DISABLE KEYS */;
+INSERT INTO `group_photo_areas` VALUES (1,'<area shape=\'rect\' coords=\'89,93,121,139\' alt=\'Rayne Canning - Vice president of the management committee)\' href=\'#\' tabindex=\'0\' onfocus=\'DoSpeakElement(this)\' onmouseenter=\'DoSpeakElement(this)\' onclick=\'alert(\'Reyne Canning (Vice president of the management committee)\')\' />',250),(2,'<area shape=\'rect\' coords=\'149,101,181,152\' alt=\'Cathy Shwogger - Volunteer & member of the management committee\' href=\'#\' tabindex=\'0\' onfocus=\'DoSpeakElement(this)\' onmouseenter=\'DoSpeakElement(this)\' onclick=\'alert(\'Cathy Schwager (Volunteer & member of the management committee)\')\' />',250),(3,'<area shape=\'rect\' coords=\'239,72,275,120\' alt=\'John Howden - Mill House administration Assistant\' href=\'#\' tabindex=\'0\' onfocus=\'DoSpeakElement(this)\' onmouseenter=\'DoSpeakElement(this)\' onclick=\'alert(\'John Howden (Mill House administration Assistant)\')\' />',250),(4,'<area shape=\'rect\' coords=\'121,80,151,128\' alt=\'Patrisha Rainbow - Volunteer\' href=\'#\' tabindex=\'0\' onfocus=\'DoSpeakElement(this)\' onmouseenter=\'DoSpeakElement(this)\' onclick=\'alert(\'Patrica Rainbow (Volunteer)\')\' />',250),(5,'<area shape=\'rect\' coords=\'174,79,207,122\' alt=\'Sarah McLean - Mill House Manager\' href=\'#\' tabindex=\'0\' onfocus=\'DoSpeakElement(this)\' onmouseenter=\'DoSpeakElement(this)\' onclick=\'alert(\'Sarah McLean (Mill House Manager)\')\' />',250),(6,'<area shape=\'rect\' coords=\'202,106,240,161\' alt=\'Kay Cameron - Volunteer\' href=\'#\' tabindex=\'0\' onfocus=\'DoSpeakElement(this)\' onmouseenter=\'DoSpeakElement(this)\' onclick=\'alert(\'Kay Cameron (Volunteer)\')\' />',250);
+/*!40000 ALTER TABLE `group_photo_areas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `groups`
 --
 
@@ -244,4 +271,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-08-16 22:45:39
+-- Dump completed on 2026-09-01 21:47:31

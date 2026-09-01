@@ -325,6 +325,7 @@ hr
   	font-weight: var(--font_weight);
   	font-style: var(--font_style);
 	color: var(--start_color);	
+	height: 40px;
 }
 .content h1,
 .form h1
@@ -457,6 +458,11 @@ hr
 .content b
 {
 	font-weight: 600;/*100 - 900*/;
+}
+.sight_impaired
+{
+	font-size: large!important;
+	font-weight:800!important;
 }
 .form_voice_assist_button
 {
@@ -647,13 +653,46 @@ p button,
   	font-style: var(--font_style);
 	font-size: small;
 }
-		
+.form input[type=submit]:active,
+.form input[type=button]:active,
+.form input[type=reset]:active,
+.form button:active,
+.form_voice_assist_button input[type=submit]:active,
+.form_voice_assist_button input[type=button]:active,
+.form_voice_assist_button input[type=reset]:active,
+.form_voice_assist_button button,
+p input[type=submit]:active,
+p input[type=button]:active,
+p input[type=reset]:active,
+p button:active,
+.instructions_button:active
+{
+	border-top-color: #D2D2D2;
+	border-left-color: #D2D2D2;
+	border-bottom-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+}	
+.form input[type=submit]:disabled,
+.form input[type=button]:disabled,
+.form input[type=reset]:disabled,
+.form button:disabled,
+.form_voice_assist_button input[type=submit]:disabled,
+.form_voice_assist_button input[type=button]:disabled,
+.form_voice_assist_button input[type=reset]:disabled,
+.form_voice_assist_button button:disabled,
+p input[type=submit]:disabled,
+p input[type=button]:disabled,
+p input[type=reset]:disabled,
+p button:disabled,
+.instructions_button:disabled
+{
+	color: gray;
+}
 .small_button
 {
 	font-size: x-small;
 	padding: 0px;
 }
-
 .form textarea, .form select, .form input[type=text], .form input[type=password]
 {
 	width: 40ch;

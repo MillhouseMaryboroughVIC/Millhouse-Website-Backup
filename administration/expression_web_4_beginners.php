@@ -163,7 +163,7 @@
 </div>
 										</td>
 										<td>
-<div id="div_navigation_arrow" class="navigation_arrow" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoOpenCloseMenu(true)" onkeyup="DoKeyPress(event)">
+<div id="div_navigation_arrow" class="navigation_arrow" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onmouseleave="DoStopSpeaking()" onclick="DoOpenCloseMenu(true)" onkeyup="DoKeyPress(event)">
 	<span id="span_menu_text" class="span_menu_text blink">
 		XXXXX	
 	</span>
@@ -180,38 +180,46 @@
 								<br/>
 								
 								<form id="form_voice_assist" class="form form_voice_assist">
+									<h1 style="font-weight:800;">VOICE ASSIST SETTINGS</h1>
+									<hr/>
+									<p class="sight_impaired" >
+										The voice assist feature works on Android mobile devices if you hold your finger down on a parapgraph or 
+										heading etc. This is the Android equivalent of hovering your PC mouse cursor over them. But it seems as 
+										though there is no way to make this feature work on iPhones or iPads unfortunately.
+									</p>
+									<hr/><br/>
 									<table border="0" cellpadding="0" cellspacing="0">
 										<tr>
 											<td style="text-align:right;">
-												<label for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
+												<label class="sight_impaired" for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
 											</td>
 											<td>
-												<input type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
+												<input class="sight_impaired" type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
 											</td>
 										</tr>
 										<tr>
 											<td style="text-align:right;">
-											    <label for="select_voice">Choose Voice:</label>
+											    <label class="sight_impaired" for="select_voice">Choose Voice:</label>
 											</td>
 											<td>
-											    <select id="select_voice">
+											    <select class="sight_impaired" id="select_voice">
 											    </select>
 											</td>
 										</tr>
 										<tr>
 											<td style="text-align:right;">
-												<label for="text_to_speak">Text to speak</label>
+												<label class="sight_impaired" for="text_to_speak">Text to speak</label>
 											</td>
 											<td>
-												<input type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!"/>
+												<input class="sight_impaired" type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!"/>
 											</td>
 										</tr>
 										<tr>
 											<td style="text-align:center;">
-												<button type="button" onclick="DoTestVoice('text_to_speak')">TEST</button>
+												<button class="sight_impaired" type="button" onclick="DoTestVoice('text_to_speak')">TEST</button>
 											</td>
 											<td style="text-align:center;">
-												<button type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)">CLOSE</button>
+												<button class="sight_impaired" type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)">CLOSE</button>
 											</td>
 										</tr>
 										<tr>
@@ -226,7 +234,7 @@
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
 										<td>
-											<div class="page_heading" id="div_page_heading" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+											<div class="page_heading" id="div_page_heading" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onmouseleave="DoStopSpeaking()"><u><script type="text/javascript">document.write(document.title);</script></u></div>
 										</td>
 										<td style="text-align:right;">
 											<?php
@@ -238,7 +246,7 @@
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)">VOICE ASSIST</button></form>
+								<form class="form_voice_assist_button"><button type="button" class="sight_impaired" onclick="DoDisplayHidePopup('form_voice_assist', true)">VOICE ASSIST</button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 								<h1>Introduction</h1>

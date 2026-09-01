@@ -25,7 +25,7 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title></title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -164,7 +164,7 @@
 </div>
 										</td>
 										<td>
-<div id="div_navigation_arrow" class="navigation_arrow" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoOpenCloseMenu(true)" onkeyup="DoKeyPress(event)">
+<div id="div_navigation_arrow" class="navigation_arrow" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onmouseleave="DoStopSpeaking()" onclick="DoOpenCloseMenu(true)" onkeyup="DoKeyPress(event)">
 	<span id="span_menu_text" class="span_menu_text blink">
 		XXXXX	
 	</span>
@@ -181,38 +181,46 @@
 								<br/>
 								
 								<form id="form_voice_assist" class="form form_voice_assist">
+									<h1 style="font-weight:800;">VOICE ASSIST SETTINGS</h1>
+									<hr/>
+									<p class="sight_impaired" >
+										The voice assist feature works on Android mobile devices if you hold your finger down on a parapgraph or 
+										heading etc. This is the Android equivalent of hovering your PC mouse cursor over them. But it seems as 
+										though there is no way to make this feature work on iPhones or iPads unfortunately.
+									</p>
+									<hr/><br/>
 									<table border="0" cellpadding="0" cellspacing="0">
 										<tr>
 											<td style="text-align:right;">
-												<label for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
+												<label class="sight_impaired" for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
 											</td>
 											<td>
-												<input type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
+												<input class="sight_impaired" type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
 											</td>
 										</tr>
 										<tr>
 											<td style="text-align:right;">
-											    <label for="select_voice">Choose Voice:</label>
+											    <label class="sight_impaired" for="select_voice">Choose Voice:</label>
 											</td>
 											<td>
-											    <select id="select_voice">
+											    <select class="sight_impaired" id="select_voice">
 											    </select>
 											</td>
 										</tr>
 										<tr>
 											<td style="text-align:right;">
-												<label for="text_to_speak">Text to speak</label>
+												<label class="sight_impaired" for="text_to_speak">Text to speak</label>
 											</td>
 											<td>
-												<input type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!"/>
+												<input class="sight_impaired" type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!"/>
 											</td>
 										</tr>
 										<tr>
 											<td style="text-align:center;">
-												<button type="button" onclick="DoTestVoice('text_to_speak')">TEST</button>
+												<button class="sight_impaired" type="button" onclick="DoTestVoice('text_to_speak')">TEST</button>
 											</td>
 											<td style="text-align:center;">
-												<button type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)">CLOSE</button>
+												<button class="sight_impaired" type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)">CLOSE</button>
 											</td>
 										</tr>
 										<tr>
@@ -227,7 +235,7 @@
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
 										<td>
-											<div class="page_heading" id="div_page_heading" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+											<div class="page_heading" id="div_page_heading" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onmouseleave="DoStopSpeaking()"><u><script type="text/javascript">document.write(document.title);</script></u></div>
 										</td>
 										<td style="text-align:right;">
 											<?php
@@ -239,7 +247,7 @@
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)">VOICE ASSIST</button></form>
+								<form class="form_voice_assist_button"><button type="button" class="sight_impaired" onclick="DoDisplayHidePopup('form_voice_assist', true)">VOICE ASSIST</button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 <p>&nbsp;</p>
@@ -249,6 +257,25 @@
 	{
 		DoDisplayLogoutForm();
 		DoDisplayChangeAdminPasswordForm();
+		
+		echo "<h1>Download the Mill House App</h1>\n";
+		echo "<p><b>PLEASE NOTE: </b>The app is still under development, and there are a few unimplemented administration features.</p>\n";
+
+		echo "All the main features are implemented and working, but there will likely be minor changes here and there. Also new features \n";
+		echo "may be added in the near future. So update the app regularly.</p>\n";
+		
+		echo "<p>To install, open this page on your mobile device a click the link below. You will get the following popup (or \n";
+		echo "something similar) when you try to install it.</p>\n";
+		
+		echo "<p><img src=\"images/AppInstallBlocked.jpg\" alt=\"AppInstallBlocked.jpg\" height=\"350\" /></p>\n";
+		
+		echo "<p>This is because the app was built with <a href=\"https://ai2a.appinventor.mit.edu/\">MIT App Inventor</a> and is\n";   
+		echo "being installed outside Google Play Store (or other trusted app store). You can trust the app. Just click 'More details'\n"; 
+		echo "and then 'Install anyway'.</p>\n";
+		
+		echo "<p><a href=\"MobileApp/Mill_House.apk\" download><img src=\"images/MillHouseApp.png\" alt=\"MillHouseApp.png\" width=\"150\" title=\"Tap this link on your mobile device to download and install the Mill House app.\"/></a></p>\n";
+		
+		
 	}
 	else
 	{

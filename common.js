@@ -36,6 +36,11 @@ if ((typeof window.speechSynthesis !== "undefined") && (g_strVoiceOptions.length
 	DoGetVoiceOptions(); 
 }
 
+function DoStopSpeaking()
+{
+	window.speechSynthesis.cancel();
+}
+
 function DoSpeakText(strText)
 {
 	let nIndex = parseInt(sessionStorage.getItem("nIndexSelectedVoice"));
@@ -74,12 +79,22 @@ function DoSpeakElement(Element, strText = "")
 				if (strTagName == "input")
 				{
 				}
-				else if ((strTagName == "a") || (strTagName == "p") || (strTagName == "a") || 
-							(strTagName == "li") || (strTagName == "h1") || (strTagName == "h2") || 
-							(strTagName == "h3") || (strTagName == "h4") || (strTagName == "h5") || 
-							(strTagName == "h6"))	
+				else if ((strTagName == "p") || (strTagName == "a") || (strTagName == "li") || (strTagName == "h1") || 
+						 (strTagName == "h2") || (strTagName == "h3") || (strTagName == "h4") || (strTagName == "h5") || 
+						 (strTagName == "h6"))	
 				{
 					strText = Element.innerText;
+				}
+				else if (strTagName == "a")
+				{
+					if ((Element.alt !== null) && (Element.alt !== ""))
+						strText = Element.alt;
+					else
+						strText = Element.innerText;
+				}
+				else if (strTagName == "img")
+				{
+					strText = Element.title;
 				}
 				else if (strTagName == "area")
 				{
@@ -150,8 +165,10 @@ function DoAttachListeners(arrayElements)
 	for (let nI = 0; nI < arrayElements.length; nI++)
 	{
 		console.log();
+		arrayElements[nI].addEventListener('mouseleave', function() {DoStopSpeaking()});
 		arrayElements[nI].addEventListener('mouseenter', function() {DoSpeakElement(this)});
 		arrayElements[nI].addEventListener('focus', function() {DoSpeakElement(this)});
+		arrayElements[nI].tabIndex = 0;
 	}
 }
 
@@ -171,6 +188,7 @@ function DoAllAttachListeners(strElementID)
 		DoAttachListeners(Element.querySelectorAll("h4"));
 		DoAttachListeners(Element.querySelectorAll("h5"));
 		DoAttachListeners(Element.querySelectorAll("h6"));
+		DoAttachListeners(Element.querySelectorAll("img"));
 	}
 }
 

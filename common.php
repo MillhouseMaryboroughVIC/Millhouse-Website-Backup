@@ -218,7 +218,7 @@
 	{
 		if ($bJSTags)
 			echo "<script type=\"text/javascript\">\n";
-		echo "    alert(\"" . $strError . "\");\n";
+		echo "    alert(\"ERROR: " . $strError . "\");\n";
 		if ($bJSTags)
 			echo "</script>\n";
 	}
@@ -534,6 +534,7 @@ $g_arrayHireRoom = [
 			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_sponsor.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Edit a sponsor</b></a></li>\n";
 			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/friday_feast_menu.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Update Friday feast menu</b></a></li>\n";
 			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/governance.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Upload governance documents</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/group_photo.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>New group photo</b></a></li>\n";
 			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "governance/forms/forms.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Blank Forms</b></a></li>\n";
 			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/web_diagnostics.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>Website diagnostics</b></a></li>\n";
 			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/html_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>HTML 4 Beginners</b></a></li>\n";

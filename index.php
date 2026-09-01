@@ -265,7 +265,7 @@ if ($row["name"] == "canasta")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -383,7 +383,7 @@ if ($row["name"] == "canasta")
 </div>
 										</td>
 										<td>
-<div id="div_navigation_arrow" class="navigation_arrow" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoOpenCloseMenu(true)" onkeyup="DoKeyPress(event)">
+<div id="div_navigation_arrow" class="navigation_arrow" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onmouseleave="DoStopSpeaking()" onclick="DoOpenCloseMenu(true)" onkeyup="DoKeyPress(event)">
 	<span id="span_menu_text" class="span_menu_text blink">
 		XXXXX	
 	</span>
@@ -400,38 +400,46 @@ if ($row["name"] == "canasta")
 								<br/>
 								
 								<form id="form_voice_assist" class="form form_voice_assist">
+									<h1 style="font-weight:800;">VOICE ASSIST SETTINGS</h1>
+									<hr/>
+									<p class="sight_impaired" >
+										The voice assist feature works on Android mobile devices if you hold your finger down on a parapgraph or 
+										heading etc. This is the Android equivalent of hovering your PC mouse cursor over them. But it seems as 
+										though there is no way to make this feature work on iPhones or iPads unfortunately.
+									</p>
+									<hr/><br/>
 									<table border="0" cellpadding="0" cellspacing="0">
 										<tr>
 											<td style="text-align:right;">
-												<label for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
+												<label class="sight_impaired" for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
 											</td>
 											<td>
-												<input type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
+												<input class="sight_impaired" type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
 											</td>
 										</tr>
 										<tr>
 											<td style="text-align:right;">
-											    <label for="select_voice">Choose Voice:</label>
+											    <label class="sight_impaired" for="select_voice">Choose Voice:</label>
 											</td>
 											<td>
-											    <select id="select_voice">
+											    <select class="sight_impaired" id="select_voice">
 											    </select>
 											</td>
 										</tr>
 										<tr>
 											<td style="text-align:right;">
-												<label for="text_to_speak">Text to speak</label>
+												<label class="sight_impaired" for="text_to_speak">Text to speak</label>
 											</td>
 											<td>
-												<input type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!"/>
+												<input class="sight_impaired" type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!"/>
 											</td>
 										</tr>
 										<tr>
 											<td style="text-align:center;">
-												<button type="button" onclick="DoTestVoice('text_to_speak')">TEST</button>
+												<button class="sight_impaired" type="button" onclick="DoTestVoice('text_to_speak')">TEST</button>
 											</td>
 											<td style="text-align:center;">
-												<button type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)">CLOSE</button>
+												<button class="sight_impaired" type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)">CLOSE</button>
 											</td>
 										</tr>
 										<tr>
@@ -446,7 +454,7 @@ if ($row["name"] == "canasta")
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
 										<td>
-											<div class="page_heading" id="div_page_heading" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><u><script type="text/javascript">document.write(document.title);</script></u></div>
+											<div class="page_heading" id="div_page_heading" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onmouseleave="DoStopSpeaking()"><u><script type="text/javascript">document.write(document.title);</script></u></div>
 										</td>
 										<td style="text-align:right;">
 											<?php
@@ -458,22 +466,33 @@ if ($row["name"] == "canasta")
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)">VOICE ASSIST</button></form>
+								<form class="form_voice_assist_button"><button type="button" class="sight_impaired" onclick="DoDisplayHidePopup('form_voice_assist', true)">VOICE ASSIST</button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<h1>Welcome to the new and ever improving Mill House Neighbourhood House website</h1>
+<h1>Welcome to the new and ever improving Mill House website</h1>
 <p>For best viewing results, use the most up to date version of your favorite web browser.</p>
 <p>If you have questions, comments, or suggestions, please click 'Contact' and get in touch with us via your preferred 
 method (contact form, email or phone number).</p>
 <p>Enjoy!</p>
 
+<!--
 <h2>Download the Mill House App</h2>
-<p><b>PLEASE NOTE: </b>This is a sneak peak only and the app is far from complete. You can have a say as to what, if any, 
-additional features you would like to see in the Mill House app. To install open this page on your mobile device a click 
-the link below. You will be asked if you want to trust this app - just say 'yes'.</p>
+<p><b>PLEASE NOTE: </b>The app is still under development, and there are a few unimplemented administration features. 
+All the main features are implemented and working, but there will likely be minor changes here and there. Also new features 
+may be added in the near future. So update the app regularly.</p> 
 
-<p><a href="MobileApp/Mill_House.apk" download><img src="images/MillHouseApp.png" alt="MillHouseApp.png" width="150" /></a></p>
+<p>To install, open this page on your mobile device a click the link below. You will get the following popup (or 
+something similar) when you try to install it.</p>
+
+<p><img src="images/AppInstallBlocked.jpg" alt="AppInstallBlocked.jpg" height="350" /></p>
+
+<p>This is because the app was built with <a href="https://ai2a.appinventor.mit.edu/">MIT App Inventor</a> and is   
+being installed outside Google Play Store (or other trusted app store). You can trust the app. Just click 'More details' 
+and then 'Install anyway'.</p>
+
+<p><a href="MobileApp/Mill_House.apk" download><img src="images/MillHouseApp.png" alt="MillHouseApp.png" width="150" title="Tap this link on your mobile device to download and install the Mill House app."/></a></p>
+-->
 
 <h1>Who We Are</h1>
 
@@ -481,6 +500,7 @@ the link below. You will be asked if you want to trust this app - just say 'yes'
 
 <p>Click on a face to see their name.</p>
 
+<!--
 <p><img src="images/MillHouseTeam.jpg" alt="MillHouseTeam.jpg" usemap="#mill_house_team" id="img_mill_house_team" height="250" /></p>
 
 <map name="mill_house_team">
@@ -491,6 +511,48 @@ the link below. You will be asked if you want to trust this app - just say 'yes'
   <area shape="rect" coords="174,79,207,122" alt="Sarah McLean - Mill House Manager" href="#" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="alert('Sarah McLean (Mill House Manager)')" />
   <area shape="rect" coords="202,106,240,161" alt="Kay Cameron - Volunteer" href="#" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="alert('Kay Cameron (Volunteer)')" />
 </map>
+-->
+
+<?php
+	
+	/***************************************************************************************************
+	 ***************************************************************************************************
+	 ***************************************************************************************************
+	 ***************************************************************************************************
+	 ****** 
+	 ****** THIS PHP CODE GENERATES THE CLICKABLE MILLHOUSE TEAM PHOTO
+	 ******
+	 ****** Refer ti the database table 'group_image_areas'
+	 ******
+	 ****** Use the 'GROUP PHOTO' administration form to replace the group photo with a new ones and 
+	 ****** create the clickable areas for the photo.
+	 ******
+	 ***************************************************************************************************
+	 ***************************************************************************************************
+	 ***************************************************************************************************
+	 ***************************************************************************************************/
+	
+	$nImageHeight = 250;
+	$results = DoQuery($g_dbMillhouse, "SELECT * FROM group_photo_areas LIMIT 1");
+	if ($results && ($results->num_rows > 0))
+	{
+		if ($row = $results->fetch_assoc())
+			$nImageHeight = (int)$row["image_height"];
+	}
+	echo "<p><img src=\"images/MillHouseTeam.jpg\" alt=\"MillHouseTeam.jpg\" usemap=\"#mill_house_team\" id=\"img_mill_house_team\" height=\"" . $nImageHeight . "\" /></p>";
+	
+	echo "<map name=\"mill_house_team\">\n";
+	$results = DoFindAllQuery($g_dbMillhouse, "group_photo_areas");
+	if ($results && ($results->num_rows > 0))
+	{
+		while ($row = $results->fetch_assoc())
+		{
+			echo $row["area_tag"];
+		}
+	}
+	echo "</map>\n";
+	
+?>
 
 <p>We bring people together, create opportunities to connect and provide practical support for individuals and families across the Central 
 Goldfields. Everyone is welcome at Mill House, regardless of age, ability, background or circumstances.</p>

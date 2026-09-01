@@ -65,6 +65,15 @@
 		echo "            </td>\n";
 		echo "        </tr>\n";
 		echo "        <tr>\n";
+		echo "            <td>\n";
+		echo "                " . DoGenerateCaptcha(6) . "\n";
+		echo "            </td>\n";
+		echo "            <td>\n";
+		echo "                <input type=\"text\" id=\"text_captcha\" name=\"text_captcha\" placeholder=\"Type the characters to the left...\" style=\"width:260px;\" \>\n";
+		echo "                <input type=button value=\"New Captcha Text\" onclick=\"location.reload()\" style=\"position:relative;top:-2px;height:25px;font-size:x-small;padding: 0px 10px 0px 10px;\" \>\n";
+		echo "            </td>\n";
+		echo "        </tr>\n";
+		echo "        <tr>\n";
 		echo "            <td colspan=\"2\" style=\"text-align:right;\">\n";
 		echo "                <input type=\"hidden\" name=\"username\" id=\"username\" value=\"admin\" />\n";
 		echo "                <input type=\"submit\" name=\"button_change_password\" id=\"button_change_password\" disabled value=\"CHANGE PASSWORD\"/>\n";
@@ -116,7 +125,6 @@
 		echo "        </tr>\n";
 		echo "        <tr>\n";
 		echo "            <td colspan=\"2\" style=\"text-align:right;\">\n";
-		echo "                <input type=\"hidden\" name=\"username\" id=\"username\" value=\"admin\" />\n";
 		echo "                <input type=\"submit\" name=\"button_admin_login\" id=\"button_admin_login\" value=\"LOGIN\"/>&nbsp;\n";
 		echo "                <input type=\"submit\" name=\"forgot_password_group\" id=\"forgot_password_group\" value=\"I FORGET THE PASSWORD\" />\n";
 		echo "            </td>\n";
@@ -228,14 +236,21 @@
 	}
 	else if (isset($_POST["button_change_password"]))
 	{
-		$result = DoUpdateQuery1($g_dbMillhouse, "groups", "password", $_POST["password_login"], "name", $_SESSION["username"]);
-		if ($result)
+		if ($_POST["text_captcha"] != $_SESSION["strRandomCaptchaText"])
 		{
-			DoFlagMessage("Your password has been change successfully...", true);
+			DoFlagMessage("Captcha text does not match...", true);
 		}
 		else
 		{
-			DoFlagMessage("Your password could not be changed...", true);
+			$result = DoUpdateQuery1($g_dbMillhouse, "groups", "password", $_POST["password_login"], "name", $_SESSION["username"]);
+			if ($result)
+			{
+				DoFlagMessage("Your password has been change successfully...", true);
+			}
+			else
+			{
+				DoFlagMessage("Your password could not be changed...", true);
+			}
 		}
 	}
 	else if (isset($_POST["logout_group"]))
