@@ -280,8 +280,8 @@
 	else
 	{
 		DoDisplayLoginForm();
+		DoDisplayLoginFormInstrunctions();
 	}
-	DoDisplayLoginFormInstrunctions();
 
 ?>
 

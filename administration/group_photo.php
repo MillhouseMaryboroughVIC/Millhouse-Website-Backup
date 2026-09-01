@@ -15,7 +15,8 @@
 	 ****************************************************************************************************/
 	 
 	require_once "../common.php";
-
+	require_once "admin_login.php";
+	
 	DoRecordPageHitOrBlock();
 	
 	if (isset($_POST["hidden_areas_html"]))
@@ -46,6 +47,71 @@
 			DoPrintJSAlertError($error->getMessage(), true);
 		}
 	}	
+
+	function DoDisplayGroupPhotoForm()
+	{
+		echo "<form class=\"form\" style=\"width:1200px!important;\" id=\"form_group_photo\" method=\"post\" target=\"_self\" action=\"group_photo.php\" onmousedown=\"DoOnMouseDown(event)\" onmouseup=\"DoOnMouseUp(event)\" onmousemove=\"DoOnMouseMove(event)\">\n";
+		echo "	<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n";
+		echo "        <tr>\n";
+		echo "            <td style=\"text-align:center;\" colspan=\"2\"><h1>NEW GROUP PHOTO</h1></label><br/><br/></td>\n";
+		echo "        </tr>\n";
+		echo "       <tr>\n";
+		echo "           <td  style=\"text-align:center;\" colspan=\"2\">\n";
+		echo "               <button type=\"button\" onclick=\"DoDisplayHidePopup('div_group_photo_form_instructions', true)\">INSTRUCTIONS</button><br/><br/>\n";
+		echo "           </td>\n";
+		echo "      </tr>\n";
+		echo "		<tr>\n";
+		echo "			<td style=\"text-align:right;\">\n";
+		echo "				<label for=\"file_photo\">GROUP PHOTO</label>\n";
+		echo "			</td>\n";
+		echo "			<td>\n";
+		echo "				<input type=\"file\" id=\"file_photo\" name=\"file_photo\" required accept=\".png, .jpg, .jpeg\" placeholder=\"Select a photo...\" onchange=\"OnChangePhoto(event)\"/>\n";
+		echo "			</td>\n";
+		echo "		</tr>\n";
+		echo "		<tr>\n";
+		echo "			<td colspan="2" style=\"text-align:center;position:relative;\">\n";
+		echo "				<p id=\"p_instructions\" class=\"blink_faster\" style=\"display:none;color:red;\"><b>Move the red square over a face, re-size it by dragging the edges and then click \n";
+		echo "				the 'ADD IMAGE AREA' button.</b></p>\n";
+		echo "				<img id=\"img_group_photo\" class=\"img_group_photo\" src=\"\" height=\"250\" style=\"display:none;position:relative;\" ondragstart=\"event.preventDefault()\"/>\n";
+		echo "				<br/>\n";
+		echo "			</td>\n";
+		echo "		</tr>\n";
+		echo "		<tr>\n";
+		echo "			<td style=\"text-align:right;\">\n";
+		echo "				<label for=\"number_height\">IMAGE HEIGHT</label>\n";
+		echo "			</td>\n";
+		echo "			<td>\n";
+		echo "				<input type=\"number\" id=\"number_height\" name=\"number_height\" disabled size=\"10\" min=\"200\" max=\"500\" value=\"250\" />&nbsp;\n";
+		echo "				<button type=\"button\" id=\"button_change_image_size\" disabled onclick=\"DoChangeImageSize()\">CHANGE IMMAGE SIZE</button>\n";
+		echo "			</td>\n";
+		echo "		</tr>\n";
+		echo "		<tr>\n";
+		echo "			<td style=\"text-align:right;\">\n";
+		echo "				<label for=\"select_image_areas\">LIST OF IMAGE AREAS</label>\n";
+		echo "			</td>\n";
+		echo "			<td>\n";
+		echo "				<select style=\"width:1000px\" id=\"select_image_areas\" name=\"select_image_areas\" size=\"10\" onchange=\"DoChangeSelectedImageAreas()\">\n";\n";
+		echo "				</select>\n";
+		echo "			</td>\n";
+		echo "		</tr>\n";
+		echo "		<tr>\n";
+		echo "			<td colspan=\"2\" style=\"text-align:center;\">
+		echo "				<button type=\"button\" id=\"button_new_area_square\" disabled onclick=\"DoAddAreaSquare()\">NEW AREA SQUARE</button>&nbsp;\n";
+		echo "				<button type=\"button\" id=\"button_add_image_area\" disabled onclick=\"DoAddImageArea()\">ADD IMAGE AREA</button>&nbsp;\n";
+		echo "				<button type=\"button\" id=\"button_edit_name\" disabled onclick=\"DoEditName()\">EDIT NAME</button>&nbsp;\n";
+		echo "				<button type=\"button\" id=\"button_delete_image_areas\" disabled onclick=\"DoDeleteImageArea()\">DELETE IMAGE AREA</button>\n";
+		echo "			</td>\n";
+		echo "		</tr>\n";
+		echo "		<tr>\n";
+		echo "			<td colspan="2" style=\"text-align:center;\">\n";
+		echo "				<button type=\"button\" id=\"button_create_image_map\" name=\"button_create_image_map\" disabled onclick=\"DoSubmitForm()\">CREATE NEW CLICKABLE IMAGE</button>\n";
+		echo "				<input type=\"hidden\" id=\"hidden_areas_html\" name=\"hidden_areas_html\" value=\"\" />\n";
+		echo "
+		echo "			</td>\n";
+		echo "		</tr>\n";
+		echo "	</table>\n";
+		echo "</form>\n";
+	}
 
 ?>
 <!-- #BeginTemplate "../master.dwt" -->
@@ -748,60 +814,129 @@
 	
 </script>
 
-<form class="form" style="width:1200px!important;" id="form_group_photo" method="post" target="_self" action="group_photo.php" onmousedown="DoOnMouseDown(event)" onmouseup="DoOnMouseUp(event)" onmousemove="DoOnMouseMove(event)">
-	<h1>NEW GROUP PHOTO</h1>
-	<table border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<td style="text-align:right;">
-				<label for="file_photo">GROUP PHOTO</label>
-			</td>
-			<td>
-				<input type="file" id="file_photo" name="file_photo" required accept=".png, .jpg, .jpeg" placeholder="Select a photo..." onchange="OnChangePhoto(event)"/>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" style="text-align:center;position:relative;">
-				<p id="p_instructions" class="blink_faster" style="display:none;color:red;"><b>Move the red square over a face, re-size it by dragging the edges and then click 
-				the 'ADD IMAGE AREA' button.</b></p>
-				<img id="img_group_photo" class="img_group_photo" src="" height="250" style="display:none;position:relative;" ondragstart="event.preventDefault()"/>
-				<br/>
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align:right;">
-				<label for="number_height">IMAGE HEIGHT</label>
-			</td>
-			<td>
-				<input type="number" id="number_height" name="number_height" disabled size="10" min="200" max="500" value="250" />&nbsp;
-				<button type="button" id="button_change_image_size" disabled onclick="DoChangeImageSize()">CHANGE IMMAGE SIZE</button>
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align:right;">
-				<label for="select_image_areas">LIST OF IMAGE AREAS</label>
-			</td>
-			<td>
-				<select style="width:1000px" id="select_image_areas" name="select_image_areas" size="10" onchange="DoChangeSelectedImageAreas()">
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" style="text-align:center;">
-				<button type="button" id="button_new_area_square" disabled onclick="DoAddAreaSquare()">NEW AREA SQUARE</button>&nbsp;
-				<button type="button" id="button_add_image_area" disabled onclick="DoAddImageArea()">ADD IMAGE AREA</button>&nbsp;
-				<button type="button" id="button_edit_name" disabled onclick="DoEditName()">EDIT NAME</button>&nbsp;
-				<button type="button" id="button_delete_image_areas" disabled onclick="DoDeleteImageArea()">DELETE IMAGE AREA</button>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" style="text-align:center;">
-				<button type="button" id="button_create_image_map" name="button_create_image_map" disabled onclick="DoSubmitForm()">CREATE NEW CLICKABLE IMAGE</button>
-				<input type="hidden" id="hidden_areas_html" name="hidden_areas_html" value="" />
+<?php
 
-			</td>
-		</tr>
-	</table>
-</form>
+	if (isLoggedIn())
+	{
+		DoDisplayGroupPhotoForm();
+	}
+	else
+	{
+		DoDisplayLoginForm();
+		DoDisplayLoginFormInstrunctions();
+	}
+	
+?>
+
+<div id="div_group_photo_form_instructions" class="instruction_popup">
+
+	<p>The purpose of this page at present is to allow admin staff to add a new Mill House group photo, with clickable 
+	areas, to the home page. Although the clickable image map is just simple HTML code, it is not easy for a novice 
+	administrator to get it to work properly. Therefore is as been automated via thos form.</p>
+	
+	<p>The image and the image map HTML code are generated via PHP code using map elements stored in the 'group_image_areas' 
+	table in the database. You use this form to 'populate' that table. The steps are as follows:</p>
+	
+	<ol>
+		<li>Select a new group photo - this is required.</li>
+		<li>Once an image file is slected, it will be dsiplayed and nd the 'NEW AREA SQUARE' button will be enabled.</li>
+		<li>
+			You can change the size of the image by editing the number is the 'IMAGE HEIGHT' input:
+			<ul>
+				<li>The preview image will change its size.</li>
+				<li>The image on the home page will look the same as the oreview image.</li>
+			</ul>
+		</li>
+		<li>
+			Next click the 'NEW AREA SQUARE' button. Three things will happen:
+			<ul>
+				<li>A red square will appear to the left of the new group photo.</li>
+				<li>The 'NEW AREA SQUARE' button is disabled</li>
+				<li>The 'ADD IMAGE AREA' button is enabled</li>
+			</ul>
+		</li>
+		<li>
+			Hover the mouse over the edges and middle of the red square - the mouse cursor will change.
+			<ul>
+				<li>
+					Hovering the mouse over the middle of the red square will show the 'hand' cursor - click and hold the 
+					left mouse button to grab the red square a drag it over the top of one of the faces in the group photo 
+					and then release the left mouse button to drop the red square in that position.
+				</li>
+				<li>
+					Hovering the mouse over the left or right edges of the red square will show the horizontal double arrow 
+					cursor - click and hold the left mouse button to grab either edge and drag it left or right.
+				</li>
+				<li>
+					Hovering the mouse over the top or bottom edges of the red square will show the vertical double arrow 
+					cursor - click and hold the left mouse button to grab either edge and drag it up or down.
+				</li>
+			</ul>
+		</li>
+		<li>
+			Once you are happy with the position and size of the red square scroll down and click the 'ADD IMAGE AREA' 
+			button. The following things will happen:
+			<ul>
+				<li>The HTML code for the required &lt;area ...&gt; will be added to the list box.</li>
+				<li>
+					You will be prompted to type the name and position of this person:
+					<ul>
+						<li>This will appear in a popup message box if that area on the image is clicked.</li>
+						<li>
+							It will be read out aloud if 'VOICE ASSIST' is enabled and the mouse cursor hovers inside 
+							this areas.
+						</li>
+						<li>It will be read out aloud if the vistor tabs to that area using the keyboard.</li>
+					</ul>
+				</li>
+				<li>
+					The coordinates of the square, relative to the top left corner of the group photo, are automatically 
+					calculated - this is the hard part of creating clickable images.
+				</li>
+				<li>The 'NEW AREA SQUARE' button is enabled.</li>
+				<li>'NEW AREA SQUARE' button is disabled.</li>
+			</ul>
+		</li>
+		<li>Next click the 'NEW AREA SQUARE' button again.</li>
+		<li>Repeat the process as many times as required by the faces in the group photo.</li>
+		<li>
+			If you make a selection in the list box then two things will happen:
+			<ul>
+				<li>
+					The 'EDIT NAME' button is enabled - click it and you can change the name and position of the person in 
+					that list item.
+				</li>
+				<li>The 'DELETE IMAGE AREA' is enabled - click it and that list item will be permanently deleted.</li>
+			</ul>
+		</li>
+		<li>As soon as you add an item to the list box the 'CREATE NEW CLICKABLE IMAGE' button is enabled.</li>
+		<li>If you delete all the items from the list box then the 'CREATE NEW CLICKABLE IMAGE' button is disabled.</li>
+		<li>
+			Once you are happy with the areas, and their details, click the 'CREATE NEW CLICKABLE IMAGE' button.
+		</li>
+		<li>
+			The list is sent to the web server where it is used to replace the contents of the 
+			'group_image_areas' table in the database.
+		</li>
+	</ol>
+	
+	<p><button type="button" onclick="DoDisplayHidePopup('div_group_photo_form_instructions', false)">CLOSE</button></p>
+
+</div>
+
+<div id="div_page_edit_instructions" class="instruction_popup">
+
+	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
+	
+	<p>The form in contents of this page are automatically generated by PHP code and the onlu purpose of this page is 
+	to provide you with access to the database. So you can ignore this page entirely.</p>
+	
+	<p>The ste</p>	
+	
+	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
+	
+</div>
+
 
 
 								<!-- #EndEditable -->
