@@ -187,15 +187,19 @@ if ($row["name"] == "canasta")
 					{
 						if ($row["exclude_xmas_new_year"] && IsXmasNewYear())
 						{
-							// Do nothing - exclude this event.
+							// Do nothing - exclude this group.
 						}
 						else if ($row["exclude_easter"] && IsEaster())
 						{
-							// Do nothing - exclude this event.
+							// Do nothing - exclude this group.
 						}
 						else if ($row["exclude_school_holidays"] && IsSchoolHoliday())
 						{
-							// Do nothing - exclude this event.
+							// Do nothing - exclude this group.
+						}
+						else if ($row["name"] == "admin")
+						{
+							// Do nothing - exclude this group.
 						}
 						else
 						{
@@ -476,6 +480,12 @@ if ($row["name"] == "canasta")
 method (contact form, email or phone number).</p>
 <p>Enjoy!</p>
 
+<?php
+	if (IsAdminLoggedIn())
+	{
+		DoDisplayAppDownload();
+	}
+?>
 <!--
 <h2>Download the Mill House App</h2>
 <p><b>PLEASE NOTE: </b>The app is still under development, and there are a few unimplemented administration features. 

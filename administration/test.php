@@ -815,19 +815,11 @@
 
 <?php
 
-	if (isLoggedIn())
-	{
-		DoDisplayGroupPhotoForm();
-	}
-	else
-	{
-		DoDisplayLoginForm();
-		DoDisplayLoginFormInstrunctions();
-	}
+	DoDisplayGroupPhotoForm();
 	
 ?>
 
-<div id="div_group_photo_form_instructions" class="instruction_popup" style="width:800px!important">
+<div id="div_group_photo_form_instructions" class="instruction_popup">
 
 	<h1>INSTRUCTIONS FOR THE NEW GROUP PHOTO FORM</h1>
 	
@@ -835,7 +827,7 @@
 	
 	<p>The purpose of this page at present is to allow admin staff to add a new Mill House group photo, with clickable 
 	areas, to the home page. Although the clickable image map is just simple HTML code, it is not easy for a novice 
-	administrator to get it to work properly. Therefore is as been automated via thos form.</p>
+	administrator to get it to work properly. Therefore is as been automated via this form.</p>
 	
 	<p><img src="images/ClickableGroupPhoto.jpg" alt="ClickableGroupPhoto.jpg" height="250"/></p>
 	

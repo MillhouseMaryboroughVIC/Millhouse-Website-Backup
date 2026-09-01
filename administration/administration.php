@@ -256,26 +256,7 @@
 	if (isLoggedIn())
 	{
 		DoDisplayLogoutForm();
-		DoDisplayChangeAdminPasswordForm();
-		
-		echo "<h1>Download the Mill House App</h1>\n";
-		echo "<p><b>PLEASE NOTE: </b>The app is still under development, and there are a few unimplemented administration features.</p>\n";
-
-		echo "All the main features are implemented and working, but there will likely be minor changes here and there. Also new features \n";
-		echo "may be added in the near future. So update the app regularly.</p>\n";
-		
-		echo "<p>To install, open this page on your mobile device a click the link below. You will get the following popup (or \n";
-		echo "something similar) when you try to install it.</p>\n";
-		
-		echo "<p><img src=\"../images/AppInstallBlocked.jpg\" alt=\"AppInstallBlocked.jpg\" height=\"350\" /></p>\n";
-		
-		echo "<p>This is because the app was built with <a href=\"https://ai2a.appinventor.mit.edu/\">MIT App Inventor</a> and is\n";   
-		echo "being installed outside Google Play Store (or other trusted app store). You can trust the app. Just click 'More details'\n"; 
-		echo "and then 'Install anyway'.</p>\n";
-		
-		echo "<p><a href=\"../MobileApp/Mill_House.apk\" download><img src=\"../images/MillHouseApp.png\" alt=\"MillHouseApp.png\" width=\"150\" title=\"Tap this link on your mobile device to download and install the Mill House app.\"/></a></p>\n";
-		
-		
+		DoDisplayChangeAdminPasswordForm();		
 	}
 	else
 	{
