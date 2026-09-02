@@ -269,7 +269,7 @@ if ($row["name"] == "canasta")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-		</style>
+</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -432,6 +432,13 @@ if ($row["name"] == "canasta")
 										</tr>
 										<tr>
 											<td style="text-align:right;">
+											    <label class="sight_impaired" for="select_voice">Set volume:</label>
+											</td>
+											<td>
+											    <input type="range" id="range_volume" min="0" max="100" value="100" style="width:470px;" />											</td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">
 												<label class="sight_impaired" for="text_to_speak">Text to speak</label>
 											</td>
 											<td>
@@ -484,6 +491,11 @@ method (contact form, email or phone number).</p>
 	if (IsAdminLoggedIn())
 	{
 		DoDisplayAppDownload();
+	}
+	else
+	{
+		echo "<h2>The Mill House App</h2>\n";
+		echo "<p>It is coming soon, so watch this space!</p>\n";
 	}
 ?>
 <!--

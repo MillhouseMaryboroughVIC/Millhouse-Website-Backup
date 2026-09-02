@@ -1,14 +1,14 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|31 Aug 2026 03:43:08 -0000
+vti_timelastmodified:TR|02 Sep 2026 04:49:45 -0000
 vti_extenderversion:SR|12.0.0.0
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
 vti_timecreated:TR|15 Aug 2026 15:37:37 -0000
 vti_title:SR|Edit a Sponsor
 vti_backlinkinfo:VX|
-vti_nexttolasttimemodified:TR|31 Aug 2026 03:41:47 -0000
-vti_cacheddtm:TX|31 Aug 2026 03:43:08 -0000
-vti_filesize:IR|55247
+vti_nexttolasttimemodified:TR|02 Sep 2026 04:48:53 -0000
+vti_cacheddtm:TX|02 Sep 2026 04:49:45 -0000
+vti_filesize:IR|55567
 vti_cachedtitle:SR|Edit a Sponsor
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
 vti_cachedlinkinfo:VX|G|../master.dwt H|https://www.millhouse.org.au/ Q|../styles/style4PC.css H|../favicon.jpg S|../common.js S|admin_login.js H|https://fonts.googleapis.com H|https://fonts.gstatic.com Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 H|../images/MillHouse.jpg S|../images/MillHouse.jpg H|../images/MillHouseNeighborhoodHouse1.jpg S|../images/MillHouseNeighborhoodHouse1.jpg H|../images/MillHouseNeighborhoodHouse2.jpg S|../images/MillHouseNeighborhoodHouse2.jpg H|../index.php H|../about/about.php H|../calendar/calendar.php H|../room/room.php H|../sponsors/sponsors.php H|../contribute/contribute.php H|../contribute/join.php H|../contribute/volunteering.php H|../contribute/request_sponsorship.php H|../contribute/donation.php H|../contact/contact.php H|../site_history/site_history.php H|../governance/governance.php H|https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile H|../governance/rules/rules.php H|../governance/reports/reports.php H|../governance/policies/policies.php H|../governance/plan/plan.php H|../group_events/group_events.php H|administration.php H|../sponsors/sponsor.php

@@ -220,6 +220,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 			.contents_cell			
 			{
 				background-color: var(--end_color);
@@ -437,6 +446,13 @@
 											    <select class="sight_impaired" id="select_voice">
 											    </select>
 											</td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">
+											    <label class="sight_impaired" for="select_voice">Set volume:</label>
+											</td>
+											<td>
+											    <input type="range" id="range_volume" min="0" max="100" value="100" style="width:470px;" />											</td>
 										</tr>
 										<tr>
 											<td style="text-align:right;">

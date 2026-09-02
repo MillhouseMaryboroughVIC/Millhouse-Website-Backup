@@ -1,14 +1,14 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|31 Aug 2026 03:43:14 -0000
+vti_timelastmodified:TR|02 Sep 2026 04:49:52 -0000
 vti_extenderversion:SR|12.0.0.0
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
 vti_timecreated:TR|15 Mar 2026 04:56:24 -0000
 vti_title:SR|Policies
-vti_nexttolasttimemodified:TR|31 Aug 2026 03:41:53 -0000
+vti_nexttolasttimemodified:TR|02 Sep 2026 04:48:59 -0000
 vti_backlinkinfo:VX|contribute/request_sponsorship.php milestones/milestones.php admin/edit_group_events.php administration/add_sponsor.php administration/governance.php administration/html_4_beginners.php governance/policies/policies.php contribute/join.php governance/reports/reports.php site_history/site_history.php governance/governance.php administration/edit_group_events.php administration/web_diagnostics.php admin/web_diagnostics.php contribute/contribute.php governance/plan/plan.php index.php admin/edit_sponsor.php administration/expression_web_4_beginners.php administration/javascript_4_beginners.php ACNC/ACNC.html master.dwt admin/css_4_beginners.php admin/edit_groups.php contact/contact.php contribute/volunteering.php people/people.php admin/friday_feast_menu.php administration/administration.php administration/css_4_beginners.php administration/edit_groups.php administration/edit_sponsor.php admin/administration.php contribute/sponsorship_request_sent.php Calendar/calendar.php contribute/donation.php contribute/why_donate.php admin/governance.php Information/information.html about/about.php room/room.php administration/group_photo.php admin/add_sponsor.php administration/friday_feast_menu.php admin/html_4_beginners.php governance/rules/rules.php sponsors/sponsors.php group_events/group_events.php admin/expression_web_4_beginners.php admin/javascript_4_beginners.php governance/forms/forms.php administration/test.php
-vti_cacheddtm:TX|31 Aug 2026 03:43:14 -0000
-vti_filesize:IR|15090
+vti_cacheddtm:TX|02 Sep 2026 04:49:52 -0000
+vti_filesize:IR|15410
 vti_cachedtitle:SR|Policies
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
 vti_cachedlinkinfo:VX|G|../../master.dwt H|https://www.millhouse.org.au/ Q|../../styles/style4PC.css H|../../favicon.jpg S|../../common.js H|https://fonts.googleapis.com H|https://fonts.gstatic.com Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 H|../../images/MillHouse.jpg S|../../images/MillHouse.jpg H|../../images/MillHouseNeighborhoodHouse1.jpg S|../../images/MillHouseNeighborhoodHouse1.jpg H|../../images/MillHouseNeighborhoodHouse2.jpg S|../../images/MillHouseNeighborhoodHouse2.jpg H|../../index.php H|../../about/about.php H|../../calendar/calendar.php H|../../room/room.php H|../../sponsors/sponsors.php H|../../contribute/contribute.php H|../../contribute/join.php H|../../contribute/volunteering.php H|../../contribute/request_sponsorship.php H|../../contribute/donation.php H|../../contact/contact.php H|../../site_history/site_history.php H|../governance.php H|https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile H|../rules/rules.php H|../reports/reports.php H|policies.php H|../plan/plan.php H|../../group_events/group_events.php H|../../administration/administration.php S|MHTechnologyAndCommunicationPolicy.pdf S|MHBankingPolicy.pdf S|MHPurchasingndProcurementPolicy.pdf H|../admin/governance.php

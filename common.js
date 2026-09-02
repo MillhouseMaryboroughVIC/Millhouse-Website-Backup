@@ -41,6 +41,18 @@ function DoStopSpeaking()
 	window.speechSynthesis.cancel();
 }
 
+function DoGetVolume()
+{
+	let nLevel = 1.0,
+		rangeVolume = document.getElementById("range_volume");
+	
+	if (rangeVolume)
+	{
+		nLevel = rangeVolume.value / 100;
+	}
+	return nLevel;
+}
+
 function DoSpeakText(strText)
 {
 	let nIndex = parseInt(sessionStorage.getItem("nIndexSelectedVoice"));
@@ -53,7 +65,7 @@ function DoSpeakText(strText)
 	    // 2. (Optional) Customize the voice parameters
 	    utterance.rate = 1.0;  // Speed (0.1 to 10)
 	    utterance.pitch = 1.0; // Pitch (0 to 2)
-	    utterance.volume = 1.0; // Volume (0 to 1)
+	    utterance.volume = DoGetVolume(); // Volume (0 to 1)
 	    utterance.voice = g_arrayVoices[parseInt(sessionStorage.getItem("nIndexSelectedVoice"))];
 		
 	    // 3. Pass the utterance to the speechSynthesis API to speak it aloud
