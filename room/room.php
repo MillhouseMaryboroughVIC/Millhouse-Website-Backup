@@ -174,6 +174,7 @@
 
 
 
+
 			.select_short
 			{
 				box-sizing: border-box;
@@ -359,7 +360,7 @@
 							<div class="content" id="div_content">
 								<br/>
 								
-								<?php require_once "VoiceAssistForm.html"; ?>
+								<?php require_once DoGetParentOrCurrentDir() . "VoiceAssistForm.html"; ?>
 								
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>

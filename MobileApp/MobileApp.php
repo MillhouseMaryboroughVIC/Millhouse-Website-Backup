@@ -24,7 +24,7 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>Mill House App</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -177,7 +177,7 @@
 							<div class="content" id="div_content">
 								<br/>
 								
-								<?php require_once "VoiceAssistForm.html"; ?>
+								<?php require_once DoGetParentOrCurrentDir() . "VoiceAssistForm.html"; ?>
 								
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
@@ -199,6 +199,8 @@
 								<!-- #BeginEditable "CustomContent" -->
 
 <h1>App Publishing</h1>
+
+<p><a href="#install"><b>SKIP TO INSTALL THE APP NOW</b></a></p>
 
 <p>
 	<img src="images/GooglePlayStore.png" alt="GooglePlayStore.png" height="50" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -247,6 +249,8 @@ apps. But many amateur app developers, such as myself, also use it. You can crea
 
 <h2>How to 'trust' millhouse.org.au</h2>
 
+<p><a href="#install"><b>SKIP TO INSTALL THE APP NOW</b></a></p>
+
 <p>Follow these steps...</p>
 
 <p>This is for a a OPPO A77 5G mobile phone running Android version 14.</p>
@@ -280,11 +284,14 @@ then get in touch with Mill House for some help.</p>
 	<li>
 		The 'Internet' app is now permitted to install apps.<br/>
 		<a href="images/InternetAllow.jpg"><img src="images/InternetAllow.jpg" alt="SettingsIcon.jpg" height="300" /></a><br/>
-		This does not mean that this app can install apps without you knowing about it. 		
+		This does not mean that this app can install other apps without you knowing about it - you still have to manually 
+		confirm that you want to proceed with any installation. 		
 	</li>
 </ol>
 
 <h1>Installing the app for the first time</h1>
+
+<p><a href="#install"><b>SKIP TO INSTALL THE APP NOW</b></a></p>
 
 <p>You should only have to follow these steps once. After that the Mill House app updates should install without having to be scanned.</p>
 <ol>
@@ -293,16 +300,12 @@ then get in touch with Mill House for some help.</p>
 		<a href="images/MillHouseApp.png"><img src="images/MillHouseApp.png" alt="MillHouseApp.png" height="300" /></a>
 	</li>
 	<li>
-		Wait for the app to download.<br/>
+		Click or tap 'Download again'.<br/>
 		<a href="images/DownloadAgain.jpg"><img src="images/DownloadAgain.jpg" alt="DownloadAgain.jpg" height="300" /></a>
 	</li>
 	<li>
 		Wait for the dowload to complete and then click or tap 'Open' to start the installation.<br/>
 		<a href="images/DownloadComplete.jpg"><img src="images/DownloadComplete.jpg" alt="DownloadComplete.jpg" height="300" /></a>
-	</li>
-	<li>
-		Wait for the installation to complete.<br/>
-		<a href="images/AppInstalling.jpg"><img src="images/DownloadComplete.jpg" alt="DownloadComplete.jpg" height="300" /></a>
 	</li>
 	<li>
 		You should then get this popup - click or tap 'Scan app'.<br/>
@@ -313,7 +316,7 @@ then get in touch with Mill House for some help.</p>
 		<a href="images/AppScanning.jpg"><img src="images/AppScanning.jpg" alt="AppScanning.jpg" height="300" /></a>
 	</li>
 	<li>
-		When scanning is complete you should get this popup - click or tap 'Open' to start the Mill House app<br/>
+		When scanning is complete you should get this popup. Click or tap 'Done'.<br/>
 		<a href="images/AppScanned.jpg"><img src="images/AppScanned.jpg" alt="AppScanned.jpg" height="300" /></a>
 	</li>
 	<li>
@@ -321,15 +324,60 @@ then get in touch with Mill House for some help.</p>
 		<a href="images/SendApp.jpg"><img src="images/SendApp.jpg" alt="SendApp.jpg" height="300" /></a><br/>
 		Mill House created this app, and you trust Mill House, so there is no real security threat to your mobile device.
 	</li>
+	<li>
+		Find your file manager app and click or tap it.<br/>
+		<a href="images/FileManager.jpg"><img src="images/FileManager.jpg" alt="FileManager.jpg" height="300" /></a>
+	</li>
+	<li>
+		Next scroll until you locate your 'Downloads' folder. Click or tap it.<br/>
+		<a href="images/Downloads.jpg"><img src="images/Downloads.jpg" alt="Downloads.jpg" height="300" /></a>
+	</li>
+	<li>
+		Scroll until you find the Mill House app installer. Click or tap it.<br/>
+		<a href="images/LocateMillHouseApp.jpg"><img src="images/LocateMillHouseApp.jpg" alt="LocateMillHouseApp.jpg" height="300" /></a>
+	</li>	
+	<li>
+		Wait for the installation to complete.<br/>
+		<a href="images/AppInstalling.jpg"><img src="images/AppInstalling.jpg" alt="AppInstalling.jpg" height="300" /></a>
+	</li>
+	<li>
+		Once the installation is complete you will get this popup - click 'Open' to start the Mill House App.<br/>
+		<a href="images/AppInstalled.jpg"><img src="images/AppInstalled.jpg" alt="AppInstalled.jpg" height="300" /></a>
+	</li>
 </ol>
 
-<h1>Install the Mill House App</h1>
+<h1>Installing Mill House app updates</h1>
+
+<ol>
+	<li>
+		Locate this download link and click or tap it.<br/>
+		<a href="images/MillHouseApp.png"><img src="images/MillHouseApp.png" alt="MillHouseApp.png" height="300" /></a>
+	</li>
+	<li>
+		Click or tap 'Download again'.<br/>
+		<a href="images/DownloadAgain.jpg"><img src="images/DownloadAgain.jpg" alt="DownloadAgain.jpg" height="300" /></a>
+	</li>
+	<li>
+		Wait for the dowload to complete and then click or tap 'Open' to start the installation.<br/>
+		<a href="images/DownloadComplete.jpg"><img src="images/DownloadComplete.jpg" alt="DownloadComplete.jpg" height="300" /></a>
+	</li>
+	<li>
+		Wait for the installation to complete.<br/>
+		<a href="images/AppInstalling.jpg"><img src="images/AppInstalling.jpg" alt="AppInstalling.jpg" height="300" /></a>
+	</li>
+	<li>
+		Once the installation is complete you will get this popup - click 'Open' to start the Mill House App.<br/>
+		<a href="images/AppInstalled.jpg"><img src="images/AppInstalled.jpg" alt="AppInstalled.jpg" height="300" /></a>
+	</li>
+</ol>
+
+<h1 id="install">Install the Mill House app now</h1>
 
 <p>To install, open this page on your mobile device a click the link below.</p>
 
 <p>
 	<a href="../MobileApp/Mill_House.apk" download>
-		<img src="images/MillHouseApp.png" alt="MillHouseApp.png" width="150" title="Tap this link on your mobile device to download and install the Mill House app." />
+		<img src="images/MillHouseApp.png" alt="MillHouseApp.png" width="150" title="This is the actual download link." />
 	</a>
 </p>
 

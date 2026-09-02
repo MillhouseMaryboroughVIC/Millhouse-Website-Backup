@@ -725,6 +725,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 
 
 
+
 			.content td
 			{
 				font-size: small;
@@ -1235,7 +1236,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 							<div class="content" id="div_content">
 								<br/>
 								
-								<?php require_once "VoiceAssistForm.html"; ?>
+								<?php require_once DoGetParentOrCurrentDir() . "VoiceAssistForm.html"; ?>
 								
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>

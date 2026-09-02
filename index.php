@@ -403,7 +403,7 @@ if ($row["name"] == "canasta")
 							<div class="content" id="div_content">
 								<br/>
 								
-								<?php require_once "VoiceAssistForm.html"; ?>
+								<?php require_once DoGetParentOrCurrentDir() . "VoiceAssistForm.html"; ?>
 								
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
@@ -433,6 +433,8 @@ method (contact form, email or phone number).</p>
 <?php
 	if (IsAdminLoggedIn())
 	{
+		echo "<h2>Mill House App</h2>\n";
+		echo "<p>The mobile app is available for administration staff to try and review. Click the link below to go to the mobile app page...</p>\n";
 		echo "<p><a href=\"MobileApp/MobileApp.php\"><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" title=\"Go to the mobile app page.\" height=\"100\" /></a></p>\n";
 	}
 	else
