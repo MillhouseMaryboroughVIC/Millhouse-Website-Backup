@@ -403,64 +403,7 @@ if ($row["name"] == "canasta")
 							<div class="content" id="div_content">
 								<br/>
 								
-								<form id="form_voice_assist" class="form form_voice_assist">
-									<h1 style="font-weight:800;">VOICE ASSIST SETTINGS</h1>
-									<hr/>
-									<p class="sight_impaired" >
-										The voice assist feature works on Android mobile devices if you hold your finger down on a parapgraph or 
-										heading etc. This is the Android equivalent of hovering your PC mouse cursor over them. But it seems as 
-										though there is no way to make this feature work on iPhones or iPads unfortunately.
-									</p>
-									<hr/><br/>
-									<table border="0" cellpadding="0" cellspacing="0">
-										<tr>
-											<td style="text-align:right;">
-												<label class="sight_impaired" for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
-											</td>
-											<td>
-												<input class="sight_impaired" type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
-											</td>
-										</tr>
-										<tr>
-											<td style="text-align:right;">
-											    <label class="sight_impaired" for="select_voice">Choose Voice:</label>
-											</td>
-											<td>
-											    <select class="sight_impaired" id="select_voice">
-											    </select>
-											</td>
-										</tr>
-										<tr>
-											<td style="text-align:right;">
-											    <label class="sight_impaired" for="select_voice">Set volume:</label>
-											</td>
-											<td>
-											    <input type="range" id="range_volume" min="0" max="100" value="100" style="width:470px;" />											</td>
-										</tr>
-										<tr>
-											<td style="text-align:right;">
-												<label class="sight_impaired" for="text_to_speak">Text to speak</label>
-											</td>
-											<td>
-												<input class="sight_impaired" type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!"/>
-											</td>
-										</tr>
-										<tr>
-											<td style="text-align:center;">
-												<button class="sight_impaired" type="button" onclick="DoTestVoice('text_to_speak')">TEST</button>
-											</td>
-											<td style="text-align:center;">
-												<button class="sight_impaired" type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)">CLOSE</button>
-											</td>
-										</tr>
-										<tr>
-											<td>
-											</td>
-											<td>
-											</td>
-										</tr>
-									</table>
-								</form>
+								<?php require_once "VoiceAssistForm.html"; ?>
 								
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
@@ -481,7 +424,7 @@ if ($row["name"] == "canasta")
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<h1>Welcome to the new and ever improving Mill House website</h1>
+<h1>Welcome to the new Mill House website</h1>
 <p>For best viewing results, use the most up to date version of your favorite web browser.</p>
 <p>If you have questions, comments, or suggestions, please click 'Contact' and get in touch with us via your preferred 
 method (contact form, email or phone number).</p>
@@ -490,12 +433,13 @@ method (contact form, email or phone number).</p>
 <?php
 	if (IsAdminLoggedIn())
 	{
-		DoDisplayAppDownload();
+		echo "<p><a href=\"MobileApp/MobileApp.php\"><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" title=\"Go to the mobile app page.\" height=\"100\" /></a></p>\n";
 	}
 	else
 	{
 		echo "<h2>The Mill House App</h2>\n";
 		echo "<p>It is coming soon, so watch this space!</p>\n";
+		echo "<p><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" height=\"100\" /></p>\n";
 	}
 ?>
 <!--
@@ -697,13 +641,7 @@ there is a place for you at Mill House.</p>
 	<script type="text/javascript">
 	
 		DoSetAudioAssistCheckbox();
-		
-		let selectVoices = document.getElementById("select_voice");
-		if (selectVoices)
-		{
-			selectVoices.innerHTML = g_strVoiceOptions;
-		}
-		
+		DoSetVoiceAssistInputs();
 		DoAllAttachListeners("div_content");
 		
 		if (JSON.parse(sessionStorage.getItem("bAudioAssistOn")))

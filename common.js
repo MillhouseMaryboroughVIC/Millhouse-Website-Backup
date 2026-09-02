@@ -9,6 +9,15 @@
 let g_strVoiceOptions = "",
 	g_arrayVoices = [];
 	
+if (localStorage.getItem("range_volume") === null)
+	localStorage.setItem("range_volume", 100);
+	
+if (localStorage.getItem("range_speed") === null)
+	localStorage.setItem("range_speed", 100);
+	
+if (localStorage.getItem("range_pitch") === null)
+	localStorage.setItem("range_pitch", 100);
+	
 	
 function DoGetVoiceOptions()
 {
@@ -23,7 +32,7 @@ function DoGetVoiceOptions()
 	for (let nI = 0; nI < g_arrayVoices.length; nI++)
 	{
 		strSelected = "";
-		if (parseInt(sessionStorage.getItem("nIndexSelectedVoice")) == nI)
+		if (parseInt(localStorage.getItem("nIndexSelectedVoice")) == nI)
 			strSelected = " selected";
 		g_strVoiceOptions += "<option value=\"" + nI.toString() + "\"" + strSelected + ">" + g_arrayVoices[nI].name +  
 				"</option>\n";		
@@ -41,32 +50,23 @@ function DoStopSpeaking()
 	window.speechSynthesis.cancel();
 }
 
-function DoGetVolume()
-{
-	let nLevel = 1.0,
-		rangeVolume = document.getElementById("range_volume");
-	
-	if (rangeVolume)
-	{
-		nLevel = rangeVolume.value / 100;
-	}
-	return nLevel;
-}
-
 function DoSpeakText(strText)
 {
-	let nIndex = parseInt(sessionStorage.getItem("nIndexSelectedVoice"));
+	let nIndex = parseInt(localStorage.getItem("nIndexSelectedVoice"));
 	
 	if (strText != "")
 	{
     	// 1. Create a new SpeechSynthesisUtterance object
-    	let utterance = new SpeechSynthesisUtterance(strText);
+    	let utterance = new SpeechSynthesisUtterance(strText),
+	    	nVolume = Number(localStorage.getItem("range_volume")) / 100,
+	    	nSpeed = Number(localStorage.getItem("range_speed")) / 100,
+	    	nPitch = Number(localStorage.getItem("range_pitch")) / 100;
 
 	    // 2. (Optional) Customize the voice parameters
-	    utterance.rate = 1.0;  // Speed (0.1 to 10)
-	    utterance.pitch = 1.0; // Pitch (0 to 2)
-	    utterance.volume = DoGetVolume(); // Volume (0 to 1)
-	    utterance.voice = g_arrayVoices[parseInt(sessionStorage.getItem("nIndexSelectedVoice"))];
+	    utterance.rate = nSpeed;  // Speed (0.1 to 10)
+	    utterance.pitch = nPitch; // Pitch (0 to 2)
+	    utterance.volume = nVolume; // Volume (0 to 1)
+	    utterance.voice = g_arrayVoices[parseInt(localStorage.getItem("nIndexSelectedVoice"))];
 		
 	    // 3. Pass the utterance to the speechSynthesis API to speak it aloud
 	    window.speechSynthesis.cancel();
@@ -76,7 +76,7 @@ function DoSpeakText(strText)
 
 function DoSpeakElement(Element, strText = "")
 {
-	if (JSON.parse(sessionStorage.getItem("bAudioAssistOn")))
+	if (JSON.parse(localStorage.getItem("bAudioAssistOn")))
 	{
 		if (strText.length > 0)
 		{
@@ -139,27 +139,58 @@ function DoTestVoice(strTextInputID)
 	
 	if (textToSpeak && selectVoice)
 	{
-		sessionStorage.setItem("nIndexSelectedVoice", selectVoice.selectedIndex.toString());
+		localStorage.setItem("nIndexSelectedVoice", selectVoice.selectedIndex.toString());
 		DoSpeakText(textToSpeak.value);
 	}
 }
 
-if (sessionStorage.getItem("bAudioAssistOn") === null)
-	sessionStorage.setItem("bAudioAssistOn", "false");
+if (localStorage.getItem("bAudioAssistOn") === null)
+	localStorage.setItem("bAudioAssistOn", "false");
+
+function DoSetRange(strIDRange)
+{
+	let slider = document.getElementById(strIDRange);
+	if (slider)
+	{
+		slider.value = localStorage.getItem(strIDRange);
+	}
+}
+
+function DoSetVoiceAssistInputs()
+{
+	let selectVoices = document.getElementById("select_voice");
+	if (selectVoices)
+	{
+		selectVoices.innerHTML = g_strVoiceOptions;
+	}
+	DoSetRange("range_volume");
+	DoSetRange("range_speed");
+	DoSetRange("range_pitch");
+}
+
+function DoChangeRange(strRangeID)
+{
+	let slider = document.getElementById(strRangeID);
+	
+	if (slider)
+	{
+		localStorage.setItem(strRangeID, slider.value);
+	}
+}
 
 function DoSetAudioAssist()
 {
 	let checkboxAudioAssist = document.getElementById("checkbox_audio_assist");
 	
 	if (checkboxAudioAssist)
-		checkboxAudioAssist.checked = JSON.parse(sessionStorage.getItem("menu_open"));
+		checkboxAudioAssist.checked = JSON.parse(localStorage.getItem("menu_open"));
 }
 
 function DoClickAudioAssistCheckbox(checkboxAudioAssist)
 {
 	let strChecked = checkboxAudioAssist.checked ? "true" : "false";
 	
-	sessionStorage.setItem("bAudioAssistOn", strChecked);
+	localStorage.setItem("bAudioAssistOn", strChecked);
 }
 
 function DoSetAudioAssistCheckbox()
@@ -168,7 +199,7 @@ function DoSetAudioAssistCheckbox()
 	
 	if (checkboxAudioAssist)
 	{
-		checkboxAudioAssist.checked = JSON.parse(sessionStorage.getItem("bAudioAssistOn"));
+		checkboxAudioAssist.checked = JSON.parse(localStorage.getItem("bAudioAssistOn"));
 	}
 }
 
