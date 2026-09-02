@@ -566,22 +566,8 @@ $g_arrayHireRoom = [
 
 		if (!str_contains($strURI, "donation"))
 		{
-			$strHTML = "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;max-width:100%;margin-left:5px;margin-bottom:20px;margin-top:20px;\">\n" .
-					  "    <tr>\n" . 
-					  "        <td>\n" .
-					  "            <img src=\"" . DoGetParentOrCurrentDir() . "images/donate1.png\" alt=\"donate1.png\" class=\"donate_image\" />&nbsp;&nbsp;&nbsp;&nbsp;\n" . 
-					  "            <img src=\"" . DoGetParentOrCurrentDir() . "images/donate2.png\" alt=\"donate2.png\" class=\"donate_image\" />\n" . 
-					  "        </td>\n" .
-					  "    <tr>\n" . 
-					  "    <tr>\n" . 
-					  "        <td style=\"padding-left:10px;vertical-align:middle;overflow-wrap:word-wrap;white-space:normal;\">\n" . 
-					  "            <span class=\"donation_span\">\n" . 
-					  "                Click <a href=\"" . DoGetParentOrCurrentDir() . "contribute/why_donate.php\" class=\"blink\" tabindex=\"0\" onfocus=\"DoSpeakElement(this, '" . $strText . "')\" onmouseenter=\"DoSpeakElement(this, '" . $strText . "')\">here</a>" . 
-					  "                to learn why Millhouse is a worthy cause.\n" . 
-					  "            </span>\n" .
-					  "        </td>\n" . 
-					  "    </tr>\n" .
-					  "</table>\n";
+			$strHTML = "<a href=\"" . DoGetParentOrCurrentDir() . "about/about.php\"><img src=\"" . DoGetParentOrCurrentDir() . "MobileApp/images/Donate.png\" alt=\"Donate.png\" class=\"donate_image\" />";
+			$strHTML .= "<p style=\"color:black;\">Click the icon to learn why Mill House is a worthy cause...</p>\n";
 		}
 		else
 		{
