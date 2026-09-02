@@ -566,8 +566,8 @@ $g_arrayHireRoom = [
 
 		if (!str_contains($strURI, "donation"))
 		{
-			$strHTML = "<a href=\"" . DoGetParentOrCurrentDir() . "about/about.php\"><img src=\"" . DoGetParentOrCurrentDir() . "MobileApp/images/Donate.png\" alt=\"Donate.png\" class=\"donate_image\" />";
-			$strHTML .= "<p style=\"color:black;\">Click the icon to learn why Mill House is a worthy cause...</p>\n";
+			$strHTML = "<a href=\"" . DoGetParentOrCurrentDir() . "about/about.php\"><img src=\"" . DoGetParentOrCurrentDir() . "MobileApp/images/Donate.png\" alt=\"Donate.png\" class=\"donate_image\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\" title=\"This is a hyperlink to the about page, which contains the donation pledge form.\" />";
+			$strHTML .= "<p style=\"color:black;\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\">Click the icon to learn why Mill House is a worthy cause...</p>\n";
 		}
 		else
 		{
