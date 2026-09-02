@@ -226,7 +226,7 @@ the foreseeable future.</p>
 
 <p>However this causes a minor problem when installing the app on your mobile device.</p>
 
-<p><img src="../images/AppInstallBlocked.jpg" alt="AppInstallBlocked.jpg" height="350" /></p>
+<p><a href="../images/AppInstallBlocked.jpg"><img src="../images/AppInstallBlocked.jpg" alt="AppInstallBlocked.jpg" height="350" title="If you can't read the text in this image then click or tap it to enlarge it" /></a></p>
 
 <p>The Android and IOS operating systems do not recognize millhouse.org.au as a 'trusted' app provider by default.</p>
 
@@ -236,7 +236,7 @@ the foreseeable future.</p>
 
 <p>The app was created with MIT App Inventor. Click on the link below if you wish and it will take you to the MIT App Inventor website.</p>
 
-<p><a href="https://appinventor.mit.edu/"><img src="images/MITAppInventor.png" alt="MITAppInventor.png" height="150" /></a></p>
+<p><a href="https://appinventor.mit.edu/"><img src="images/MITAppInventor.png" alt="MITAppInventor.png" height="150" title="Hyperlink to the MIT App Inventor website."/></a></p>
 
 <p>What is MIT?</p>
 
@@ -263,27 +263,27 @@ then get in touch with Mill House for some help.</p>
 <ol>
 	<li>
 		Click or tap the 'settings' icon.<br/>
-		<a href="images/SettingsIcon.jpg"><img src="images/SettingsIcon.jpg" alt="SettingsIcon.jpg" height="300" /></a>
+		<a href="images/SettingsIcon.jpg"><img src="images/SettingsIcon.jpg" alt="SettingsIcon.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Click or tap on 'Security and privacy'.<br/>
-		<a href="images/Security.jpg"><img src="images/Security.jpg" alt="SettingsIcon.jpg" height="300" /></a>
+		<a href="images/Security.jpg"><img src="images/Security.jpg" alt="SettingsIcon.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Scroll down until you see 'Installation source' and click or tap it.<br/>
-		<a href="images/MoreSecurity.jpg"><img src="images/MoreSecurity.jpg" alt="SettingsIcon.jpg" height="300" /></a>
+		<a href="images/MoreSecurity.jpg"><img src="images/MoreSecurity.jpg" alt="SettingsIcon.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Scroll down until you see 'Internet' and click or tap it.<br/>
-		<a href="images/Internet.jpg"><img src="images/Internet.jpg" alt="SettingsIcon.jpg" height="300" /></a>		
+		<a href="images/Internet.jpg"><img src="images/Internet.jpg" alt="SettingsIcon.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>		
 	</li>
 	<li>
 		You will be asked to confirm that you want to do this -  click or tap 'Alow'.<br/>
-		<a href="images/InternetAllow.jpg"><img src="images/InternetAllow.jpg" alt="SettingsIcon.jpg" height="300" /></a>		
+		<a href="images/InternetAllow.jpg"><img src="images/InternetAllow.jpg" alt="SettingsIcon.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>		
 	</li>
 	<li>
 		The 'Internet' app is now permitted to install apps.<br/>
-		<a href="images/InternetAllow.jpg"><img src="images/InternetAllow.jpg" alt="SettingsIcon.jpg" height="300" /></a><br/>
+		<a href="images/InternetAllow.jpg"><img src="images/InternetAllow.jpg" alt="SettingsIcon.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a><br/>
 		This does not mean that this app can install other apps without you knowing about it - you still have to manually 
 		confirm that you want to proceed with any installation. 		
 	</li>
@@ -297,52 +297,52 @@ then get in touch with Mill House for some help.</p>
 <ol>
 	<li>
 		Locate this download link and click or tap it.<br/>
-		<a href="images/MillHouseApp.png"><img src="images/MillHouseApp.png" alt="MillHouseApp.png" height="300" /></a>
+		<a href="images/MillHouseApp.png"><img src="images/MillHouseApp.png" alt="MillHouseApp.png" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Click or tap 'Download again'.<br/>
-		<a href="images/DownloadAgain.jpg"><img src="images/DownloadAgain.jpg" alt="DownloadAgain.jpg" height="300" /></a>
+		<a href="images/DownloadAgain.jpg"><img src="images/DownloadAgain.jpg" alt="DownloadAgain.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Wait for the dowload to complete and then click or tap 'Open' to start the installation.<br/>
-		<a href="images/DownloadComplete.jpg"><img src="images/DownloadComplete.jpg" alt="DownloadComplete.jpg" height="300" /></a>
+		<a href="images/DownloadComplete.jpg"><img src="images/DownloadComplete.jpg" alt="DownloadComplete.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		You should then get this popup - click or tap 'Scan app'.<br/>
-		<a href="images/AppScan.jpg"><img src="images/AppScan.jpg" alt="ScanApp.jpg" height="300" /></a>
+		<a href="images/AppScan.jpg"><img src="images/AppScan.jpg" alt="ScanApp.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Wait for scanning to be completed.<br/>
-		<a href="images/AppScanning.jpg"><img src="images/AppScanning.jpg" alt="AppScanning.jpg" height="300" /></a>
+		<a href="images/AppScanning.jpg"><img src="images/AppScanning.jpg" alt="AppScanning.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		When scanning is complete you should get this popup. Click or tap 'Done'.<br/>
-		<a href="images/AppScanned.jpg"><img src="images/AppScanned.jpg" alt="AppScanned.jpg" height="300" /></a>
+		<a href="images/AppScanned.jpg"><img src="images/AppScanned.jpg" alt="AppScanned.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		If this popup appears then click or tap 'Don't Send'.<br/>
-		<a href="images/SendApp.jpg"><img src="images/SendApp.jpg" alt="SendApp.jpg" height="300" /></a><br/>
+		<a href="images/SendApp.jpg"><img src="images/SendApp.jpg" alt="SendApp.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a><br/>
 		Mill House created this app, and you trust Mill House, so there is no real security threat to your mobile device.
 	</li>
 	<li>
 		Find your file manager app and click or tap it.<br/>
-		<a href="images/FileManager.jpg"><img src="images/FileManager.jpg" alt="FileManager.jpg" height="300" /></a>
+		<a href="images/FileManager.jpg"><img src="images/FileManager.jpg" alt="FileManager.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Next scroll until you locate your 'Downloads' folder. Click or tap it.<br/>
-		<a href="images/Downloads.jpg"><img src="images/Downloads.jpg" alt="Downloads.jpg" height="300" /></a>
+		<a href="images/Downloads.jpg"><img src="images/Downloads.jpg" alt="Downloads.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Scroll until you find the Mill House app installer. Click or tap it.<br/>
-		<a href="images/LocateMillHouseApp.jpg"><img src="images/LocateMillHouseApp.jpg" alt="LocateMillHouseApp.jpg" height="300" /></a>
+		<a href="images/LocateMillHouseApp.jpg"><img src="images/LocateMillHouseApp.jpg" alt="LocateMillHouseApp.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>	
 	<li>
 		Wait for the installation to complete.<br/>
-		<a href="images/AppInstalling.jpg"><img src="images/AppInstalling.jpg" alt="AppInstalling.jpg" height="300" /></a>
+		<a href="images/AppInstalling.jpg"><img src="images/AppInstalling.jpg" alt="AppInstalling.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Once the installation is complete you will get this popup - click 'Open' to start the Mill House App.<br/>
-		<a href="images/AppInstalled.jpg"><img src="images/AppInstalled.jpg" alt="AppInstalled.jpg" height="300" /></a>
+		<a href="images/AppInstalled.jpg"><img src="images/AppInstalled.jpg" alt="AppInstalled.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 </ol>
 
@@ -351,23 +351,23 @@ then get in touch with Mill House for some help.</p>
 <ol>
 	<li>
 		Locate this download link and click or tap it.<br/>
-		<a href="images/MillHouseApp.png"><img src="images/MillHouseApp.png" alt="MillHouseApp.png" height="300" /></a>
+		<a href="images/MillHouseApp.png"><img src="images/MillHouseApp.png" alt="MillHouseApp.png" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Click or tap 'Download again'.<br/>
-		<a href="images/DownloadAgain.jpg"><img src="images/DownloadAgain.jpg" alt="DownloadAgain.jpg" height="300" /></a>
+		<a href="images/DownloadAgain.jpg"><img src="images/DownloadAgain.jpg" alt="DownloadAgain.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Wait for the dowload to complete and then click or tap 'Open' to start the installation.<br/>
-		<a href="images/DownloadComplete.jpg"><img src="images/DownloadComplete.jpg" alt="DownloadComplete.jpg" height="300" /></a>
+		<a href="images/DownloadComplete.jpg"><img src="images/DownloadComplete.jpg" alt="DownloadComplete.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Wait for the installation to complete.<br/>
-		<a href="images/AppInstalling.jpg"><img src="images/AppInstalling.jpg" alt="AppInstalling.jpg" height="300" /></a>
+		<a href="images/AppInstalling.jpg"><img src="images/AppInstalling.jpg" alt="AppInstalling.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 	<li>
 		Once the installation is complete you will get this popup - click 'Open' to start the Mill House App.<br/>
-		<a href="images/AppInstalled.jpg"><img src="images/AppInstalled.jpg" alt="AppInstalled.jpg" height="300" /></a>
+		<a href="images/AppInstalled.jpg"><img src="images/AppInstalled.jpg" alt="AppInstalled.jpg" height="300" title="If you can't read the text in this image then click or tap it to enlarge it"/></a>
 	</li>
 </ol>
 
