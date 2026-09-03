@@ -317,6 +317,14 @@
 
 
 
+
+
+
+
+
+
+
+
 		
 			.group_hyperlink
 			{
@@ -532,7 +540,8 @@
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" class="sight_impaired" onclick="DoDisplayHidePopup('form_voice_assist', true)">VOICE ASSIST</button></form>
+								<form class="form_voice_assist_button"><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)">
+									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 			

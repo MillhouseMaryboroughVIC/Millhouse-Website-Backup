@@ -459,11 +459,6 @@ hr
 {
 	font-weight: 600;/*100 - 900*/;
 }
-.sight_impaired
-{
-	font-size: large!important;
-	font-weight:800!important;
-}
 .form_voice_assist_button
 {
 	background-color: transparent!important;
@@ -634,19 +629,18 @@ p input[type=reset],
 p button,
 .instructions_button
 {
-	border-style: outset;
+	border-style: solid;
 	border-radius: 5px;
-	border-width: 2px;
+	border-width: 3px;
+	border-color: #DFDFDF #888888 #888888 #DFDFDF;
+	
 	background-color: silver;
 	text-align: center;
 	vertical-align: middle;
 	color: black;
 	font-weight: bold;
-	padding:10px;
-	border-top-color:#CCCCCC;
-	border-left-color:#CCCCCC;
-	border-bottom-color: #D2D2D2;
-	border-right-color: #D2D2D2;
+	padding: 5px;
+	cursor:pointer;
 	
 	font-family: var(--font_family);
   	font-weight: var(--font_weight);
@@ -660,18 +654,15 @@ p button,
 .form_voice_assist_button input[type=submit]:active,
 .form_voice_assist_button input[type=button]:active,
 .form_voice_assist_button input[type=reset]:active,
-.form_voice_assist_button button,
+.form_voice_assist_button active,
 p input[type=submit]:active,
 p input[type=button]:active,
 p input[type=reset]:active,
 p button:active,
 .instructions_button:active
 {
-	border-top-color: #D2D2D2;
-	border-left-color: #D2D2D2;
-	border-bottom-color: #CCCCCC;
-	border-right-color: #CCCCCC;
-}	
+	border-color: #888888 #DFDFDF #DFDFDF #888888!important;
+}
 .form input[type=submit]:disabled,
 .form input[type=button]:disabled,
 .form input[type=reset]:disabled,

@@ -76,7 +76,7 @@
 			// Has finished.
 			else if (strcmp($datetimeNow->format("H:i"), $datetimeEnd->format("H:i")) >= 0)
 			{
-				$strTime .= " (you missed it)";
+				$strTime .= " (finished for today)";
 			}
 			// Is in progress.
 			else if (strcmp($datetimeNow->format("H:i"), $datetimeEnd->format("H:i")) < 0)
@@ -85,6 +85,33 @@
 			}
 		}
 		return $strTime;
+	}
+	
+	function DoFormatDateToday()
+	{
+		$datetimeNow = new DateTime();
+		
+		return $datetimeNow->format("l j F Y");
+	}
+	
+	function DoGetGroupLogo($strGroupName)
+	{
+		$strImgHTML = "";
+		$strLogoFilename = DoGetParentOrCurrentDir() . "images/" . $strGroupName;	
+	
+		if (file_exists($strLogoFilename . ".jpg"))
+		{
+			$strLogoFilename = $strLogoFilename . ".jpg";
+		}
+		else if (file_exists($strLogoFilename . ".png"))
+		{
+			$strLogoFilename = $strLogoFilename . ".png";
+		}
+		if ($strLogoFilename != "")
+		{
+			$strImgHTML = "<img src=\"" . $strLogoFilename . "\" alt=\"LOGO\" height=\"50\" />";
+		}
+		return $strImgHTML;
 	}
 	
 	function DoGenerateEventsToday()
@@ -122,7 +149,7 @@
 		{		
 			if ($result->num_rows > 0)
 			{
-				echo "<ul>\n";
+				echo "<table border=\"0\" cellpadding=\"0\" cellspacing=\"5\" style=\"width:95%;\">\n";
 				while ($row = $result->fetch_assoc())
 				{
 					$nDOWRow1 = -1;
@@ -161,17 +188,6 @@
 					}
 					if ($bGo)
 					{
-/*
-if ($row["name"] == "canasta")
-{
-	echo "<!--###################################\n";
-	echo "nDOWRow1 = " . $nDOWRow1 . "<br>\n";
-	echo "nDOWRow2 = " . $nDOWRow2 . "<br>\n";
-	echo "nDOWToday = " . $nDOWToday . "<br>\n";
-	echo "nWOMRow = " . $nWOMRow . "<br>\n";
-	echo "    ###################################-->\n";
-}
-*/
 						// The week of the month for the row is not 0 and it matches the week of the month for today.
 						if (($nWOMToday == $nWOMRow) || ($nWOMRow == 0) || ($nWOMRow == -1))
 						{
@@ -203,7 +219,19 @@ if ($row["name"] == "canasta")
 						}
 						else
 						{
-							echo "    <li><b>" . $row["description"] . "</b> at ";
+							echo "    <tr><td style=\"width:30px;vertical-align:middle;text-align:right;\">" . DoGetGroupLogo($row["name"]) . "</td><td style=\"vertical-align:middle;\"><b>" . $row["description"] . "</b> at ";
+/*
+if ($row["name"] == "axis_employment")
+{
+	DoDisplayTop(false);
+	DumpVar("nDOWToday", $nDOWToday, true);
+	DumpVar("nDOWRow1", $nDOWRow1, true);
+	DumpVar("nDOWRow2 ", $nDOWRow2, true);
+	DumpVar("time1", $row["time1"], true);
+	DumpVar("time2", $row["time2"], true);
+	DoDisplayBottom(false);
+}
+*/
 							
 							// If only $row["dow1"] is set but both $row["time1"] and $row["time2"] are set then 
 							// display both times.
@@ -211,6 +239,21 @@ if ($row["name"] == "canasta")
 							{
 								$strTime1 = DoGetTimeRange($row["time1"], $row["duration"]);
 								$strTime2 = DoGetTimeRange($row["time2"], $row["duration"]);
+							}
+							// If both $row["dow1"] and $row["dow1"] are -1 and only $row["time1"] is set then the group meets 
+							// every day of the week at the same time so display only $row["time1"].
+							else if (($nDOWRow1 == -1) && ($nDOWRow2 == -1) && !is_null($row["time1"]) && is_null($row["time2"]))
+							{
+								$strTime1 = DoGetTimeRange($row["time1"], $row["duration"]);
+								$strTime2 = "";
+							}
+							// If both $row["dow1"] and $row["dow1"] are set and only $row["time1"] is set then the group meets 
+							// two days of the week at the same time so display only $row["time1"].
+							// display both times.
+							else if (($nDOWRow1 > -1) && ($nDOWRow2 > -1) && !is_null($row["time1"]) && is_null($row["time2"]))
+							{
+								$strTime1 = DoGetTimeRange($row["time1"], $row["duration"]);
+								$strTime2 = "";
 							}
 							// If both $row["dow1"] and $row["dow2"] are set and only $row["dow1"] matches the day of 
 							// the week today then display $row["time1"] only.
@@ -227,7 +270,7 @@ if ($row["name"] == "canasta")
 								$strTime1 = DoGetTimeRange($row["time2"], $row["duration"]);
 								$strTime2 = "";
 							}								
-							echo $strTime1 . (($strTime2 == "") ? "" : " and " . $strTime2) . "</li>\n";
+							echo $strTime1 . (($strTime2 == "") ? "" : " and " . $strTime2) . "</td><tr>\n";
 							$nCount++;
 						}
 						if ($row["name"] == "feast")
@@ -236,7 +279,7 @@ if ($row["name"] == "canasta")
 						}
 					}
 				}
-				echo "</ul>\n";
+				echo "</table>\n";
 				if ($nCount == 0)
 					echo "<p>No events today...</p><br/>\n";
 			}
@@ -269,7 +312,7 @@ if ($row["name"] == "canasta")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -420,53 +463,59 @@ if ($row["name"] == "canasta")
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" class="sight_impaired" onclick="DoDisplayHidePopup('form_voice_assist', true)">VOICE ASSIST</button></form>
+								<form class="form_voice_assist_button"><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)"><img src="images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<h1>Welcome to the new Mill House website</h1>
-<p>For best viewing results, use the most up to date version of your favorite web browser.</p>
-<p>If you have questions, comments, or suggestions, please click 'Contact' and get in touch with us via your preferred 
-method (contact form, email or phone number).</p>
-<p>Enjoy!</p>
+<h1>Welcome Mill House</h1>
+<p>A welcoming community space in the heart of Maryborough.</p>
+
+<h1 id="whats_on">What's on at Mill House today <?php echo DoFormatDateToday(); ?>?</h1>
+<?php
+	/****************************************************************************************************
+	 ****************************************************************************************************
+	 ****************************************************************************************************
+	 ****************************************************************************************************
+	 **** SARAH PLEASE NOTE
+	 **** 
+	 **** Don't change this PHP code. It is responsible for generating the list of events on today from 
+	 **** the 'groups' table in the MySQL database in your web hosting account.
+	 ****
+	 ****************************************************************************************************
+	 ****************************************************************************************************
+	 ****************************************************************************************************
+	 ****************************************************************************************************/
+	 
+	DoGenerateEventsToday(); 
+?>
 
 <?php
 	if (IsAdminLoggedIn())
 	{
-		echo "<h2>Mill House App</h2>\n";
+		echo "<h1>Mill House App</h1>\n";
 		echo "<p>The mobile app is available for administration staff to try and review. Click the link below to go to the mobile app page...</p>\n";
 		echo "<p><a href=\"MobileApp/MobileApp.php\"><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" title=\"Go to the mobile app page.\" height=\"100\" /></a></p>\n";
 	}
 	else
 	{
-		echo "<h2>The Mill House App</h2>\n";
+		echo "<h1>The Mill House App</h1>\n";
 		echo "<p>It is coming soon, so watch this space!</p>\n";
 		echo "<p><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" height=\"100\" /></p>\n";
 	}
 ?>
-<!--
-<h2>Download the Mill House App</h2>
-<p><b>PLEASE NOTE: </b>The app is still under development, and there are a few unimplemented administration features. 
-All the main features are implemented and working, but there will likely be minor changes here and there. Also new features 
-may be added in the near future. So update the app regularly.</p> 
-
-<p>To install, open this page on your mobile device a click the link below. You will get the following popup (or 
-something similar) when you try to install it.</p>
-
-<p><img src="images/AppInstallBlocked.jpg" alt="AppInstallBlocked.jpg" height="350" /></p>
-
-<p>This is because the app was built with <a href="https://ai2a.appinventor.mit.edu/">MIT App Inventor</a> and is   
-being installed outside Google Play Store (or other trusted app store). You can trust the app. Just click 'More details' 
-and then 'Install anyway'.</p>
-
-<p><a href="MobileApp/Mill_House.apk" download><img src="images/MillHouseApp.png" alt="MillHouseApp.png" width="150" title="Tap this link on your mobile device to download and install the Mill House app."/></a></p>
--->
 
 <h1>Who We Are</h1>
 
 <p>Mill House Neighbourhood House is a welcoming and inclusive community space in the heart of Maryborough.</p>
 
-<p>Click on a face to see their name.</p>
+<p>We bring people together, provide practical support and create opportunities for people of all ages and backgrounds 
+to connect, learn and participate.</p>
+
+<p>Our staff and volunteers</p>
+
+<p>Click a face to learn their name.</p>
+
+<p>Or turn on 'voice assist' and hover over a face to hear their name.</p>
 
 <!--
 <p><img src="images/MillHouseTeam.jpg" alt="MillHouseTeam.jpg" usemap="#mill_house_team" id="img_mill_house_team" height="250" /></p>
@@ -529,38 +578,41 @@ Goldfields. Everyone is welcome at Mill House, regardless of age, ability, backg
 
 <h1>What We Do</h1>
 
-<p>Mill House offers a wide range of affordable programs, activities and services that respond to the needs of our community.</p>
-
-<p>Our programs include community meals, food relief, social groups, youth activities, creative programs, digital support, volunteering 
-opportunities and access to welcoming spaces where people can meet, learn and connect.</p>
-
-<p>We also work closely with local organisations, businesses and community groups to improve access to services and create new opportunities 
-for residents.</p>
-
-<p>Whether you are looking for support, wanting to learn something new, hoping to meet people or interested in giving back to the community, 
-there is a place for you at Mill House.</p>
+<table border="0" cellpadding="0" cellspacing="0" style="width:99%;">
+	<tr>
+		<td style="width:33.3%;vertical-align:top;">
+			<h2>&#x1F34E; Food &amp; Support</h2>
+			<p><a href="about/about.php#food">Meals, food relief and affordable food</a>.</p>
+			<p>&nbsp;</p>
+		</td>
+		<td style="width:33.3%;vertical-align:top;">
+			<h2>&#x1F3A8; Activities &amp; Groups</h2>
+			<p><a href="about/about.php#acitivities">Social, creative and community activities</a>.</p>
+		</td>
+		<td style="width:33.3%;vertical-align:top;">
+			<h2>&#x1F3AE; Youth Hub</h2>
+			<p><a href="about/about.php#youth">Programs and activities for young people</a>.</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="width:33.3%;vertical-align:top;">
+			<h2>&#x1F4BB; Digital Access Hub</h2>
+			<a href="about/about.php#hub">Computers, internet access and digital support</a>.
+		</td>
+		<td style="width:33.3%;vertical-align:top;">
+			<h2>&#x1F3E0; Room Hire</h2>
+			<p><a href="room/room.php">Affordable community and meeting spaces</a>.</p>
+		</td>
+		<td style="width:33.3%;vertical-align:top;">
+			<h2>&#x1F496; Volunteer</h2>
+			<p><a href="contribute/volunteering.php">Get involved and make a difference</a>.</p>
+		</td>
+	</tr>
+</table>
 
 <h1>Join the Mill House family</h1>
 <p>Come in, get involved and discover what is happening at Mill House.</p>
 	
-<h1>What's on at Mill House today?</h1>
-	<?php
-		/****************************************************************************************************
-		 ****************************************************************************************************
-		 ****************************************************************************************************
-		 ****************************************************************************************************
-		 **** SARAH PLEASE NOTE
-		 **** 
-		 **** Don't change this PHP code. It is responsible for generating the list of events on today from 
-		 **** the 'groups' table in the MySQL database in your web hosting account.
-		 ****
-		 ****************************************************************************************************
-		 ****************************************************************************************************
-		 ****************************************************************************************************
-		 ****************************************************************************************************/
-		 
-		DoGenerateEventsToday(); 
-	?>
 <h1>Grant from Elders</h1>
 <p>The Mill House Committee, management and the community would like to thank Elders for their generous grant to our organisation.</p>
 <p><a href="images/EldersGrant.jpg"><img src="images/EldersGrant.jpg" alt="EldersGrant.jpg" width="300"/></a></p>

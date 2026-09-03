@@ -38,45 +38,6 @@
 		
 		<style type="text/css">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			.content img
 			{
 				height: 250px;
@@ -252,7 +213,8 @@
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" class="sight_impaired" onclick="DoDisplayHidePopup('form_voice_assist', true)">VOICE ASSIST</button></form>
+								<form class="form_voice_assist_button"><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)">
+									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 
@@ -264,7 +226,7 @@ and abilities.</p>
 <p>Whether you are looking for food support, a welcoming place to meet new people, help accessing services or an 
 opportunity to learn something new, there is a place for you at Mill House.</p>
 
-<h1>Helping Put Food on the Table</h1>
+<h1 id="food">Helping Put Food on the Table</h1>
 
 <h2>24/7 Community Food Pantry</h2>
 <p>Our Community Food Pantry is available 24 hours a day, seven days a week. Members of the Central Goldfields 
@@ -346,6 +308,13 @@ to enjoy the food together.</p>
 	<a href="images/cafe.jpg"><img src="images/cafe.jpg" alt="cafe.jpg" /></a>
 </p>
 
+<h1 id="hub">Digital Hub</h1>
+<ul>
+	<li>Digital Drop-Ins: Free, one-on-one assistance for troubleshooting phones, tablets, and laptops.</li>
+	<li>Form Filling: Help navigating online government services and digital paperwork.</li>
+	<li>Computer Classes: Beginner-friendly courses to build basic tech confidence and skills.</li>
+</ul>
+
 <h1>Groups and Activities</h1>
 
 <h2>Maker Mums</h2>
@@ -371,14 +340,14 @@ team and enjoy new adventures.</p>
 
 <p><a href="images/dungeons_dragons.jpg"><img src="images/dungeons_dragons.jpg" alt="dungeons_dragons.jpg" /></a></p>
 
-<h2>The 'House' Youth Activity Hub</h2>
+<h2 id="youth">The 'House' Youth Activity Hub</h2>
 
 <p>A welcoming space where young people can meet, participate in activities, develop new skills and connect with 
 others.</p>
 
-<p><a href="../images/YouthHub.jpg"><img src="../images/YouthHub.jpg" alt="YouthHub.jpg" /></a></p>
+<p><a href="../images/youth_hub.jpg"><img src="../images/youth_hub.jpg" alt="YouthHub.jpg" /></a></p>
 
-<h2>Mill House Scrappers</h2>
+<h2 id="acitivities">Mill House Scrappers</h2>
 
 <p>A relaxed social scrapbooking group where participants can work on creative projects, share ideas and enjoy time 
 with others.</p>
