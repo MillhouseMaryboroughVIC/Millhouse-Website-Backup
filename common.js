@@ -88,10 +88,7 @@ function DoSpeakElement(Element, strText = "")
 			{
 				let strTagName = Element.tagName.toLowerCase();
 				
-				if (strTagName == "input")
-				{
-				}
-				else if ((strTagName == "p") || (strTagName == "a") || (strTagName == "li") || (strTagName == "h1") || 
+				if ((strTagName == "p") || (strTagName == "a") || (strTagName == "li") || (strTagName == "h1") || 
 						 (strTagName == "h2") || (strTagName == "h3") || (strTagName == "h4") || (strTagName == "h5") || 
 						 (strTagName == "h6"))	
 				{
@@ -124,6 +121,119 @@ function DoSpeakElement(Element, strText = "")
 					else if (Element.id == "div_page_heading")
 					{
 						strText = Element.innerText;
+					}
+				}
+				else if (strTagName == "select")
+				{
+					if (Element.size > 0)
+						strText = "List box - select and item in the list box if any are available.";
+					else
+						strText = "Combo select box: click the button at the end and select an item, if available, from the popup list.";
+				}
+				else if (strTagName == "button")
+				{
+					if (Element.innerText !== "")
+					{
+						strText = Element.innerText;
+					}
+					else if (Element.title !== "")
+					{
+						strText =  Element.title;
+					}	
+					else if (Element.type == "submit")
+					{
+						strText = "Form submit button";
+					}
+					else if (Element.type == "reset")
+					{
+						strText = "Form reset button";
+					}
+					else if (Element.type == "button")
+					{
+						strText = "Button";
+					}
+				}
+				else if (strTagName == "label")
+				{
+					strText = Element.innerText;
+				}
+				else if (strTagName == "input")
+				{
+					if (Element.type.toLowerCase() == "button")
+					{
+						strText = Element.value;
+					}
+					else if (Element.type.toLowerCase() == "checkbox")
+					{
+						strText = "Check box - click to toggle it.";
+					}
+					else if (Element.type.toLowerCase() == "color")
+					{
+						strText = "Color selector - click and select a color from the color popup.";
+					}
+					else if (Element.type.toLowerCase() == "date")
+					{
+						strText = "Date selector - type numeric values for day of the month, month and year. Or click button at the end to select them from the popup calendar.";
+					}
+					else if (Element.type.toLowerCase() == "datetime-local")
+					{
+						"Local date/time selector - type numeric values for day of the month, month, year, hour, minutes and seconds. Or click to select them from the popup calendar.";
+					}
+					else if (Element.type.toLowerCase() == "email")
+					{
+						strText = "Email text edit - type a valid email address.";
+					}
+					else if (Element.type.toLowerCase() == "file")
+					{
+						strText = "File selector - click the button and select a file from the file browser popup.";
+					}
+					else if (Element.type.toLowerCase() == "month")
+					{
+						strText = "Month selector - type a full month name or click the button at the end to select it from the calendar popup.";
+					}
+					else if (Element.type.toLowerCase() == "number")
+					{
+						strText = "Number text edit - type some digits or else use the up and down buttons at the end to increment and decrement the number.";
+					}
+					else if (Element.type.toLowerCase() == "password")
+					{
+						strText = "Password text edit - type your password.";
+					}
+					else if (Element.type.toLowerCase() == "radio")
+					{
+						strText = "Radio button - click to check this radio button and uncheck any currently checked button. ";
+					}
+					else if (Element.type.toLowerCase() == "range")
+					{
+						strText = "Slider - move the tab left and right to set a value between " + Element.min + " and " +Element.max + ".";
+					}
+					else if (Element.type.toLowerCase() == "reset")
+					{
+						strText = "Clear all the inputs in the form.";
+					}
+					else if ((Element.type.toLowerCase() == "submit") || (Element.type.toLowerCase() == "image"))
+					{
+						strText = "Submit the form to the website server.";
+					}
+					else if (Element.type.toLowerCase() == "tel")
+					{
+						strText = "Type a valid landline or mobile telephone number.";
+					}
+					else if (Element.type.toLowerCase() == "text")
+					{
+						strText = "Type your text.";
+					}
+					else if (Element.type.toLowerCase() == "time")
+					{
+						strText = "Type numeric values for hour, minutes and seconds. Or click the button at the end to select them from the popup clock.";
+					}
+					else if (Element.type.toLowerCase() == "url")
+					{
+						strText = "Type valid URL.";
+					}
+					else if (Element.type.toLowerCase() == "week")
+					{
+						strText = "Type numeric values for the week in the year and the year. Or click the button at the end to select them from the popup calendar.";
 					}
 				}
 			}
@@ -207,7 +317,6 @@ function DoAttachListeners(arrayElements)
 {
 	for (let nI = 0; nI < arrayElements.length; nI++)
 	{
-		console.log();
 		arrayElements[nI].addEventListener('mouseleave', function() {DoStopSpeaking()});
 		arrayElements[nI].addEventListener('mouseenter', function() {DoSpeakElement(this)});
 		arrayElements[nI].addEventListener('focus', function() {DoSpeakElement(this)});
@@ -232,6 +341,11 @@ function DoAllAttachListeners(strElementID)
 		DoAttachListeners(Element.querySelectorAll("h5"));
 		DoAttachListeners(Element.querySelectorAll("h6"));
 		DoAttachListeners(Element.querySelectorAll("img"));
+		
+		DoAttachListeners(Element.querySelectorAll("button"));
+		DoAttachListeners(Element.querySelectorAll("select"));
+		DoAttachListeners(Element.querySelectorAll("input"));
+		DoAttachListeners(Element.querySelectorAll("label"));
 	}
 }
 
@@ -242,6 +356,26 @@ function DoAllAttachListeners(strElementID)
 //** 
 //******************************************************************************
 //******************************************************************************
+
+function DoDisplayMastheadEnd(strSponsorHTML, strPath)
+{
+	if (!g_bIsMobileDevice)
+	{
+		document.write("				<td class=\"masthead_cell_image_right2\">\n");
+		document.write("					<a href=\"" + strPath + "images/MillHouseNeighborhoodHouse2.jpg\"><img src=\"" + strPath + "images/MillHouseNeighborhoodHouse2.jpg\" alt=\"MillHouseNeighborhoodHouse2.jpg\" class=\"masthead_image\" /></a>\n");
+		document.write("				</td>\n");
+
+		document.write("				<td>\n");
+		document.write("					<div class=\"sponsors_container\">" + strSponsorHTML + "</div>\n");
+		document.write("				</td>\n");
+	}
+	else
+	{
+		document.write("				<td>\n");
+		document.write("					<span id=\"span_hamburger\" class=\"masthead_hamburger\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\" onclick=\"DoClickHamburger()\">≡</span>\n");
+		document.write("				</td>\n");
+	}
+}
 
 function DoDisplayHidePopup(strDivID, bShow)
 {
@@ -535,49 +669,6 @@ function DoClickNavLinkWithSubmenu(strSubmenuID)
 	}
 }
 
-function DoOnNavMenuTransitioned()
-{
-	let divNavMenu = document.getElementById("div_navigation_menu"),
-		divContent = document.getElementById("div_content"),
-		bOpen = JSON.parse(sessionStorage.getItem("menu_open")),
-		nContentWidthCorrection = 0;
-	
-	if (divNavMenu && divContent)
-	{
-		if (divNavMenu.style.width == "0px")
-		{
-			divNavMenu.style.display = "none";
-			nContentWidthCorrection = DoGetCSSVarValInt("--content_width_adjust_decreasing");
-		}
-		else
-		{
-			nContentWidthCorrection = DoGetCSSVarValInt("--content_width_adjust_increasing");
-		}
-		if (!g_bIsMobileDevice)
-		{
-			let nDivBelowMastheadWidth = DoGetElementWidth("div_below_masthead"),
-				nDivNavMenuArrow = DoGetElementWidth("div_navigation_arrow"),
-				nDivNavMenu = DoGetElementWidth(divNavMenu);
-	
-			divContent.style.width = (nDivBelowMastheadWidth - nDivNavMenuArrow - nDivNavMenu - 
-										nContentWidthCorrection).toString() + "px";
-		}
-		else
-		{
-			if (bOpen)
-			{
-				divContent.style.minWidth = "var(--content_width_nav_menu_open)";
-				divContent.style.maxWidth = "var(--content_width_nav_menu_open)";
-			}
-			else
-			{
-				divContent.style.minWidth = "var(--content_width_nav_menu_closed)";
-				divContent.style.maxWidth = "var(--content_width_nav_menu_closed)";
-			}
-		}
-	}
-}
-
 function DoKeyPress(Event)
 {
 	if (Event.key === "Enter")
@@ -594,21 +685,44 @@ function DoGetMainMenuState()
 	return bOpen;
 }
 
+function DoSetMenuState(bOpen)
+{
+	sessionStorage.setItem("menu_open", JSON.stringify(bOpen))
+}
+
+function DoClickHamburger()
+{
+	let spanHamburger = document.getElementById("span_hamburger"),
+		divContent = document.getElementById("div_content"),
+		divContainer = document.getElementById("div_container"),
+		bOpen = false;
+	
+	DoOpenCloseMenu(true);
+	bOpen = DoGetMainMenuState();
+	
+	if (spanHamburger)
+	{	
+		if (bOpen)
+			spanHamburger.innerText = "X";
+		else
+			spanHamburger.innerText = "≡";
+	}
+}
+
 function DoOpenCloseMenu(bDoToggle)
 {
 	let spanMenuText = document.getElementById("span_menu_text"),
 		divNav = document.getElementById("div_navigation"),
 		divNavMenu = document.getElementById("div_navigation_menu"),
 		strMenuText = "◄ MAIN MENU ◄",
-		divContent = document.getElementById("div_content"),
 		bOpen = DoGetMainMenuState();
 	
-	if (spanMenuText && divNav && divNavMenu && divContent)
+	if (spanMenuText && divNav && divNavMenu)
 	{
 		if (bDoToggle)
 		{
-			sessionStorage.setItem("menu_open", JSON.stringify(!bOpen));
-			bOpen = JSON.parse(sessionStorage.getItem("menu_open"));
+			DoSetMenuState(!bOpen);
+			bOpen = !bOpen ;
 		}					
 		if (bOpen)
 		{
@@ -627,6 +741,42 @@ function DoOpenCloseMenu(bDoToggle)
 		// But not in the other direction. So use setTimeout instead - it is reliable!
 		let nTransition = DoGetCSSVarValInt("--transition");
 		setTimeout(DoOnNavMenuTransitioned, nTransition);
+	}
+}
+
+function DoOnNavMenuTransitioned()
+{
+	let divNavMenu = document.getElementById("div_navigation_menu"),
+		divContent = document.getElementById("div_content"),
+		bOpen = JSON.parse(sessionStorage.getItem("menu_open")),
+		nContentWidthCorrection = 0,
+		nDivBelowMastheadWidth = DoGetElementWidth("div_below_masthead"),
+		nDivNavMenuArrowWidth = DoGetElementWidth("div_navigation_arrow"),
+		nDivNavMenuWidth = DoGetElementWidth(divNavMenu);
+	
+	if (divNavMenu && divContent)
+	{
+		if (divNavMenu.style.width == "0px")
+		{
+			divNavMenu.style.display = "none";
+		}
+		if (!g_bIsMobileDevice)
+		{
+			if (bOpen)
+				divContent.style.width = (nDivBelowMastheadWidth - nDivNavMenuArrowWidth - nDivNavMenuWidth - 26).toString() + "px";
+			else
+				divContent.style.width = (nDivBelowMastheadWidth - nDivNavMenuArrowWidth - nDivNavMenuWidth - 30).toString() + "px";
+		}
+		else
+		{
+			let nContentWidth = nDivBelowMastheadWidth - nDivNavMenuArrowWidth - 28;
+					
+			if (bOpen)
+			 	nContentWidth -= nDivNavMenuWidth;
+
+			divContent.style.minWidth = nContentWidth.toString() + "px";
+			divContent.style.maxWidth = nContentWidth.toString() + "px";
+		}
 	}
 }
 

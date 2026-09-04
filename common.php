@@ -1837,12 +1837,13 @@ $g_arrayHireRoom = [
 		return $strJSArrayBookmarks;
 	}
 
-	function DoGenerateSponsors()
+	function DoGenerateSponsors($bAsHTMLString)
 	{
 		global $g_dbMillhouse;
 		$datetimeNow = new DateTime();
 		$strSponsorBookmarksList = DoGenerateSponsorBookMarksList();
 		$datetimeNow = DoGetMelbourneTimeNow();
+		$strSponsorHTML = "";
 		
 		$results = DoFindAllQuery($g_dbMillhouse, "sponsors", "expiry_date >= " . $datetimeNow->format("Y-m-d"), "ranking ASC, business_name");
 		if ($results && ($results->num_rows > 0))
@@ -1852,12 +1853,24 @@ $g_arrayHireRoom = [
 				$datetimeExpiry = new DateTime($row["expiry_date"]);
 				if ($datetimeExpiry >= $datetimeNow)
 				{
-					echo "<img id=\"img_" . DoGenerateBookmark($row["business_name"]) . "\" src=\"" . DoGetParentOrCurrentDir() . "sponsors/images/" . $row["logo_image"] . "\" alt=\"" . 
-						$row["logo_image"] . "\" onclick=\"DoClickSponsor('" . DoGetParentOrCurrentDir() . 
-						"', '" . $strSponsorBookmarksList . "')\" />\n";
+					if ($bAsHTMLString)
+					{
+						$strSponsorHTML .= "<img id=\\\"img_" . DoGenerateBookmark($row["business_name"]) . 
+								"\\\" src=\\\"" . DoGetParentOrCurrentDir() . "sponsors/images/" . $row["logo_image"] . 
+								"\\\" alt=\\\"" . $row["logo_image"] . "\\\" onclick=\\\"DoClickSponsor('" . 
+								DoGetParentOrCurrentDir() . "', '" . $strSponsorBookmarksList . "')\\\" />\n";
+					}
+					else
+					{
+						$strSponsorHTML .= "<img id=\"img_" . DoGenerateBookmark($row["business_name"]) . "\" src=\"" . 
+								DoGetParentOrCurrentDir() . "sponsors/images/" . $row["logo_image"] . "\" alt=\"" . 
+								$row["logo_image"] . "\" onclick=\"DoClickSponsor('" . DoGetParentOrCurrentDir() . 
+								"', '" . $strSponsorBookmarksList . "')\" />\n";
+					}
 				}
 			}
 		}
+		return $strSponsorHTML;
 	}
 	
 ?>

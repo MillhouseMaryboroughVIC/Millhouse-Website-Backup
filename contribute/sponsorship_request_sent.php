@@ -93,18 +93,11 @@
 							<a href="../images/MillHouseNeighborhoodHouse1.jpg">
 							<img src="../images/MillHouseNeighborhoodHouse1.jpg" alt="MillHouseNeighborhoodHouse1.jpg" class="masthead_image" /></a>
 						</td>
-						<td class="masthead_cell_image_right2">
-							<a href="../images/MillHouseNeighborhoodHouse2.jpg">
-							<img src="../images/MillHouseNeighborhoodHouse2.jpg" alt="MillHouseNeighborhoodHouse.jpg" class="masthead_image" /></a>
-						</td>
-						<td class="masthead_cell_sponsors">
-<div class="sponsors_container">	
-	<?php DoGenerateSponsors(); ?>				
-</div>
-						</td>
-						<td>
-							<span class="masthead_hamburger">≡</span>
-						</td>
+<script type="text/javascript">
+
+	DoDisplayMastheadEnd(`<?php echo DoGenerateSponsors(true); ?>`, "<?php echo DoGetParentOrCurrentDir(); ?>");
+	
+</script>
 					</tr>
 				</table>				
 			</div>
@@ -124,52 +117,40 @@
 	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
+		<li><a href="../index.php">Home</a></li>
+		<li><a href="../about/about.php">About Mill House</a></li>
+		<li><a href="../calendar/calendar.php">Events Calendar</a></li>
+		<li><a href="../room/room.php">Hire a room</a></li>
+		<li><a href="../sponsors/sponsors.php">Our Collaborators</a></li>
 		<li>
-		<a href="../index.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Home</a></li>
-		<li>
-		<a href="../about/about.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">About Mill House</a></li>
-		<li>
-		<a href="../calendar/calendar.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Events Calendar</a></li>
-		<li>
-		<a href="../room/room.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Hire a room</a></li>
-		<li>
-		<a href="../sponsors/sponsors.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Our Collaborators</a></li>
-		<li>
-			<a href="contribute.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoClickNavLinkWithSubmenu('contribute')">Become a contributor</a>
+			<a href="contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">Become a contributor</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
-				<li class="submenu_item">
-				<a href="join.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Become a member</b></a></li>
-				<li class="submenu_item">
-				<a href="volunteering.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Become a volunteer</b></a></li>
-				<li class="submenu_item">
-				<a href="request_sponsorship.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Become a sponsor</b></a></li>
-				<li class="submenu_item">
-				<a href="donation.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Make a donation</b></a></li>
+				<li class="submenu_item"><a href="join.php"><b>Become a member</b></a></li>
+				<li class="submenu_item"><a href="volunteering.php"><b>Become a volunteer</b></a></li>
+				<li class="submenu_item"><a href="request_sponsorship.php"><b>Become a sponsor</b></a></li>
+				<li class="submenu_item"><a href="donation.php"><b>Make a donation</b></a></li>
 			</ul>
 		</li>
-		<!--<li><a href="people/people.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Mill House People</a></li>-->
-		<!--<li><a href="milestones/milestones.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Milestones</a></li>-->
+		<!--<li><a href="people/people.php">Mill House People</a></li>-->
+		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
+		<li><a href="../contact/contact.php">Contact</a></li>
+		<li><a href="../site_history/site_history.php">Site History</a></li>
 		<li>
-		<a href="../contact/contact.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Contact</a></li>
-		<li>
-		<a href="../site_history/site_history.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Site History</a></li>
-		<li>
-			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Governance</a> 
+			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
 			<ul style="display:<?php echo DoShowHideSubmenu("governance"); ?>;" id="governance">
-				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>ACNC Listing</b></a></li>
+				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>ACNC Listing</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/rules/rules.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Rules</b></a></li>
+				<a href="../governance/rules/rules.php"><b>Rules</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/reports/reports.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Annual Reports</b></a></li>
+				<a href="../governance/reports/reports.php"><b>Annual Reports</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/policies/policies.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Policies</b></a></li>
-				<li class="submenu_item">
-				<a href="../governance/plan/plan.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)"><b>Strategic Plan</b></a></li>
+				<a href="../governance/policies/policies.php"><b>Policies</b></a></li>
+				<li class="submenu_item"><a href="../governance/plan/plan.php"><b>Strategic Plan</b></a></li>
 			</ul>
 		</li>
-		<!--<li><a href="group_events/group_events.php" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Group Events</a></li>-->
+		<!--<li><a href="group_events/group_events.php">Group Events</a></li>-->
 		<li>
-			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)">Administration</a>
+			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
 			
 			<?php DoDisplayAdministrationSubmenu(); ?>
@@ -207,13 +188,13 @@
 											<?php
 											
 												if (isLoggedIn())
-													echo "<button class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
+													echo "<button title=\"Page editing instructions.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
 													
 											?>
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" onclick="DoDisplayHidePopup('form_voice_assist', true)">
+								<form class="form_voice_assist_button"><button type="button" title="Show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
 									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
@@ -311,6 +292,7 @@
 		DoSetAudioAssistCheckbox();
 		DoSetVoiceAssistInputs();
 		DoAllAttachListeners("div_content");
+		DoAllAttachListeners("div_navigation_menu");
 		
 		if (JSON.parse(sessionStorage.getItem("bAudioAssistOn")))
 		{
