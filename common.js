@@ -390,7 +390,7 @@ function DoDisplayHidePopup(strDivID, bShow)
 		alert("Working on it...");
 	}
 }
-			
+
 function DoClickEvent(event, strGroupName, strTime1, strTime2, strDuration, strCost, strDonation, strFacebook, 
 						strContact, strEmail, strPhone, strPurpose, strImageFilename)
 {
@@ -433,8 +433,8 @@ function DoClickEvent(event, strGroupName, strTime1, strTime2, strDuration, strC
 			strMessage += "<tr><td class='heading_cell'><b>COST:</b></td><td>" + strCost + "</td></tr>";
 	}
 	strMessage += "<tr><td class='heading_cell'><b>DESCRIPTION</b>:</td><td>" + strPurpose + "</td></tr>";
-	strMessage += "<tr><td colspan='2' style='text-align:center;'><a href='..about/" + strImageFilename + 
-				"'><img src='../about/" + strImageFilename + "' alt='IMAGE NEEDED' height='200' />" + 
+	strMessage += "<tr><td colspan='2' style='text-align:center;'><a href='../about/images/" + strImageFilename + 
+				"'><img src='../about/images/" + strImageFilename + "' alt='IMAGE NEEDED' height='200' />" + 
 				"</a></td></tr>";
 
 	const p_details = document.getElementById("event_details_element");

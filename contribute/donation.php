@@ -278,6 +278,8 @@
 
 
 
+
+
 			.contents_cell			
 			{
 				background-color: var(--end_color);

@@ -40,41 +40,14 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			.content img
 			{
 				height: 250px;
+			}
+			
+			.form_voice_assist_button img
+			{
+				height: 70px!important;
 			}
 			
 		</style>
@@ -324,7 +297,7 @@ to enjoy the food together.</p>
 <p>Come in for something to eat, enjoy a cuppa and connect with others in the community.</p>
 
 <p>
-	<a href="../images/Cafe.jpg"><img src="../images/Cafe.jpg" alt="Cafe.jpg" /></a>
+	<a href="../images/cafe.jpg"><img src="../images/cafe.jpg" alt="cafe.jpg" /></a>
 	<a href="images/cafe.jpg"><img src="images/cafe.jpg" alt="cafe.jpg" /></a>
 </p>
 
@@ -373,7 +346,7 @@ others.</p>
 with others.</p>
 
 <p>
-	<a href="images/scrappers.jpg"><img src="images/scrappers.jpg" alt="scrappers.jpg" /></a>
+	<a href="../images/scrappers.jpg"><img src="../images/scrappers.jpg" alt="scrappers.jpg" /></a>
 	<a href="images/scrappers1.jpg"><img src="images/scrappers1.jpg" alt="scrappers1.jpg" height="100"/></a>
 	<a href="images/scrappers2.jpg"><img src="images/scrappers2.jpg" alt="scrappers2.jpg" height="100"/></a>
 	<a href="images/scrappers3.jpg"><img src="images/scrappers3.jpg" alt="scrappers3.jpg" height="100"/></a>
@@ -457,7 +430,7 @@ services without interest, fees or charges.</p>
 <p>The program can help participants identify their goals, build confidence, access services and take steps towards 
 education, training or future employment.</p>
 
-<p><a href="images/parent_pathways1.jpg"><img src="images/parent_pathways1.jpg" alt="parent_pathways1.jpg" height="200"/></a></p>
+<p><a href="../images/parent_pathways1.jpg"><img src="../images/parent_pathways1.jpg" alt="parent_pathways1.jpg" height="200"/></a></p>
 
 <h2>are-able – Finding and Keeping a Job</h2>
 
@@ -497,16 +470,12 @@ others.</p>
 <p>Activities held at Mill House include:</p>
 <ul>
     <li>
-    	Photobooks<br/><br/>
-    	<a href="images/U3A_photobooks.jpg"><img src="images/U3A_photobooks.jpg" alt="U3A_photobooks.jpg" height="100"/></a>
-    </li>
-    <li>
     	Book Club<br/><br/>
-    	<a href="images/U3A_books.jpg"><img src="images/U3A_books.jpg" alt="U3A_books.jpg" height="100"/></a>
+    	<a href="../images/u3a_books.jpg"><img src="../images/u3a_books.jpg" alt="u3a_books.jpg" height="100"/></a>
     </li>
     <li>
     	Writers Group<br/><br/>
-    	<a href="images/U3A_writers.jpg"><img src="images/U3A_writers.jpg" alt="U3A_writers.jpg" height="100"/></a>
+    	<a href="../images/u30_writers.jpg"><img src="../images/u3a_writers.jpg" alt="u3a_writers.jpg" height="100"/></a>
     </li>
 </ul>
 

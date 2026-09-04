@@ -43,136 +43,6 @@
 		
 		<style type="text/css">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			:root
 			{
 				--border: 1px solid #ccc;
@@ -509,7 +379,19 @@
 <script type="text/javascript">
 
 <?php
+	
+	function DoGetImageFilePath($strGroupName)
+	{
+		$strImageFilePath = "";
 		
+		if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/about/images/". $strGroupName . ".jpg"))
+			$strImageFilePath = $strGroupName . ".jpg";
+		else if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/about/images/". $strGroupName . ".png"))
+			$strImageFilePath = $strGroupName . ".png";
+		
+		return $strImageFilePath;
+	}
+	
 	function DoObfuscateText($strText)
 	{
 	    $strEncoded = "";
@@ -651,6 +533,7 @@
 										 "\", strDuration: \"" . $arrayGroups[$nI]["duration"] . 
 									 	"\", strCost: \"" . $arrayGroups[$nI]["cost"] . 
 									 	"\", strDonation: \"" . $arrayGroups[$nI]["donation"] . 
+									 	"\", strImageFilePath: \"" . DoGetImageFilePath($arrayGroups[$nI]["name"]) . 
 									 	"\", strFacebook: \"" . DoObfuscateText($arrayGroups[$nI]["facebook"]) . 
 									 	"\", strContact: \"" . DoObfuscateText($arrayGroups[$nI]["contact"]) . 
 									 	"\", strEmail: \"" . DoObfuscateText($arrayGroups[$nI]["email"]) . 
@@ -809,7 +692,7 @@
 					strTime2 + "', '" + arrayEvents[nI].strDuration + "hrs', '$" + arrayEvents[nI].strCost + "', '" + 
 					arrayEvents[nI].strDonation + "', '" + arrayEvents[nI].strFacebook + "', '" + 
 					arrayEvents[nI].strContact + "', '" + arrayEvents[nI].strEmail + "', '" + arrayEvents[nI].strPhone + 
-					"', '" + arrayEvents[nI].strPurpose + "', '" + DoGetPhotoFilename(arrayEvents[nI].strGroupID) + "') \">" + arrayEvents[nI].strGroupName + "</a>";
+					"', '" + arrayEvents[nI].strPurpose + "', '" + arrayEvents[nI].strImageFilePath + "') \">" + arrayEvents[nI].strGroupName + "</a>";
 				}
 				strHTML += "</div>";
 				colDOM.innerHTML = strHTML;

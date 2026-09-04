@@ -159,6 +159,8 @@
 
 
 
+
+
 			.truth_table,
 			.not_table
 			{

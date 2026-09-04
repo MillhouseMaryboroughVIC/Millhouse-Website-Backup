@@ -1,13 +1,13 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|04 Sep 2026 11:16:50 -0000
+vti_timelastmodified:TR|04 Sep 2026 14:28:10 -0000
 vti_extenderversion:SR|12.0.0.0
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
 vti_timecreated:TR|15 Aug 2026 15:36:51 -0000
 vti_title:SR|Add a Sponsor
 vti_backlinkinfo:VX|
-vti_nexttolasttimemodified:TR|04 Sep 2026 10:54:32 -0000
-vti_cacheddtm:TX|04 Sep 2026 11:16:50 -0000
+vti_nexttolasttimemodified:TR|04 Sep 2026 14:24:11 -0000
+vti_cacheddtm:TX|04 Sep 2026 14:28:10 -0000
 vti_filesize:IR|27299
 vti_cachedtitle:SR|Add a Sponsor
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
