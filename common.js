@@ -134,23 +134,23 @@ function DoSpeakElement(Element, strText = "")
 				{
 					if (Element.innerText !== "")
 					{
-						strText = Element.innerText;
+						strText = "Click this button to  " + Element.innerText.toLowerCase() + ".";
 					}
 					else if (Element.title !== "")
 					{
-						strText =  Element.title;
+						strText =  "Click this button to " + Element.title + ".";
 					}	
 					else if (Element.type == "submit")
 					{
-						strText = "Form submit button";
+						strText = "Click this button to submit the form.";
 					}
 					else if (Element.type == "reset")
 					{
-						strText = "Form reset button";
+						strText = "Click this button to reset all the inputs.";
 					}
 					else if (Element.type == "button")
 					{
-						strText = "Button";
+						strText = "Click this button";
 					}
 				}
 				else if (strTagName == "label")
@@ -161,7 +161,7 @@ function DoSpeakElement(Element, strText = "")
 				{
 					if (Element.type.toLowerCase() == "button")
 					{
-						strText = Element.value;
+						strText = "Click this button to " + Element.value + ".";
 					}
 					else if (Element.type.toLowerCase() == "checkbox")
 					{
