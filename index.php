@@ -89,7 +89,7 @@
 	
 	function DoFormatDateToday()
 	{
-		$datetimeNow = new DateTime();
+		$datetimeNow = DoGetMelbourneTimeNow();
 		
 		return $datetimeNow->format("l j F Y");
 	}
@@ -121,7 +121,7 @@
 		$nCount = 0;
 		$nDOWToday = -1;
 		$nWOMToday = -1;
-		$datetimeNow = DoGetMelbourneTimeNow();
+		$datetimeNow = DoGetMelbourneTimeNow();		
 		$strDayName = $datetimeNow->format("l");
 		$strTime1 = "";
 		$strTime2 = "";
@@ -176,7 +176,7 @@
 					else if  (($nDOWRow1 == -1)  && ($nDOWRow2 == -1))
 					{
 						// But exclude Saturday and Sunday.
-						if (($nDOWToday == 0) && ($nDOWToday!= 6))
+						if (($nDOWToday == 0) || ($nDOWToday == 6))
 						{
 							$bGo = false;
 						}
@@ -283,8 +283,6 @@ if ($row["name"] == "axis_employment")
 				if ($nCount == 0)
 					echo "<p>No events today...</p><br/>\n";
 			}
-			else
-				echo "<p>No events at this time.</p>\n";
 		}
 		if ($strFridayFeastMenu != "")
 		{
@@ -312,7 +310,7 @@ if ($row["name"] == "axis_employment")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
