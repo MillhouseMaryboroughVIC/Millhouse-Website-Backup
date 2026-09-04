@@ -535,21 +535,6 @@ function DoClickNavLinkWithSubmenu(strSubmenuID)
 	}
 }
 
-function DoChangeHamburgerFontSizeSmall(bMakeSmall)
-{
-	// Select all elements with the class "myClass"
-	let elements = document.querySelectorAll(".hamburger");
-	
-	// Loop through the NodeList and change the font size
-	for (let nI = 0; nI < elements.length; nI++)
-	{
-	    if (bMakeSmall)
-	    	elements[nI].style.fontSize = "large"; // Set the new font size
-	    else
-	    	elements[nI].style.fontSize = "x-large"; // Set the new font size
-	}
-}
-
 function DoOnNavMenuTransitioned()
 {
 	let divNavMenu = document.getElementById("div_navigation_menu"),
@@ -614,7 +599,7 @@ function DoOpenCloseMenu(bDoToggle)
 	let spanMenuText = document.getElementById("span_menu_text"),
 		divNav = document.getElementById("div_navigation"),
 		divNavMenu = document.getElementById("div_navigation_menu"),
-		strMenuText = "◄ <span class=hamburger>≡</span> MAIN MENU ◄",
+		strMenuText = "◄ MAIN MENU ◄",
 		divContent = document.getElementById("div_content"),
 		bOpen = DoGetMainMenuState();
 	
@@ -630,14 +615,12 @@ function DoOpenCloseMenu(bDoToggle)
 			spanMenuText.innerHTML = strMenuText.replaceAll("≡", "X");
 			divNavMenu.style.display = "inline-block";
 			divNav.style.width = "var(--nav_width)";
-			DoChangeHamburgerFontSizeSmall(true);
 			divNavMenu.style.width = "var(--nav_menu_width)";
 		}
 		else
 		{
 			spanMenuText.innerHTML = strMenuText.replaceAll("◄", "►");
 			divNav.style.width = "var(--nav_menu_arrow_width)";
-			DoChangeHamburgerFontSizeSmall(false);
 			divNavMenu.style.width = "0px";
 		}
 		// For some reason ontransitionend handler is called only for the transition from full width to zero width!

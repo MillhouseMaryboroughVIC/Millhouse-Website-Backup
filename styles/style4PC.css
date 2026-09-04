@@ -269,11 +269,11 @@ hr
 {
 	color: black;
 }
-.hamburger
+.masthead_hamburger
 {
 	font-size: x-large;
 	font-family: var(--font_family);
-	font-weight: bolder;
+	font-weight: 800;
 }
 .navigation_arrow
 {

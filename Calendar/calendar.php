@@ -139,6 +139,7 @@
 
 
 
+
 			:root
 			{
 				--border: 1px solid #ccc;
@@ -354,6 +355,9 @@
 <div class="sponsors_container">	
 	<?php DoGenerateSponsors(); ?>				
 </div>
+						</td>
+						<td>
+							<span class="masthead_hamburger">≡</span>
 						</td>
 					</tr>
 				</table>				

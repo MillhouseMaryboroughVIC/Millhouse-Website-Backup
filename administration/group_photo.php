@@ -131,6 +131,7 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>New Clickable Group Photo</title>
 		<style type="text/css">
+
 		
 			.div_dynamic
 			{
@@ -210,6 +211,9 @@
 <div class="sponsors_container">	
 	<?php DoGenerateSponsors(); ?>				
 </div>
+						</td>
+						<td>
+							<span class="masthead_hamburger">≡</span>
 						</td>
 					</tr>
 				</table>				

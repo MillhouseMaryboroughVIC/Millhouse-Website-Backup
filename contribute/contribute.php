@@ -84,6 +84,9 @@
 	<?php DoGenerateSponsors(); ?>				
 </div>
 						</td>
+						<td>
+							<span class="masthead_hamburger">≡</span>
+						</td>
 					</tr>
 				</table>				
 			</div>

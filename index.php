@@ -312,7 +312,7 @@ if ($row["name"] == "axis_employment")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-		</style>
+</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -369,6 +369,9 @@ if ($row["name"] == "axis_employment")
 <div class="sponsors_container">	
 	<?php DoGenerateSponsors(); ?>				
 </div>
+						</td>
+						<td>
+							<span class="masthead_hamburger">≡</span>
 						</td>
 					</tr>
 				</table>				

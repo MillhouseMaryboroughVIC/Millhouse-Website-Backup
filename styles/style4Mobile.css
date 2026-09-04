@@ -261,12 +261,11 @@ body
 {
 	color: black;
 }
-.hamburger
+.masthead_hamburger
 {
 	font-size: x-large;
 	font-family: var(--font_family);
-	font-weight: bolder;
-	color: color-mix(in srgb, var(--end_color), white 80%);
+	font-weight: 800;
 }
 .navigation_arrow
 {
