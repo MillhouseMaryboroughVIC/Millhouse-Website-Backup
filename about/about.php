@@ -47,6 +47,7 @@
 
 
 
+
 			.content img
 			{
 				height: 250px;
@@ -177,6 +178,7 @@
 			</ul>
 		</li>
 	</ul>
+	<p>&nbsp;</p>
 </div>
 										</td>
 										<td>

@@ -287,6 +287,7 @@
 
 
 
+
 			.contents_cell			
 			{
 				background-color: var(--end_color);
@@ -442,6 +443,7 @@
 			</ul>
 		</li>
 	</ul>
+	<p>&nbsp;</p>
 </div>
 										</td>
 										<td>

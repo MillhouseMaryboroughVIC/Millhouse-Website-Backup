@@ -316,7 +316,7 @@ if ($row["name"] == "axis_employment")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-		</style>
+</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -428,6 +428,7 @@ if ($row["name"] == "axis_employment")
 			</ul>
 		</li>
 	</ul>
+	<p>&nbsp;</p>
 </div>
 										</td>
 										<td>
@@ -475,7 +476,7 @@ if ($row["name"] == "axis_employment")
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<h1>Welcome Mill House</h1>
+<h1>Welcome to Mill House</h1>
 <p>A welcoming community space in the heart of Maryborough.</p>
 
 <h1 id="whats_on">What's on at Mill House today <?php echo DoFormatDateToday(); ?>?</h1>
@@ -671,154 +672,14 @@ Goldfields. Everyone is welcome at Mill House, regardless of age, ability, backg
 
 <div id="div_source_code" class="instruction_popup">
 
-	<h1>WHERE IS THE SOURCE LOCATED CODE?</h1>
+	<?php
 	
-	<h2>WEBSITE</h2>
+		if (IsAdminLoggedIn())
+			echo DoGenerateSourceCodeContent();
+		else
+			echo "<p>You need to login as admin to see this content!</p>";
 	
-		<p>The source code for the website is located on <a href="https://github.com/">GitHub</a>.</p>
-		
-		<p><b>ACCOUNT NAME: </b>MillhouseMaryboroughVIC</p>
-		<p><b>PASSWORD: </b>Click the button and the password will be emailed to the Mill House manager.</p>
-		<form method="post" action="index.php" target="_self">
-			<input class="email_button" type="submit" name="submit_email_github_password" value="EMAIL GITHUB ACCOUNT PASSWORD" />
-		</form>
-
-		<p><b>REPOSTORY NAME: </b>Millhouse-Website</p>
-		
-		<p>This repository is intended as the working repository.</p>
-		
-		<p>The latest website code should be kept in this repository.</p>
-		
-		<p><b>BACKUP REPOSTORY NAME: </b>Millhouse-Website-Backup</p>
-		
-		<p>The backup respository is intended as a fall back in case any future web administrators muck up the website 
-		code and cannot recover.</p>
-		
-		<p>It should ONLY be updated from <i>Millhouse-Website</i> if the future web adminstrator is ABSOLUTELY sure 
-		that their code changes are SOUND.</p>
-		
-	<h3>GitHub Desktop</h3>
-	
-	<p>Don't bother trying to do all the this directly in through the GitHub website - it is a pain in the arse.</p>
-	
-	<p>Instead download and install <a href="https://desktop.github.com/download/">GitHub Desktop</a></p>
-	
-	<p>This software allows you to connect to your GitHub account and the respositories in it. It automatically detects 
-	changes in your source code and allows you to update your respository source code. It is quite easy to use.</p>
-	
-	<p>Follow this <a href="https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop">guide</a> 
-	to connect GitHub Desktop to the above GitHub account.</p>
-	
-	<p>Follow this <a href="https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop">guide</a> 
-	to clone the GitHub 'Millhouse-Website' respository to your hard drive.</p>
-	
-	<p>Follow this <a href="">guide</a> to sychronise the GitHub 'Millhouse-Website' respository with code changes you have made on your hard drive.</p>
-	
-	<p>GitHub Desktop is quite intuituve to use.</p>
-	
-	<h2>MILL HOUSE APP</h2>
-	
-	<p>The app was created with <a href="https://appinventor.mit.edu/">MIT App Inventor</a>. Click 'Create Apps!' and 
-	register your own account.</p>
-	
-	<p>The screens are designed via a drag and drop system.<br/>
-	<a href="images/MITAppInventorScreenDesign.jpg"><img src="images/MITAppInventorScreenDesign.jpg" alt="MITAppInventorScreenDesign.jpg" height="300" /></a></p>
-	
-	<p>The coding is block based and easy to get the hang of than text coding with its syntax errors.<br/>
-	<a href="images/MITAppInventorBlockCoding.jp"><img src="images/MITAppInventorBlockCoding.jpg" alt="MITAppInventorBlockCoding.jpg" height="300" /></a></p>
-	
-	<p>The source code is contained in the file <a href="MobileApp/Mill_House.aia">Mill_House.aia</a>, which is located in 
-	the website folder 'MobileApp'.</p>
-	
-	<p>This is a binary file so you can't red the code in a text editor. You import this file into your MIT App Inventor account as 
-	a new project. Then you will be able to edit the screens and the blocks.</p>
-	
-	<p>You will probably find that Chrome or Firefox web browsers will 'choke' on the Mill House app project when you 
-	try to load it in your MIT App Inventor account. Instead use Opera web browser.</p>
-	
-	<p>The APK Android installation package is the file <a href="MobileApp/Mill_house.apk">Mill_house.apk</a>. The website contains a hyperlink to this file to 
-	allow users to download and install the app on their Android phone.</p>
-	
-	<h2>THE DATABASE</h2>
-	
-	<p>The database was created with <a href="https://dev.mysql.com/downloads/workbench/">MySQL Workbench</a></p>
-	
-	<p>Follow this <a href="https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-create-connection.html">
-	guide</a> to connect MySQL Workbench running on your PC to the database at millhouse.org.au.</p>
-	
-	<p>If you ever need to re-build the database then there are self contained SQL files located in the website folder 
-	'MySQL'. You can import these files into MySQL Workbenech and phpMyAdmin in cPanel of web hosting acctoung, and 
-	re-generate the entire database - both tables and their contents. These files should be kept up to date with the 
-	rest of the source code.</p>
-	
-	<p>There are two files in this folder:</p>
-	
-	<ul>
-		<li>
-			<b>millhouse_db.sql</b><br/>
-			This file was generated from MySQL Workbench.
-		</li>
-		<li>
-			<b>millhous_db.sql</b><br/>
-			This file was generated from phpMyAdmin the cPanel for the current web hosting account 
-			(<a href="https://woodroffe.myhost.nz:2083/">cPanel Login</a>).
-		</li>
-	</ul>
-	
-	<p>There is a problem in that the current web hosting account uses an older version of MariaDB that is not completely 
-	compatible with SQL files exported from the latest version of MySQL Workbench. However it is possible to do some fairly 
-	minor edits to 'millhouse_db.sql' to make it compatible. Instructions on how to do this are detailed below.</p>
-	
-	<p>This is why there is a MariaDB version of the SQL file -  'millhous_db.sql'. This will make re-generating the database 
-	in the web hosting account more convenient.</p>
-	
-	<p>You can use the MySQL version to re-generate the database in MySQL Workbench for testing and debugging purposes on 
-	Windows 'localhost'.</p>
-	
-	<h3>How do you make 'millhouse_db.sql' compatible with MariaDB?</h3>
-	
-	<p>
-		Try and import 'millhouse_db.sql' (generated by MySQL Workbench) into cPanel phpMyAdmin like this:<br/>
-		<a href="images/phpMyAdminImportDatabase.jpg"><img src="images/phpMyAdminImportDatabase.jpg" alt="phpMyAdminImportDatabase.jpg" height="300" /></a>
-	</p>
-	
-	<p>
-		Scroll down and click the 'Import' button.<br/>
-		<a href="images/phpMyAdminImportButton.jpg"><img src="images/phpMyAdminImportButton.jpg" alt="phpMyAdminImportButton.jpg" height="300" /></a>
-	</p>
-	
-	<p>
-		You will find that you will get this error:<br/>
-		<a href="images/phpMyAdminImportError.jpg"><img src="images/phpMyAdminImportError.jpg" alt="phpMyAdminImportError.jpg" height="300" /></a><br/>
-		<b>NOTE: </b>#1273 - Unknown collation: 'utf8mb4_0900_ai_ci'.<br/>
-		Paste this error message into Google and search and you will get the following...
-	</p>
-	<hr/>
-	<p><i>
-		The #1273 - Unknown collation: 'utf8mb4_0900_ai_ci' error occurs because you are trying to import a database 
-		backup from a newer version of MySQL (like MySQL 8.0) into a server running an older version of MySQL (5.7 or 
-		lower) or MariaDB. The target server does not recognize the utf8mb4_0900_ai_ci collation, which became the default starting in 
-		MySQL 8.0. How to fix it...
-	</i><p>
-	<p><i>
-		<b><u>Method 1: Find and Replace (Quickest)</u></b><br/>
-		If you have the database backup as a .sql file, you can edit it directly in a text editor (like Visual Studio 
-		Code, Notepad++, or Sublime Text). Open your .sql file in your preferred text editor. Use the Find and Replace 
-		feature (usually Ctrl + H or Cmd + H). 
-	</i><p>
-	<p><i>
-		Find: utf8mb4_0900_ai_ci and replace it based on your target database version.<br/><br/> 
-		<b>If importing to MariaDB: </b>Replace with utf8mb4_unicode_520_ci.<br/><br/>
-		<b>If importing to MySQL 5.7: </b>Replace with utf8mb4_unicode_ci or utf8mb4_general_ci.<br/>
-		Notepad++ is an ideal text editor to do this with.<br/><br/>
-		<a href="images/phpMyAdminSearchAndReplace.jpg"><img src="images/phpMyAdminSearchAndReplace.jpg" alt="AdminSearchAndReplace.jpg" height="300" /></a>	
-	</i><p>
-	<hr/>
-	<p>
-		Save the edited SQL file with a different name and try importing it again.
-	</p>
-	
-	<p><button type="button" onclick="DoDisplayHidePopup('div_source_code', false)">CLOSE</button></p>		
+	?>
 	
 </div>
 

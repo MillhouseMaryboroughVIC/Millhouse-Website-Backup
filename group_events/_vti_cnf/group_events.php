@@ -1,14 +1,14 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|05 Sep 2026 04:04:25 -0000
+vti_timelastmodified:TR|05 Sep 2026 07:04:07 -0000
 vti_extenderversion:SR|12.0.0.0
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
 vti_timecreated:TR|10 Aug 2026 16:28:00 -0000
 vti_title:SR|Group Events
 vti_backlinkinfo:VX|admin/add_sponsor.php admin/edit_group_events.php admin/edit_sponsor.php admin/web_diagnostics.php admin/html_4_beginners.php admin/friday_feast_menu.php admin/edit_groups.php admin/css_4_beginners.php admin/governance.php admin/javascript_4_beginners.php admin/expression_web_4_beginners.php admin/administration.php
-vti_nexttolasttimemodified:TR|05 Sep 2026 04:01:28 -0000
-vti_cacheddtm:TX|05 Sep 2026 04:04:25 -0000
-vti_filesize:IR|20536
+vti_nexttolasttimemodified:TR|05 Sep 2026 04:04:25 -0000
+vti_cacheddtm:TX|05 Sep 2026 07:04:07 -0000
+vti_filesize:IR|20554
 vti_cachedtitle:SR|Group Events
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
 vti_cachedlinkinfo:VX|G|../master.dwt H|https://www.millhouse.org.au/ Q|../styles/style4PC.css H|../favicon.jpg S|../common.js H|https://fonts.googleapis.com H|https://fonts.gstatic.com Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 H|../images/MillHouse.jpg S|../images/MillHouse.jpg H|../images/MillHouseNeighborhoodHouse1.jpg S|../images/MillHouseNeighborhoodHouse1.jpg H|../index.php H|../about/about.php H|../calendar/calendar.php H|../room/room.php H|../sponsors/sponsors.php H|../contribute/contribute.php H|../contribute/join.php H|../contribute/volunteering.php H|../contribute/request_sponsorship.php H|../contribute/donation.php H|../contact/contact.php H|../site_history/site_history.php H|../governance/governance.php H|https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile H|../governance/rules/rules.php H|../governance/reports/reports.php H|../governance/policies/policies.php H|../governance/plan/plan.php H|../administration/administration.php S|../images/LoudSpeaker.png

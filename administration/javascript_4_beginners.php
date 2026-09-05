@@ -168,6 +168,7 @@
 
 
 
+
 			.truth_table,
 			.not_table
 			{
@@ -381,6 +382,7 @@
 			</ul>
 		</li>
 	</ul>
+	<p>&nbsp;</p>
 </div>
 										</td>
 										<td>
