@@ -161,6 +161,13 @@
 
 
 
+
+
+
+
+
+
+
 			.truth_table,
 			.not_table
 			{
@@ -404,8 +411,15 @@
 											<?php
 											
 												if (isLoggedIn())
+												{
 													echo "<button title=\"Page editing instructions.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
-													
+
+													if (basename($_SERVER["PHP_SELF"]) == "index.php")
+													{
+														echo "<button title=\"Website and app source code.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_source_code', true)\">SOURCE CODE</button>\n";
+													}
+												}
+
 											?>
 										</td>
 									</tr>

@@ -617,7 +617,8 @@ p input[type=submit],
 p input[type=button],
 p input[type=reset],
 p button,
-.instructions_button
+.instructions_button,
+.email_button
 {
 	border-style: solid;
 	border-radius: 5px;
@@ -648,7 +649,8 @@ p input[type=submit]:active,
 p input[type=button]:active,
 p input[type=reset]:active,
 p button:active,
-.instructions_button:active
+.instructions_button:active,
+.email_button:active
 {
 	border-color: #888888 #DFDFDF #DFDFDF #888888!important
 }	
@@ -664,7 +666,8 @@ p input[type=submit]:disabled,
 p input[type=button]:disabled,
 p input[type=reset]:disabled,
 p button:disabled,
-.instructions_button:disabled
+.instructions_button:disabled,
+.email_button:disabled
 {
 	color: gray;
 }
