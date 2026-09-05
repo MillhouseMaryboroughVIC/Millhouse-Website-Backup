@@ -1,10 +1,10 @@
 vti_encoding:SR|utf8-nl
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
-vti_timelastmodified:TR|05 Sep 2026 07:09:13 -0000
+vti_timelastmodified:TR|05 Sep 2026 08:26:32 -0000
 vti_timecreated:TR|26 Jul 2025 05:25:40 -0000
 vti_extenderversion:SR|12.0.0.0
-vti_nexttolasttimemodified:TW|05 Sep 2026 07:04:22 -0000
+vti_nexttolasttimemodified:TW|05 Sep 2026 07:09:13 -0000
 vti_structuredtm:TR|18 Mar 2026 03:49:06 -0000
 vti_backlinkinfo:VX|milestones/milestones.php contribute/request_sponsorship.php admin/edit_group_events.php Information/annual_reports/annual_reports.php administration/add_sponsor.php administration/governance.php administration/html_4_beginners.php site_history/site_history.php governance/reports/reports.php governance/policies/policies.php administration/web_diagnostics.php CoolSpace/information.html admin/web_diagnostics.php index.php governance/plan/plan.php administration/javascript_4_beginners.php ACNC/ACNC.html ACNC/policies_rules/policies_rules.php contact/contact.php master.dwt admin/css_4_beginners.php contribute/volunteering.php people/people.php admin/edit_groups.php admin/friday_feast_menu.php administration/administration.php administration/css_4_beginners.php administration/edit_groups.php administration/edit_sponsor.php events/cyber_cafe/cybercafe.php Information/Policies/policies.html contribute/sponsorship_request_sent.php Calendar/calendar.php admin/administration.php contribute/donation.php contribute/why_donate.php admin/governance.php about/about.php Information/information.html room/room.php administration/group_photo.php admin/add_sponsor.php administration/friday_feast_menu.php admin/html_4_beginners.php sponsors/sponsors.php governance/rules/rules.php group_events/group_events.php Information/strategic_plan/strategic_plan.html personnel_history/personnel_history.html admin/expression_web_4_beginners.php admin/javascript_4_beginners.php governance/forms/forms.php administration/test.php MobileApp/MobileApp.php ACNC/reports/reports.php ACNC/plan/plan.html Information/association_rules/association_rules.html contribute/join.php governance/governance.php administration/edit_group_events.php Information/cool_space/cool_space.html contribute/contribute.php admin/edit_sponsor.php administration/expression_web_4_beginners.php
 vti_title:SR|HOME
