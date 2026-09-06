@@ -1,14 +1,14 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|06 Sep 2026 13:33:08 -0000
+vti_timelastmodified:TR|06 Sep 2026 13:40:00 -0000
 vti_extenderversion:SR|12.0.0.0
 vti_backlinkinfo:VX|milestones/milestones.php contribute/request_sponsorship.php admin/edit_group_events.php administration/add_sponsor.php admin/html_4_beginners.php sponsors/sponsors.php group_events/group_events.php admin/expression_web_4_beginners.php admin/javascript_4_beginners.php administration/governance.php administration/html_4_beginners.php administration/test.php MobileApp/MobileApp.php index_copy(1).php contribute/join.php governance/governance.php site_history/site_history.php administration/edit_group_events.php administration/web_diagnostics.php admin/web_diagnostics.php contribute/contribute.php admin/edit_sponsor.php administration/expression_web_4_beginners.php administration/javascript_4_beginners.php admin/css_4_beginners.php admin/edit_groups.php admin/friday_feast_menu.php contact/contact.php contribute/volunteering.php people/people.php administration/administration.php administration/css_4_beginners.php administration/edit_groups.php administration/edit_sponsor.php admin/administration.php admin/governance.php Calendar/calendar.php contribute/donation.php contribute/sponsorship_request_sent.php contribute/why_donate.php about/about.php room/room.php administration/group_photo.php admin/add_sponsor.php administration/friday_feast_menu.php
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
 vti_timecreated:TR|10 Aug 2026 16:43:21 -0000
 vti_title:SR|Become a Volunteer
-vti_nexttolasttimemodified:TR|06 Sep 2026 11:37:56 -0000
-vti_cacheddtm:TX|06 Sep 2026 13:33:08 -0000
-vti_filesize:IR|16417
+vti_nexttolasttimemodified:TR|06 Sep 2026 13:33:08 -0000
+vti_cacheddtm:TX|06 Sep 2026 13:40:00 -0000
+vti_filesize:IR|16440
 vti_cachedtitle:SR|Become a Volunteer
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
 vti_cachedlinkinfo:VX|G|../master.dwt H|https://www.millhouse.org.au/ Q|../styles/style4PC.css H|../favicon.jpg S|../common.js H|https://fonts.googleapis.com H|https://fonts.gstatic.com Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 H|../images/MillHouse.jpg S|../images/MillHouse.jpg H|../images/MillHouseNeighborhoodHouse1.jpg S|../images/MillHouseNeighborhoodHouse1.jpg H|../index.php H|../about/about.php H|../calendar/calendar.php H|../room/room.php H|../sponsors/sponsors.php H|contribute.php H|join.php H|volunteering.php H|request_sponsorship.php H|donation.php H|../contact/contact.php H|../site_history/site_history.php H|../governance/governance.php H|https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile H|../governance/rules/rules.php H|../governance/reports/reports.php H|../governance/policies/policies.php H|../governance/plan/plan.php H|../administration/administration.php S|../images/LoudSpeaker.png

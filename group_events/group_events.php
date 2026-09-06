@@ -390,6 +390,7 @@
 
 
 
+
 		
 			.group_hyperlink
 			{
@@ -608,7 +609,7 @@
 									</tr>
 								</table>			
 								<form class="form_voice_assist_button"><button type="button" aria-label="Show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
-									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Show the voice assist settings." /></button></form>
+									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 			
