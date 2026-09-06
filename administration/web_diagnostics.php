@@ -799,6 +799,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 
 
 
+
 			.content td
 			{
 				font-size: small;
@@ -1328,7 +1329,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 									</tr>
 								</table>			
 								<form class="form_voice_assist_button"><button type="button" aria-label="Show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
-									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" /></button></form>
+									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Show the voice assist settings." /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 
