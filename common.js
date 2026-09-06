@@ -76,6 +76,8 @@ function DoSpeakText(strText)
 
 function DoSpeakElement(Element, strText = "")
 {
+	const isAlpha = (str) => /^[a-zA-Z]+$/.test(str);
+						
 	if (JSON.parse(localStorage.getItem("bAudioAssistOn")))
 	{
 		if (strText.length > 0)
@@ -108,6 +110,15 @@ function DoSpeakElement(Element, strText = "")
 				else if (strTagName == "area")
 				{
 					strText = Element.alt;
+				}
+				else if ((strTagName == "td") || (strTagName == "th"))
+				{
+					if ((Element.innerText != "") && isAlpha(Element.innerText))
+						strText = Element.innerText;
+					else if ((Element.alt !== null) && (Element.alt != ""))
+						strText = Element.alt;
+					else if ((Element.title !== null) && (Element.title != ""))
+						strText = Element.title;
 				}
 				else if ((strTagName == "div") || (strTagName == "span"))
 				{
@@ -161,7 +172,12 @@ function DoSpeakElement(Element, strText = "")
 				{
 					if (Element.type.toLowerCase() == "button")
 					{
-						strText = "Click this button to " + Element.value + ".";
+						if ((Element.value != "") && isAlpha(Element.value))
+							strText = Element.value;
+						else if ((Element.alt !== null) && (Element.alt != ""))
+							strText = Element.alt;
+						else if ((Element.title !== null) && (Element.title != ""))
+							strText = Element.title;
 					}
 					else if (Element.type.toLowerCase() == "checkbox")
 					{
@@ -317,10 +333,38 @@ function DoAttachListeners(arrayElements)
 {
 	for (let nI = 0; nI < arrayElements.length; nI++)
 	{
-		arrayElements[nI].addEventListener('mouseleave', function() {DoStopSpeaking()});
-		arrayElements[nI].addEventListener('mouseenter', function() {DoSpeakElement(this)});
-		arrayElements[nI].addEventListener('focus', function() {DoSpeakElement(this)});
+		arrayElements[nI].addEventListener("mouseleave", function() {DoStopSpeaking()});
+		arrayElements[nI].addEventListener("mouseenter", function() {DoSpeakElement(this)});
+		arrayElements[nI].addEventListener("focus", function() {DoSpeakElement(this)});
 		arrayElements[nI].tabIndex = 0;
+	}
+}
+
+function DoClickImageLink(Event, aImageLink)
+{
+	Event.preventDefault();
+	
+	const imgElement = aImageLink.querySelector("img");
+	let imgElementInPopup = document.getElementById("img_in_popup");
+	
+	if (imgElement && imgElementInPopup)
+	{
+		imgElementInPopup.src = imgElement.src;
+		imgElementInPopup.alt = imgElement.alt;
+		DoDisplayHidePopup("div_image_popup", true);
+	}
+}
+
+function DoAttachClickListenersToImageLinks()
+{
+	let arrayElements = document.body.querySelectorAll("a");
+	
+	for (let nI = 0; nI < arrayElements.length; nI++)
+	{
+		if (arrayElements[nI].innerHTML.includes("<img") && (arrayElements[nI].innerText == ""))
+		{
+			arrayElements[nI].addEventListener("click", function() {DoClickImageLink(event, this)});
+		}
 	}
 }
 
@@ -341,6 +385,8 @@ function DoAllAttachListeners(strElementID)
 		DoAttachListeners(Element.querySelectorAll("h5"));
 		DoAttachListeners(Element.querySelectorAll("h6"));
 		DoAttachListeners(Element.querySelectorAll("img"));
+		DoAttachListeners(Element.querySelectorAll("td"));
+		DoAttachListeners(Element.querySelectorAll("th"));
 		
 		DoAttachListeners(Element.querySelectorAll("button"));
 		DoAttachListeners(Element.querySelectorAll("select"));
@@ -765,7 +811,7 @@ function DoOnNavMenuTransitioned()
 			if (bOpen)
 				divContent.style.width = (nDivBelowMastheadWidth - nDivNavMenuArrowWidth - nDivNavMenuWidth - 26).toString() + "px";
 			else
-				divContent.style.width = (nDivBelowMastheadWidth - nDivNavMenuArrowWidth - nDivNavMenuWidth - 30).toString() + "px";
+				divContent.style.width = (nDivBelowMastheadWidth - nDivNavMenuArrowWidth - 30).toString() + "px";
 		}
 		else
 		{

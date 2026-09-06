@@ -177,6 +177,20 @@ body
 	border-width:thin;
 	border-color: var(--end_color);
 }
+.image_popup
+{
+	display: none;
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Centers the popup */
+	z-index: 2000; /* Ensures it is above other elements */
+	border: medium var(--start_color) solid;
+	background-color: color-mix(in srgb, var(--end_color), white 40%);
+	padding: 5px;
+}
 .content
 {
 	display: block;

@@ -187,6 +187,20 @@ hr
 	border-width:thin;
 	border-color: var(--end_color);
 }
+.image_popup
+{
+	display: none;
+	position: absolute;
+	width: auto;
+	height: 500px;
+	top: 5px;
+	left: 50%;
+	transform: translate(-50%, 0); /* Centers the popup */
+	z-index: 2000; /* Ensures it is above other elements */
+	border: medium MidnightBlue solid;
+	background-color: color-mix(in srgb, MidnightBlue, white 40%);
+	padding: 5px;
+}
 .content 
 {
 	display: block;
@@ -463,7 +477,6 @@ hr
 	z-index: 1000; /* Ensures it is above other elements */
 }
 .instruction_popup
-
 {
 	display: none;
 	position: fixed; /* Positions the element relative to the browser window */

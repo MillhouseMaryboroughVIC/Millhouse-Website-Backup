@@ -48,6 +48,11 @@
 	</head>
 	<body onload="DoOnPageLoadComplete()">
 
+		<div class="image_popup" id="div_image_popup">
+			<img src="" alt="" height="90%" id="img_in_popup" />
+			<p><button type="button" onclick="DoDisplayHidePopup('div_image_popup', false)">CLOSE</button></p>		
+		</div>
+		
 		<!-- Begin Container -->
 		<div id="div_container">
 			<!-- Begin Masthead -->
@@ -161,6 +166,7 @@
 						<td style="vertical-align:top;">
 							<!-- Begin Content -->
 							<div class="content" id="div_content">
+							
 								<br/>
 								
 								<?php require_once DoGetParentOrCurrentDir() . "VoiceAssistForm.html"; ?>
@@ -483,6 +489,7 @@ apps. But many amateur app developers, such as myself, also use it. You can crea
 		DoSetVoiceAssistInputs();
 		DoAllAttachListeners("div_content");
 		DoAllAttachListeners("div_navigation_menu");
+		DoAttachClickListenersToImageLinks();
 		
 		if (JSON.parse(sessionStorage.getItem("bAudioAssistOn")))
 		{
