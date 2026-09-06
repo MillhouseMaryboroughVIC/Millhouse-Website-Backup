@@ -24,7 +24,7 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>Mill House App</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -226,7 +226,7 @@ the foreseeable future.</p>
 
 <p>However this causes a minor problem when installing the app on your mobile device.</p>
 
-<p><a href="../images/AppInstallBlocked.jpg"><img src="../images/AppInstallBlocked.jpg" alt="AppInstallBlocked.jpg" height="350" title="If you can't read the text in this image then click or tap it to enlarge it" /></a></p>
+<p><a href="images/AppInstallBlocked.jpg"><img src="images/AppInstallBlocked.jpg" alt="AppInstallBlocked.jpg" height="350" title="If you can't read the text in this image then click or tap it to enlarge it" /></a></p>
 
 <p>The Android and IOS operating systems do not recognize millhouse.org.au as a 'trusted' app provider by default.</p>
 

@@ -98,7 +98,7 @@ function DoSpeakElement(Element, strText = "")
 				}
 				else if (strTagName == "a")
 				{
-					if ((Element.ariaLabel !== undefined) && (Element.ariaLabel!== ""))
+					if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel!== ""))
 						strText = Element.ariaLabel;
 					else
 						strText = Element.innerText;
@@ -113,7 +113,7 @@ function DoSpeakElement(Element, strText = "")
 				}
 				else if ((strTagName == "td") || (strTagName == "th"))
 				{
-					if ((Element.ariaLabel !== undefined) && (Element.ariaLabel != ""))
+					if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel != ""))
 						strText = Element.ariaLabel;
 					else if (Element.innerText != "")
 						strText = Element.innerText;
@@ -145,7 +145,7 @@ function DoSpeakElement(Element, strText = "")
 					{
 						strText = "Click this button to  " + Element.innerText.toLowerCase() + ".";
 					}
-					else if (Element.ariaLabel !== "")
+					else if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel !== ""))
 					{
 						strText =  "Click this button to " + Element.ariaLabel + ".";
 					}	
@@ -172,7 +172,7 @@ function DoSpeakElement(Element, strText = "")
 					{
 						if ((Element.value != "") && isAlpha(Element.value))
 							strText = Element.value;
-						else if ((Element.ariaLabel !== null) && (Element.ariaLabel != ""))
+						else if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel != ""))
 							strText = Element.ariaLabel;
 					}
 					else if (Element.type.toLowerCase() == "checkbox")
@@ -351,13 +351,33 @@ function DoClickImageLink(Event, aImageLink)
 	}
 }
 
+function IsImageFile(strHREF)
+{
+	strHREF = strHREF.toLowerCase();
+	
+	let bIsImageFile = strHREF.endsWith(".jpg") || strHREF.endsWith(".jpeg") ||
+					   strHREF.endsWith(".peg") || strHREF.endsWith(".jpe") ||
+					   strHREF.endsWith(".jfif") || strHREF.endsWith(".jif") ||
+					   strHREF.endsWith(".peg") || strHREF.endsWith(".jpe") ||
+					   strHREF.endsWith(".png") || strHREF.endsWith(".aong") ||
+					   strHREF.endsWith(".giff") || strHREF.endsWith(".webp") ||
+					   strHREF.endsWith(".avif") || strHREF.endsWith(".tiff") ||
+					   strHREF.endsWith(".tif") || strHREF.endsWith(".bmp") ||
+					   strHREF.endsWith(".heif") || strHREF.endsWith(".heic") ||
+					   strHREF.endsWith(".ico") || strHREF.endsWith(".jxl");
+					   
+	return bIsImageFile;
+}
+
 function DoAttachClickListenersToImageLinks()
 {
-	let arrayElements = document.body.querySelectorAll("a");
+	let arrayElements = document.body.querySelectorAll("a"),
+		bIsImageLink = false;
 	
 	for (let nI = 0; nI < arrayElements.length; nI++)
 	{
-		if (arrayElements[nI].innerHTML.includes("<img") && (arrayElements[nI].innerText == ""))
+		bIsImageLink = IsImageFile(arrayElements[nI].href);
+		if (arrayElements[nI].innerHTML.includes("<img") && (arrayElements[nI].innerText == "") && bIsImageLink)
 		{
 			arrayElements[nI].addEventListener("click", function() {DoClickImageLink(event, this)});
 		}
