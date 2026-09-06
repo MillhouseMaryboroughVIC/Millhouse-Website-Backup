@@ -77,7 +77,7 @@ function DoSpeakText(strText)
 function DoSpeakElement(Element, strText = "")
 {
 	const isAlpha = (str) => /^[a-zA-Z]+$/.test(str);
-						
+					
 	if (JSON.parse(localStorage.getItem("bAudioAssistOn")))
 	{
 		if (strText.length > 0)
@@ -98,27 +98,25 @@ function DoSpeakElement(Element, strText = "")
 				}
 				else if (strTagName == "a")
 				{
-					if ((Element.alt !== null) && (Element.alt !== ""))
-						strText = Element.alt;
+					if ((Element.ariaLabel !== undefined) && (Element.ariaLabel!== ""))
+						strText = Element.ariaLabel;
 					else
 						strText = Element.innerText;
 				}
 				else if (strTagName == "img")
 				{
-					strText = Element.title;
+					strText = Element.ariaLabel;
 				}
 				else if (strTagName == "area")
 				{
-					strText = Element.alt;
+					strText = Element.ariaLabel;
 				}
 				else if ((strTagName == "td") || (strTagName == "th"))
 				{
-					if ((Element.innerText != "") && isAlpha(Element.innerText))
+					if ((Element.ariaLabel !== undefined) && (Element.ariaLabel != ""))
+						strText = Element.ariaLabel;
+					else if (Element.innerText != "")
 						strText = Element.innerText;
-					else if ((Element.alt !== null) && (Element.alt != ""))
-						strText = Element.alt;
-					else if ((Element.title !== null) && (Element.title != ""))
-						strText = Element.title;
 				}
 				else if ((strTagName == "div") || (strTagName == "span"))
 				{
@@ -147,9 +145,9 @@ function DoSpeakElement(Element, strText = "")
 					{
 						strText = "Click this button to  " + Element.innerText.toLowerCase() + ".";
 					}
-					else if (Element.title !== "")
+					else if (Element.ariaLabel !== "")
 					{
-						strText =  "Click this button to " + Element.title + ".";
+						strText =  "Click this button to " + Element.ariaLabel + ".";
 					}	
 					else if (Element.type == "submit")
 					{
@@ -174,10 +172,8 @@ function DoSpeakElement(Element, strText = "")
 					{
 						if ((Element.value != "") && isAlpha(Element.value))
 							strText = Element.value;
-						else if ((Element.alt !== null) && (Element.alt != ""))
-							strText = Element.alt;
-						else if ((Element.title !== null) && (Element.title != ""))
-							strText = Element.title;
+						else if ((Element.ariaLabel !== null) && (Element.ariaLabel != ""))
+							strText = Element.ariaLabel;
 					}
 					else if (Element.type.toLowerCase() == "checkbox")
 					{
@@ -333,9 +329,9 @@ function DoAttachListeners(arrayElements)
 {
 	for (let nI = 0; nI < arrayElements.length; nI++)
 	{
-		arrayElements[nI].addEventListener("mouseleave", function() {DoStopSpeaking()});
-		arrayElements[nI].addEventListener("mouseenter", function() {DoSpeakElement(this)});
-		arrayElements[nI].addEventListener("focus", function() {DoSpeakElement(this)});
+		arrayElements[nI].addEventListener("mouseleave", function() {DoStopSpeaking();});
+		arrayElements[nI].addEventListener("mouseenter", function() {DoSpeakElement(this);});
+		arrayElements[nI].addEventListener("focus", function() {DoSpeakElement(this);});
 		arrayElements[nI].tabIndex = 0;
 	}
 }

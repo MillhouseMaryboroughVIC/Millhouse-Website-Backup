@@ -913,11 +913,11 @@ echo "######################<br>\n";
 											
 												if (isLoggedIn())
 												{
-													echo "<button title=\"Page editing instructions.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
+													echo "<button aria-label=\"Page editing instructions.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
 
 													if (basename($_SERVER["PHP_SELF"]) == "index.php")
 													{
-														echo "<button title=\"Website and app source code.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_source_code', true)\">SOURCE CODE</button>\n";
+														echo "<button aria-label=\"Website and app source code.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_source_code', true)\">SOURCE CODE</button>\n";
 													}
 												}
 
@@ -925,7 +925,7 @@ echo "######################<br>\n";
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" title="Show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
+								<form class="form_voice_assist_button"><button type="button" aria-label="Show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
 									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
@@ -1172,14 +1172,14 @@ echo "######################<br>\n";
 				
 			</script>
 			<!-- Begin Footer -->
-			<div class="footer">
+			<div class="footer" id="div_footer">
 				<table border="0" cellpadding="0" cellspacing="0" class="footer_table">
 					<tr>
-						<td class="footer_table_cell footer_left_cell">&copy;Mill House, Maryborough, VIC</td>
+						<td class="footer_table_cell footer_left_cell" aria-label="Copy right Mill House Maryburrough Victoria">&copy;Mill House, Maryborough, VIC</td>
 						
 						<td class="footer_table_cell footer_middle_cell">COME ALONG AND JOIN THE MILL HOUSE COMMUNITY <h2 style="display:inline;">&#128522;</h2></td>
 						
-						<td class="footer_table_cell footer_right_cell">Web site by: Gregary Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
+						<td class="footer_table_cell footer_right_cell" aria-label="Web site by: Gregry Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)">Web site by: Gregary Boyles 2026 (&#x67;&#x72;&#x65;&#x67;&#x70;&#x6C;&#x61;&#x6E;&#x74;&#x73;&#x40;&#x62;&#x69;&#x67;&#x70;&#x6F;&#x6E;&#x64;&#x2E;&#x63;&#x6F;&#x6D;)</td>
 					</tr>
 				</table>
 			</div>
@@ -1193,6 +1193,8 @@ echo "######################<br>\n";
 		DoSetVoiceAssistInputs();
 		DoAllAttachListeners("div_content");
 		DoAllAttachListeners("div_navigation_menu");
+		DoAllAttachListeners("div_footer");
+		DoAllAttachListeners("div_masthead");
 		DoAttachClickListenersToImageLinks();
 		
 		if (JSON.parse(sessionStorage.getItem("bAudioAssistOn")))
