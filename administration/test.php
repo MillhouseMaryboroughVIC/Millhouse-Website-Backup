@@ -196,6 +196,8 @@
 
 
 
+
+
 		
 			.div_dynamic
 			{
@@ -240,7 +242,9 @@
 	<body onload="DoOnPageLoadComplete()">
 
 		<div class="image_popup" id="div_image_popup">
-			<img src="" alt="" height="90%" id="img_in_popup" />
+			<div class="image_popup_scroll">
+				<img src="" alt="" id="img_in_popup" />
+			</div>
 			<p><button type="button" onclick="DoDisplayHidePopup('div_image_popup', false)">CLOSE</button></p>		
 		</div>
 		

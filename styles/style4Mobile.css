@@ -181,15 +181,25 @@ body
 {
 	display: none;
 	position: absolute;
-	width: 400px;
-	height: 400px;
-	top: 50%;
+	width: auto;
+	height: 500px;
+	top: 5px;
 	left: 50%;
-	transform: translate(-50%, -50%); /* Centers the popup */
+	transform: translate(-50%, 0); /* Centers the popup */
 	z-index: 2000; /* Ensures it is above other elements */
-	border: medium var(--start_color) solid;
-	background-color: color-mix(in srgb, var(--end_color), white 40%);
+	border: medium MidnightBlue solid;
+	background-color: color-mix(in srgb, MidnightBlue, white 40%);
 	padding: 5px;
+	overflow: hidden;
+}
+.image_popup_scroll
+{
+	height: 90%;
+	overflow: auto;
+}
+.image_popup img
+{
+	height: 300px;
 }
 .content
 {

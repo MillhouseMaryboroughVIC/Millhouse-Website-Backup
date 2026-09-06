@@ -200,6 +200,16 @@ hr
 	border: medium MidnightBlue solid;
 	background-color: color-mix(in srgb, MidnightBlue, white 40%);
 	padding: 5px;
+	overflow: hidden;
+}
+.image_popup_scroll
+{
+	height: 90%;
+	overflow: auto;
+}
+.image_popup img
+{
+	height: 800px;
 }
 .content 
 {

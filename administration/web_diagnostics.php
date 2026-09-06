@@ -785,6 +785,8 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 
 
 
+
+
 			.content td
 			{
 				font-size: small;
@@ -1167,7 +1169,9 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 	<body onload="DoOnPageLoadComplete()">
 
 		<div class="image_popup" id="div_image_popup">
-			<img src="" alt="" height="90%" id="img_in_popup" />
+			<div class="image_popup_scroll">
+				<img src="" alt="" id="img_in_popup" />
+			</div>
 			<p><button type="button" onclick="DoDisplayHidePopup('div_image_popup', false)">CLOSE</button></p>		
 		</div>
 		

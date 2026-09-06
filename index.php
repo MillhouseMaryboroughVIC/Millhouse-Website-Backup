@@ -341,7 +341,9 @@ if ($row["name"] == "axis_employment")
 	<body onload="DoOnPageLoadComplete()">
 
 		<div class="image_popup" id="div_image_popup">
-			<img src="" alt="" height="90%" id="img_in_popup" />
+			<div class="image_popup_scroll">
+				<img src="" alt="" id="img_in_popup" />
+			</div>
 			<p><button type="button" onclick="DoDisplayHidePopup('div_image_popup', false)">CLOSE</button></p>		
 		</div>
 		
@@ -636,7 +638,7 @@ Goldfields. Everyone is welcome at Mill House, regardless of age, ability, backg
 	
 <h1>Grant from Elders</h1>
 <p>The Mill House Committee, management and the community would like to thank Elders for their generous grant to our organisation.</p>
-<p><a href="images/EldersGrant.jpg"><img src="images/EldersGrant.jpg" alt="EldersGrant.jpg" width="300"/></a></p>
+<p><a href="images/EldersGrant.jpg"><img src="images/EldersGrant.jpg" alt="EldersGrant.jpg" width="200"/></a></p>
 <h1>Everyone is welcome at Mill House &#128522;</h1>
 <h2>Mill House Activities</h2>
 <?php require "MillHouseActivities.html"; ?>
