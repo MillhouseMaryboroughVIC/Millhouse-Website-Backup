@@ -316,7 +316,7 @@ if ($row["name"] == "axis_employment")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -517,6 +517,8 @@ if ($row["name"] == "axis_employment")
 
 <p>Mill House Neighbourhood House is a welcoming and inclusive community space in the heart of Maryborough.</p>
 
+<a href="images/KayCathySarahMural.jpg" style="position:relative;float:right;"><img src="images/KayCathySarahMural.jpg" alt="KayCathySarahMural.jpg" height="200" /></a>
+
 <p>We bring people together, provide practical support and create opportunities for people of all ages and backgrounds 
 to connect, learn and participate.</p>
 
@@ -525,19 +527,6 @@ to connect, learn and participate.</p>
 <p>Click a face to learn their name.</p>
 
 <p>Or turn on 'voice assist' and hover over a face to hear their name.</p>
-
-<!--
-<p><img src="images/MillHouseTeam.jpg" alt="MillHouseTeam.jpg" usemap="#mill_house_team" id="img_mill_house_team" height="250" /></p>
-
-<map name="mill_house_team">
-  <area shape="rect" coords="89,93,121,139" alt="Rayne Canning - Vice president of the management committee)" href="#" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="alert('Reyne Canning (Vice president of the management committee)')" />
-  <area shape="rect" coords="149,101,181,152" alt="Cathy Shwogger - Volunteer & member of the management committee" href="#" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="alert('Cathy Schwager (Volunteer & member of the management committee)')" />
-  <area shape="rect" coords="239,72,275,120" alt="John Howden - Mill House administration Assistant" href="#" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="alert('John Howden (Mill House administration Assistant)')" />
-  <area shape="rect" coords="121,80,151,128" alt="Patrisha Rainbow - Volunteer" href="#" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="alert('Patrica Rainbow (Volunteer)')" />
-  <area shape="rect" coords="174,79,207,122" alt="Sarah McLean - Mill House Manager" href="#" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="alert('Sarah McLean (Mill House Manager)')" />
-  <area shape="rect" coords="202,106,240,161" alt="Kay Cameron - Volunteer" href="#" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="alert('Kay Cameron (Volunteer)')" />
-</map>
--->
 
 <?php
 	
