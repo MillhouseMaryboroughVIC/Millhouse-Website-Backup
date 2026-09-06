@@ -105,7 +105,8 @@ function DoSpeakElement(Element, strText = "")
 				}
 				else if (strTagName == "img")
 				{
-					strText = Element.ariaLabel;
+					if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel != ""))
+						strText = Element.ariaLabel;
 				}
 				else if (strTagName == "area")
 				{
