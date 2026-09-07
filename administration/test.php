@@ -99,7 +99,7 @@
 		echo "				<button type=\"button\" id=\"button_new_area_square\" disabled onclick=\"DoAddAreaSquare()\">NEW AREA SQUARE</button>&nbsp;\n";
 		echo "				<button type=\"button\" id=\"button_add_image_area\" disabled onclick=\"DoAddImageArea()\">ADD IMAGE AREA</button>&nbsp;\n";
 		echo "				<button type=\"button\" id=\"button_edit_name\" disabled onclick=\"DoEditName()\">EDIT NAME</button>&nbsp;\n";
-		echo "				<button type=\"button\" id=\"button_delete_image_areas\" disabled onclick=\"DoDeleteImageArea()\">DELETE IMAGE AREA</button>\n";
+		echo "				<button type=\"button\" id=\"button_delete_image_area\" disabled onclick=\"DoDeleteImageArea()\">DELETE IMAGE AREA</button>\n";
 		echo "			</td>\n";
 		echo "		</tr>\n";
 		echo "		<tr>\n";
@@ -131,91 +131,6 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>New Clickable Group Photo</title>
 		<style type="text/css">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		
 			.div_dynamic
 			{
@@ -427,7 +342,7 @@
 	function DoChangeSelectedImageAreas()
 	{
 		let selectImageAreas = document.getElementById("select_image_areas"),
-			buttonDeletemageArea = document.getElementById("button_delete_image_areas"),
+			buttonDeletemageArea = document.getElementById("button_delete_image_area"),
 			buttonEditName = document.getElementById("button_edit_name"),
 			buttonCreateNewImageMap = document.getElementById("button_create_image_map");
 		
@@ -475,13 +390,18 @@
 	function DoDeleteImageArea()
 	{
 		let selectImageAreas = document.getElementById("select_image_areas"),
-			buttonCreateNewImageMap = document.getElementById("button_create_image_map");
+			buttonCreateNewImageMap = document.getElementById("button_create_image_map"),
+			buttonDeletemageArea = document.getElementById("button_delete_image_area"),
+			buttonEditName = document.getElementById("button_edit_name");
 		
-		if (selectImageAreas && buttonCreateNewImageMap)
+		if (selectImageAreas && buttonCreateNewImageMap && buttonDeletemageArea && buttonEditName)
 		{
-			g_arrayDynamicDivs.splice(selectImageAreas.options[selectImageAreas.selectedIndex].value, 1);
+			g_arrayDynamicDivs[selectImageAreas.selectedIndex].remove();
+			g_arrayDynamicDivs.splice(selectImageAreas.selectedIndex, 1);
 			selectImageAreas.remove(selectImageAreas.selectedIndex);
 			buttonCreateNewImageMap.disabled = selectImageAreas.options.length == 0;
+			buttonDeletemageArea.disabled = true;
+			buttonEditName.disabled = true;
 		}
 	}
 		

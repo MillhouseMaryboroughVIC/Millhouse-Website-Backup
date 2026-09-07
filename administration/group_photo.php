@@ -396,13 +396,18 @@
 	function DoDeleteImageArea()
 	{
 		let selectImageAreas = document.getElementById("select_image_areas"),
-			buttonCreateNewImageMap = document.getElementById("button_create_image_map");
+			buttonCreateNewImageMap = document.getElementById("button_create_image_map"),
+			buttonDeletemageArea = document.getElementById("button_delete_image_area"),
+			buttonEditName = document.getElementById("button_edit_name");
 		
-		if (selectImageAreas && buttonCreateNewImageMap)
+		if (selectImageAreas && buttonCreateNewImageMap && buttonDeletemageArea && buttonEditName)
 		{
-			g_arrayDynamicDivs.splice(selectImageAreas.options[selectImageAreas.selectedIndex].value, 1);
+			g_arrayDynamicDivs[selectImageAreas.selectedIndex].remove();
+			g_arrayDynamicDivs.splice(selectImageAreas.selectedIndex, 1);
 			selectImageAreas.remove(selectImageAreas.selectedIndex);
 			buttonCreateNewImageMap.disabled = selectImageAreas.options.length == 0;
+			buttonDeletemageArea.disabled = true;
+			buttonEditName.disabled = true;
 		}
 	}
 		
