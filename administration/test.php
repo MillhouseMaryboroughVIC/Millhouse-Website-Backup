@@ -400,8 +400,8 @@
 			g_arrayDynamicDivs.splice(selectImageAreas.selectedIndex, 1);
 			selectImageAreas.remove(selectImageAreas.selectedIndex);
 			buttonCreateNewImageMap.disabled = selectImageAreas.options.length == 0;
-			buttonDeletemageArea.disabled = true;
-			buttonEditName.disabled = true;
+			buttonDeletemageArea.disabled = selectImageAreas.options.length == 0;
+			buttonEditName.disabled = selectImageAreas.options.length == 0;
 		}
 	}
 		
