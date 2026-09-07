@@ -312,7 +312,11 @@ $g_arrayHireRoom = [
 	
 	function DoGenerateSourceCodeContent()
 	{
-		echo "<h1>WHERE IS THE SOURCE LOCATED CODE?</h1>\n";
+		echo "<h1>HOSTING DETAILS</h1>\n";
+		echo "<b>WEB HOSTING ACCOUNT: </b><a href=\"\">https://myhost.nz/</a>\n";
+		echo "<b>DOMAIN NAME REGISTRATION: </b><a href=\"\">https://www.wattleoffice.com.au</a> (millhouse.org.au)\n";
+		echo "\n";
+		echo "<h1>WHERE IS THE SOURCE CODE LOCATED?</h1>\n";
 		echo "\n";
 		echo "<h2>WEBSITE</h2>\n";
 		echo "\n";

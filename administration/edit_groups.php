@@ -260,9 +260,9 @@
 		echo "                <select id=\"group_list\" name=\"group_list\" autocomplete=\"on\">\n";
 		echo DoGetGroupOptions();
 		echo "                </select>\n";
-		echo "                <input type=\"button\" name=\"load_group\" id=\"load_group\" value=\"LOAD\" onclick=\"OnClickLoadGroup()\"/>\n";
+		echo "                <input type=\"button\" name=\"load_group\" id=\"load_group\" value=\"LOAD GROUP\" onclick=\"OnClickLoadGroup()\"/>\n";
 		echo "                &nbsp;\n";
-		echo "                <input type=\"button\" value=\"RESET\" onclick=\"OnClickResetGroupForm()\" />\n";
+		echo "                <input type=\"button\" value=\"RESET FORM\" onclick=\"OnClickResetGroupForm()\" />\n";
 		echo "	          </td>\n";
 		echo "        </tr>\n";
 		echo "        <tr>\n";
@@ -271,11 +271,11 @@
 		echo "        <tr>\n";
 		echo "	          <td colspan=\"2\" style=\"text-align:right;\">\n";
 		echo "                <input type=\"hidden\" id=\"group_shortkey\" name=\"group_shortkey\" value=\"" . $_SESSION["group_shortkey"] ."\" />\n";
-		echo "                <input type=\"button\" name=\"upload_group\" id=\"upload_group\" value=\"SAVE\" onclick=\"DoValidateGroup()\" />\n";
+		echo "                <input type=\"button\" name=\"upload_group\" id=\"upload_group\" value=\"SAVE GROUP\" onclick=\"DoValidateGroup()\" />\n";
 		echo "                 &nbsp;";
-		echo "                <input type=\"button\" name=\"delete_group\" id=\"delete_group\" value=\"DELETE\"" . (($_SESSION["group_shortkey"] == 0) ? "disabled" : "") . " onclick=\"OnClickDeleteGroup()\" />\n";
+		echo "                <input type=\"button\" name=\"delete_group\" id=\"delete_group\" value=\"DELETE GROUP\"" . (($_SESSION["group_shortkey"] == 0) ? "disabled" : "") . " onclick=\"OnClickDeleteGroup()\" />\n";
 		echo "                &nbsp;";
-		echo "                <input type=\"submit\" value=\"LOGOUT\" id=\"logout_group\" name=\"logout_group\" />\n";
+		echo "                <input type=\"submit\" value=\"LOG OUT\" id=\"logout_group\" name=\"logout_group\" />\n";
 		echo "	          </td>\n";
 		echo "        </tr>\n";
 		echo "    </table>\n";
@@ -447,7 +447,7 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title></title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -601,16 +601,16 @@
 										<td>
 											<div class="page_heading" id="div_page_heading" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onmouseleave="DoStopSpeaking()"><u><script type="text/javascript">document.write(document.title);</script></u></div>
 										</td>
-										<td style="text-align:right;">
+										<td style="text-align:right;" aria-label=" ">
 											<?php
 											
 												if (isLoggedIn())
 												{
-													echo "<button aria-label=\"Page editing instructions.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
+													echo "<button aria-label=\"Click this button to show page editing instructions.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_page_edit_instructions', true)\">PAGE EDITING INSTRUCTIONS</button>\n";
 
 													if (basename($_SERVER["PHP_SELF"]) == "index.php")
 													{
-														echo "<button aria-label=\"Website and app source code.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_source_code', true)\">SOURCE CODE</button>\n";
+														echo "<button aria-label=\"Click this button to show website and app source code information.\" class=\"instructions_button\" type=\"button\" onclick=\"DoDisplayHidePopup('div_source_code', true)\">SOURCE CODE</button>\n";
 													}
 												}
 
@@ -618,7 +618,7 @@
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" aria-label="Show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
+								<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
 									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->

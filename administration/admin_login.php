@@ -125,8 +125,8 @@
 		echo "        </tr>\n";
 		echo "        <tr>\n";
 		echo "            <td colspan=\"2\" style=\"text-align:right;\">\n";
-		echo "                <input type=\"submit\" name=\"button_admin_login\" id=\"button_admin_login\" value=\"LOGIN\"/>&nbsp;\n";
-		echo "                <input type=\"submit\" name=\"forgot_password_group\" id=\"forgot_password_group\" value=\"I FORGET THE PASSWORD\" />\n";
+		echo "                <input type=\"submit\" name=\"button_admin_login\" id=\"button_admin_login\" value=\"LOG IN\"/>&nbsp;\n";
+		echo "                <input type=\"submit\" name=\"forgot_password_group\" id=\"forgot_password_group\" value=\"EMAIL THE PASSWORD\" />\n";
 		echo "            </td>\n";
 		echo "        </tr>\n";
 		echo "    </table>\n";

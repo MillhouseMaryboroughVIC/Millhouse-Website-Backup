@@ -90,9 +90,9 @@ function DoSpeakElement(Element, strText = "")
 			{
 				let strTagName = Element.tagName.toLowerCase();
 				
-				if ((strTagName == "p") || (strTagName == "a") || (strTagName == "li") || (strTagName == "h1") || 
-						 (strTagName == "h2") || (strTagName == "h3") || (strTagName == "h4") || (strTagName == "h5") || 
-						 (strTagName == "h6"))	
+				if ((strTagName == "p") || (strTagName == "li") || (strTagName == "h1") || 
+						 (strTagName == "h2") || (strTagName == "h3") || (strTagName == "h4") || 
+						 (strTagName == "h5") || (strTagName == "h6"))	
 				{
 					strText = Element.innerText;
 				}
@@ -100,7 +100,7 @@ function DoSpeakElement(Element, strText = "")
 				{
 					if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel!== ""))
 						strText = Element.ariaLabel;
-					else
+					else if (Element.innerText != "")
 						strText = Element.innerText;
 				}
 				else if (strTagName == "img")
@@ -110,7 +110,10 @@ function DoSpeakElement(Element, strText = "")
 				}
 				else if (strTagName == "area")
 				{
-					strText = Element.ariaLabel;
+					if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel != ""))
+						strText = Element.ariaLabel;
+					else if ((Element.alt !== null) && (Element.alt !== undefined) && (Element.alt != ""))
+						strText = Element.alt;
 				}
 				else if ((strTagName == "td") || (strTagName == "th"))
 				{
@@ -118,20 +121,6 @@ function DoSpeakElement(Element, strText = "")
 						strText = Element.ariaLabel;
 					else if (Element.innerText != "")
 						strText = Element.innerText;
-				}
-				else if ((strTagName == "div") || (strTagName == "span"))
-				{
-					if (Element.id == "div_navigation_arrow")
-					{
-						if (JSON.parse(sessionStorage.getItem("menu_open")))
-							strText = "Close the main menu";
-						else
-							strText = "Open the main menu";
-					}
-					else if (Element.id == "div_page_heading")
-					{
-						strText = Element.innerText;
-					}
 				}
 				else if (strTagName == "select")
 				{
@@ -142,14 +131,18 @@ function DoSpeakElement(Element, strText = "")
 				}
 				else if (strTagName == "button")
 				{
-					if (Element.innerText !== "")
+					if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel !== ""))
 					{
-						strText = "Click this button to  " + Element.innerText.toLowerCase() + ".";
+						strText =  Element.ariaLabel;
 					}
-					else if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel !== ""))
+					else if (Element.innerText != "")
 					{
-						strText =  "Click this button to " + Element.ariaLabel + ".";
-					}	
+						strText = "Click this button to " + Element.innerText.toLowerCase() + ".";
+					}
+					else if (Element.type == "button")
+					{
+						strText = "Clickable button.";
+					}
 					else if (Element.type == "submit")
 					{
 						strText = "Click this button to submit the form.";
@@ -169,12 +162,17 @@ function DoSpeakElement(Element, strText = "")
 				}
 				else if (strTagName == "input")
 				{
-					if (Element.type.toLowerCase() == "button")
+					if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel != ""))
 					{
-						if ((Element.value != "") && isAlpha(Element.value))
-							strText = Element.value;
-						else if ((Element.ariaLabel !== null) && (Element.ariaLabel !== undefined) && (Element.ariaLabel != ""))
-							strText = Element.ariaLabel;
+						strText = Element.ariaLabel;
+					}
+					else if ((Element.type.toLowerCase() == "button") || (Element.type.toLowerCase() == "submit") || 
+							 (Element.type.toLowerCase() == "image") || (Element.type.toLowerCase() == "reset"))
+					{
+						if (Element.value != "")
+							strText = "Click this button to " + Element.value + ".";
+						else
+							strText = "Clickable button.";
 					}
 					else if (Element.type.toLowerCase() == "checkbox")
 					{
@@ -224,10 +222,6 @@ function DoSpeakElement(Element, strText = "")
 					{
 						strText = "Clear all the inputs in the form.";
 					}
-					else if ((Element.type.toLowerCase() == "submit") || (Element.type.toLowerCase() == "image"))
-					{
-						strText = "Submit the form to the website server.";
-					}
 					else if (Element.type.toLowerCase() == "tel")
 					{
 						strText = "Type a valid landline or mobile telephone number.";
@@ -247,6 +241,17 @@ function DoSpeakElement(Element, strText = "")
 					else if (Element.type.toLowerCase() == "week")
 					{
 						strText = "Type numeric values for the week in the year and the year. Or click the button at the end to select them from the popup calendar.";
+					}
+				}
+				// Custom stuff
+				else if ((strTagName == "div") || (strTagName == "span"))
+				{
+					if (Element.id == "div_navigation_arrow")
+					{
+						if (JSON.parse(sessionStorage.getItem("menu_open")))
+							strText = "Close the main menu";
+						else
+							strText = "Open the main menu";
 					}
 				}
 			}

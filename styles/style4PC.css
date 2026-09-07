@@ -192,7 +192,7 @@ hr
 	display: none;
 	position: absolute;
 	width: auto;
-	height: 500px;
+	height: 520px;
 	top: 5px;
 	left: 50%;
 	transform: translate(-50%, 0); /* Centers the popup */
@@ -209,7 +209,7 @@ hr
 }
 .image_popup img
 {
-	height: 800px;
+	height: 500px;
 }
 .content 
 {
@@ -476,6 +476,10 @@ hr
 {
 	background-color: transparent!important;
 	border: none!important;
+}
+.form_voice_assist_button img
+{
+	height: 70px!important;
 }
 .form_voice_assist
 {
