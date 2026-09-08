@@ -311,7 +311,7 @@ if ($row["name"] == "axis_employment")
 		<link rel="canonical" href="https://www.millhouse.org.au/" />
 
 		<link id="style_sheet" href="styles/style4PC.css" rel="stylesheet" type="text/css" />
-		<link rel="icon" sizes="128x128" href="favicon.jpg" />
+		<link rel="icon" sizes="128x128" href="./favicon.jpg" />
 		<script type="text/javascript" src="common.js"></script>
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
@@ -392,56 +392,42 @@ if ($row["name"] == "axis_employment")
 								<table border="0" cellpadding="0" cellspacing="0" style="height:var(--nav_height);">
 									<tr>
 										<td>
-<div id="div_navigation_menu" class="navigation_menu" style="width:320px!important;">
+<div id="div_navigation_menu" class="navigation_menu">
 	
 	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
-		<li><a href="index.php">&#x1F3E0; Home</a></li>
+		<li><a href="index.php">Home</a></li>
+		<li><a href="about/about.php">About Mill House</a></li>
+		<li><a href="calendar/calendar.php">Events Calendar</a></li>
+		<li><a href="room/room.php">Hire a room</a></li>
+		<li><a href="sponsors/sponsors.php">Our Collaborators</a></li>
 		<li>
-			<a href="about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
-			<ul id="contribute">
-				<li class="submenu_item"><a href="people/people.php">&#x1F469; Mill House People</a></li>
-				<li class="submenu_item"><a href="milestones/milestones.php">&#x1F3C6; Milestones</a></li>
-				<li class="submenu_item"><a href="site_history/site_history.php">&#x1F3ED; Site History</a></li>
+			<a href="contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">Become a contributor</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="contribute/join.php"><b>Become a member</b></a></li>
+				<li class="submenu_item"><a href="contribute/volunteering.php"><b>Become a volunteer</b></a></li>
+				<li class="submenu_item"><a href="contribute/request_sponsorship.php"><b>Become a sponsor</b></a></li>
+				<li class="submenu_item"><a href="contribute/donation.php"><b>Make a donation</b></a></li>
 			</ul>
 		</li>
+		<!--<li><a href="people/people.php">Mill House People</a></li>-->
+		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
+		<li><a href="contact/contact.php">Contact</a></li>
+		<li><a href="site_history/site_history.php">Site History</a></li>
 		<li>
-			<a href="what/what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
-			<ul id="contribute">
-				<li class="submenu_item"><a href="digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="youth/youth.php">&#x1F3AE; Youth</a></li>
-				<li class="submenu_item"><a href="activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="support/support.php">&#x1F49D; Support</a></li>
-				<li class="submenu_item"><a href="food/food.php">&#x1F34E; Food relief</a></li>
-			</ul>
-		</li>
-		<li><a href="calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
-		<li><a href="room/room.php">&#x1F3E8; Hire a room</a></li>
-		<li><a href="sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a></li>
-		<li>
-			<a href="contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">&#x1F381; Become a contributor</a>
-			<ul id="contribute">
-				<li class="submenu_item"><a href="contribute/join.php"><b>&#x1F4DD; Become a member</b></a></li>
-				<li class="submenu_item"><a href="contribute/volunteering.php"><b>&#x1F64B; Become a volunteer</b></a></li>
-				<li class="submenu_item"><a href="contribute/request_sponsorship.php"><b>&#x1F4B0; Become a sponsor</b></a></li>
-				<li class="submenu_item"><a href="contribute/donation.php"><b>&#x1F4B5; Make a donation</b></a></li>
-			</ul>
-		</li>
-		<li><a href="contact/contact.php">&#x1F4DE; Contact</a></li>
-		<li>
-			<a href="governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">&#x1F4DA; Governance</a> 
-			<ul id="governance">
-				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>&#x1F4CB; ACNC Listing</b></a></li>
-				<li class="submenu_item"><a href="governance/rules/rules.php"><b>&#x1F4D5; Rules</b></a></li>
-				<li class="submenu_item"><a href="governance/reports/reports.php"><b>&#x1F4D7; Annual Reports</b></a></li>
-				<li class="submenu_item"><a href="governance/policies/policies.php"><b>&#x1F4D8; Policies</b></a></li>
-				<li class="submenu_item"><a href="governance/plan/plan.php"><b>&#x1F4D9; Strategic Plan</b></a></li>
+			<a href="governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
+			<ul style="display:<?php echo DoShowHideSubmenu("governance"); ?>;" id="governance">
+				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>ACNC Listing</b></a></li>
+				<li class="submenu_item"><a href="governance/rules/rules.php"><b>Rules</b></a></li>
+				<li class="submenu_item"><a href="governance/reports/reports.php"><b>Annual Reports</b></a></li>
+				<li class="submenu_item"><a href="governance/policies/policies.php"><b>Policies</b></a></li>
+				<li class="submenu_item"><a href="governance/plan/plan.php"><b>Strategic Plan</b></a></li>
 			</ul>
 		</li>
 		<!--<li><a href="group_events/group_events.php">Group Events</a></li>-->
 		<li>
-			<a href="administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">&#x1F510; Administration</a>
+			<a href="administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
 			
 			<?php DoDisplayAdministrationSubmenu(); ?>
@@ -470,8 +456,94 @@ if ($row["name"] == "axis_employment")
 							
 								<br/>
 								
-								<?php require_once DoGetParentOrCurrentDir() . "VoiceAssistForm.html"; ?>
-								
+<form id="form_voice_assist" class="form form_voice_assist" style="width:720px;">
+	<h1 style="font-weight:800;">VOICE ASSIST SETTINGS</h1>
+	<hr/>
+	<p class="sight_impaired" >
+		The voice assist feature works on Android mobile devices if you hold your finger down on a parapgraph or 
+		heading etc. This is the Android equivalent of hovering your PC mouse cursor over them. But it seems as 
+		though there is no way to make this feature work on iPhones or iPads unfortunately.
+	</p>
+	<hr/><br/>
+	<table border="0" cellpadding="0" cellspacing="0" style="table-layout:fixed;">
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="images/AudioOnOff.png" alt="AudioOnOff.png" height="20" />
+			</td>
+			<td style="text-align:right;width:190px;">
+				<label class="sight_impaired" for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
+			</td>
+			<td>
+				<input class="sight_impaired" type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="images/ChooseVoice.png" alt="ChooseVoice.png" height="30" />
+			</td>
+			<td style="text-align:right;">
+			    <label class="sight_impaired" for="select_voice">Choose Voice:</label>
+			</td>
+			<td>
+			    <select class="sight_impaired" id="select_voice">
+			    </select>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="images/Speaker.png" alt="Speaker.png" height="20" />
+			</td>
+			<td style="text-align:right;">
+			    <label class="sight_impaired" for="select_voice">Set volume:</label>
+			</td>
+			<td>
+			    <input type="range" id="range_volume" min="0" max="100" value="100" style="width:470px;" onchange="DoChangeRange('range_volume')"/>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="images/StopWatch.png" alt="StopWatch.png" height="25" />
+			</td>
+			<td style="text-align:right;">
+			    <label class="sight_impaired" for="select_voice">Set voice speed:</label>
+			</td>
+			<td>
+			    <input type="range" id="range_speed" min="0" max="100" value="100" style="width:470px;" onchange="DoChangeRange('range_speed')"/>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="images/TuningFork.png" alt="TuningFork.png" height="25" />
+			</td>
+			<td style="text-align:right;">
+			    <label class="sight_impaired" for="select_voice">Set voice pitch:</label>
+			</td>
+			<td>
+			    <input type="range" id="range_pitch" min="0" max="100" value="100" style="width:470px;" onchange="DoChangeRange('range_pitch')"/>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="images/ReadText.png" alt="ReadText.png" height="30" />
+			</td>
+			<td style="text-align:right;">
+				<label class="sight_impaired" for="text_to_speak">Text to speak</label>
+			</td>
+			<td>
+				<input class="sight_impaired" type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!" />&nbsp;
+				<button class="sight_impaired" type="button" onclick="DoTestVoice('text_to_speak')" aria-label="Click this button to test your voice settings.">TEST</button>
+				<br/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3"style="text-align:right;">
+				<button class="sight_impaired" type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)" aria-label="Close the voice assist settings form.">CLOSE</button>
+				<br/>
+			</td>
+		</tr>
+	</table>
+</form>
+
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
 										<td>

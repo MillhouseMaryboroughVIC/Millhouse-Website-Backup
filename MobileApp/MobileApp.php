@@ -171,8 +171,94 @@
 							
 								<br/>
 								
-								<?php require_once DoGetParentOrCurrentDir() . "VoiceAssistForm.html"; ?>
-								
+<form id="form_voice_assist" class="form form_voice_assist" style="width:720px;">
+	<h1 style="font-weight:800;">VOICE ASSIST SETTINGS</h1>
+	<hr/>
+	<p class="sight_impaired" >
+		The voice assist feature works on Android mobile devices if you hold your finger down on a parapgraph or 
+		heading etc. This is the Android equivalent of hovering your PC mouse cursor over them. But it seems as 
+		though there is no way to make this feature work on iPhones or iPads unfortunately.
+	</p>
+	<hr/><br/>
+	<table border="0" cellpadding="0" cellspacing="0" style="table-layout:fixed;">
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="../images/AudioOnOff.png" alt="AudioOnOff.png" height="20" />
+			</td>
+			<td style="text-align:right;width:190px;">
+				<label class="sight_impaired" for="checkbox_audio_assist"><b>AUDIO ASSIST ON/OFF</b></label>
+			</td>
+			<td>
+				<input class="sight_impaired" type="checkbox" id="checkbox_audio_assist" tabindex="0" onclick="DoClickAudioAssistCheckbox(this)" />
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="../images/ChooseVoice.png" alt="ChooseVoice.png" height="30" />
+			</td>
+			<td style="text-align:right;">
+			    <label class="sight_impaired" for="select_voice">Choose Voice:</label>
+			</td>
+			<td>
+			    <select class="sight_impaired" id="select_voice">
+			    </select>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="../images/Speaker.png" alt="Speaker.png" height="20" />
+			</td>
+			<td style="text-align:right;">
+			    <label class="sight_impaired" for="select_voice">Set volume:</label>
+			</td>
+			<td>
+			    <input type="range" id="range_volume" min="0" max="100" value="100" style="width:470px;" onchange="DoChangeRange('range_volume')"/>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="../images/StopWatch.png" alt="StopWatch.png" height="25" />
+			</td>
+			<td style="text-align:right;">
+			    <label class="sight_impaired" for="select_voice">Set voice speed:</label>
+			</td>
+			<td>
+			    <input type="range" id="range_speed" min="0" max="100" value="100" style="width:470px;" onchange="DoChangeRange('range_speed')"/>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="../images/TuningFork.png" alt="TuningFork.png" height="25" />
+			</td>
+			<td style="text-align:right;">
+			    <label class="sight_impaired" for="select_voice">Set voice pitch:</label>
+			</td>
+			<td>
+			    <input type="range" id="range_pitch" min="0" max="100" value="100" style="width:470px;" onchange="DoChangeRange('range_pitch')"/>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:40px;text-align:right;">
+				<img src="../images/ReadText.png" alt="ReadText.png" height="30" />
+			</td>
+			<td style="text-align:right;">
+				<label class="sight_impaired" for="text_to_speak">Text to speak</label>
+			</td>
+			<td>
+				<input class="sight_impaired" type="text" id="text_to_speak" size="100%" maxlength="50" value="Hello world!" />&nbsp;
+				<button class="sight_impaired" type="button" onclick="DoTestVoice('text_to_speak')" aria-label="Click this button to test your voice settings.">TEST</button>
+				<br/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3"style="text-align:right;">
+				<button class="sight_impaired" type="button" onclick="DoDisplayHidePopup('form_voice_assist', false)" aria-label="Close the voice assist settings form.">CLOSE</button>
+				<br/>
+			</td>
+		</tr>
+	</table>
+</form>
+
 								<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
 									<tr>
 										<td>
