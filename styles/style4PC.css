@@ -300,6 +300,7 @@ hr
 	border-radius: var(--border_radius);
 	white-space: nowrap;
 	overflow: hidden;
+	text-decoration: none;
 }
 .simple_menu a:hover
 {

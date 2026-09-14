@@ -203,12 +203,12 @@
 							<div class="content" id="div_content">
 							
 								<div class="simple_menu" id="div_simple_menu">
-									<a href="../../index.php">Home</a>
-									<a href="../../about/about.php">About us</a>
-									<a href="../../clendar/calendar.php">Calendar</a>
-									<a href="../../room/room.php">Room hire</a>
-									<a href="../../sponsors/sponsors.php">Our Collaborators</a>
-									<a href="../../contact/contact.php">Contact</a>
+									<a href="../../index.php">&#x1F3E0; Home</a>
+									<a href="../../about/about.php">&#x1F50D; About us</a>
+									<a href="../../clendar/calendar.php">&#x1F4C5; Calendar</a>
+									<a href="../../room/room.php">&#x1F3E8; Room hire</a>
+									<a href="../../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
+									<a href="../../contact/contact.php">&#x1F4DE; Contact</a>
 									<span>QUICK ACCESS MENU</span>
 								</div>
 								<br/>
