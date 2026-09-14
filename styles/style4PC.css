@@ -112,6 +112,30 @@ hr
 	width: 99.6%;
 	height: 100%;
 }
+.title_table h1 
+{
+	color: white;
+	font-weight: 600;
+	font-size: var(--h1_title_font_size);
+	margin: 0px 0px 5px 0px;
+	padding: 0px 0px 0px 5px;
+	height: 0.8em;
+	line-height: 1em;
+	border-style: none;
+	border-width: thin;
+}
+.title_table h3 
+{
+	color: white;
+	font-weight: 500;
+	font-size: var(--h3_title_font_size);
+	margin: 0px;
+	padding: 0px 0px 0px 5px;
+	height: 0.8em;
+	line-height: 1em;
+	border-style: none;
+	border-width: thin;
+}
 .masthead_cell_image_left
 {
 	text-align: left;
@@ -141,6 +165,28 @@ hr
 	vertical-align: middle;
 	width: 180px;
 }
+.form_voice_assist_button
+{
+	background-color: transparent!important;
+	border: none!important;
+}
+.form_voice_assist
+{
+	display: none;
+	position: fixed; /* Positions the element relative to the browser window */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Centers the popup */
+	z-index: 1000; /* Ensures it is above other elements */
+}
+.voice_assist_image
+{
+	height: 70px;
+}
+.masthead_cell_donation
+{
+	width: auto;
+}
 .masthead_donation
 {
 	padding-left: 0px;
@@ -152,29 +198,15 @@ hr
 }
 .masthead_cell_hamburger
 {
+	display: table-cell;
+}
+.masthead_hamburger
+{
 	display: none;
-}
-.masthead h1 
-{
 	color: white;
-	font-weight: 600;
-	font-size: var(--h1_title_font_size);
-	margin: 0px;
-	border-style: none;
-	border-width: thin;
-	padding-left: 5px;
-	line-height: 0.89em;
-}
-.masthead h3 
-{
-	color: white;
-	font-weight: 500;
-	font-size: var(--h3_title_font_size);
-	margin: 0px;
-	border-style: none;
-	border-width: thin;
-	padding-left: 5px;
-	line-height: 0.89em;
+	font-size: 100px;
+	font-family: var(--font_family);
+	font-weight: 800;
 }
 .masthead_image
 {
@@ -247,6 +279,41 @@ hr
 	border-radius: 0px var(--border_radius) 0px 0px;
 	overflow: auto;
 }
+.simple_menu
+{
+	background-color: var(--start_color);
+	height: 30px;
+	padding: 10px 10px 0px 10px;
+	font-family: var(--font_family);
+	font-style: var(--font_style);
+	font-weight: bold;
+	border-radius: var(--border_radius);
+	overflow: hidden;
+}
+.simple_menu a
+{
+	color: white;
+	height: 90%;
+	font-size: medium;
+	font-weight: bold;
+	padding: 5px 40px 5px 5px;
+	border-radius: var(--border_radius);
+	white-space: nowrap;
+	overflow: hidden;
+}
+.simple_menu a:hover
+{
+	background-color: var(--end_color);
+}
+.simple_menu span
+{
+	position: relative;
+	float: right;
+	color: silver;
+	font-family: var(--font_family);
+	font-style: var(--font_style);
+	font-weight: bold;
+}
 .navigation
 {
 	display: inline-block;
@@ -297,13 +364,6 @@ hr
 .span_menu_text:focus
 {
 	color: black;
-}
-.masthead_hamburger
-{
-	color: white;
-	font-size: 100px;
-	font-family: var(--font_family);
-	font-weight: 800;
 }
 .navigation_arrow
 {
@@ -489,24 +549,6 @@ hr
 .content b
 {
 	font-weight: 600;/*100 - 900*/;
-}
-.form_voice_assist_button
-{
-	background-color: transparent!important;
-	border: none!important;
-}
-.form_voice_assist_button img
-{
-	height: 70px!important;
-}
-.form_voice_assist
-{
-	display: none;
-	position: fixed; /* Positions the element relative to the browser window */
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%); /* Centers the popup */
-	z-index: 1000; /* Ensures it is above other elements */
 }
 .instruction_popup
 {

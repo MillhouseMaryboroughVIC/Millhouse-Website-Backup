@@ -94,9 +94,9 @@
 						</td>
 						<td class="masthead_cell_voice_assist">
 							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
-								<img src="../../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
+								<img class="voice_assist_image" src="../../images/LoudSpeaker.png" alt="LoudSpeaker.png" aria-label="Click this button to show the voice assist settings." /></button></form>
 						</td class="masthead_donation">
-						<td>
+						<td class="masthead_cell_donation">
 							<a href="../../contribute/donation.php">
 							<img src="../../MobileApp/images/Donate.png" alt="Donate.png" class="donate_image" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" aria-label="Make a donation to Mill House now." /></a>
 						</td>
@@ -198,9 +198,19 @@
 							<!-- End Navigation -->
 						</td>
 						<td style="vertical-align:top;">
+													
 							<!-- Begin Content -->
 							<div class="content" id="div_content">
 							
+								<div class="simple_menu" id="div_simple_menu">
+									<a href="../../index.php">Home</a>
+									<a href="../../about/about.php">About us</a>
+									<a href="../../clendar/calendar.php">Calendar</a>
+									<a href="../../room/room.php">Room hire</a>
+									<a href="../../sponsors/sponsors.php">Our Collaborators</a>
+									<a href="../../contact/contact.php">Contact</a>
+									<span>QUICK ACCESS MENU</span>
+								</div>
 								<br/>
 								
 <form id="form_voice_assist" class="form form_voice_assist" style="width:720px;">
@@ -334,8 +344,10 @@ card games, various creative activities and support with school assignments.</p>
 <h1>Gamers Guild</h1>
 
 <p>
-	<a href="../groups/images/dungeons_dragons1.jpg"><img src="../groups/images/dungeons_dragons1.jpg" alt="dungeons_dragons1.jpg" class="content_img" /></a>&nbsp;
-	<a href="../groups/images/dungeons_dragons2.jpg"><img src="../groups/images/dungeons_dragons2.jpg" alt="dungeons_dragons2.jpg" class="content_img" /></a>&nbsp;
+	<a href="../groups/images/dungeons_dragons1.jpg">
+	<img src="../groups/images/dungeons_dragons1.jpg" alt="dungeons_dragons1.jpg" class="content_img" /></a>&nbsp;
+	<a href="../groups/images/dungeons_dragons2.jpg">
+	<img src="../groups/images/dungeons_dragons2.jpg" alt="dungeons_dragons2.jpg" class="content_img" /></a>&nbsp;
 </p>
 
 <h1>Level Up Gamers with Chris Lakey</h1>

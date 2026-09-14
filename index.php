@@ -316,7 +316,7 @@ if ($row["name"] == "axis_employment")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-		</style>
+</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -377,9 +377,9 @@ if ($row["name"] == "axis_employment")
 							<a href="images/MillHouseNeighborhoodHouse2.jpg"><img src="images/MillHouseNeighborhoodHouse2.jpg" alt="MillHouseNeighborhoodHouse2.jpg" class="masthead_image" /></a>
 						</td>
 						<td class="masthead_cell_voice_assist">
-							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)"><img src="images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
+							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)"><img class="voice_assist_image" src="images/LoudSpeaker.png" alt="LoudSpeaker.png" aria-label="Click this button to show the voice assist settings." /></button></form>
 						</td class="masthead_donation">
-						<td>
+						<td class="masthead_cell_donation">
 							<a href="contribute/donation.php"><img src="MobileApp/images/Donate.png" alt="Donate.png" class="donate_image" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" aria-label="Make a donation to Mill House now." /></a>
 						</td>
 						<td class="masthead_cell_hamburger">
@@ -470,9 +470,19 @@ if ($row["name"] == "axis_employment")
 							<!-- End Navigation -->
 						</td>
 						<td style="vertical-align:top;">
+													
 							<!-- Begin Content -->
 							<div class="content" id="div_content">
 							
+								<div class="simple_menu" id="div_simple_menu">
+									<a href="index.php">&#x1F3E0; Home</a>
+									<a href="about/about.php">&#x1F50D; About us</a>
+									<a href="clendar/calendar.php">&#x1F4C5; Calendar</a>
+									<a href="room/room.php">&#x1F3E8; Room hire</a>
+									<a href="sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
+									<a href="contact/contact.php">&#x1F4DE; Contact</a>
+									<span>QUICK ACCESS MENU</span>
+								</div>
 								<br/>
 								
 <form id="form_voice_assist" class="form form_voice_assist" style="width:720px;">
@@ -693,7 +703,7 @@ to connect, learn and participate.</p>
 <h1>Whats on at Mill House soon</h1>
 
 <p>
-	<a href="https://scontent.fmel7-1.fna.fbcdn.net/v/t39.30808-6/802989890_2011864586262573_5492612645535538322_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1536&ctp=p526x296&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ts2BJhgB3WQQ7kNvwHB8hM7&_nc_oc=AdpEVftOBZlZJOSblpU_fvDlMl56_u05rEo09Ve33dnzkthdkX20wJqEakX36jDWe9BByPutMVKiOk1_A5Gcgds1&_nc_zt=23&_nc_ht=scontent.fmel7-1.fna&_nc_gid=CgxYYXzxxwY_dkMpiB_Ltg&_nc_ss=7b2a8&oh=00_AQIYyk3RDlOMCWoBHNOc68dbsVjlQP_gwHZGM9K8EazJQw&oe=6AAC89FF"><img src="https://scontent.fmel7-1.fna.fbcdn.net/v/t39.30808-6/802989890_2011864586262573_5492612645535538322_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1536&ctp=p526x296&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ts2BJhgB3WQQ7kNvwHB8hM7&_nc_oc=AdpEVftOBZlZJOSblpU_fvDlMl56_u05rEo09Ve33dnzkthdkX20wJqEakX36jDWe9BByPutMVKiOk1_A5Gcgds1&_nc_zt=23&_nc_ht=scontent.fmel7-1.fna&_nc_gid=CgxYYXzxxwY_dkMpiB_Ltg&_nc_ss=7b2a8&oh=00_AQIYyk3RDlOMCWoBHNOc68dbsVjlQP_gwHZGM9K8EazJQw&oe=6AAC89FF" alt="Spooktacular" height="250" /></a>
+	<a href="images/Spooktacular.jpg"><img src="images/Spooktacular.jpg" alt="Spooktacular" height="250" /></a>
 	&nbsp;
 	<a href="images/influencers.jpg"><img src="images/influencers.jpg" alt="influencers.jpg" height="250" /></a>
 </p>

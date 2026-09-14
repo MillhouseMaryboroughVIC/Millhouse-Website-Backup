@@ -88,9 +88,9 @@
 						</td>
 						<td class="masthead_cell_voice_assist">
 							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
-								<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
+								<img class="voice_assist_image" src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" aria-label="Click this button to show the voice assist settings." /></button></form>
 						</td class="masthead_donation">
-						<td>
+						<td class="masthead_cell_donation">
 							<a href="../contribute/donation.php">
 							<img src="../MobileApp/images/Donate.png" alt="Donate.png" class="donate_image" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" aria-label="Make a donation to Mill House now." /></a>
 						</td>
@@ -188,9 +188,19 @@
 							<!-- End Navigation -->
 						</td>
 						<td style="vertical-align:top;">
+													
 							<!-- Begin Content -->
 							<div class="content" id="div_content">
 							
+								<div class="simple_menu" id="div_simple_menu">
+									<a href="../index.php">Home</a>
+									<a href="../about/about.php">About us</a>
+									<a href="../clendar/calendar.php">Calendar</a>
+									<a href="../room/room.php">Room hire</a>
+									<a href="../sponsors/sponsors.php">Our Collaborators</a>
+									<a href="../contact/contact.php">Contact</a>
+									<span>QUICK ACCESS MENU</span>
+								</div>
 								<br/>
 								
 <form id="form_voice_assist" class="form form_voice_assist" style="width:720px;">
@@ -305,21 +315,78 @@
 								</table>			
 
 								<!-- #BeginEditable "CustomContent" -->
-								<p>Mill House Neighbourhood House is a welcoming community hub providing practical 
-								support, connection and opportunities for people of all ages and backgrounds. We offer 
-								the following to the central goldfields community. Click the links to find out more.</p>
-								
-								<ul>
-									<li><a href="food/food.php">&#x1F34E; Food relief</a></li>
-									<li><a href="support/support.php">&#x1F49D; Emotional and financial support</a></li>
-									<li><a href="youth/youth.php">&#x1F3AE; Activities youth</a></li>
-									<li><a href="groups/groups.php">&#x1F3A8; Interest groups</a></li>
-									<li><a href="digital/digital.php">&#x1F4BB; A digtal access hub</a></li>
-								</ul>
-								
-								<p>Whether you need a helping hand, somewhere to connect with others, access to 
-								information and technology, or simply want to get involved in your local community, 
-								Mill House is here to support you.</p>
+																
+<h1>A place for everyone</h1>
+
+<p><b>Whether you need practical assistance with:</b></p>
+<ul>
+	<li>Your desktop or laptop.</li>
+	<li>Downloading and installing new software.</li>
+	<li>Installing new hardware.</li>
+	<li>Solving WiFi connectivity problems.</li>
+</ul>
+
+<p><b>If you want to learn new skills in such as:</b></p>
+
+<ul>
+	<li>How to use a particular software package.</li>
+	<li>Video and audio production and editing.</li>
+	<li>Changing operating system settings.</li>
+	<li>Installing a new operatings system or other software.</li>
+</ul>
+
+<p><b>Or if you just want to connect with others to:</b></p>
+
+<ul>
+	<li>Improve your well being.</li>
+	<li>Share your interests with others.</li>
+	<li>Help other members of the central goldfields community.</li>
+</ul>
+
+<p>Then come along and you will be welcolmed with open arms and hearts. Whatever contribution you can make to the Mill 
+House community, it will be greatly appreciated.</p>								
+
+<h1>&#x1F4BB; Digital Access</h1>
+
+<p>Our Digital Access Hub helps people access technology, the internet and digital services. Whether you need help 
+using a computer or smartphone, accessing online services, completing forms, learning new digital skills or solving 
+a technology problem, our digital mentors are available to help.</p>
+
+
+
+
+<h1>&#x1F3AE; Youth</h1>
+
+<p>The Mill House Youth Hub provides a welcoming and relaxed space for young people in Maryborough to connect, create, 
+learn and spend time together. Young people can enjoy social activities, digital gaming, video and audio production, 
+role-playing games such as Dungeons & Dragons, and assistance with school assignments.</p>
+
+
+
+
+<h1>&#x1F34E; Food</h1>
+
+<p>Mill House provides food assistance to people and families who may be experiencing financial difficulties or food 
+insecurity. Food relief helps ensure that people in our community can access nutritious food and receive practical 
+assistance when they need it.</p>
+
+
+
+
+<h1>&#x1F49D; Support</h1>
+
+<p>Sometimes people need a helping hand to get through a difficult period. Mill House provides a range of practical, 
+emotional and financial support services, helping people navigate challenges and connect with appropriate assistance 
+and community resources.</p>
+
+<h1>&#x1F3A8; Groups &amp; activities</h1>
+
+<p>Mill House is a place where people can come together, participate and build connections. Our groups and activities 
+provide opportunities to learn, share interests, develop friendships and become involved in the local community. There 
+are activities for different ages, interests and abilities, with new opportunities developing as community needs change.</p>
+
+<p><b>Explore the 'What we do' submenu to find out more.</b></p>
+
 								
 								<!-- #EndEditable -->
 							</div>

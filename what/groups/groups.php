@@ -94,9 +94,9 @@
 						</td>
 						<td class="masthead_cell_voice_assist">
 							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
-								<img src="../../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
+								<img class="voice_assist_image" src="../../images/LoudSpeaker.png" alt="LoudSpeaker.png" aria-label="Click this button to show the voice assist settings." /></button></form>
 						</td class="masthead_donation">
-						<td>
+						<td class="masthead_cell_donation">
 							<a href="../../contribute/donation.php">
 							<img src="../../MobileApp/images/Donate.png" alt="Donate.png" class="donate_image" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" aria-label="Make a donation to Mill House now." /></a>
 						</td>
@@ -198,9 +198,19 @@
 							<!-- End Navigation -->
 						</td>
 						<td style="vertical-align:top;">
+													
 							<!-- Begin Content -->
 							<div class="content" id="div_content">
 							
+								<div class="simple_menu" id="div_simple_menu">
+									<a href="../../index.php">&#x1F3E0; Home</a>
+									<a href="../../about/about.php">&#x1F50D; About us</a>
+									<a href="../../clendar/calendar.php">&#x1F4C5; Calendar</a>
+									<a href="../../room/room.php">&#x1F3E8; Room hire</a>
+									<a href="../../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
+									<a href="../../contact/contact.php">&#x1F4DE; Contact</a>
+									<span>QUICK ACCESS MENU</span>
+								</div>
 								<br/>
 								
 <form id="form_voice_assist" class="form form_voice_assist" style="width:720px;">
@@ -315,7 +325,14 @@
 								</table>			
 
 								<!-- #BeginEditable "CustomContent" -->
-								
+
+<h1>Connect, participate and belong</h1>
+
+<p>Mill House is a place where people can come together, share interests, learn new skills and build friendships. 
+Our groups and activities provide opportunities for people of all ages to connect with others, try something new and 
+become part of the local community. Whether you’re looking for a regular group, a social activity, a creative pursuit 
+or simply a friendly place to meet people, there’s always something happening at Mill House.</p>
+
 <h1 id="food_friends">Food with Friends</h1>
 
 <p>Food with Friends is an all-abilities cooking group held every Thursday at 10.00 am.</p>

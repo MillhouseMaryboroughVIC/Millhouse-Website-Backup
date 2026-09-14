@@ -114,9 +114,9 @@
 						</td>
 						<td class="masthead_cell_voice_assist">
 							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
-								<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
+								<img class="voice_assist_image" src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" aria-label="Click this button to show the voice assist settings." /></button></form>
 						</td class="masthead_donation">
-						<td>
+						<td class="masthead_cell_donation">
 							<a href="../contribute/donation.php">
 							<img src="../MobileApp/images/Donate.png" alt="Donate.png" class="donate_image" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" aria-label="Make a donation to Mill House now." /></a>
 						</td>
@@ -214,9 +214,19 @@
 							<!-- End Navigation -->
 						</td>
 						<td style="vertical-align:top;">
+													
 							<!-- Begin Content -->
 							<div class="content" id="div_content">
 							
+								<div class="simple_menu" id="div_simple_menu">
+									<a href="../index.php">Home</a>
+									<a href="about.php">About us</a>
+									<a href="../clendar/calendar.php">Calendar</a>
+									<a href="../room/room.php">Room hire</a>
+									<a href="../sponsors/sponsors.php">Our Collaborators</a>
+									<a href="../contact/contact.php">Contact</a>
+									<span>QUICK ACCESS MENU</span>
+								</div>
 								<br/>
 								
 <form id="form_voice_assist" class="form form_voice_assist" style="width:720px;">
@@ -434,12 +444,29 @@ bookings are not required for regular Friday Feast events.</p>
 
 
 <h1 id="hub">Digital Hub</h1>
+
+<p>Our digital access hub provides community members with access to technology, internet and support to build digital 
+confidence.</p>
+
 <ul>
-	<li>Digital Drop-Ins: Free, one-on-one assistance for troubleshooting phones, tablets, and laptops.</li>
-	<li>Form Filling: Help navigating online government services and digital paperwork.</li>
-	<li>Computer Classes: Beginner-friendly courses to build basic tech confidence and skills.</li>
+	<li>Desktop and laptop computers for community use.</li>
+	<li>Free WiFi access.</li>
+	<li>Printing and scanning facilities.</li>
+	<li>Accessibility features to support diffewrent needs.</li>
+	<li>Friendly assistance from digital mentors.</li>
+	<li>A meeting room with conferenc camer equipment for online meetings, video calls and hybrid meetings.</li>
 </ul>
 
+<p>Whether you need to get online to complete a task, attend an online appointment or meeting, learn something new or 
+build your digital skills, the Mill house digital access hub is here to help.</p>
+
+<p>Our digital mentors can provide friendly support for people who wuld like help using devices, accessing online 
+services or becoming more confident with technology.</p>
+
+<p>Laptops are available for community use, so please ask about them at reception.</p>
+
+<p>Meeting room and conference room equipment are available, so please contact Mill House for bookings or more 
+information.</p>
 
 
 
