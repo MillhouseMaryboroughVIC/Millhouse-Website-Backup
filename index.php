@@ -316,7 +316,7 @@ if ($row["name"] == "axis_employment")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -701,6 +701,15 @@ to connect, learn and participate.</p>
 <iframe width="300" height="380" src="James Hollands on Reels.mp4" controls></iframe>
 
 <h1>News</h1>
+
+<h2>Another mural for Mill House</h2>
+
+<p>
+	<a href="images/Mural1.jpg"><img src="images/Mural1.jpg" alt="Mural1.jpg" height="300" /></a>&nbsp;
+	<a href="images/Mural2.jpg"><img src="images/Mural2.jpg" alt="Mural2.jpg" height="300" /></a>&nbsp;
+	<a href="images/Mural3.jpg"><img src="images/Mural3.jpg" alt="Mural3.jpg" height="300" /></a>&nbsp;
+	<a href="images/Mural4.jpg"><img src="images/Mural4.jpg" alt="Mural4.jpg" height="300" /></a>
+</p>
 
 <h2>Grant from Elders</h2>
 <p>The Mill House Committee, management and the community would like to thank Elders for their generous grant to our organisation.</p>
