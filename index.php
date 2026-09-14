@@ -373,11 +373,18 @@ if ($row["name"] == "axis_employment")
 						<td class="masthead_cell_image_right1">
 							<a href="images/MillHouseNeighborhoodHouse1.jpg"><img src="images/MillHouseNeighborhoodHouse1.jpg" alt="MillHouseNeighborhoodHouse1.jpg" class="masthead_image" /></a>
 						</td>
-<script type="text/javascript">
-
-	DoDisplayMastheadEnd(`<?php echo DoGenerateSponsors(true); ?>`, "<?php echo DoGetParentOrCurrentDir(); ?>");
-	
-</script>
+						<td class="masthead_cell_image_right2">
+							<a href="images/MillHouseNeighborhoodHouse2.jpg"><img src="images/MillHouseNeighborhoodHouse2.jpg" alt="MillHouseNeighborhoodHouse2.jpg" class="masthead_image" /></a>
+						</td>
+						<td class="masthead_cell_voice_assist">
+							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)"><img src="images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
+						</td class="masthead_donation">
+						<td>
+							<a href="contribute/donation.php"><img src="MobileApp/images/Donate.png" alt="Donate.png" class="donate_image" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" aria-label="Make a donation to Mill House now." /></a>
+						</td>
+						<td class="masthead_cell_hamburger">
+							<div id="div_hamburger" class="masthead_hamburger" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoClickHamburger()" aria-label="Open the main menu.">≡</div>
+						</td>
 					</tr>
 				</table>				
 			</div>
@@ -393,41 +400,53 @@ if ($row["name"] == "axis_employment")
 									<tr>
 										<td>
 <div id="div_navigation_menu" class="navigation_menu">
-	
-	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
-		<li><a href="index.php">Home</a></li>
-		<li><a href="about/about.php">About Mill House</a></li>
-		<li><a href="calendar/calendar.php">Events Calendar</a></li>
-		<li><a href="room/room.php">Hire a room</a></li>
-		<li><a href="sponsors/sponsors.php">Our Collaborators</a></li>
+		<li><a href="index.php">&#x1F3E0; Home</a></li>
 		<li>
-			<a href="contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">Become a contributor</a>
-			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="contribute/join.php"><b>Become a member</b></a></li>
-				<li class="submenu_item"><a href="contribute/volunteering.php"><b>Become a volunteer</b></a></li>
-				<li class="submenu_item"><a href="contribute/request_sponsorship.php"><b>Become a sponsor</b></a></li>
-				<li class="submenu_item"><a href="contribute/donation.php"><b>Make a donation</b></a></li>
+			<a href="about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
+				<li class="submenu_item"><a href="people/people.php">&#x1F469; Mill House People</a></li>
+				<li class="submenu_item"><a href="milestones/milestones.php">&#x1F3C6; Milestones</a></li>
+				<li class="submenu_item"><a href="site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
 		</li>
-		<!--<li><a href="people/people.php">Mill House People</a></li>-->
-		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
-		<li><a href="contact/contact.php">Contact</a></li>
-		<li><a href="site_history/site_history.php">Site History</a></li>
+		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
+			<a href="what/what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item"><a href="youth/youth.php">&#x1F3AE; Youth</a></li>
+				<li class="submenu_item"><a href="activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="food/food.php">&#x1F34E; Food relief</a></li>
+			</ul>
+		</li>
+		<li><a href="calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
+		<li><a href="room/room.php">&#x1F3E8; Room hire</a></li>
+		<li><a href="sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a></li>
 		<li>
-			<a href="governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
+			<a href="contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">&#x1F381; Become a contributor</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="contribute/join.php"><b>&#x1F4DD; Become a member</b></a></li>
+				<li class="submenu_item"><a href="contribute/volunteering.php"><b>&#x1F64B; Become a volunteer</b></a></li>
+				<li class="submenu_item"><a href="contribute/request_sponsorship.php"><b>&#x1F4B0; Become a sponsor</b></a></li>
+				<li class="submenu_item"><a href="contribute/donation.php"><b>&#x1F4B5; Make a donation</b></a></li>
+			</ul>
+		</li>
+		<li><a href="contact/contact.php">&#x1F4DE; Contact</a></li>
+		<li>
+			<a href="governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">&#x1F4DA; Governance</a> 
 			<ul style="display:<?php echo DoShowHideSubmenu("governance"); ?>;" id="governance">
-				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>ACNC Listing</b></a></li>
-				<li class="submenu_item"><a href="governance/rules/rules.php"><b>Rules</b></a></li>
-				<li class="submenu_item"><a href="governance/reports/reports.php"><b>Annual Reports</b></a></li>
-				<li class="submenu_item"><a href="governance/policies/policies.php"><b>Policies</b></a></li>
-				<li class="submenu_item"><a href="governance/plan/plan.php"><b>Strategic Plan</b></a></li>
+				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>&#x1F4DA; ACNC Listing</b></a></li>
+				<li class="submenu_item"><a href="governance/rules/rules.php"><b>&#x1F4D5; Rules</b></a></li>
+				<li class="submenu_item"><a href="governance/reports/reports.php"><b>&#x1F4D7; Annual Reports</b></a></li>
+				<li class="submenu_item"><a href="governance/policies/policies.php"><b>&#x1F4D8; Policies</b></a></li>
+				<li class="submenu_item"><a href="governance/plan/plan.php"><b>&#x1F4D9; Strategic Plan</b></a></li>
 			</ul>
 		</li>
 		<!--<li><a href="group_events/group_events.php">Group Events</a></li>-->
 		<li>
-			<a href="administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
+			<a href="administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">&#x1F510; Administration</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
 			
 			<?php DoDisplayAdministrationSubmenu(); ?>
@@ -566,11 +585,10 @@ if ($row["name"] == "axis_employment")
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)"><img src="images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<h1>Welcome to the new and ever improving Mill House website</h1>
+<h1>Welcome to the new Mill House website</h1>
 
 <p>For best viewing results, use the most up to date version of your favorite web browser.</p>
 
@@ -579,40 +597,6 @@ method (contact form, email or phone number).</p>
 <p>Enjoy!</p>
 
 
-<h1 id="whats_on">What's on at Mill House today <?php echo DoFormatDateToday(); ?>?</h1>
-<?php
-	/****************************************************************************************************
-	 ****************************************************************************************************
-	 ****************************************************************************************************
-	 ****************************************************************************************************
-	 **** SARAH PLEASE NOTE
-	 **** 
-	 **** Don't change this PHP code. It is responsible for generating the list of events on today from 
-	 **** the 'groups' table in the MySQL database in your web hosting account.
-	 ****
-	 ****************************************************************************************************
-	 ****************************************************************************************************
-	 ****************************************************************************************************
-	 ****************************************************************************************************/
-	 
-	DoGenerateEventsToday(); 
-?>
-
-<?php
-	if (IsAdminLoggedIn())
-	{
-		echo "<h1>Mill House App</h1>\n";
-		echo "<p>The mobile app is available for administration staff to try and review. Click the link below to go to the mobile app page...</p>\n";
-		echo "<p><a href=\"MobileApp/MobileApp.php\"><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" title=\"Go to the mobile app page.\" height=\"100\" /></a></p>\n";
-	}
-	else
-	{
-		echo "<h1>The Mill House App</h1>\n";
-		echo "<p>It is coming soon, so watch this space!</p>\n";
-		echo "<p><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" height=\"100\" /></p>\n";
-	}
-?>
-
 <h1>Who We Are</h1>
 
 <p>Mill House Neighbourhood House is a welcoming and inclusive community space in the heart of Maryborough.</p>
@@ -620,11 +604,18 @@ method (contact form, email or phone number).</p>
 <p>We bring people together, provide practical support and create opportunities for people of all ages and backgrounds 
 to connect, learn and participate.</p>
 
+<p>We want you feel connected, supported and involved in our community.</p>
+
+<p>So come in, get involved and discover what is happening at Mill House today.</p>
+	
+<p><b>Everyone is welcome at Mill House &#128522;</b></p>
+
 <h2>Our staff, volunteers &amp; committee</h2>
 
 <p>Click a face to learn their name.</p>
 
 <p>Or turn on 'voice assist' and hover over a face to hear their name.</p>
+
 
 <!--
 <p><img src="images/MillHouseTeam.jpg" alt="MillHouseTeam.jpg" usemap="#mill_house_team" id="img_mill_house_team" height="250" /></p>
@@ -680,10 +671,55 @@ to connect, learn and participate.</p>
 	
 ?>
 
-<p>We bring people together, create opportunities to connect and provide practical support for individuals and families across the Central 
-Goldfields. Everyone is welcome at Mill House, regardless of age, ability, background or circumstances.</p>
+<h1 id="whats_on">What's on at Mill House today <?php echo DoFormatDateToday(); ?>?</h1>
+<?php
+	/****************************************************************************************************
+	 ****************************************************************************************************
+	 ****************************************************************************************************
+	 ****************************************************************************************************
+	 **** SARAH PLEASE NOTE
+	 **** 
+	 **** Don't change this PHP code. It is responsible for generating the list of events on today from 
+	 **** the 'groups' table in the MySQL database in your web hosting account.
+	 ****
+	 ****************************************************************************************************
+	 ****************************************************************************************************
+	 ****************************************************************************************************
+	 ****************************************************************************************************/
+	 
+	DoGenerateEventsToday(); 
+?>
 
-<p>Our aim is to help people feel connected, supported and involved in their local community.</p>
+<h1>Whats on at Mill House soon</h1>
+
+<p>
+	<a href="https://scontent.fmel7-1.fna.fbcdn.net/v/t39.30808-6/802989890_2011864586262573_5492612645535538322_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1536&ctp=p526x296&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ts2BJhgB3WQQ7kNvwHB8hM7&_nc_oc=AdpEVftOBZlZJOSblpU_fvDlMl56_u05rEo09Ve33dnzkthdkX20wJqEakX36jDWe9BByPutMVKiOk1_A5Gcgds1&_nc_zt=23&_nc_ht=scontent.fmel7-1.fna&_nc_gid=CgxYYXzxxwY_dkMpiB_Ltg&_nc_ss=7b2a8&oh=00_AQIYyk3RDlOMCWoBHNOc68dbsVjlQP_gwHZGM9K8EazJQw&oe=6AAC89FF"><img src="https://scontent.fmel7-1.fna.fbcdn.net/v/t39.30808-6/802989890_2011864586262573_5492612645535538322_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1536&ctp=p526x296&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ts2BJhgB3WQQ7kNvwHB8hM7&_nc_oc=AdpEVftOBZlZJOSblpU_fvDlMl56_u05rEo09Ve33dnzkthdkX20wJqEakX36jDWe9BByPutMVKiOk1_A5Gcgds1&_nc_zt=23&_nc_ht=scontent.fmel7-1.fna&_nc_gid=CgxYYXzxxwY_dkMpiB_Ltg&_nc_ss=7b2a8&oh=00_AQIYyk3RDlOMCWoBHNOc68dbsVjlQP_gwHZGM9K8EazJQw&oe=6AAC89FF" alt="Spooktacular" height="250" /></a>
+	&nbsp;
+	<a href="images/influencers.jpg"><img src="images/influencers.jpg" alt="influencers.jpg" height="250" /></a>
+</p>
+
+<iframe width="300" height="380" src="James Hollands on Reels.mp4" controls></iframe>
+
+<h1>News</h1>
+
+<h2>Grant from Elders</h2>
+<p>The Mill House Committee, management and the community would like to thank Elders for their generous grant to our organisation.</p>
+<p><a href="images/EldersGrant.jpg"><img src="images/EldersGrant.jpg" alt="EldersGrant.jpg" width="200"/></a></p>
+
+<?php
+	if (IsAdminLoggedIn())
+	{
+		echo "<h2>Mill House App</h2>\n";
+		echo "<p>The mobile app is available for administration staff to try and review. Click the link below to go to the mobile app page...</p>\n";
+		echo "<p><a href=\"MobileApp/MobileApp.php\"><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" title=\"Go to the mobile app page.\" height=\"100\" /></a></p>\n";
+	}
+	else
+	{
+		echo "<h2>The Mill House App</h2>\n";
+		echo "<p>It is coming soon, so watch this space!</p>\n";
+		echo "<p><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" height=\"100\" /></p>\n";
+	}
+?>
 
 <h1>What We Do</h1>
 
@@ -719,19 +755,21 @@ Goldfields. Everyone is welcome at Mill House, regardless of age, ability, backg
 	</tr>
 </table>
 
-<h1>Join the Mill House family</h1>
-<p>Come in, get involved and discover what is happening at Mill House.</p>
-	
-<h1>Grant from Elders</h1>
-<p>The Mill House Committee, management and the community would like to thank Elders for their generous grant to our organisation.</p>
-<p><a href="images/EldersGrant.jpg"><img src="images/EldersGrant.jpg" alt="EldersGrant.jpg" width="200"/></a></p>
-<h1>Everyone is welcome at Mill House &#128522;</h1>
-<h2>Mill House Activities</h2>
+<h1>Our sponsors &amp; collaborators</h1>
+<div class="sponsors_container">
+	<?php echo DoGenerateSponsors(); ?>
+</div>
+
+<h1>Mill House Activities</h1>
 <?php require "MillHouseActivities.html"; ?>
-<h2>Service Providers</h2>
+
+<h1>Service Providers</h1>
 <?php require "MillHouseServiceProviders.html"; ?>
-<h2>Mill House Services</h2>
+
+<h1>Mill House Services</h1>
 <?php require "MillHouseServices.html"; ?>
+
+<p>&nbsp;</p>
 
 <div class="acknowledgment">
 	<h1>Acknowledgement</h1>

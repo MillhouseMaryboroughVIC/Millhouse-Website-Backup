@@ -38,7 +38,7 @@
 		
 		<style type="text/css">
 
-			.content #form form_voice_assist ~ img
+			.content_img
 			{
 				height: 250px;
 			}
@@ -108,11 +108,21 @@
 							<a href="../images/MillHouseNeighborhoodHouse1.jpg">
 							<img src="../images/MillHouseNeighborhoodHouse1.jpg" alt="MillHouseNeighborhoodHouse1.jpg" class="masthead_image" /></a>
 						</td>
-<script type="text/javascript">
-
-	DoDisplayMastheadEnd(`<?php echo DoGenerateSponsors(true); ?>`, "<?php echo DoGetParentOrCurrentDir(); ?>");
-	
-</script>
+						<td class="masthead_cell_image_right2">
+							<a href="../images/MillHouseNeighborhoodHouse2.jpg">
+							<img src="../images/MillHouseNeighborhoodHouse2.jpg" alt="MillHouseNeighborhoodHouse2.jpg" class="masthead_image" /></a>
+						</td>
+						<td class="masthead_cell_voice_assist">
+							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
+								<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
+						</td class="masthead_donation">
+						<td>
+							<a href="../contribute/donation.php">
+							<img src="../MobileApp/images/Donate.png" alt="Donate.png" class="donate_image" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" aria-label="Make a donation to Mill House now." /></a>
+						</td>
+						<td class="masthead_cell_hamburger">
+							<div id="div_hamburger" class="masthead_hamburger" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoClickHamburger()" aria-label="Open the main menu.">≡</div>
+						</td>
 					</tr>
 				</table>				
 			</div>
@@ -128,46 +138,59 @@
 									<tr>
 										<td>
 <div id="div_navigation_menu" class="navigation_menu">
-	
-	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
-		<li><a href="../index.php">Home</a></li>
-		<li><a href="about.php">About Mill House</a></li>
-		<li><a href="../calendar/calendar.php">Events Calendar</a></li>
-		<li><a href="../room/room.php">Hire a room</a></li>
-		<li><a href="../sponsors/sponsors.php">Our Collaborators</a></li>
+		<li><a href="../index.php">&#x1F3E0; Home</a></li>
 		<li>
-			<a href="../contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">Become a contributor</a>
-			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../contribute/join.php"><b>Become a member</b></a></li>
+			<a href="about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
+				<li class="submenu_item"><a href="../people/people.php">&#x1F469; Mill House People</a></li>
+				<li class="submenu_item"><a href="../milestones/milestones.php">&#x1F3C6; Milestones</a></li>
 				<li class="submenu_item">
-				<a href="../contribute/volunteering.php"><b>Become a volunteer</b></a></li>
-				<li class="submenu_item">
-				<a href="../contribute/request_sponsorship.php"><b>Become a sponsor</b></a></li>
-				<li class="submenu_item"><a href="../contribute/donation.php"><b>Make a donation</b></a></li>
+				<a href="../site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
 		</li>
-		<!--<li><a href="people/people.php">Mill House People</a></li>-->
-		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
-		<li><a href="../contact/contact.php">Contact</a></li>
-		<li><a href="../site_history/site_history.php">Site History</a></li>
+		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
+			<a href="../what/what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
+				<li class="submenu_item"><a href="../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../food/food.php">&#x1F34E; Food relief</a></li>
+			</ul>
+		</li>
+		<li><a href="../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
+		<li><a href="../room/room.php">&#x1F3E8; Room hire</a></li>
+		<li><a href="../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a></li>
 		<li>
-			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
+			<a href="../contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">&#x1F381; Become a contributor</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="../contribute/join.php"><b>&#x1F4DD; Become a member</b></a></li>
+				<li class="submenu_item">
+				<a href="../contribute/volunteering.php"><b>&#x1F64B; Become a volunteer</b></a></li>
+				<li class="submenu_item">
+				<a href="../contribute/request_sponsorship.php"><b>&#x1F4B0; Become a sponsor</b></a></li>
+				<li class="submenu_item"><a href="../contribute/donation.php"><b>&#x1F4B5; Make a donation</b></a></li>
+			</ul>
+		</li>
+		<li><a href="../contact/contact.php">&#x1F4DE; Contact</a></li>
+		<li>
+			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">&#x1F4DA; Governance</a> 
 			<ul style="display:<?php echo DoShowHideSubmenu("governance"); ?>;" id="governance">
-				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>ACNC Listing</b></a></li>
+				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>&#x1F4DA; ACNC Listing</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/rules/rules.php"><b>Rules</b></a></li>
+				<a href="../governance/rules/rules.php"><b>&#x1F4D5; Rules</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/reports/reports.php"><b>Annual Reports</b></a></li>
+				<a href="../governance/reports/reports.php"><b>&#x1F4D7; Annual Reports</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/policies/policies.php"><b>Policies</b></a></li>
-				<li class="submenu_item"><a href="../governance/plan/plan.php"><b>Strategic Plan</b></a></li>
+				<a href="../governance/policies/policies.php"><b>&#x1F4D8; Policies</b></a></li>
+				<li class="submenu_item"><a href="../governance/plan/plan.php"><b>&#x1F4D9; Strategic Plan</b></a></li>
 			</ul>
 		</li>
 		<!--<li><a href="group_events/group_events.php">Group Events</a></li>-->
 		<li>
-			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
+			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">&#x1F510; Administration</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
 			
 			<?php DoDisplayAdministrationSubmenu(); ?>
@@ -306,8 +329,6 @@
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
-									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 
@@ -319,6 +340,9 @@ and abilities.</p>
 <p>Whether you are looking for food support, a welcoming place to meet new people, help accessing services or an 
 opportunity to learn something new, there is a place for you at Mill House.</p>
 
+
+
+
 <h1 id="food">Helping Put Food on the Table</h1>
 
 <h2>24/7 Community Food Pantry</h2>
@@ -329,7 +353,8 @@ organisations and community members.</p>
 <p>We ask everyone to read the guidelines displayed on the pantry and only take what they need so there is enough 
 to share with others.</p>
 
-<p><a href="images/FoodPantry.jpg"><img src="images/FoodPantry.jpg" alt="FoodPantry.jpg" /></a></p>
+<p><a href="../what/food/images/FoodPantry.jpg">
+<img class="content_img" src="../what/food/images/FoodPantry.jpg" alt="FoodPantry.jpg" /></a></p>
 
 <h2>Affordable Frozen Meals</h2>
 
@@ -340,8 +365,10 @@ meals may include soups, vegetable and pasta bakes, chicken and rice dishes, las
 favourites.</p>
 
 <p>
-	<a href="images/FrozenMeals1.jpg"><img src="images/FrozenMeals1.jpg" alt="FrozenMeals1.jpg" /></a>
-	<a href="images/FrozenMeals2.jpg"><img src="images/FrozenMeals2.jpg" alt="FrozenMeals2.jpg" /></a>
+	<a href="../what/food/images/FrozenMeals1.jpg">
+	<img class="content_img" src="../what/food/images/FrozenMeals1.jpg" alt="FrozenMeals1.jpg" /></a>
+	<a href="../what/food/images/FrozenMeals2.jpg">
+	<img class="content_img" src="../what/food/images/FrozenMeals2.jpg" alt="FrozenMeals2.jpg" /></a>
 </p>
 
 <h2>Thursday Food Share Market</h2>
@@ -352,15 +379,24 @@ favourites.</p>
 and women’s hygiene products may also be available from time to time.</p>
 
 <p>
-	<a href="images/market1.jpg"><img src="images/market1.jpg" alt="Market.jpg" /></a>
-	<a href="images/Assorted.jpg"><img src="images/Assorted.jpg" alt="Assorted.jpg" /></a>
-	<a href="BreakfastCereals.jpg"><img src="images/BreakfastCereals.jpg" alt="BreakfastCereals.jpg" /></a><br/>
-	<a href="images/CannedFoods.jpg"><img src="images/CannedFoods.jpg" alt="CannedFoods.jpg" /></a>
-	<a href="images/FreshProduce1.jpg"><img src="images/FreshProduce1.jpg" alt="FreshProduce1.jpg" /></a>
-	<a href="images/FreshProduce2.jpg"><img src="images/FreshProduce2.jpg" alt="FreshProduce2.jpg" /></a><br/>
-	<a href="images/FreshProduce3.jp"><img src="images/FreshProduce3.jpg" alt="FreshProduce3.jpg" /></a>
-	<a href="images/Pasta.jpg"><img src="images/Pasta.jpg" alt="Pasta.jpg" /></a>
-	<a href="images/Bread.jpg"><img src="images/Bread.jpg" alt="Bread.jpg" /></a><br/>
+	<a href="../what/food/images/market1.jpg">
+	<img class="content_img" src="../what/food/images/market1.jpg" alt="Market.jpg" /></a>
+	<a href="../what/food/images/Assorted.jpg">
+	<img class="content_img" src="../what/food/images/Assorted.jpg" alt="Assorted.jpg" /></a>
+	<a href="BreakfastCereals.jpg">
+	<img class="content_img" src="../what/food/images/BreakfastCereals.jpg" alt="BreakfastCereals.jpg" /></a><br/>
+	<a href="../what/food/images/CannedFoods.jpg">
+	<img class="content_img" src="../what/food/images/CannedFoods.jpg" alt="CannedFoods.jpg" /></a>
+	<a href="../what/food/images/FreshProduce1.jpg">
+	<img class="content_img" src="../what/food/images/FreshProduce1.jpg" alt="FreshProduce1.jpg" /></a>
+	<a href="../what/food/images/FreshProduce2.jpg">
+	<img class="content_img" src="../what/food/images/FreshProduce2.jpg" alt="FreshProduce2.jpg" /></a><br/>
+	<a href="images/FreshProduce3.jp">
+	<img class="content_img" src="../what/food/images/FreshProduce3.jpg" alt="FreshProduce3.jpg" /></a>
+	<a href="../what/food/images/Pasta.jpg">
+	<img class="content_img" src="../what/food/images/Pasta.jpg" alt="Pasta.jpg" /></a>
+	<a href="../what/food/images/Bread.jpg">
+	<img class="content_img" src="../what/food/images/Bread.jpg" alt="Bread.jpg" /></a><br/>
 </p>
 
 <h2>Friday Feast</h2>
@@ -374,19 +410,11 @@ and women’s hygiene products may also be available from time to time.</p>
 <p>This photo is of Christmas in July Friday Feast, 2026. For this particular Friday Feast event you must book. However 
 bookings are not required for regular Friday Feast events.</p>
 <p>
-	<a href="images/feast.jpg"><img src="images/feast.jpg" alt="feast.jpg" /></a>
+	<a href="../what/food/images/feast1.jpg"><img class="content_img" src="../what/food/images/feast1.jpg" alt="feast1.jpg" /></a>&nbsp;
+	<a href="../what/food/images/feast2.jpg"><img class="content_img" src="../what/food/images/feast2.jpg" alt="feast2.jpg" /></a>&nbsp;
+	<a href="../what/food/images/feast3.jpg"><img class="content_img" src="../what/food/images/feast3.jpg" alt="feast3.jpg" /></a>&nbsp;
+	<a href="../what/food/images/feast4.jpg"><img class="content_img" src="../what/food/images/feast4.jpg" alt="feast4.jpg" /></a>&nbsp;
 </p>
-
-<h2>Food with Friends</h2>
-
-<p>Food with Friends is an all-abilities cooking group held every Thursday at 10.00 am.</p>
-
-<p>Participants prepare a meal with assistance from their support workers and the Mill House team before sitting down 
-to enjoy the food together.</p>
-
-<p><b>Cost: </b>$10 per session. Bookings are preferred.</p>
-
-<p><a href="images/food_friends.jpg"><img src="images/food_friends.jpg" alt="food_friends.jpg" /></a></p>
 
 <h2>Mill House Café</h2>
 
@@ -397,9 +425,13 @@ to enjoy the food together.</p>
 <p>Come in for something to eat, enjoy a cuppa and connect with others in the community.</p>
 
 <p>
-	<a href="../images/cafe.jpg"><img src="../images/cafe.jpg" alt="cafe.jpg" /></a>
-	<a href="images/cafe.jpg"><img src="images/cafe.jpg" alt="cafe.jpg" /></a>
+	<a href="../images/cafe.jpg"><img class="content_img" src="../images/cafe.jpg" alt="cafe.jpg" /></a>
+	<a href="../what/groups/images/cafe.jpg">
+	<img class="content_img" src="../what/groups/images/cafe.jpg" alt="cafe.jpg" /></a>
 </p>
+
+
+
 
 <h1 id="hub">Digital Hub</h1>
 <ul>
@@ -408,73 +440,35 @@ to enjoy the food together.</p>
 	<li>Computer Classes: Beginner-friendly courses to build basic tech confidence and skills.</li>
 </ul>
 
-<h1>Groups and Activities</h1>
 
-<h2>Maker Mums</h2>
 
-<p>A welcoming creative and social group where parents can connect, work on sewing, craft and other projects, and 
-share skills in a child-friendly environment.</p>
 
-<p><a href="images/maker_mums.jpg"><img src="images/maker_mums.jpg" alt="maker_mums.jpg" /></a></p>
+<h1 id="youth">Youth</h1>
 
-<h2>Peer Collective</h2>
+<h2>Food with Friends</h2>
 
-<p>Our Peer Collective mental health support group meets on Wednesday afternoons.</p>
+<p>Food with Friends is an all-abilities cooking group held every Thursday at 10.00 am.</p>
 
-<p>The group provides a safe and non-judgmental space where people with lived experience can connect, share their 
-stories and offer mutual support.</p>
+<p>Participants prepare a meal with assistance from their support workers and the Mill House team before sitting down 
+to enjoy the food together.</p>
 
-<p><a href="images/peer_collective.jpg"><img src="images/peer_collective.jpg" alt="peer_collective.jpg" /></a></p>
+<p><b>Cost: </b>$10 per session. Bookings are preferred.</p>
 
-<h2>Dungeons &amp; Dragons</h2>
+<p>
+	<a href="../what/groups/images/food_friends1.jpg">
+	<img class="content_img" src="../what/groups/images/food_friends1.jpg" alt="food_friends1.jpg" /></a>&nbsp;
+	<a href="../what/groups/images/food_friends2.jpg">
+	<img class="content_img" src="../what/groups/images/food_friends2.jpg" alt="food_friends2.jpg" /></a>&nbsp;
+	<a href="../what/groups/images/food_friends3.jpg">
+	<img class="content_img" src="../what/groups/images/food_friends3.jpg" alt="food_friends3.jpg" /></a>&nbsp;
+</p>
 
-<p>A social tabletop role-playing group where participants can use their imagination, build characters, work as a 
-team and enjoy new adventures.</p>
-
-<p><a href="images/dungeons_dragons.jpg"><img src="images/dungeons_dragons.jpg" alt="dungeons_dragons.jpg" /></a></p>
-
-<h2 id="youth">The 'House' Youth Activity Hub</h2>
+<h2>The 'House' Youth Activity Hub</h2>
 
 <p>A welcoming space where young people can meet, participate in activities, develop new skills and connect with 
 others.</p>
 
-<p><a href="../images/youth_hub.jpg"><img src="../images/youth_hub.jpg" alt="YouthHub.jpg" /></a></p>
-
-<h2 id="acitivities">Mill House Scrappers</h2>
-
-<p>A relaxed social scrapbooking group where participants can work on creative projects, share ideas and enjoy time 
-with others.</p>
-
-<p>
-	<a href="../images/scrappers.jpg"><img src="../images/scrappers.jpg" alt="scrappers.jpg" /></a>
-	<a href="images/scrappers1.jpg"><img src="images/scrappers1.jpg" alt="scrappers1.jpg" height="100"/></a>
-	<a href="images/scrappers2.jpg"><img src="images/scrappers2.jpg" alt="scrappers2.jpg" height="100"/></a>
-	<a href="images/scrappers3.jpg"><img src="images/scrappers3.jpg" alt="scrappers3.jpg" height="100"/></a>
-	<a href="images/scrappers4.jpg"><img src="images/scrappers4.jpg" alt="scrappers4.jpg" height="100"/></a>
-</p>
-
-<h2>Hookers Yarn Craft</h2>
-
-<p>A friendly yarn craft group for people interested in knitting, crochet and other fibre crafts. Beginners and 
-experienced crafters are welcome.</p>
-
-<p><a href="images/yarn.jpg"><img src="images/yarn.jpg" alt="yarn.jpg" /></a></p>
-
-<h2>Art for the Soul</h2>
-
-<p>A supportive art group that encourages creativity, self-expression and connection through painting, drawing and 
-other art activities.</p>
-
-<p><a href="images/art4soul.jpg"><img src="images/art4soul.jpg" alt="art4soul.jpg" /></a></p>
-
-<h2>Canasta Players</h2>
-
-<p>Join other community members for a friendly and social game of Canasta.</p>
-
-<p>
-	<a href="../images/canasta.jpg"><img src="../images/canasta.jpg" alt="canasta.jpg" /></a>
-	<a href="images/canasta.jpg"><img src="images/canasta.jpg" alt="canasta.jpg" /></a>
-</p>
+<p><a href="../images/youth_hub.jpg"><img class="content_img" src="../images/youth_hub.jpg" alt="YouthHub.jpg" /></a></p>
 
 <h2>Level Up Youth Gaming with Lifely Chris Lakey</h2>
 
@@ -485,23 +479,40 @@ other art activities.</p>
 </p>
 
 <p>
-	<a href="images/gamers.jpg"><img src="images/gamers.jpg" alt="gamers.jpg" /></a>
-	<a href="images/gamers.jpg"><img src="images/ChrisLakey.jpg" alt="ChrisLakey.jpg" /></a>
+	<a href="../images/gamers.jpg"><img class="content_img" src="../images/gamers.jpg" alt="gamers.jpg" /></a>
+	<a href="../images/gamers.jpg">
+	<img class="content_img" src="../what/groups/images/ChrisLakey.jpg" alt="ChrisLakey.jpg" /></a>
 </p>
 
-<h2>Playgroup</h2>
+
+
+
+<h1 id="support">Community support services</h1>
+
+<h2>Mill House services</h2>
+
+<h3>Peer Collective</h3>
+
+<p>Our Peer Collective mental health support group meets on Wednesday afternoons.</p>
+
+<p>The group provides a safe and non-judgmental space where people with lived experience can connect, share their 
+stories and offer mutual support.</p>
+
+<p><a href="../what/support/images/peer_collective.jpg">
+<img class="content_img" src="../what/support/images/peer_collective.jpg" alt="peer_collective.jpg" /></a></p>
+
+<h3>Playgroup</h3>
 
 <p>Our playgroup provides a welcoming environment where children can play and learn while parents and carers connect 
 with other local families.</p>
 
 <p>
-	<a href="../images/playgroup.jpg"><img src="../images/playgroup.jpg" alt="playgroup.jpg" /></a>
-	<a href="images/playgroup.jpg"><img src="images/playgroup.jpg" alt="playgroup.jpg" /></a>
+	<a href="../images/playgroup.jpg"><img class="content_img" src="../images/playgroup.jpg" alt="playgroup.jpg" /></a>
+	<a href="../what/groups/images/playgroup.jpg">
+	<img class="content_img" src="../what/groups/images/playgroup.jpg" alt="playgroup.jpg" /></a>
 </p>
 
-<h1>Community Support Services</h1>
-
-<h2>Cool Spaces</h2>
+<h3>Cool Spaces</h3>
 
 <p>Mill House opens as a Cool Space on days when the temperature is forecast to reach more than 38°C.</p>
 
@@ -512,55 +523,130 @@ and anyone without reliable access to air conditioning.</p>
 <p>During hot weather, remember to check that your family, friends, neighbours and pets are keeping cool and 
 hydrated.</p>
 
-<p><a href="images/CoolSpace.png"><img src="images/CoolSpace.png" alt="CoolSpace.png" width="200" /></a></p>
+<p><a href="../images/CoolSpace.png"><img class="content_img" src="../images/CoolSpace.png" alt="CoolSpace.png" width="200" /></a></p>
 
-<h2>Good Shepherd No Interest Loans</h2>
+<h3>Good Shepherd No Interest Loans</h3>
 
 <p>The No Interest Loans program, commonly known as NILs, may help eligible people pay for essential goods and 
 services without interest, fees or charges.</p>
 
 <p>Contact Mill House for information about eligibility and assistance with the application process.</p>
 
-<p><a href="../images/NILoans.png"><img src="../images/NILoans.png" alt="NILoans.png" height="200"/></a></p>
+<p><a href="../images/NILoans.png"><img class="content_img" src="../images/NILoans.png" alt="NILoans.png" height="200"/></a></p>
 
-<h2>Parent Pathways</h2>
+<h3>Parent Pathways</h3>
 
 <p>Parent Pathways provides personalised support for eligible parents and carers of young children.</p>
 
 <p>The program can help participants identify their goals, build confidence, access services and take steps towards 
 education, training or future employment.</p>
 
-<p><a href="../images/parent_pathways1.jpg"><img src="../images/parent_pathways1.jpg" alt="parent_pathways1.jpg" height="200"/></a></p>
+<p><a href="../images/parent_pathways1.jpg"><img class="content_img" src="../images/parent_pathways1.jpg" alt="parent_pathways1.jpg" height="200"/></a></p>
 
-<h2>are-able – Finding and Keeping a Job</h2>
+<h2>Other service providers</h2>
 
-<p>Mill House works with are-able to support people, including people living with disability, to develop employment 
-skills and explore opportunities for finding and maintaining meaningful work.</p>
-
-<h2>Justice of the Peace</h2>
+<h3>Justice of the Peace</h3>
 
 <p>Justice of the Peace services are available at selected times for people who need documents witnessed or 
 certified.</p>
 
 <p>Please contact Mill House to confirm availability before attending.</p>
 
-<p><a href="images/justice_peace.jpg"><img src="images/justice_peace.jpg" alt="JusticePeace.jpg" height="200"/></a></p>
+<p>
+	<a href="../what/support/images/justice_peace1.jpg"><img class="content_img" src="../what/support/images/justice_peace1.jpg" alt="JusticePeace1.jpg" height="200"/></a>&nbsp;
+	<a href="../what/support/images/justice_peace2.jpg"><img class="content_img" src="../what/support/images/justice_peace2.jpg" alt="JusticePeace2.jpg" height="200"/></a>
+</p>
 
-<h2>Remedial Massage Therapist</h2>
+<h3>Remedial Massage Therapist</h3>
 
 <p>A remedial massage therapist provides services from Mill House. Appointments and fees are arranged directly with the 
 practitioner.</p>
 
-<p><a href="../images/massage.png"><img src="../images/massage.png" alt="massage.png" height="200"/></a></p>
+<p><a href="../images/massage.png"><img class="content_img" src="../images/massage.png" alt="massage.png" height="200"/></a></p>
 
-<h2>Employment and Visiting Services</h2>
+F<h3>Employment and Visiting Services</h3>
 
 <p>Mill House provides private and professional spaces for employment providers, community organisations and visiting 
 support services to meet with local residents.</p>
 
-<p>Contact us to find out which services are currently available or to arrange an appointment.</p>
+<p>Contact the service providers directly to discuss your needs or to arrange an appointment.</p>
 
 <?php require "../MillHouseServiceProviders.html"; ?>
+
+
+
+
+
+<h1 id="activities">Groups and Activities</h1>
+
+<h2>Maker Mums</h2>
+
+<p>A welcoming creative and social group where parents can connect, work on sewing, craft and other projects, and 
+share skills in a child-friendly environment.</p>
+
+<p>
+	<a href="../images/maker_mums.jpg"><img class="content_img" src="../images/maker_mums.jpg" alt="maker_mums.jpg" /></a>&nbsp;
+	<a href="../what/groups/images/maker_mums.jpg">
+	<img class="content_img" src="../what/groups/images/maker_mums.jpg" alt="maker_mums.jpg" /></a>
+</p>
+
+<h2>Dungeons &amp; Dragons</h2>
+
+<p>A social tabletop role-playing group where participants can use their imagination, build characters, work as a 
+team and enjoy new adventures.</p>
+
+<p>
+	<a href="../images/dungeons_dragons.jpg"><img class="content_img" src="../images/dungeons_dragons.jpg" alt="dungeons_dragons1.jpg" /></a>&nbsp;
+	<a href="../what/groups/images/dungeons_dragons1.jpg">
+	<img class="content_img" src="../what/groups/images/dungeons_dragons1.jpg" alt="dungeons_dragons1.jpg" /></a>&nbsp;
+	<a href="../what/groups/images/dungeons_dragons2.jpg">
+	<img class="content_img" src="../what/groups/images/dungeons_dragons2.jpg" alt="dungeons_dragons2.jpg" /></a>&nbsp;
+</p>
+
+<h2>Mill House Scrappers</h2>
+
+<p>A relaxed social scrapbooking group where participants can work on creative projects, share ideas and enjoy time 
+with others.</p>
+
+<p>
+	<a href="../images/scrappers.jpg"><img class="content_img" src="../images/scrappers.jpg" alt="scrappers.jpg" /></a>
+	<a href="../what/groups/images/scrappers1.jpg">
+	<img class="content_img" src="../what/groups/images/scrappers1.jpg" alt="scrappers1.jpg" height="100"/></a>&nbsp;
+	<a href="../what/groups/images/scrappers2.jpg">
+	<img class="content_img" src="../what/groups/images/scrappers2.jpg" alt="scrappers2.jpg" height="100"/></a>&nbsp;
+	<a href="../what/groups/images/scrappers3.jpg">
+	<img class="content_img" src="../what/groups/images/scrappers3.jpg" alt="scrappers3.jpg" height="100"/></a>&nbsp;
+	<a href="../what/groups/images/scrappers4.jpg">
+	<img class="content_img" src="../what/groups/images/scrappers4.jpg" alt="scrappers4.jpg" height="100"/></a>&nbsp;
+	<a href="../what/groups/images/scrappers5.jpg">
+	<img class="content_img" src="../what/groups/images/scrappers5.jpg" alt="scrappers5.jpg" height="100"/></a>
+</p>
+
+<h2>Hookers Yarn Craft</h2>
+
+<p>A friendly yarn craft group for people interested in knitting, crochet and other fibre crafts. Beginners and 
+experienced crafters are welcome.</p>
+
+<p><a href="../what/groups/images/yarn.jpg">
+<img class="content_img" src="../what/groups/images/yarn.jpg" alt="yarn.jpg" /></a></p>
+
+<h2>Art for the Soul</h2>
+
+<p>A supportive art group that encourages creativity, self-expression and connection through painting, drawing and 
+other art activities.</p>
+
+<p><a href="../what/groups/images/art4soul.jpg">
+<img class="content_img" src="../what/groups/images/art4soul.jpg" alt="art4soul.jpg" /></a></p>
+
+<h2>Canasta Players</h2>
+
+<p>Join other community members for a friendly and social game of Canasta.</p>
+
+<p>
+	<a href="../images/canasta.jpg"><img class="content_img" src="../images/canasta.jpg" alt="canasta.jpg" /></a>
+	<a href="../what/groups/images/canasta.jpg">
+	<img class="content_img" src="../what/groups/images/canasta.jpg" alt="canasta.jpg" /></a>
+</p>
 
 <h2>University of the Third Age</h2>
 
@@ -571,11 +657,15 @@ others.</p>
 <ul>
     <li>
     	Book Club<br/><br/>
-    	<a href="../images/u3a_books.jpg"><img src="../images/u3a_books.jpg" alt="u3a_books.jpg" height="100"/></a>
+    	<a href="../images/u3a_books.jpg"><img class="content_img" src="../images/u3a_books.jpg" alt="u3a_books.jpg" height="100"/></a>
     </li>
     <li>
     	Writers Group<br/><br/>
-    	<a href="../images/u30_writers.jpg"><img src="../images/u3a_writers.jpg" alt="u3a_writers.jpg" height="100"/></a>
+    	<a href="../what/groups/images/u3a_writers.jpg"><img class="content_img" src="../what/groups/images/u3a_writers.jpg" alt="u3a_writers.jpg" height="100"/></a>
+    </li>
+    <li>
+    	Digital Story /Tellers<br/><br/>
+    	<a href="../what/groups/images/u3a_digital_story_telling.jpg"><img class="content_img" src="../what/groups/images/u3a_digital_story_telling.jpg" alt="u3a_digital_story_telling.jpg" height="100"/></a>
     </li>
 </ul>
 
@@ -586,31 +676,31 @@ others.</p>
     <li>
     	Maryborough Theatre Company<br/><br/>
     	<a href="https://www.liveup.org.au/activities/maryborough-theatre-company">
-    		<img src="images/theatre.jpg" alt="theatre.jpg" height="200"/>
+    		<img class="content_img" src="../what/groups/images/theatre.jpg" alt="theatre.jpg" height="200"/>
     	</a>
     </li>
     <li>
     	Maryborough Stamp Club<br/><br/>
-    	<a href="images/stamps.jpg">
-    		<img src="images/stamps.jpg" alt="stamps.jpg" height="200"/>
+    	<a href="../what/groups/images/stamps.jpg">
+    		<img class="content_img" src="../what/groups/images/stamps.jpg" alt="stamps.jpg" height="200"/>
     	</a>
     </li>
     <li>
     	Australian Labor Party<br/><br/>
     	<a href="images/labour_party.jpg">
-    		<img src="images/labour_party.jpg" alt="labour_party.jpg" height="200"/>
+    		<img class="content_img" src="images/labour_party.jpg" alt="labour_party.jpg" height="200"/>
     	</a>
     </li>
     <li>
     	Friends of the Maryborough Town Hall<br/><br/>
     	<a href="images/fomop.jpg">
-    		<img src="images/fomth.jpg" alt="fomth.jpg" height="200"/>
+    		<img class="content_img" src="images/fomth.jpg" alt="fomth.jpg" height="200"/>
     	</a>
     </li>
     <li>
     	Friends of Maryborough Outdoor Pool<br/><br/>
     	<a href="images/fomop.jpg">
-    		<img src="images/fomop.jpg" alt="fomop.jpg" height="200"/>
+    		<img class="content_img" src="images/fomop.jpg" alt="fomop.jpg" height="200"/>
     	</a>
     </li>
 </ul>

@@ -133,8 +133,26 @@ hr
 {
 	padding: 0px 0px 0px 2px;
 }
-.masthead_cell_sponsors
+.masthead_cell_voice_assist
 {
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 20px;
+	vertical-align: middle;
+	width: 180px;
+}
+.masthead_donation
+{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.image_link
+{
+	cursor: pointer;
+}
+.masthead_cell_hamburger
+{
+	display: none;
 }
 .masthead h1 
 {
@@ -829,7 +847,7 @@ p button:disabled,
   	100% { opacity: 0; }
 }
 
-.services_container img
+.service_provider_container img
 {
 	animation: cycleServiceProviders 35s infinite linear;
 	cursor: pointer;
@@ -851,6 +869,32 @@ p button:disabled,
 	11.43% { opacity: 1; }
 	/* Fade out over 1 second (5s / 35s) */
 	14.29% { opacity: 0; }
+	/* Stay hidden for the rest of the loop */
+	100% { opacity: 0; }
+}
+
+.millhouse_services_container img
+{
+	animation: cycleMillhouseServices 35s infinite linear;
+	cursor: pointer;
+	animation-delay: calc(5s * (sibling-index() - 1)); /* TOTAL SECONDS = 6 images x 5s each = 30s*/
+}
+
+/*
+	* Each image display for 5s
+	* 6 images
+	* Total time is 7 x 5s = 30s
+*/
+
+@keyframes cycleMillhouseServices
+{
+	0% { opacity: 0; }
+	/* Fade in over 1 second (1s / 30s) */
+	3.33% { opacity: 1; }
+	/* Stay visible for 4 seconds (4s / 30s) */
+	13.33% { opacity: 1; }
+	/* Fade out over 1 second (5s / 30s) */
+	16.67% { opacity: 0; }
 	/* Stay hidden for the rest of the loop */
 	100% { opacity: 0; }
 }

@@ -425,26 +425,6 @@ function DoAllAttachListeners(strElementID)
 //******************************************************************************
 //******************************************************************************
 
-function DoDisplayMastheadEnd(strSponsorHTML, strPath)
-{
-	if (!g_bIsMobileDevice)
-	{
-		document.write("				<td class=\"masthead_cell_image_right2\">\n");
-		document.write("					<a href=\"" + strPath + "images/MillHouseNeighborhoodHouse2.jpg\"><img src=\"" + strPath + "images/MillHouseNeighborhoodHouse2.jpg\" alt=\"MillHouseNeighborhoodHouse2.jpg\" class=\"masthead_image\" /></a>\n");
-		document.write("				</td>\n");
-
-		document.write("				<td>\n");
-		document.write("					<div class=\"sponsors_container\">" + strSponsorHTML + "</div>\n");
-		document.write("				</td>\n");
-	}
-	else
-	{
-		document.write("				<td>\n");
-		document.write("					<span id=\"span_hamburger\" class=\"masthead_hamburger\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\" onclick=\"DoClickHamburger()\">≡</span>\n");
-		document.write("				</td>\n");
-	}
-}
-
 function DoDisplayHidePopup(strDivID, bShow)
 {
 	let divInstructions = document.getElementById(strDivID);
@@ -760,7 +740,7 @@ function DoSetMenuState(bOpen)
 
 function DoClickHamburger()
 {
-	let spanHamburger = document.getElementById("span_hamburger"),
+	let divHamburger = document.getElementById("div_hamburger"),
 		divContent = document.getElementById("div_content"),
 		divContainer = document.getElementById("div_container"),
 		bOpen = false;
@@ -768,12 +748,18 @@ function DoClickHamburger()
 	DoOpenCloseMenu(true);
 	bOpen = DoGetMainMenuState();
 	
-	if (spanHamburger)
+	if (divHamburger)
 	{	
 		if (bOpen)
-			spanHamburger.innerText = "X";
+		{
+			divHamburger.innerText = "X";
+			divHamburger.ariaLabel = "Close the main menu.";
+		}
 		else
-			spanHamburger.innerText = "≡";
+		{
+			divHamburger.innerText = "≡";
+			divHamburger.ariaLabel = "Open the main menu.";
+		}
 	}
 }
 

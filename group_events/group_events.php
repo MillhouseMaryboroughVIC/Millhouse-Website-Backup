@@ -84,126 +84,6 @@
 		}
 		return $strHTML;
 	}
-							
-	function DoDisplayGroupDivs()
-	{
-		global $g_dbMillhouse;
-		global $g_strQuery;
-									
-		if ($result = DoFindQuery1($g_dbMillhouse, "groups", "display", "1"))
-		{
-			if ($result->num_rows > 0)
-			{
-				while ($row = $result->fetch_assoc())
-				{												
-					echo "<div id=\"div_" . $row["name"] . "\" style=\"display:none;\">\n";
-					
-					$strDisplay = "none";
-					
-					echo "<h1>" . $row["description"] . "</h1>\n";
-
-					echo "<p><b>CONTACT PERSON: </b>" . $row["contact"] . "<br/>\n";
-					echo "<b>EMAIL: </b><a href=\"mailto:" . $row["email"] . "\">" . $row["email"] . "</a><br/>\n";
-				
-					if (!is_null($row["phone"]) && (strlen($row["phone"]) > 0))
-						echo "<b>PHONE: </b>" . $row["phone"] . "<br/>\n";
-
-					$strFrequency = "NOT SET";
-					if (($row["dow1"] !== NULL) && ($row["dow1"] !== 0))
-					{
-						$strFrequency = DoGetDayName($row["dow1"]);
-						if (($row["dow2"] !== NULL) && ($row["dow2"] !== 0))
-						{
-							$strFrequency .= " and " . DoGetDayName($row["dow2"]);
-						}
-					}
-					if (($row["wom"] === NULL) || ($row["wom"] == 0))
-					{
-						$strFrequency = "Weekly on " . $strFrequency;
-					}
-					else
-					{
-						switch ($row["wom"])
-						{
-							case 1: $strFrequency .= "First " . $strFrequency . " of the month"; break;
-							case 2: $strFrequency .= "Second " . $strFrequency . " of the month"; break;
-							case 3: $strFrequency .= "Third " . $strFrequency . " of the month"; break;
-							case 4: $strFrequency .= "Fourth " . $strFrequency . " of the month"; break;
-						}
-					}
-					echo "<b>WHEN: </b>" . $strFrequency . "<br/>\n";
-					
-					$strTime = "NOT SET";
-					if ($row["time1"] !== NULL)
-					{
-						$time = new DateTime($row["time1"]);
-						$strTime = $time->format("H:i");
-						if ($row["time2"] !== NULL)
-						{
-							$time = new DateTime($row["time2"]);
-							$strTime .= " and " . $time->format("H:i");
-						}
-					}
-					echo "<b>TIME(S): </b>" . $strTime . "<br/>\n";
-					
-					$strHours = "NOT SET";
-					if (($row["duration"] !== NULL) && ($row["duration"] != 0))
-						$strHours = (string)$row["duration"] . " hours";
-					echo "<b>DURATION(s): </b>" . $strHours . "<br/>\n";
-					
-					$strCost = "FREE";
-					if (($row["cost"] !== NULL) && ($row["cost"] != 0))
-					{
-						$strCost = "$" . number_format($row["cost"], 2);
-						if ($row["donation"] > 0)
-							$strCost .= "(donation)";
-					}
-					echo "<b>COST: </b>" . $strCost . "<br/>\n";
-					
-					if (($row["facebook"] != NULL) && (strlen($row["facebook"]) > 0))
-						echo "<b>SOCIAL MEDIA: </b><a href=\"" . $row["facebook"] . "\">" . $row["facebook"] . "</a><br/>\n";
-					
-					echo "<b><u>PURPOSE</u></b><br/>\n";
-					echo "<p>" . $row["purpose"] . "</p>\n";
-
-					echo DoGetEvents($row["name"]);
-					echo "</div>\n";
-				}
-			}
-		}
-	}
-	
-	function DoGenerateGroupHyperlinks()
-	{
-		global $g_dbMillhouse;
-		global $g_strQuery;
-									
-		if ($result = DoFindQuery1($g_dbMillhouse, "groups", "display", "1", "", "description"))
-		{
-			if ($result->num_rows > 0)
-			{
-				$nRowCount = 0;
-				$nMaxRowCount = 3;
-				echo "<table border=\"0\" cellpadding=\"5\" cellaspacing=\"0\">\n";
-				echo "    <tr>\n";
-				while ($row = $result->fetch_assoc())
-				{
-					echo "        <td>\n";
-					echo "            <a class=\"group_hyperlink\" href=\"group_events.php#" . $row["name"] . "\" onclick=\"DoClickGroupHyperlink('" . $row["name"] . "')\">" . $row["description"] . "</a>";
-					echo "        </td>\n";
-					$nRowCount++;
-					if ($nRowCount == $nMaxRowCount)
-					{
-						echo "    </tr>\n";
-						echo "    <tr>\n";
-						$nRowCount = 0;
-					}
-				}
-				echo "    </tr>\n";
-				echo "</table>\n";
-			}
-		}
-	}
 
 ?>
 <!-- #BeginTemplate "../master.dwt" -->
@@ -236,167 +116,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
 			.group_hyperlink
 			{
 				display: inline-block;
@@ -501,11 +220,21 @@
 							<a href="../images/MillHouseNeighborhoodHouse1.jpg">
 							<img src="../images/MillHouseNeighborhoodHouse1.jpg" alt="MillHouseNeighborhoodHouse1.jpg" class="masthead_image" /></a>
 						</td>
-<script type="text/javascript">
-
-	DoDisplayMastheadEnd(`<?php echo DoGenerateSponsors(true); ?>`, "<?php echo DoGetParentOrCurrentDir(); ?>");
-	
-</script>
+						<td class="masthead_cell_image_right2">
+							<a href="../images/MillHouseNeighborhoodHouse2.jpg">
+							<img src="../images/MillHouseNeighborhoodHouse2.jpg" alt="MillHouseNeighborhoodHouse2.jpg" class="masthead_image" /></a>
+						</td>
+						<td class="masthead_cell_voice_assist">
+							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
+								<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
+						</td class="masthead_donation">
+						<td>
+							<a href="../contribute/donation.php">
+							<img src="../MobileApp/images/Donate.png" alt="Donate.png" class="donate_image" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" aria-label="Make a donation to Mill House now." /></a>
+						</td>
+						<td class="masthead_cell_hamburger">
+							<div id="div_hamburger" class="masthead_hamburger" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoClickHamburger()" aria-label="Open the main menu.">≡</div>
+						</td>
 					</tr>
 				</table>				
 			</div>
@@ -521,46 +250,59 @@
 									<tr>
 										<td>
 <div id="div_navigation_menu" class="navigation_menu">
-	
-	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
-		<li><a href="../index.php">Home</a></li>
-		<li><a href="../about/about.php">About Mill House</a></li>
-		<li><a href="../calendar/calendar.php">Events Calendar</a></li>
-		<li><a href="../room/room.php">Hire a room</a></li>
-		<li><a href="../sponsors/sponsors.php">Our Collaborators</a></li>
+		<li><a href="../index.php">&#x1F3E0; Home</a></li>
 		<li>
-			<a href="../contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">Become a contributor</a>
-			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../contribute/join.php"><b>Become a member</b></a></li>
+			<a href="../about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
+				<li class="submenu_item"><a href="../people/people.php">&#x1F469; Mill House People</a></li>
+				<li class="submenu_item"><a href="../milestones/milestones.php">&#x1F3C6; Milestones</a></li>
 				<li class="submenu_item">
-				<a href="../contribute/volunteering.php"><b>Become a volunteer</b></a></li>
-				<li class="submenu_item">
-				<a href="../contribute/request_sponsorship.php"><b>Become a sponsor</b></a></li>
-				<li class="submenu_item"><a href="../contribute/donation.php"><b>Make a donation</b></a></li>
+				<a href="../site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
 		</li>
-		<!--<li><a href="people/people.php">Mill House People</a></li>-->
-		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
-		<li><a href="../contact/contact.php">Contact</a></li>
-		<li><a href="../site_history/site_history.php">Site History</a></li>
+		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
+			<a href="../what/what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
+				<li class="submenu_item"><a href="../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../food/food.php">&#x1F34E; Food relief</a></li>
+			</ul>
+		</li>
+		<li><a href="../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
+		<li><a href="../room/room.php">&#x1F3E8; Room hire</a></li>
+		<li><a href="../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a></li>
 		<li>
-			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
+			<a href="../contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">&#x1F381; Become a contributor</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="../contribute/join.php"><b>&#x1F4DD; Become a member</b></a></li>
+				<li class="submenu_item">
+				<a href="../contribute/volunteering.php"><b>&#x1F64B; Become a volunteer</b></a></li>
+				<li class="submenu_item">
+				<a href="../contribute/request_sponsorship.php"><b>&#x1F4B0; Become a sponsor</b></a></li>
+				<li class="submenu_item"><a href="../contribute/donation.php"><b>&#x1F4B5; Make a donation</b></a></li>
+			</ul>
+		</li>
+		<li><a href="../contact/contact.php">&#x1F4DE; Contact</a></li>
+		<li>
+			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">&#x1F4DA; Governance</a> 
 			<ul style="display:<?php echo DoShowHideSubmenu("governance"); ?>;" id="governance">
-				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>ACNC Listing</b></a></li>
+				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>&#x1F4DA; ACNC Listing</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/rules/rules.php"><b>Rules</b></a></li>
+				<a href="../governance/rules/rules.php"><b>&#x1F4D5; Rules</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/reports/reports.php"><b>Annual Reports</b></a></li>
+				<a href="../governance/reports/reports.php"><b>&#x1F4D7; Annual Reports</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/policies/policies.php"><b>Policies</b></a></li>
-				<li class="submenu_item"><a href="../governance/plan/plan.php"><b>Strategic Plan</b></a></li>
+				<a href="../governance/policies/policies.php"><b>&#x1F4D8; Policies</b></a></li>
+				<li class="submenu_item"><a href="../governance/plan/plan.php"><b>&#x1F4D9; Strategic Plan</b></a></li>
 			</ul>
 		</li>
 		<!--<li><a href="group_events/group_events.php">Group Events</a></li>-->
 		<li>
-			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
+			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">&#x1F510; Administration</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
 			
 			<?php DoDisplayAdministrationSubmenu(); ?>
@@ -699,8 +441,6 @@
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
-									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
 			

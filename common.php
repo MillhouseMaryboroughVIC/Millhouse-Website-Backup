@@ -125,7 +125,7 @@
 	$g_strPatternPhoneNumber = "(?:(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}|(?:1300|1800|1900|1902)[ -]?[0-9]{3}[ -]?[0-9]{3})";
 	$g_strPatternEmail = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}";
 	$g_strPatternURL = "https?:\/\/([\w-]+\.)+[\w-]+(\/[\w .\/-]*)?";
-	$g_strPatternPersonName = "[a-zA-Z-'() ]{4,24}";
+	$g_strPatternPersonName = "[a-zA-Z-'() ]{4,30}";
 	$g_strPatternGroupName = "[a-zA-Z0-9_]{4,24}";
 	$g_strPatternGroupDesc = "[a-zA-Z'() -]{4,24}";
 	$g_strPatternComment = "(?!.*<script)(?!.*<\/script>).*";
@@ -301,6 +301,134 @@ $g_arrayHireRoom = [
 					    "strDescription" => "A larger space suitable for cooking programs, food preparation, catering, community meals, demonstrations and group dining activities.", 
 					    "strCapacity" => "6 - 60"]
 				];
+
+
+	//******************************************************************************
+	//******************************************************************************
+	//** 
+	//** GROUP FUNCTIONS
+	//** 
+	//******************************************************************************
+	//******************************************************************************
+	
+	function DoDisplayGroupDivs()
+	{
+		global $g_dbMillhouse;
+		global $g_strQuery;
+									
+		if ($result = DoFindQuery1($g_dbMillhouse, "groups", "display", "1"))
+		{
+			if ($result->num_rows > 0)
+			{
+				while ($row = $result->fetch_assoc())
+				{												
+					echo "<div id=\"div_" . $row["name"] . "\" style=\"display:none;\">\n";
+					
+					$strDisplay = "none";
+					
+					echo "<h1>" . $row["description"] . "</h1>\n";
+
+					echo "<p><b>CONTACT PERSON: </b>" . $row["contact"] . "<br/>\n";
+					echo "<b>EMAIL: </b><a href=\"mailto:" . $row["email"] . "\">" . $row["email"] . "</a><br/>\n";
+				
+					if (!is_null($row["phone"]) && (strlen($row["phone"]) > 0))
+						echo "<b>PHONE: </b>" . $row["phone"] . "<br/>\n";
+
+					$strFrequency = "NOT SET";
+					if (($row["dow1"] !== NULL) && ($row["dow1"] !== 0))
+					{
+						$strFrequency = DoGetDayName($row["dow1"]);
+						if (($row["dow2"] !== NULL) && ($row["dow2"] !== 0))
+						{
+							$strFrequency .= " and " . DoGetDayName($row["dow2"]);
+						}
+					}
+					if (($row["wom"] === NULL) || ($row["wom"] == 0))
+					{
+						$strFrequency = "Weekly on " . $strFrequency;
+					}
+					else
+					{
+						switch ($row["wom"])
+						{
+							case 1: $strFrequency .= "First " . $strFrequency . " of the month"; break;
+							case 2: $strFrequency .= "Second " . $strFrequency . " of the month"; break;
+							case 3: $strFrequency .= "Third " . $strFrequency . " of the month"; break;
+							case 4: $strFrequency .= "Fourth " . $strFrequency . " of the month"; break;
+						}
+					}
+					echo "<b>WHEN: </b>" . $strFrequency . "<br/>\n";
+					
+					$strTime = "NOT SET";
+					if ($row["time1"] !== NULL)
+					{
+						$time = new DateTime($row["time1"]);
+						$strTime = $time->format("H:i");
+						if ($row["time2"] !== NULL)
+						{
+							$time = new DateTime($row["time2"]);
+							$strTime .= " and " . $time->format("H:i");
+						}
+					}
+					echo "<b>TIME(S): </b>" . $strTime . "<br/>\n";
+					
+					$strHours = "NOT SET";
+					if (($row["duration"] !== NULL) && ($row["duration"] != 0))
+						$strHours = (string)$row["duration"] . " hours";
+					echo "<b>DURATION(s): </b>" . $strHours . "<br/>\n";
+					
+					$strCost = "FREE";
+					if (($row["cost"] !== NULL) && ($row["cost"] != 0))
+					{
+						$strCost = "$" . number_format($row["cost"], 2);
+						if ($row["donation"] > 0)
+							$strCost .= "(donation)";
+					}
+					echo "<b>COST: </b>" . $strCost . "<br/>\n";
+					
+					if (($row["facebook"] != NULL) && (strlen($row["facebook"]) > 0))
+						echo "<b>SOCIAL MEDIA: </b><a href=\"" . $row["facebook"] . "\">" . $row["facebook"] . "</a><br/>\n";
+					
+					echo "<b><u>PURPOSE</u></b><br/>\n";
+					echo "<p>" . $row["purpose"] . "</p>\n";
+					
+					echo "</div>\n";
+				}
+			}
+		}
+	}
+	
+	function DoGenerateGroupHyperlinks()
+	{
+		global $g_dbMillhouse;
+		global $g_strQuery;
+									
+		if ($result = DoFindQuery1($g_dbMillhouse, "groups", "display", "1", "", "description"))
+		{
+			if ($result->num_rows > 0)
+			{
+				$nRowCount = 0;
+				$nMaxRowCount = 3;
+				echo "<table border=\"0\" cellpadding=\"5\" cellaspacing=\"0\">\n";
+				echo "    <tr>\n";
+				while ($row = $result->fetch_assoc())
+				{
+					echo "        <td>\n";
+					echo "            <a class=\"group_hyperlink\" href=\"group_events.php#" . $row["name"] . "\" onclick=\"DoClickGroupHyperlink('" . $row["name"] . "')\">" . $row["description"] . "</a>";
+					echo "        </td>\n";
+					$nRowCount++;
+					if ($nRowCount == $nMaxRowCount)
+					{
+						echo "    </tr>\n";
+						echo "    <tr>\n";
+						$nRowCount = 0;
+					}
+				}
+				echo "    </tr>\n";
+				echo "</table>\n";
+			}
+		}
+	}
 
 	//******************************************************************************
 	//******************************************************************************
@@ -752,25 +880,7 @@ $g_arrayHireRoom = [
 		
 		return $strDisplay;
 	}
-	
-	function DoGetDontationHTML()
-	{
-		$strHTML = "";
-		$strURI = strtolower($_SERVER["REQUEST_URI"]);
-		$strText = "Click here to learn why Millhouse is a worthy cause.";
-
-		if (!str_contains($strURI, "donation"))
-		{
-			$strHTML = "<a href=\"" . DoGetParentOrCurrentDir() . "about/about.php\"><img src=\"" . DoGetParentOrCurrentDir() . "MobileApp/images/Donate.png\" alt=\"Donate.png\" class=\"donate_image\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\" title=\"This is a hyperlink to the about page, which contains the donation pledge form.\" />";
-			$strHTML .= "<p style=\"color:black;\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\">Click the icon to learn why Mill House is a worthy cause...</p>\n";
-		}
-		else
-		{
-			$strHTML = "<p>&nbsp;</p>";
-		}
-		return $strHTML;
-	}
-	
+		
 	function DoGetDayName($nDOW)
 	{
 		$strDayName = "";
@@ -778,7 +888,7 @@ $g_arrayHireRoom = [
 		switch ($nDOW)
 		{
 			case 1: $strDayName = "Sunday"; break;
-			case 2: $strDayName = "Monday"; break;
+			case 2: $strDayName = "Mon0day"; break;
 			case 3: $strDayName = "Tuesday"; break;
 			case 4: $strDayName = "Wednesday"; break;
 			case 5: $strDayName = "Thursday"; break;
@@ -938,12 +1048,14 @@ $g_arrayHireRoom = [
 	}
 	$g_dbMillhouse = ConnectToDatabase();
 	$g_strQuery = "";
+	$g_bJustConstructQuery = false;
 	
 	function DoQuery($dbConnection, $strQuery)
 	{
 		global $g_strEmailPresident;
 		global $g_strDatabaseName;
 		global $g_strQuery;
+		global $g_bJustConstructQuery;
 		$result = NULL;
 	
 		try
@@ -963,7 +1075,8 @@ $g_arrayHireRoom = [
 			
 			$g_strQuery .= ";";
 			
-			$result = $dbConnection->query($g_strQuery);		
+			if (!$g_bJustConstructQuery)
+				$result = $dbConnection->query($g_strQuery);		
 		}
 		catch(Exception $e) 
 		{
@@ -2032,7 +2145,7 @@ $g_arrayHireRoom = [
 		return $strJSArrayBookmarks;
 	}
 
-	function DoGenerateSponsors($bAsHTMLString)
+	function DoGenerateSponsors()
 	{
 		global $g_dbMillhouse;
 		$datetimeNow = new DateTime();
@@ -2048,20 +2161,10 @@ $g_arrayHireRoom = [
 				$datetimeExpiry = new DateTime($row["expiry_date"]);
 				if ($datetimeExpiry >= $datetimeNow)
 				{
-					if ($bAsHTMLString)
-					{
-						$strSponsorHTML .= "<img id=\\\"img_" . DoGenerateBookmark($row["business_name"]) . 
-								"\\\" src=\\\"" . DoGetParentOrCurrentDir() . "sponsors/images/" . $row["logo_image"] . 
-								"\\\" alt=\\\"" . $row["logo_image"] . "\\\" onclick=\\\"DoClickSponsor('" . 
-								DoGetParentOrCurrentDir() . "', '" . $strSponsorBookmarksList . "')\\\" />\n";
-					}
-					else
-					{
-						$strSponsorHTML .= "<img id=\"img_" . DoGenerateBookmark($row["business_name"]) . "\" src=\"" . 
-								DoGetParentOrCurrentDir() . "sponsors/images/" . $row["logo_image"] . "\" alt=\"" . 
-								$row["logo_image"] . "\" onclick=\"DoClickSponsor('" . DoGetParentOrCurrentDir() . 
-								"', '" . $strSponsorBookmarksList . "')\" />\n";
-					}
+					$strSponsorHTML .= "<img class=\"image_link\" id=\"img_" . DoGenerateBookmark($row["business_name"]) . 
+							"\" src=\"" . DoGetParentOrCurrentDir() . "sponsors/images/" . $row["logo_image"] . 
+							"\" alt=\"" . $row["logo_image"] . "\" onclick=\"DoClickSponsor('" . 
+							DoGetParentOrCurrentDir() . "', '" . $strSponsorBookmarksList . "')\" />\n";
 				}
 			}
 		}

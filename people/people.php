@@ -84,11 +84,21 @@
 							<a href="../images/MillHouseNeighborhoodHouse1.jpg">
 							<img src="../images/MillHouseNeighborhoodHouse1.jpg" alt="MillHouseNeighborhoodHouse1.jpg" class="masthead_image" /></a>
 						</td>
-<script type="text/javascript">
-
-	DoDisplayMastheadEnd(`<?php echo DoGenerateSponsors(true); ?>`, "<?php echo DoGetParentOrCurrentDir(); ?>");
-	
-</script>
+						<td class="masthead_cell_image_right2">
+							<a href="../images/MillHouseNeighborhoodHouse2.jpg">
+							<img src="../images/MillHouseNeighborhoodHouse2.jpg" alt="MillHouseNeighborhoodHouse2.jpg" class="masthead_image" /></a>
+						</td>
+						<td class="masthead_cell_voice_assist">
+							<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
+								<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
+						</td class="masthead_donation">
+						<td>
+							<a href="../contribute/donation.php">
+							<img src="../MobileApp/images/Donate.png" alt="Donate.png" class="donate_image" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" aria-label="Make a donation to Mill House now." /></a>
+						</td>
+						<td class="masthead_cell_hamburger">
+							<div id="div_hamburger" class="masthead_hamburger" tabindex="0" onfocus="DoSpeakElement(this)" onmouseenter="DoSpeakElement(this)" onclick="DoClickHamburger()" aria-label="Open the main menu.">≡</div>
+						</td>
 					</tr>
 				</table>				
 			</div>
@@ -104,46 +114,59 @@
 									<tr>
 										<td>
 <div id="div_navigation_menu" class="navigation_menu">
-	
-	<?php echo DoGetDontationHTML(); ?>
 
 	<ul>
-		<li><a href="../index.php">Home</a></li>
-		<li><a href="../about/about.php">About Mill House</a></li>
-		<li><a href="../calendar/calendar.php">Events Calendar</a></li>
-		<li><a href="../room/room.php">Hire a room</a></li>
-		<li><a href="../sponsors/sponsors.php">Our Collaborators</a></li>
+		<li><a href="../index.php">&#x1F3E0; Home</a></li>
 		<li>
-			<a href="../contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">Become a contributor</a>
-			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../contribute/join.php"><b>Become a member</b></a></li>
+			<a href="../about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
+				<li class="submenu_item"><a href="people.php">&#x1F469; Mill House People</a></li>
+				<li class="submenu_item"><a href="../milestones/milestones.php">&#x1F3C6; Milestones</a></li>
 				<li class="submenu_item">
-				<a href="../contribute/volunteering.php"><b>Become a volunteer</b></a></li>
-				<li class="submenu_item">
-				<a href="../contribute/request_sponsorship.php"><b>Become a sponsor</b></a></li>
-				<li class="submenu_item"><a href="../contribute/donation.php"><b>Make a donation</b></a></li>
+				<a href="../site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
 		</li>
-		<!--<li><a href="people/people.php">Mill House People</a></li>-->
-		<!--<li><a href="milestones/milestones.php">Milestones</a></li>-->
-		<li><a href="../contact/contact.php">Contact</a></li>
-		<li><a href="../site_history/site_history.php">Site History</a></li>
+		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
+			<a href="../what/what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
+				<li class="submenu_item"><a href="../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../food/food.php">&#x1F34E; Food relief</a></li>
+			</ul>
+		</li>
+		<li><a href="../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
+		<li><a href="../room/room.php">&#x1F3E8; Room hire</a></li>
+		<li><a href="../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a></li>
 		<li>
-			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">Governance</a> 
+			<a href="../contribute/contribute.php" onclick="DoClickNavLinkWithSubmenu('contribute')">&#x1F381; Become a contributor</a>
+			<ul style="display:<?php echo DoShowHideSubmenu("contribute"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="../contribute/join.php"><b>&#x1F4DD; Become a member</b></a></li>
+				<li class="submenu_item">
+				<a href="../contribute/volunteering.php"><b>&#x1F64B; Become a volunteer</b></a></li>
+				<li class="submenu_item">
+				<a href="../contribute/request_sponsorship.php"><b>&#x1F4B0; Become a sponsor</b></a></li>
+				<li class="submenu_item"><a href="../contribute/donation.php"><b>&#x1F4B5; Make a donation</b></a></li>
+			</ul>
+		</li>
+		<li><a href="../contact/contact.php">&#x1F4DE; Contact</a></li>
+		<li>
+			<a href="../governance/governance.php" onclick="DoClickNavLinkWithSubmenu('governance')">&#x1F4DA; Governance</a> 
 			<ul style="display:<?php echo DoShowHideSubmenu("governance"); ?>;" id="governance">
-				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>ACNC Listing</b></a></li>
+				<li class="submenu_item"><a href="https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile"><b>&#x1F4DA; ACNC Listing</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/rules/rules.php"><b>Rules</b></a></li>
+				<a href="../governance/rules/rules.php"><b>&#x1F4D5; Rules</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/reports/reports.php"><b>Annual Reports</b></a></li>
+				<a href="../governance/reports/reports.php"><b>&#x1F4D7; Annual Reports</b></a></li>
 				<li class="submenu_item">
-				<a href="../governance/policies/policies.php"><b>Policies</b></a></li>
-				<li class="submenu_item"><a href="../governance/plan/plan.php"><b>Strategic Plan</b></a></li>
+				<a href="../governance/policies/policies.php"><b>&#x1F4D8; Policies</b></a></li>
+				<li class="submenu_item"><a href="../governance/plan/plan.php"><b>&#x1F4D9; Strategic Plan</b></a></li>
 			</ul>
 		</li>
 		<!--<li><a href="group_events/group_events.php">Group Events</a></li>-->
 		<li>
-			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">Administration</a>
+			<a href="../administration/administration.php" onclick="DoClickNavLinkWithSubmenu('administration')">&#x1F510; Administration</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("administration"); ?>;" id="administration">
 			
 			<?php DoDisplayAdministrationSubmenu(); ?>
@@ -282,79 +305,13 @@
 										</td>
 									</tr>
 								</table>			
-								<form class="form_voice_assist_button"><button type="button" aria-label="Click this button to show the voice assist settings." onclick="DoDisplayHidePopup('form_voice_assist', true)">
-									<img src="../images/LoudSpeaker.png" alt="LoudSpeaker.png" height="70" aria-label="Click this button to show the voice assist settings." /></button></form>
 
 								<!-- #BeginEditable "CustomContent" -->
-<h1>The Current Board</h1>
-<h2>Board Office Bearers</h2>
-<p>
-	<b>PRESIDENT: </b>John Williamson<br/><br/>
-	<b>TREASURER: </b>John Warner<br/><br/>
-	<b>SECRETARY: </b>Belinda Farby
-</p>
-<h2>Board Members</h2>
-<p>
-	Cathy Schwagger<br/><br/>
-	Dianne Parsons<br/><br/>
-	Louise Hanby D'Wynn<br/><br/>
-	Shaun Kerr-Talbot<br/><br/>
-	Susie Patterson<br/><br/>
-	Mollie Mason<br/><br/>
-	Reyne Canning<br/><br/>
-</p>
-<h2>Management</h2>
-<p>
-	<b>MANAGER: </b>Sarah McLean<br/><br/>
-	<b>ASSISTANT MANAGER: John Howden</b><br/><br/>
-</p>
 
-<h1>Past &amp; Present Presidents</h1>
-<h2>John Warner</h2>
-<p><img src="images/JohnWarner.png" alt="" width="100"/></p>
-<p><b>Served: </b>November, 2024 to present</p>
-<p>
-	<b>Acheivements: </b> John designed Millhouse's original web site.<br/>
-	
-	<a href="millhouse.htm"><img src="images/OldMillhouseWebSite.jpg" alt="" width="400" /></a><br/>
-	
-	Millhouse has not had the benefit of any current or former web site programmers among its volunteers.
-	So John disigned a simple home page using MS Word and saved that as a HTML file. His thinking was that 
-	any one who knows how to use MS Word could potentially make changes to the home page.
-</p>
 
-<h1>Past &amp; Present Managers</h1>
-<h2>Sarah McLean</h2>
-<p><img src="images/SarahMcLean.jpg" alt="" width="100"/></p>
-<p><b>Served: </b>September, 2025 to present</p>
-<p><b>Acheivements: </b>as soon as she took the lead from Michelle, Sarah was fast off the mark in:</p>
-<ul>
-	<li>Ensuring the strategic plan for the organisation was up to date.</li>
-	<li>Ensuring that the premisis was up to date with the <b>N</b>ational <b>C</b>onstruction <b>C</b>ode saftey standard requirements.</li>
-</ul>
-<p>Sarah is also the current group leader and mentor for 'Parent Pathways. This is program that 
-allows parents, with the help of a mentor, to select from a range of Services Australia support options:</p>
-<ul>
-	<li>Financial support, for example to help with the cost of getting a licence, training courses, textbooks or to buy a computer.</li>
-	<li>Referral to support services such as health family and domestic violence or financial information services.</li>
-	<li>Support to find a childcare centre and help with childcare costs.</li>
-	<li>Training, such as a short course at the local TAFE.</li>
-	<li>Career guidance.</li>
-	<li>Language or literacy programs.</li>				
-</ul>
-<h2>Michelle Baker</h2>
-<p><img src="images/MichelleBaker.jpg" alt="" width="100"/></p>
-<p><b>Served: </b>November, 2022 to September, 2025...(under the organisation name 'Millhouse')</p>
-<p><b>Acheivements: </b>Michelle has always been focused on improving the social engagement of residents 
-of Maryborough and other Central Goldfields towns. She was very successful at winning grants from various 
-community minded companies. Michell was the primary instigator for a number of Millhouse's popular 
-programs:</p>
-<ul>
-	<li>Fiday Feast</li>
-	<li>Food with Friends</li>
-	<li>Millhouse Market</li>
-	<li>Millhouse Cafe</li>
-</ul>
+<p>Past &amp; present committee members, managers and volunteers that have really gone above the call of duty for the 
+Mill House community, and that you wish to single out for recognition.</p>
+
 
 <div id="div_page_edit_instructions" class="instruction_popup">
 
@@ -366,6 +323,7 @@ programs:</p>
 	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
 	
 </div>
+
 
 								<!-- #EndEditable -->
 							</div>
