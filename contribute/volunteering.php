@@ -105,6 +105,11 @@
 
 
 
+
+
+
+
+
 			td
 			{
 				vertical-align: middle;
@@ -223,11 +228,12 @@
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
 			<a href="../what/what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
-				<li class="submenu_item"><a href="../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>
-				<li class="submenu_item"><a href="../food/food.php">&#x1F34E; Food relief</a></li>
+				<li class="submenu_item"><a href="../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item"><a href="../what/youth/youth.php">&#x1F3AE; Youth</a></li>
+				<li class="submenu_item">
+				<a href="../what/activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="../what/support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../what/food/food.php">&#x1F34E; Food relief</a></li>
 			</ul>
 		</li>
 		<li><a href="../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
@@ -287,13 +293,13 @@
 							<div class="content" id="div_content">
 							
 								<div class="simple_menu" id="div_simple_menu">
+									<div>QUICK ACCESS</div>
 									<a href="../index.php">&#x1F3E0; Home</a>
 									<a href="../about/about.php">&#x1F50D; About us</a>
 									<a href="../clendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../room/room.php">&#x1F3E8; Room hire</a>
 									<a href="../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../contact/contact.php">&#x1F4DE; Contact</a>
-									<span>QUICK ACCESS MENU</span>
 								</div>
 								<br/>
 								

@@ -134,12 +134,11 @@
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
 			<a href="../what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../../youth/youth.php">&#x1F3AE; Youth</a></li>
-				<li class="submenu_item">
-				<a href="../../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="../../support/support.php">&#x1F49D; Support</a></li>
-				<li class="submenu_item"><a href="../../food/food.php">&#x1F34E; Food relief</a></li>
+				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
+				<li class="submenu_item"><a href="../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../food/food.php">&#x1F34E; Food relief</a></li>
 			</ul>
 		</li>
 		<li><a href="../../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
@@ -203,13 +202,13 @@
 							<div class="content" id="div_content">
 							
 								<div class="simple_menu" id="div_simple_menu">
+									<div>QUICK ACCESS</div>
 									<a href="../../index.php">&#x1F3E0; Home</a>
 									<a href="../../about/about.php">&#x1F50D; About us</a>
 									<a href="../../clendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../../room/room.php">&#x1F3E8; Room hire</a>
 									<a href="../../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../../contact/contact.php">&#x1F4DE; Contact</a>
-									<span>QUICK ACCESS MENU</span>
 								</div>
 								<br/>
 								
@@ -326,12 +325,36 @@
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<h1>Connect, participate and belong</h1>
+<!--#########################################################################################################-->
+
+<h1 id="top">Table of contents</h1>
+
+<ul>
+	<li><a href="#connect">Connect, participate and belon</a></li>
+	<li><a href="#food_friends">Food with Friends</a></li>
+	<li><a href="#cafe">Mill House Café</a></li>
+	<li><a href="#maker_mums">Maker Mums</a></li>
+	<li><a href="#playgroup">Playgroup</a></li>
+	<li><a href="#scrappers">Mill House Scrappers</a></li>
+	<li><a href="#yarn">Hookers Yarn Craft</a></li>
+	<li><a href="#art4soul">Art for the Soul</a></li>
+	<li><a href="#canasta">Canasta Players</a></li>
+	<li><a href="#dungeons">Dungeons &amp; Dragons</a></li>
+	<li><a href="#u3a">University of the Third Ag</a></li>
+</ul>
+
+<!--#########################################################################################################-->
+
+<h1 id="connect">Connect, participate and belong</h1>
 
 <p>Mill House is a place where people can come together, share interests, learn new skills and build friendships. 
 Our groups and activities provide opportunities for people of all ages to connect with others, try something new and 
 become part of the local community. Whether you’re looking for a regular group, a social activity, a creative pursuit 
 or simply a friendly place to meet people, there’s always something happening at Mill House.</p>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 
 <h1 id="food_friends">Food with Friends</h1>
 
@@ -348,6 +371,10 @@ to enjoy the food together.</p>
 	<a href="images/food_friends3.jpg"><img class="content_img" src="images/food_friends3.jpg" alt="food_friends3.jpg" /></a>&nbsp;
 </p>
 
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
+
 <h1 id="cafe">Mill House Café</h1>
 
 <p>The Mill House Café is a relaxed and welcoming social café offering a small, affordable menu.</p>
@@ -361,6 +388,10 @@ to enjoy the food together.</p>
 	<a href="images/cafe.jpg"><img class="content_img" src="images/cafe.jpg" alt="cafe.jpg" /></a>
 </p>
 
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
+
 <h1 id="maker_mums">Maker Mums</h1>
 
 <p>A welcoming creative and social group where parents can connect, work on sewing, craft and other projects, and 
@@ -371,6 +402,10 @@ share skills in a child-friendly environment.</p>
 	<a href="images/maker_mums.jpg"><img class="content_img" src="images/maker_mums.jpg" alt="maker_mums.jpg" /></a>
 </p>
 
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
+
 <h1 id="playgroup">Playgroup</h1>
 
 <p>Our playgroup provides a welcoming environment where children can play and learn while parents and carers connect 
@@ -380,6 +415,10 @@ with other local families.</p>
 	<a href="../../images/playgroup.jpg"><img class="content_img" src="../../images/playgroup.jpg" alt="playgroup.jpg" /></a>
 	<a href="images/playgroup.jpg"><img class="content_img" src="images/playgroup.jpg" alt="playgroup.jpg" /></a>
 </p>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 
 <h1 id="scrappers">Mill House Scrappers</h1>
 
@@ -400,6 +439,10 @@ with others.</p>
 	<img class="content_img" src="images/scrappers5.jpg" alt="scrappers5.jpg" height="100"/></a>
 </p>
 
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
+
 <h1 id="yarn">Hookers Yarn Craft</h1>
 
 <p>A friendly yarn craft group for people interested in knitting, crochet and other fibre crafts. Beginners and 
@@ -407,12 +450,18 @@ experienced crafters are welcome.</p>
 
 <p><a href="images/yarn.jpg"><img class="content_img" src="images/yarn.jpg" alt="yarn.jpg" /></a></p>
 
+<p><a href="top">Top</a></p>
+
 <h1 id="art4soul">Art for the Soul</h1>
 
 <p>A supportive art group that encourages creativity, self-expression and connection through painting, drawing and 
 other art activities.</p>
 
 <p><a href="images/art4soul.jpg"><img class="content_img" src="images/art4soul.jpg" alt="art4soul.jpg" /></a></p>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 
 <h1 id="canasta">Canasta Players</h1>
 
@@ -423,16 +472,54 @@ other art activities.</p>
 	<a href="images/canasta.jpg"><img class="content_img" src="images/canasta.jpg" alt="canasta.jpg" /></a>
 </p>
 
+<p><a href="top">Top</a></p>
+
 <h1 id="dungeons">Dungeons &amp; Dragons</h1>
 
-<p>A social tabletop role-playing group where participants can use their imagination, build characters, work as a 
-team and enjoy new adventures.</p>
+<p>For all ages...</p>
+
+<p>Dungeons &amp; Dragons is a tabletop or screen role-playing game where friends tell a shared fantasy story together 
+using their imagination and dice.</p>
+
+<h2>The two main roles</h2>
+
+<p>The game splits the group into two different parts:</p>
+
+<ul>
+	<li>
+		<b>The Dungeon Master (DM): </b>This person builds the world, runs the story, and plays the monsters or 
+		villagers. The DM acts as the referee.
+	</li>
+	<li>	
+		<b>The Players: </b>Each player creates a fictional hero, like a brave wizard or a strong fighter. They decide 
+		what their hero says and does. 
+	</li>
+</ul>
+
+<h2>How the game works</h2>
+
+<p>There is no board and no winning or losing, and the game proceeds broadly as follows:</p>
+
+<ul>
+	<li><b>Describe: </b>A player tells the DM what their character wants to do.</li>
+	<li><b>Roll: </b>The player rolls special multi-sided dice to see if the action works.</li>
+	<li><b>React: </b>The DM explains what happens next based on the die roll.</li>
+</ul>
+
+<p>You can learn more about the official rules and latest updates on the Official 
+<a href="https://www.dungeonsanddragons.com/">D&amp;D website</a> or read the history on 
+<a href="https://en.wikipedia.org/wiki/Dungeons_%26_Dragons">Wikipedia D&amp;D</a>.</p>
 
 <p>
-	<a href="../../images/dungeons_dragons.jpg"><img class="content_img" src="../../images/dungeons_dragons.jpg" alt="dungeons_dragons1.jpg" /></a>&nbsp;
-	<a href="images/dungeons_dragons1.jpg"><img class="content_img" src="images/dungeons_dragons1.jpg" alt="dungeons_dragons1.jpg" /></a>&nbsp;
-	<a href="images/dungeons_dragons2.jpg"><img class="content_img" src="images/dungeons_dragons2.jpg" alt="dungeons_dragons2.jpg" /></a>&nbsp;
+	<a href="../groups/images/dungeons_dragons1.jpg">
+	<img src="../groups/images/dungeons_dragons1.jpg" alt="dungeons_dragons1.jpg" class="content_img" /></a>&nbsp;
+	<a href="../groups/images/dungeons_dragons2.jpg">
+	<img src="../groups/images/dungeons_dragons2.jpg" alt="dungeons_dragons2.jpg" class="content_img" /></a>&nbsp;
 </p>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 
 <h1 id="u3a">University of the Third Age</h1>
 
@@ -454,6 +541,10 @@ others.</p>
     	<a href="images/u3a_digital_story_telling.jpg"><img class="content_img" src="images/u3a_digital_story_telling.jpg" alt="u3a_digital_story_telling.jpg" height="100"/></a>
     </li>
 </ul>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 								
 								<!-- #EndEditable -->
 							</div>

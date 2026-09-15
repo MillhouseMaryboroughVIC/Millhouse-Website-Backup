@@ -282,7 +282,7 @@ hr
 .simple_menu
 {
 	background-color: var(--start_color);
-	height: 30px;
+	height: 50px;
 	padding: 10px 10px 0px 10px;
 	font-family: var(--font_family);
 	font-style: var(--font_style);
@@ -306,14 +306,13 @@ hr
 {
 	background-color: var(--end_color);
 }
-.simple_menu span
+.simple_menu div
 {
-	position: relative;
-	float: right;
 	color: silver;
 	font-family: var(--font_family);
 	font-style: var(--font_style);
 	font-weight: bold;
+	text-decoration: underline;
 }
 .navigation
 {

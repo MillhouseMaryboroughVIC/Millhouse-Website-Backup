@@ -134,12 +134,11 @@
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
 			<a href="../what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../../youth/youth.php">&#x1F3AE; Youth</a></li>
-				<li class="submenu_item">
-				<a href="../../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="../../support/support.php">&#x1F49D; Support</a></li>
-				<li class="submenu_item"><a href="../../food/food.php">&#x1F34E; Food relief</a></li>
+				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
+				<li class="submenu_item"><a href="../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="food.php">&#x1F34E; Food relief</a></li>
 			</ul>
 		</li>
 		<li><a href="../../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
@@ -203,13 +202,13 @@
 							<div class="content" id="div_content">
 							
 								<div class="simple_menu" id="div_simple_menu">
+									<div>QUICK ACCESS</div>
 									<a href="../../index.php">&#x1F3E0; Home</a>
 									<a href="../../about/about.php">&#x1F50D; About us</a>
 									<a href="../../clendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../../room/room.php">&#x1F3E8; Room hire</a>
 									<a href="../../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../../contact/contact.php">&#x1F4DE; Contact</a>
-									<span>QUICK ACCESS MENU</span>
 								</div>
 								<br/>
 								
@@ -326,9 +325,23 @@
 
 								<!-- #BeginEditable "CustomContent" -->
 
+<!--#########################################################################################################-->
+
+<h1 id="top">Table of contents</h1>
+
+<ul>
+	<li><a href="#food_pantry">24/7 community food pantry</a></li>
+	<li><a href="#frozen_meals">Affordable frozen meals</a></li>
+	<li><a href="#market">Thursday food share market</a></li>
+	<li><a href="#feast">Friday Feast</a></li>
+</ul>
+
 <p><b>Mill House is helping put food on their tables</b></p>
 
+<!--#########################################################################################################-->
+
 <h1 id="food_pantry">24/7 community food pantry</h1>
+
 <p>Our Community Food Pantry is available 24 hours a day, seven days a week. Members of the Central Goldfields 
 community can access free food and essential items that have been generously donated by local businesses, 
 organisations and community members.</p>
@@ -337,6 +350,10 @@ organisations and community members.</p>
 to share with others.</p>
 
 <p><a href="images/FoodPantry.jpg"><img class="content_img" src="images/FoodPantry.jpg" alt="FoodPantry.jpg" /></a></p>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 
 <h1 id="frozen_meals">Affordable frozen meals</h1>
 
@@ -350,6 +367,10 @@ favourites.</p>
 	<a href="images/FrozenMeals1.jpg"><img class="content_img" src="images/FrozenMeals1.jpg" alt="FrozenMeals1.jpg" /></a>
 	<a href="images/FrozenMeals2.jpg"><img class="content_img" src="images/FrozenMeals2.jpg" alt="FrozenMeals2.jpg" /></a>
 </p>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 
 <h1 id="market">Thursday food share market</h1>
 
@@ -371,6 +392,10 @@ and women’s hygiene products may also be available from time to time.</p>
 	<a href="images/Bread.jpg"><img class="content_img" src="images/Bread.jpg" alt="Bread.jpg" /></a><br/>
 </p>
 
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
+
 <h1 id="feast">Friday Feast</h1>
 
 <p>Join us every Friday at 12.00 pm for a welcoming two-course community lunch.</p>
@@ -388,12 +413,10 @@ bookings are not required for regular Friday Feast events.</p>
 	<a href="images/feast4.jpg"><img class="content_img" src="images/feast4.jpg" alt="feast4.jpg" /></a>&nbsp;
 </p>
 
+<p><a href="top">Top</a></p>
 
-
-
-
-
-								
+<!--#########################################################################################################-->
+							
 								<!-- #EndEditable -->
 							</div>
 							<!-- End Content -->

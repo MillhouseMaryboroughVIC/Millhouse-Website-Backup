@@ -134,12 +134,11 @@
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
 			<a href="../what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../../youth/youth.php">&#x1F3AE; Youth</a></li>
-				<li class="submenu_item">
-				<a href="../../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="../../support/support.php">&#x1F49D; Support</a></li>
-				<li class="submenu_item"><a href="../../food/food.php">&#x1F34E; Food relief</a></li>
+				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
+				<li class="submenu_item"><a href="../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../food/food.php">&#x1F34E; Food relief</a></li>
 			</ul>
 		</li>
 		<li><a href="../../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
@@ -203,13 +202,13 @@
 							<div class="content" id="div_content">
 							
 								<div class="simple_menu" id="div_simple_menu">
+									<div>QUICK ACCESS</div>
 									<a href="../../index.php">&#x1F3E0; Home</a>
 									<a href="../../about/about.php">&#x1F50D; About us</a>
 									<a href="../../clendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../../room/room.php">&#x1F3E8; Room hire</a>
 									<a href="../../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../../contact/contact.php">&#x1F4DE; Contact</a>
-									<span>QUICK ACCESS MENU</span>
 								</div>
 								<br/>
 								
@@ -326,13 +325,30 @@
 
 								<!-- #BeginEditable "CustomContent" -->
 
+<!--#########################################################################################################-->
 
-<h1>Here when you need a helping hand</h1>
+<h1 id="top">Table of contents</h1>
+
+<ul>
+	<li><a href="#help">A helping hand</a></li>
+	<li><a href="#peer">Peer Collective</a></li>
+	<li><a href="#NILs">Good Shepherd No Interest Loans</a></li>
+	<li><a href="#pathways">Parent Pathways</a></li>
+	<li><a href="#massage">Remedial massage therapist</a></li>
+	<li><a href="#justice">Justice of the peace</a></li>
+	<li><a href="#cool">Cool spaces</a></li>
+</ul>
+
+<h1 id="help">A helping hand</h1>
 
 <p>Everyone experiences times when life can be challenging. Mill House provides a welcoming, confidential and supportive 
 place where you can talk through your situation, find practical assistance and connect with the services and resources 
 that can help. Whether you need emotional or financial support, help navigating a difficult situation, or simply someone 
-to listen, our team is here to help you find a way forward.</p>
+to listen, our community is here to help you find a way forward.</p>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 
 <h1 id="peer">Peer Collective</h1>
 
@@ -343,6 +359,10 @@ stories and offer mutual support.</p>
 
 <p><a href="images/peer_collective.jpg"><img class="content_img" src="images/peer_collective.jpg" alt="peer_collective.jpg" /></a></p>
 
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
+
 <h1 id="NILs">Good Shepherd No Interest Loans</h1>
 
 <p>The No Interest Loans program, commonly known as NILs, may help eligible people pay for essential goods and 
@@ -351,6 +371,10 @@ services without interest, fees or charges.</p>
 <p>Contact Mill House for information about eligibility and assistance with the application process.</p>
 
 <p><a href="../../images/NILoans.png"><img class="content_img" src="../../images/NILoans.png" alt="NILoans.png" height="200"/></a></p>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 
 <h1 id="pathways">Parent Pathways</h1>
 
@@ -361,14 +385,22 @@ education, training or future employment.</p>
 
 <p><a href="../../images/parent_pathways1.jpg"><img class="content_img" src="../../images/parent_pathways1.jpg" alt="parent_pathways1.jpg" height="200"/></a></p>
 
-<h1 id="massage">Remedial Massage Therapist</h1>
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
+
+<h1 id="massage">Remedial massage therapist</h1>
 
 <p>A remedial massage therapist provides services from Mill House. Appointments and fees are arranged directly with the 
 practitioner.</p>
 
 <p><a href="../../images/massage.png"><img class="content_img" src="../../images/massage.png" alt="massage.png" height="200"/></a></p>
 
-<h1 id="justice">Justice of the Peace</h1>
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
+
+<h1 id="justice">Justice of the peace</h1>
 
 <p>Justice of the Peace services are available at selected times for people who need documents witnessed or 
 certified.</p>
@@ -380,7 +412,11 @@ certified.</p>
 	<a href="images/justice_peace2.jpg"><img class="content_img" src="images/justice_peace2.jpg" alt="JusticePeace2.jpg" height="200"/></a>
 </p>
 
-<h1 id="cool">Cool Spaces</h1>
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
+
+<h1 id="cool">Cool spaces</h1>
 
 <p>Mill House opens as a Cool Space on days when the temperature is forecast to reach more than 38°C.</p>
 
@@ -392,6 +428,10 @@ and anyone without reliable access to air conditioning.</p>
 hydrated.</p>
 
 <p><a href="../../images/CoolSpace.png"><img class="content_img" src="../../images/CoolSpace.png" alt="CoolSpace.png" width="200" /></a></p>
+
+<p><a href="top">Top</a></p>
+
+<!--#########################################################################################################-->
 
 								<!-- #EndEditable -->
 							</div>
