@@ -157,12 +157,15 @@
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
 			<a href="../what/what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../what/youth/youth.php">&#x1F3AE; Youth</a></li>
 				<li class="submenu_item">
-				<a href="../what/activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="../what/support/support.php">&#x1F49D; Support</a></li>
+				<a href="../what/meetings/meetings.php">&#x1F3AD; Community groups</a></li>
+				<li class="submenu_item"><a href="../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item">
+				<a href="../what/employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="../what/food/food.php">&#x1F34E; Food relief</a></li>
+				<li class="submenu_item"><a href="../what/groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="../what/support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../what/youth/youth.php">&#x1F3AE; Youth</a></li>
 			</ul>
 		</li>
 		<li><a href="../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
@@ -227,7 +230,7 @@
 									<div>QUICK ACCESS</div>
 									<a href="../index.php">&#x1F3E0; Home</a>
 									<a href="about.php">&#x1F50D; About us</a>
-									<a href="../clendar/calendar.php">&#x1F4C5; Calendar</a>
+									<a href="../calendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../room/room.php">&#x1F3E8; Room hire</a>
 									<a href="../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../contact/contact.php">&#x1F4DE; Contact</a>
@@ -356,6 +359,13 @@
 	<p>There are no parts of the content of this page that automated with PHP code. Feel free to edit the HTML of any 
 	part of the page contents. Make sure you confine your editing to only that code that IS NOT highlighed by a yellow 
 	background.</p>
+	
+	<p><b>However</b> the content of this page can be found in the file 'about_content.html', and <b>not</b> 'about.php'. 
+	The file 'about.php' is just a container that pulls the page contents in from the file 'about_content.html'. So you 
+	need open 'about_content.html' in MS Expression Web.</p>
+	
+	<p>This has been done to make the about page work in the mobile app, that is linked to the file 'aboutm.php'. This file 
+	is also just a container that pulls the page contents in from the file 'about_content.html'.</p>
 	
 	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
 	

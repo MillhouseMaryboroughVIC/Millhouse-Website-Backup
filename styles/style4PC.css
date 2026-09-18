@@ -161,7 +161,7 @@ hr
 {
 	padding-left: 5px;
 	padding-right: 5px;
-	padding-top: 20px;
+	padding-top: 25px;
 	vertical-align: middle;
 	width: 180px;
 }
@@ -594,7 +594,7 @@ hr
 	top: -1px;	
 	text-align: center;
 	clear: both;
-	width: calc(100% - 8px);
+	width: calc(100% - 3px);
 	height: var(--footer_height);
 	margin-left: 10px;
 	padding-top: 8px;

@@ -29,37 +29,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			.content_img
 			{
 				height: 150px;
@@ -170,12 +139,15 @@
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
 			<a href="../what/what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
-				<li class="submenu_item"><a href="../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../what/youth/youth.php">&#x1F3AE; Youth</a></li>
 				<li class="submenu_item">
-				<a href="../what/activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="../what/support/support.php">&#x1F49D; Support</a></li>
+				<a href="../what/meetings/meetings.php">&#x1F3AD; Community groups</a></li>
+				<li class="submenu_item"><a href="../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item">
+				<a href="../what/employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="../what/food/food.php">&#x1F34E; Food relief</a></li>
+				<li class="submenu_item"><a href="../what/groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="../what/support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../what/youth/youth.php">&#x1F3AE; Youth</a></li>
 			</ul>
 		</li>
 		<li><a href="../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
@@ -240,7 +212,7 @@
 									<div>QUICK ACCESS</div>
 									<a href="../index.php">&#x1F3E0; Home</a>
 									<a href="../about/about.php">&#x1F50D; About us</a>
-									<a href="../clendar/calendar.php">&#x1F4C5; Calendar</a>
+									<a href="../calendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../room/room.php">&#x1F3E8; Room hire</a>
 									<a href="sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../contact/contact.php">&#x1F4DE; Contact</a>
@@ -360,74 +332,30 @@
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<?php
+<?php 
 
-	function DoGenerateSponsorDetails($strType)
-	{
-		global $g_dbMillhouse;
-		global $g_strQuery;
-		$datetimeNow = new DateTime();
-		
-		$result = DoFindQuery1($g_dbMillhouse, "sponsors", "type", $strType, "", "ranking ASC, business_name");
-		
-		if ($result && ($result->num_rows > 0))
-		{
-			while ($row = $result->fetch_assoc())
-			{
-				$datetimeExpiry = new DateTime($row["expiry_date"]);
-				if ($datetimeExpiry >= $datetimeNow)
-				{
-					echo "<h2 id=\"" . DoGenerateBookmark($row["business_name"]) . "\">" . $row["business_name"] . "</h2>\n";
-					echo "<p><img src=\"images/" . $row["logo_image"] . "\" alt=\"" . $row["logo_image"] . "\" class=\"content_img\" /></p>\n";
-					echo "<p>" . $row["description"] . "</p>\n";
-					$nDonation = (int)$row["amount_paid"];
-				}
-			}
-		}
-	}
-	
+	require "sponsors_content.php"; 
 ?>
-							
-<h1>Our Funders, Sponsors and Community Partners</h1>
 
-<p>Mill House is proud to work alongside government agencies, community organisations, local businesses and generous 
-supporters who help us deliver programs, improve our facilities and provide practical assistance to the Central 
-Goldfields community.</p>
-
-<p>Their funding, donations, food rescue partnerships, professional services and ongoing support make an important 
-contribution to the work we do.</p>
-
-<h1>Our Funders and Supporters</h1>
-
-<?php DoGenerateSponsorDetails("funding"); ?>
-<h1>Food Relief Partners</h1>
-
-<?php DoGenerateSponsorDetails("food"); ?>
-
-<h1>Local Businesses We Work With</h1>
-
-<?php DoGenerateSponsorDetails("service"); ?>
-
-<h1>Thank You to Our Supporters</h1>
-
-<p>We sincerely thank every organisation, business and individual who supports Mill House. Your contributions help 
-us provide welcoming spaces, community meals, food relief, social activities, digital access and practical support 
-for people throughout the Central Goldfields.</p>
-
-<p><b>Together, we are building a stronger, more connected and supported community.</b></p>
-																						
 <div id="div_page_edit_instructions" class="instruction_popup">
 
 	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
 	
-	<p>The sponsor details, under each heading are automatically generated via PHP code and the database. The 
-	headings themselves and page content below the sponsor details is plain HTML. You are free to editing this HTML 
-	but leave the PHP code above it alone. Always confine your edit to only that part of the code that does not 
-	have a yellow background color.</p>
+	<p>There are no parts of the content of this page that automated with PHP code. Feel free to edit the HTML of any 
+	part of the page contents. Make sure you confine your editing to only that code that IS NOT highlighed by a yellow 
+	background.</p>
+	
+	<p><b>However</b> the content of this page can be found in the file 'sponsor_content.html', and <b>not</b> 'sponsor.php'. 
+	The file 'sponsor.php' is just a container that pulls the page contents in from the file 'sponsors_content.html'. So you 
+	need open 'sponsor_content.html' in MS Expression Web.</p>
+	
+	<p>This has been done to make the sponsors page work in the mobile app, that is linked to the file 'sponsorsm.php'. This file 
+	is also just a container that pulls the page contents in from the file 'sponsors_content.html'.</p>
 	
 	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
 	
 </div>
+
 								
 								<!-- #EndEditable -->
 							</div>

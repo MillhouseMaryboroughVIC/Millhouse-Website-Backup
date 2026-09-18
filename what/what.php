@@ -127,11 +127,13 @@
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
 			<a href="what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="youth/youth.php">&#x1F3AE; Youth</a></li>
-				<li class="submenu_item"><a href="activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="food/food.php">&#x1F34E; Food relief</a></li>
+				<li class="submenu_item"><a href="groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="youth/youth.php">&#x1F3AE; Youth</a></li>
 			</ul>
 		</li>
 		<li><a href="../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
@@ -196,7 +198,7 @@
 									<div>QUICK ACCESS</div>
 									<a href="../index.php">&#x1F3E0; Home</a>
 									<a href="../about/about.php">&#x1F50D; About us</a>
-									<a href="../clendar/calendar.php">&#x1F4C5; Calendar</a>
+									<a href="../calendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../room/room.php">&#x1F3E8; Room hire</a>
 									<a href="../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../contact/contact.php">&#x1F4DE; Contact</a>
@@ -356,29 +358,37 @@ House community, it will be greatly appreciated.</p>
 using a computer or smartphone, accessing online services, completing forms, learning new digital skills or solving 
 a technology problem, our digital mentors are available to help.</p>
 
+<p>Click <a href="digital/digital.php">here</a> to find out more...</p>
+
 <!--#########################################################################################################-->
 
-<h1>Youth</h1>
+<h1>Youth engagement</h1>
 
 <p>The Mill House Youth Hub provides a welcoming and relaxed space for young people in Maryborough to connect, create, 
 learn and spend time together. Young people can enjoy social activities, digital gaming, video and audio production, 
 role-playing games such as Dungeons & Dragons, and assistance with school assignments.</p>
 
+<p>Click <a href="youth/youth.php">here</a> to find out more...</p>
+
 <!--#########################################################################################################-->
 
-<h1>Food</h1>
+<h1>Food relief</h1>
 
 <p>Mill House provides food assistance to people and families who may be experiencing financial difficulties or food 
 insecurity. Food relief helps ensure that people in our community can access nutritious food and receive practical 
 assistance when they need it.</p>
 
+<p>Click <a href="food/food.php">here</a> to find out more...</p>
+
 <!--#########################################################################################################-->
 
-<h1>Support</h1>
+<h1>Emotional &amp; financial support</h1>
 
 <p>Sometimes people need a helping hand to get through a difficult period. Mill House provides a range of practical, 
 emotional and financial support services, helping people navigate challenges and connect with appropriate assistance 
 and community resources.</p>
+
+<p>Click <a href="support/support.php">here</a> to find out more...</p>
 
 <!--#########################################################################################################-->
 
@@ -388,7 +398,7 @@ and community resources.</p>
 provide opportunities to learn, share interests, develop friendships and become involved in the local community. There 
 are activities for different ages, interests and abilities, with new opportunities developing as community needs change.</p>
 
-<p><b>Explore the 'What we do' submenu to find out more.</b></p>
+<p>Click <a href="groups/groups.php">here</a> to find out more...</p>
 
 <!--#########################################################################################################-->
 								

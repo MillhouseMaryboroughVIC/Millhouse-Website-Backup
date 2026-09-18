@@ -21,8 +21,12 @@
 		<link rel="icon" sizes="128x128" href="../../favicon.jpg" />
 		<script type="text/javascript" src="../../common.js"></script>
 		<!-- #BeginEditable "CustomTitle" -->
-		<title>Food support</title>
+		<title>Food relief &amp; support</title>
 		<style type="text/css">
+
+
+
+
 			
 			.content_img
 			{
@@ -134,11 +138,13 @@
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
 			<a href="../what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="../meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
-				<li class="submenu_item"><a href="../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="food.php">&#x1F34E; Food relief</a></li>
+				<li class="submenu_item"><a href="../groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
 			</ul>
 		</li>
 		<li><a href="../../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
@@ -205,7 +211,7 @@
 									<div>QUICK ACCESS</div>
 									<a href="../../index.php">&#x1F3E0; Home</a>
 									<a href="../../about/about.php">&#x1F50D; About us</a>
-									<a href="../../clendar/calendar.php">&#x1F4C5; Calendar</a>
+									<a href="../../calendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../../room/room.php">&#x1F3E8; Room hire</a>
 									<a href="../../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../../contact/contact.php">&#x1F4DE; Contact</a>
@@ -324,99 +330,28 @@
 								</table>			
 
 								<!-- #BeginEditable "CustomContent" -->
-
-<!--#########################################################################################################-->
-
-<h1 id="top">Table of contents</h1>
-
-<ul>
-	<li><a href="#food_pantry">24/7 community food pantry</a></li>
-	<li><a href="#frozen_meals">Affordable frozen meals</a></li>
-	<li><a href="#market">Thursday food share market</a></li>
-	<li><a href="#feast">Friday Feast</a></li>
-</ul>
-
-<p><b>Mill House is helping put food on their tables</b></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="food_pantry">24/7 community food pantry</h1>
-
-<p>Our Community Food Pantry is available 24 hours a day, seven days a week. Members of the Central Goldfields 
-community can access free food and essential items that have been generously donated by local businesses, 
-organisations and community members.</p>
-
-<p>We ask everyone to read the guidelines displayed on the pantry and only take what they need so there is enough 
-to share with others.</p>
-
-<p><a href="images/FoodPantry.jpg"><img class="content_img" src="images/FoodPantry.jpg" alt="FoodPantry.jpg" /></a></p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="frozen_meals">Affordable frozen meals</h1>
-
-<p>A changing selection of homemade frozen meals is available from reception for $3 each or two for $5.</p>
-
-<p>Our meals are prepared using suitable surplus food supplied by our food relief partners. Depending on availability, 
-meals may include soups, vegetable and pasta bakes, chicken and rice dishes, lasagne, pasta bolognese and other family 
-favourites.</p>
-
-<p>
-	<a href="images/FrozenMeals1.jpg"><img class="content_img" src="images/FrozenMeals1.jpg" alt="FrozenMeals1.jpg" /></a>
-	<a href="images/FrozenMeals2.jpg"><img class="content_img" src="images/FrozenMeals2.jpg" alt="FrozenMeals2.jpg" /></a>
-</p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="market">Thursday food share market</h1>
-
-<p>Our Food Share Market is held every Thursday from 9.30 am.</p>
-
-<p>For a $5 donation, community members can choose from available fruit, vegetables, bread and pantry items. Toiletries 
-and women’s hygiene products may also be available from time to time.</p>
-
-<p>
-	<a href="images/market1.jpg"><img class="content_img" src="images/market1.jpg" alt="Market1.jpg" /></a>
-	<a href="images/market2.jpg"><img class="content_img" src="images/market2.jpg" alt="Market2.jpg" /></a>
-	<a href="images/Assorted.jpg"><img class="content_img" src="images/Assorted.jpg" alt="Assorted.jpg" /></a>
-	<a href="images/BreakfastCereals.jpg"><img class="content_img" src="images/BreakfastCereals.jpg" alt="BreakfastCereals.jpg" /></a><br/>
-	<a href="images/CannedFoods.jpg"><img class="content_img" src="images/CannedFoods.jpg" alt="CannedFoods.jpg" /></a>
-	<a href="images/FreshProduce1.jpg"><img class="content_img" src="images/FreshProduce1.jpg" alt="FreshProduce1.jpg" /></a>
-	<a href="images/FreshProduce2.jpg"><img class="content_img" src="images/FreshProduce2.jpg" alt="FreshProduce2.jpg" /></a><br/>
-	<a href="images/FreshProduce3.jp"><img class="content_img" src="images/FreshProduce3.jpg" alt="FreshProduce3.jpg" /></a>
-	<a href="images/Pasta.jpg"><img class="content_img" src="images/Pasta.jpg" alt="Pasta.jpg" /></a>
-	<a href="images/Bread.jpg"><img class="content_img" src="images/Bread.jpg" alt="Bread.jpg" /></a><br/>
-</p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="feast">Friday Feast</h1>
-
-<p>Join us every Friday at 12.00 pm for a welcoming two-course community lunch.</p>
-
-<p>Friday Feast provides an affordable meal and an opportunity to meet new people and enjoy time together.</p>
-
-<p><b>Cost: </b>$5 donation.</p>
-
-<p>This photo is of Christmas in July Friday Feast, 2026. For this particular Friday Feast event you must book. However 
-bookings are not required for regular Friday Feast events.</p>
-<p>
-	<a href="images/feast1.jpg"><img class="content_img" src="images/feast1.jpg" alt="feast1.jpg" /></a>&nbsp;
-	<a href="images/feast2.jpg"><img class="content_img" src="images/feast2.jpg" alt="feast2.jpg" /></a>&nbsp;
-	<a href="images/feast3.jpg"><img class="content_img" src="images/feast3.jpg" alt="feast3.jpg" /></a>&nbsp;
-	<a href="images/feast4.jpg"><img class="content_img" src="images/feast4.jpg" alt="feast4.jpg" /></a>&nbsp;
-</p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
 							
+<?php require "food_content.php"; ?>
+
+<div id="div_page_edit_instructions" class="instruction_popup">
+
+	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
+	
+	<p>There are no parts of the content of this page that automated with PHP code. Feel free to edit the HTML of any 
+	part of the page contents. Make sure you confine your editing to only that code that IS NOT highlighed by a yellow 
+	background.</p>
+	
+	<p><b>However</b> the content of this page can be found in the file 'food_content.html', and <b>not</b> 'food.php'. 
+	The file 'food.php' is just a container that pulls the page contents in from the file 'food_content.html'. So you 
+	need open 'food_content.html' in MS Expression Web.</p>
+	
+	<p>This has been done to make the food page work in the mobile app, that is linked to the file 'foodm.php'. This file 
+	is also just a container that pulls the page contents in from the file 'food_content.html'.</p>
+	
+	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
+	
+</div>
+
 								<!-- #EndEditable -->
 							</div>
 							<!-- End Content -->

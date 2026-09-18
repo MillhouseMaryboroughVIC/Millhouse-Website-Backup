@@ -1,13 +1,13 @@
 vti_encoding:SR|utf8-nl
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
-vti_timelastmodified:TR|10 Sep 2026 03:50:44 -0000
+vti_timelastmodified:TR|16 Sep 2026 08:36:39 -0000
 vti_timecreated:TR|08 Sep 2026 09:13:37 -0000
 vti_extenderversion:SR|12.0.0.0
-vti_nexttolasttimemodified:TW|10 Sep 2026 03:50:30 -0000
+vti_nexttolasttimemodified:TW|16 Sep 2026 02:53:39 -0000
 vti_backlinkinfo:VX|
-vti_cacheddtm:TX|10 Sep 2026 03:50:44 -0000
-vti_filesize:IR|6424
+vti_cacheddtm:TX|16 Sep 2026 08:36:39 -0000
+vti_filesize:IR|4986
 vti_cachedneedsrewrite:BR|false
 vti_cachedhasbots:BR|false
 vti_cachedhastheme:BR|false

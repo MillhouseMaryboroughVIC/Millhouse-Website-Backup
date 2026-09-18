@@ -223,7 +223,7 @@
 	//******************************************************************************
 	//******************************************************************************							
 		
-	if (isset($_POST["button_admin_login"]))
+	if (!isAdminLoggedIn() && !IsLoggedIn() && isset($_POST["button_admin_login"]))
 	{
 		if ($_POST["text_captcha"] != $_SESSION["strRandomCaptchaText"])
 		{

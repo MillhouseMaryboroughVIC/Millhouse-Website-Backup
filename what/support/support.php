@@ -21,8 +21,12 @@
 		<link rel="icon" sizes="128x128" href="../../favicon.jpg" />
 		<script type="text/javascript" src="../../common.js"></script>
 		<!-- #BeginEditable "CustomTitle" -->
-		<title>Support</title>
+		<title>Community support</title>
 		<style type="text/css">
+
+
+
+
 			
 			.content_img
 			{
@@ -134,11 +138,13 @@
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
 			<a href="../what.php" onclick="DoClickNavLinkWithSubmenu('what')">&#x1F481; What we do</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
+				<li class="submenu_item"><a href="../meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
-				<li class="submenu_item"><a href="../activities/activities.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="../food/food.php">&#x1F34E; Food relief</a></li>
+				<li class="submenu_item"><a href="../groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
+				<li class="submenu_item"><a href="support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item"><a href="../youth/youth.php">&#x1F3AE; Youth</a></li>
 			</ul>
 		</li>
 		<li><a href="../../calendar/calendar.php">&#x1F4C5; Events Calendar</a></li>
@@ -205,7 +211,7 @@
 									<div>QUICK ACCESS</div>
 									<a href="../../index.php">&#x1F3E0; Home</a>
 									<a href="../../about/about.php">&#x1F50D; About us</a>
-									<a href="../../clendar/calendar.php">&#x1F4C5; Calendar</a>
+									<a href="../../calendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../../room/room.php">&#x1F3E8; Room hire</a>
 									<a href="../../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../../contact/contact.php">&#x1F4DE; Contact</a>
@@ -325,113 +331,28 @@
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<!--#########################################################################################################-->
 
-<h1 id="top">Table of contents</h1>
+<?php require "support_content.php"; ?>
 
-<ul>
-	<li><a href="#help">A helping hand</a></li>
-	<li><a href="#peer">Peer Collective</a></li>
-	<li><a href="#NILs">Good Shepherd No Interest Loans</a></li>
-	<li><a href="#pathways">Parent Pathways</a></li>
-	<li><a href="#massage">Remedial massage therapist</a></li>
-	<li><a href="#justice">Justice of the peace</a></li>
-	<li><a href="#cool">Cool spaces</a></li>
-</ul>
+<div id="div_page_edit_instructions" class="instruction_popup">
 
-<h1 id="help">A helping hand</h1>
+	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
+	
+	<p>There are no parts of the content of this page that automated with PHP code. Feel free to edit the HTML of any 
+	part of the page contents. Make sure you confine your editing to only that code that IS NOT highlighed by a yellow 
+	background.</p>
+	
+	<p><b>However</b> the content of this page can be found in the file 'support_content.html', and <b>not</b> 'support.php'. 
+	The file 'support.php' is just a container that pulls the page contents in from the file 'support_content.html'. So you 
+	need open 'support_content.html' in MS Expression Web.</p>
+	
+	<p>This has been done to make the support page work in the mobile app, that is linked to the file 'supportm.php'. This file 
+	is also just a container that pulls the page contents in from the file 'support_content.html'.</p>
+	
+	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
+	
+</div>
 
-<p>Everyone experiences times when life can be challenging. Mill House provides a welcoming, confidential and supportive 
-place where you can talk through your situation, find practical assistance and connect with the services and resources 
-that can help. Whether you need emotional or financial support, help navigating a difficult situation, or simply someone 
-to listen, our community is here to help you find a way forward.</p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="peer">Peer Collective</h1>
-
-<p>Our Peer Collective mental health support group meets on Wednesday afternoons.</p>
-
-<p>The group provides a safe and non-judgmental space where people with lived experience can connect, share their 
-stories and offer mutual support.</p>
-
-<p><a href="images/peer_collective.jpg"><img class="content_img" src="images/peer_collective.jpg" alt="peer_collective.jpg" /></a></p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="NILs">Good Shepherd No Interest Loans</h1>
-
-<p>The No Interest Loans program, commonly known as NILs, may help eligible people pay for essential goods and 
-services without interest, fees or charges.</p>
-
-<p>Contact Mill House for information about eligibility and assistance with the application process.</p>
-
-<p><a href="../../images/NILoans.png"><img class="content_img" src="../../images/NILoans.png" alt="NILoans.png" height="200"/></a></p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="pathways">Parent Pathways</h1>
-
-<p>Parent Pathways provides personalised support for eligible parents and carers of young children.</p>
-
-<p>The program can help participants identify their goals, build confidence, access services and take steps towards 
-education, training or future employment.</p>
-
-<p><a href="../../images/parent_pathways1.jpg"><img class="content_img" src="../../images/parent_pathways1.jpg" alt="parent_pathways1.jpg" height="200"/></a></p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="massage">Remedial massage therapist</h1>
-
-<p>A remedial massage therapist provides services from Mill House. Appointments and fees are arranged directly with the 
-practitioner.</p>
-
-<p><a href="../../images/massage.png"><img class="content_img" src="../../images/massage.png" alt="massage.png" height="200"/></a></p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="justice">Justice of the peace</h1>
-
-<p>Justice of the Peace services are available at selected times for people who need documents witnessed or 
-certified.</p>
-
-<p>Please contact Mill House to confirm availability before attending.</p>
-
-<p>
-	<a href="images/justice_peace1.jpg"><img class="content_img" src="images/justice_peace1.jpg" alt="JusticePeace1.jpg" height="200"/></a>&nbsp;
-	<a href="images/justice_peace2.jpg"><img class="content_img" src="images/justice_peace2.jpg" alt="JusticePeace2.jpg" height="200"/></a>
-</p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
-
-<h1 id="cool">Cool spaces</h1>
-
-<p>Mill House opens as a Cool Space on days when the temperature is forecast to reach more than 38°C.</p>
-
-<p>A Cool Space is an air-conditioned indoor location where people can find relief during periods of extreme heat. 
-It is particularly important for older people, young children, people living with disability or health conditions, 
-and anyone without reliable access to air conditioning.</p>
-
-<p>During hot weather, remember to check that your family, friends, neighbours and pets are keeping cool and 
-hydrated.</p>
-
-<p><a href="../../images/CoolSpace.png"><img class="content_img" src="../../images/CoolSpace.png" alt="CoolSpace.png" width="200" /></a></p>
-
-<p><a href="top">Top</a></p>
-
-<!--#########################################################################################################-->
 
 								<!-- #EndEditable -->
 							</div>
