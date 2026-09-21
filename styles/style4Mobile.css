@@ -915,19 +915,19 @@ p button:disabled,
 
 /*
 	* Each image display for 5s
-	* 7 images
-	* Total time is 7 x 5s = 35s
+	* 6 images
+	* Total time is 6 x 5s = 30s
 */
 
 @keyframes cycleServiceProviders
 {
 	0% { opacity: 0; }
-	/* Fade in over 1 second (1s / 35s) */
-	2.86% { opacity: 1; }
-	/* Stay visible for 4 seconds (4s / 35s) */
-	11.43% { opacity: 1; }
-	/* Fade out over 1 second (5s / 35s) */
-	14.29% { opacity: 0; }
+	/* Fade in over 1 second (1s / 30s) */
+	3.33% { opacity: 1; }
+	/* Stay visible for 4 seconds (4s / 30s) */
+	13.33% { opacity: 1; }
+	/* Fade out over 1 second (5s / 30s) */
+	16.67% { opacity: 0; }
 	/* Stay hidden for the rest of the loop */
 	100% { opacity: 0; }
 }
@@ -942,18 +942,18 @@ p button:disabled,
 /*
 	* Each image display for 5s
 	* 6 images
-	* Total time is 7 x 5s = 30s
+	* Total time is 7 x 5s = 35s
 */
 
 @keyframes cycleMillhouseServices
 {
 	0% { opacity: 0; }
-	/* Fade in over 1 second (1s / 30s) */
-	3.33% { opacity: 1; }
-	/* Stay visible for 4 seconds (4s / 30s) */
-	13.33% { opacity: 1; }
-	/* Fade out over 1 second (5s / 30s) */
-	16.67% { opacity: 0; }
+	/* Fade in over 1 second (1s / 35s) */
+	2.86% { opacity: 1; }
+	/* Stay visible for 4 seconds (4s / 35s) */
+	11.43% { opacity: 1; }
+	/* Fade out over 1 second (5s / 35s) */
+	14.29% { opacity: 0; }
 	/* Stay hidden for the rest of the loop */
 	100% { opacity: 0; }
 }
@@ -984,26 +984,26 @@ p button:disabled,
 
 .sponsors_container img
 {
-	animation: cycleSponsors 140s infinite linear;
+	animation: cycleSponsors 190s infinite linear;
 	cursor: pointer;
-	animation-delay: calc(10s * (sibling-index() - 1)); /* TOTAL SECONDS = 14 images x 10s each = 140s*/
+	animation-delay: calc(10s * (sibling-index() - 1)); /* TOTAL SECONDS = 19 images x 10s each = 190s*/
 }
 
 /*
 	* Each image display for 10s
-	* 15 images
-	* Total time is 15 x 10s = 150s
+	* 19 images
+	* Total time is 19 x 10s = 190s
 */
 
 @keyframes cycleSponsors
 {
  	0% { opacity: 0; }
-  	/* Fade-in over 1 second (1s / 150s) */
-  	0.67% { opacity: 1; }
-  	/* Stay visible for 8 seconds (8s / 150s) */
-  	5.33% { opacity: 1; }
-  	/* Fade-out over 1 second (10s / 150s)*/
-  	6.67% { opacity: 0; }
+  	/* Fade-in over 1 second (1s / 190s) */
+  	0.53% { opacity: 1; }
+  	/* Stay visible for 8 seconds (8s / 190s) */
+  	4.21% { opacity: 1; }
+  	/* Fade-out over 1 second (10s / 190s)*/
+  	5.26% { opacity: 0; }
 	/* Stay hidden for the rest of the loop */
   	100% { opacity: 0; }
 }

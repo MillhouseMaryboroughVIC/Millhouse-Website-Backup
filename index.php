@@ -316,7 +316,7 @@ if ($row["name"] == "axis_employment")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -406,8 +406,8 @@ if ($row["name"] == "axis_employment")
 		<li>
 			<a href="about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
-				<li class="submenu_item"><a href="people/people.php">&#x1F469; Mill House People</a></li>
-				<li class="submenu_item"><a href="milestones/milestones.php">&#x1F3C6; Milestones</a></li>
+				<li class="submenu_item"><a href="about/people/people.php">&#x1F469; Mill House People</a></li>
+				<li class="submenu_item"><a href="about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
 				<li class="submenu_item"><a href="site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
 		</li>
@@ -600,14 +600,12 @@ if ($row["name"] == "axis_employment")
 
 								<!-- #BeginEditable "CustomContent" -->
 
-<h1>Welcome to the new Mill House website</h1>
+<h1>Welcome to the Mill House Neighbourhood House website.</h1>
 
-<p>For best viewing results, use the most up to date version of your favorite web browser.</p>
+<p>Mill House a welcoming community space in the heart of Maryborough.
 
-<p>If you have questions, comments, or suggestions, please click 'Contact' and get in touch with us via your preferred 
-method (contact form, email or phone number).</p>
-<p>Enjoy!</p>
-
+<p>A place to learn, share, volunteer and connect. We provide a welcoming, inclusive, and empowering space that fosters 
+community connection, lifelong learning, social inclusion, and local participation.</p>
 
 <h1>Who We Are</h1>
 
@@ -704,31 +702,6 @@ to connect, learn and participate.</p>
 
 <h1>Whats on at Mill House soon</h1>
 
-<p>
-	<a href="images/Spooktacular.jpg"><img src="images/Spooktacular.jpg" alt="Spooktacular" height="250" /></a>
-	&nbsp;
-	<a href="images/influencers.jpg"><img src="images/influencers.jpg" alt="influencers.jpg" height="250" /></a>
-</p>
-
-<iframe width="300" height="380" src="James Hollands on Reels.mp4" controls></iframe>
-
-<h1>News</h1>
-
-<p><a href="newsletter.pdf">Latest newsletter</a></p>
-
-<h2>Another mural for Mill House</h2>
-
-<p>
-	<a href="images/Mural1.jpg"><img src="images/Mural1.jpg" alt="Mural1.jpg" height="300" /></a>&nbsp;
-	<a href="images/Mural2.jpg"><img src="images/Mural2.jpg" alt="Mural2.jpg" height="300" /></a>&nbsp;
-	<a href="images/Mural3.jpg"><img src="images/Mural3.jpg" alt="Mural3.jpg" height="300" /></a>&nbsp;
-	<a href="images/Mural4.jpg"><img src="images/Mural4.jpg" alt="Mural4.jpg" height="300" /></a>
-</p>
-
-<h2>Grant from Elders</h2>
-<p>The Mill House Committee, management and the community would like to thank Elders for their generous grant to our organisation.</p>
-<p><a href="images/EldersGrant.jpg"><img src="images/EldersGrant.jpg" alt="EldersGrant.jpg" width="200"/></a></p>
-
 <?php
 	if (IsAdminLoggedIn())
 	{
@@ -743,6 +716,32 @@ to connect, learn and participate.</p>
 		echo "<p><img src=\"MobileApp/images/MillHouseApp.png\" alt=\"MillHouseApp.png\" height=\"100\" /></p>\n";
 	}
 ?>
+
+<h2>One off events</h2>
+<p>
+	<a href="images/Spooktacular.jpg"><img src="images/Spooktacular.jpg" alt="Spooktacular" height="250" /></a>
+</p>
+<h2>New group pilot - Digital Influencers</h2>
+<p>
+	<a href="images/influencers.jpg"><img src="images/influencers.jpg" alt="influencers.jpg" height="530" /></a>
+	<video width="298" height="530" src="James Hollands on Reels.mp4" controls style="background-color:lime;"></video>
+</p>
+
+<h1>News</h1>
+
+<p><a href="newsletter.pdf">Latest newsletter</a></p>
+
+<h2>New mural</h2>
+<p>A new mural is gracing the visible end of our Food Shed. Created and Painted by Mellita Joy . It reflects 
+beautifully Mill House and its Maryborough Home. For Further information on its creator contact Mill House Manager 
+Sarah</p>
+
+<p>
+	<a href="images/Mural1.jpg"><img src="images/Mural1.jpg" alt="Mural1.jpg" height="300" /></a>&nbsp;
+	<a href="images/Mural2.jpg"><img src="images/Mural2.jpg" alt="Mural2.jpg" height="300" /></a>&nbsp;
+	<a href="images/Mural3.jpg"><img src="images/Mural3.jpg" alt="Mural3.jpg" height="300" /></a>&nbsp;
+	<a href="images/Mural4.jpg"><img src="images/Mural4.jpg" alt="Mural4.jpg" height="300" /></a>
+</p>
 
 <h1>What We Do</h1>
 
@@ -786,11 +785,11 @@ to connect, learn and participate.</p>
 <h1>Mill House Activities</h1>
 <?php require "MillHouseActivities.html"; ?>
 
-<h1>Service Providers</h1>
-<?php require "MillHouseServiceProviders.html"; ?>
-
 <h1>Mill House Services</h1>
 <?php require "MillHouseServices.html"; ?>
+
+<h1>Service Providers</h1>
+<?php require "MillHouseServiceProviders.html"; ?>
 
 <p>&nbsp;</p>
 

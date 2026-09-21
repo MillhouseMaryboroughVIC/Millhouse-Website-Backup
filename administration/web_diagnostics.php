@@ -1298,10 +1298,10 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 		<li>
 			<a href="../about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
-				<li class="submenu_item"><a href="../people/people.php">&#x1F469; Mill House People</a></li>
-				<li class="submenu_item"><a href="../milestones/milestones.php">&#x1F3C6; Milestones</a></li>
+				<li class="submenu_item"><a href="../about/people/people.php">&#x1F469; Mill House People</a></li>
+				<li class="submenu_item"><a href="../about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
 				<li class="submenu_item">
-				<a href="../site_history/site_history.php">&#x1F3ED; Site History</a></li>
+				<a href="../about/site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
 		</li>
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">

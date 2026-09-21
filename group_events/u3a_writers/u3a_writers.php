@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- #BeginTemplate "../../site_history/events/events_master.dwt" -->
+<!-- #BeginTemplate "../../about/site_history/events/events_master.dwt" -->
 
 	<head>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -9,7 +9,7 @@
 		<title>Events - U3A Writers</title>
 		<!-- #EndEditable -->
 		
-		<link href="../../site_history/styles/style4PC.css" rel="stylesheet" type="text/css" />
+		<link href="../../about/site_history/styles/style4PC.css" rel="stylesheet" type="text/css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Permanent+Marker&display=swap" rel="stylesheet" />
@@ -31,17 +31,17 @@
 			<!-- Begin Masthead -->
 			<div class="masthead">
 				<div class="masthead_image" style="float:left;">
-					<img src="../../site_history/images/MillHouse.jpg" alt="" height="110"/>
+					<img src="../../about/site_history/images/MillHouse.jpg" alt="" height="110"/>
 				</div>
 				<div class="masthead_text">
 					<h1 class="gluten">MillHouse</h1>
 					<h3 class="gluten">Neighbourhood House</h3>
 				</div>
 				<div class="masthead_image" style="float:right;">
-					<img src="../../site_history/images/OldKnittingMill.jpg" alt="" height="110"/>
+					<img src="../../about/site_history/images/OldKnittingMill.jpg" alt="" height="110"/>
 				</div>
 				<div class="masthead_image" style="float:right;">
-					<img src="../../site_history/images/KnittingMill1961.jpg" alt="" height="110"/>
+					<img src="../../about/site_history/images/KnittingMill1961.jpg" alt="" height="110"/>
 		
 				</div>
 			</div>
@@ -51,36 +51,36 @@
 				<!-- Begin Navigation -->
 				<div class="navigation">
 					<ul>
-						<li><a href="../../site_history/index.html">Home</a></li>
-						<li><a href="../../site_history/site_history/site_history.html">Site History</a></li>
-						<li><a href="../../site_history/Calendar/Calendar.html">Calendar</a></li>
-						<li><a href="../../site_history/photos/photos.html">Photos</a></li>
-						<li><a href="../../site_history/information/information.html">Information</a></li>
-						<li><a href="../../site_history/coder_dojo/CoderDojo.html">CoderDojo</a></li>
+						<li><a href="../../about/site_history/index.html">Home</a></li>
+						<li><a href="../../about/site_history/site_history/site_history.html">Site History</a></li>
+						<li><a href="../../about/site_history/Calendar/Calendar.html">Calendar</a></li>
+						<li><a href="../../about/site_history/photos/photos.html">Photos</a></li>
+						<li><a href="../../about/site_history/information/information.html">Information</a></li>
+						<li><a href="../../about/site_history/coder_dojo/CoderDojo.html">CoderDojo</a></li>
 						<li>
-							<a href="../../site_history/events/events.php">Events</a>
+							<a href="../../about/site_history/events/events.php">Events</a>
 							<ul>
 								<li class="submenu_item">
-								<a href="../../site_history/events/art4soul/art4soul.php"><b>Art for Soul</b></a></li>
+								<a href="../../about/site_history/events/art4soul/art4soul.php"><b>Art for Soul</b></a></li>
 								<li class="submenu_item">
-								<a href="../../site_history/events/bridge/bridge.php"><b>Bridge</b></a></li>
+								<a href="../../about/site_history/events/bridge/bridge.php"><b>Bridge</b></a></li>
 								<li class="submenu_item">
-								<a href="../../site_history/events/cyber_cafe/cyber_cafe.php"><b>Cyber Cafe</b></a></li>
+								<a href="../../about/site_history/events/cyber_cafe/cyber_cafe.php"><b>Cyber Cafe</b></a></li>
 								<li class="submenu_item">
-								<a href="../../site_history/events/deadly/deadly.php"><b>Deadly Catch-up</b></a></li>
+								<a href="../../about/site_history/events/deadly/deadly.php"><b>Deadly Catch-up</b></a></li>
 								<li class="submenu_item">
-								<a href="../../site_history/events/dugeons_dragons/dugeons_dragons.php"><b>Dungeons &Aacute; Dragons</b></a></li>
+								<a href="../../about/site_history/events/dugeons_dragons/dugeons_dragons.php"><b>Dungeons &Aacute; Dragons</b></a></li>
 								<li class="submenu_item">
-								<a href="../../site_history/events/hooker/hookers.html"><b>Hookers</b></a></li>
+								<a href="../../about/site_history/events/hooker/hookers.html"><b>Hookers</b></a></li>
 								<li class="submenu_item">
-								<a href="../../site_history/events/playgroup/playgroup.php"><b>Millhouse Playgroup</b></a></li>
+								<a href="../../about/site_history/events/playgroup/playgroup.php"><b>Millhouse Playgroup</b></a></li>
 								<li class="submenu_item">
-								<a href="../../site_history/events/parent_pathways/parent_pathways.php"><b>Parent Pathways</b></a></li>
+								<a href="../../about/site_history/events/parent_pathways/parent_pathways.php"><b>Parent Pathways</b></a></li>
 								<li class="submenu_item">
 								<a href="u3a_writers.php"><b>U3a Writers Groups</b></a></li>
 							</ul>
 						</li>
-						<li><a href="../../site_history/contact/Contact.php">Contact</a></li>
+						<li><a href="../../about/site_history/contact/Contact.php">Contact</a></li>
 					</ul>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
@@ -166,14 +166,14 @@
 			<!-- Begin Footer -->
 			<div class="footer">
 				<div class="footer_navigation">
-					<a href="../../site_history/index.html">Home</a> | 
-					<a href="../../site_history/site_history/site_history.html">Site History</a> | 
-					<a href="../../site_history/Calendar/Calendar.html">Calendar</a> | 
-					<a href="../../site_history/photos/photos.html">Photos</a> |
-					<a href="../../site_history/information/information.html">Information</a> |
-					<a href="../../site_history/events/events.php">Events</a> |
-					<a href="../../site_history/coder_dojo/CoderDojo.html">CoderDojo</a> | 
-					<a href="../../site_history/contact/Contact.php">Contact</a>
+					<a href="../../about/site_history/index.html">Home</a> | 
+					<a href="../../about/site_history/site_history/site_history.html">Site History</a> | 
+					<a href="../../about/site_history/Calendar/Calendar.html">Calendar</a> | 
+					<a href="../../about/site_history/photos/photos.html">Photos</a> |
+					<a href="../../about/site_history/information/information.html">Information</a> |
+					<a href="../../about/site_history/events/events.php">Events</a> |
+					<a href="../../about/site_history/coder_dojo/CoderDojo.html">CoderDojo</a> | 
+					<a href="../../about/site_history/contact/Contact.php">Contact</a>
 				</div>
 				<div class="footer_attribution">
 					<b>Web site by: </b> Gregary Boyles 2025<br/>
