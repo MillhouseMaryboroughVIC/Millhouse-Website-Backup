@@ -42,47 +42,7 @@
 		<title>Events Calendar</title>
 		
 		<style type="text/css">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		
 			:root
 			{
 				--border: 1px solid #ccc;
@@ -334,7 +294,8 @@
 			<a href="../about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
 				<li class="submenu_item"><a href="../about/people/people.php">&#x1F469; Mill House People</a></li>
-				<li class="submenu_item"><a href="../about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
+				<li class="submenu_item">
+				<a href="../about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
 				<li class="submenu_item">
 				<a href="../about/site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
@@ -417,7 +378,6 @@
 									<a href="../about/about.php">&#x1F50D; About us</a>
 									<a href="calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../room/room.php">&#x1F3E8; Room hire</a>
-									<a href="../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../contact/contact.php">&#x1F4DE; Contact</a>
 								</div>
 								<br/>
@@ -560,12 +520,18 @@
 	function DoGetImageFilePath($strGroupName)
 	{
 		$strImageFilePath = "";
+		$directory = new RecursiveDirectoryIterator(DoGetParentOrCurrentDir() . "what/");
+		$iterator = new RecursiveIteratorIterator($directory);
 		
-		if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/about/images/". $strGroupName . ".jpg"))
-			$strImageFilePath = $strGroupName . ".jpg";
-		else if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/about/images/". $strGroupName . ".png"))
-			$strImageFilePath = $strGroupName . ".png";
-		
+		foreach ($iterator as $file)
+		{	
+			// Make sure it's a file, not a directory
+			if ($file->isFile() && (($file->getFilename() == $strGroupName . ".jpg") || ($file->getFilename() == $strGroupName . ".png")) && !str_contains($file->getPathname(), "_vti_cnf"))
+			{
+				$strImageFilePath = $file->getPathname();
+				break;
+			}
+		}				
 		return $strImageFilePath;
 	}
 	
@@ -680,16 +646,49 @@
 				{						
 					if (($arrayGroups[$nI]["wom"] == 0) || ($arrayGroups[$nI]["wom"] == $nWOM))
 					{
-						if ($arrayGroups[$nI]["exclude_school_holidays"] && IsSchoolHoliday($dateCurrent))
+						if ((bool)$arrayGroups[$nI]["exclude_xmas_new_year"] && IsXmasNewYear($dateCurrent))
 						{
+							echo "/*####" . $dateCurrent->format("d/m/Y") . " xmas/new year*/";
 							// Do nothing - exclude this group.
 						}
-						else if ($arrayGroups[$nI]["exclude_xmas_new_year"] && IsXmasNewYear($dateCurrent))
+						else if ((bool)$arrayGroups[$nI]["exclude_easter"] && IsEaster($dateCurrent))
 						{
+							echo "/*####" . $dateCurrent->format("d/m/Y") . " easter*/";
 							// Do nothing - exclude this group.
 						}
-						else if ($arrayGroups[$nI]["exclude_easter"] && IsEaster($dateCurrent))
+						else if ((bool)$arrayGroups[$nI]["exclude_school_holidays"] && IsSchoolHoliday($dateCurrent))
 						{
+							echo "/*####" . $dateCurrent->format("d/m/Y") . " school holiday*/";
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$arrayGroups[$nI]["exclude_VFL_grand_final"] && IsVFLGrandFinal($dateCurrent))
+						{
+							echo "/*####" . $dateCurrent->format("d/m/Y") . " grand final parade*/";
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$arrayGroups[$nI]["exclude_melbourne_cup"] && IsMelbourneCup($dateCurrent))
+						{
+							echo "/*####" . $dateCurrent->format("d/m/Y") . " melbourne cup*/";
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$arrayGroups[$nI]["exclude_labour_day"] && IsLabourDay($dateCurrent))
+						{
+							echo "/*####" . $dateCurrent->format("d/m/Y") . " labour day*/";
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$arrayGroups[$nI]["exclude_australia_day"] && IsAustraliaDay($dateCurrent))
+						{
+							echo "/*####" . $dateCurrent->format("d/m/Y") . " australia day*/";
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$arrayGroups[$nI]["exclude_anzac_day"] && IsANZACDay($dateCurrent))
+						{
+							echo "/*####" . $dateCurrent->format("d/m/Y") . " anzac day*/";
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$arrayGroups[$nI]["exclude_monarchs_birthday"] && IsMonarchsBirthday($dateCurrent))
+						{
+							echo "/*####" . $dateCurrent->format("d/m/Y") . " kings birthday*/";
 							// Do nothing - exclude this group.
 						}
 						else

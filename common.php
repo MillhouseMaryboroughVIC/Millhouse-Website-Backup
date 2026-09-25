@@ -82,9 +82,9 @@
 		
 		if ($arrayBannedUserAgents === null) 
 		{
-        	$arrayBannedUserAgents = DoParseRobotsTxt();
-        	$nArraySize = count($arrayBannedUserAgents);
-        }
+    	$arrayBannedUserAgents = DoParseRobotsTxt();
+    	$nArraySize = count($arrayBannedUserAgents);
+    }
 		// 1. Convert the array into a single regex string
 		// preg_quote ensures characters like '.', '/', or '?' don't break the regex
 		$regexPattern = "#" . implode("|", array_map("preg_quote", $arrayBannedUserAgents)) . "#i";
@@ -218,7 +218,7 @@
 	{
 		if ($bJSTags)
 			echo "<script type=\"text/javascript\">\n";
-		echo "    alert(\"ERROR: " . $strError . "\");\n";
+		echo "  alert(\"ERROR: " . $strError . "\");\n";
 		if ($bJSTags)
 			echo "</script>\n";
 	}
@@ -258,48 +258,48 @@ $g_arrayHireRoom = [
 						
 					["strName" => "Personal Meeting Room", 
 						"strImageFilename1" => "front_loungeroom.jpg", 
-						"strImageFilename2" => "",  
+						"strImageFilename2" => "", 
 						"strImageFilename3" => "", 
 						"strImageFilename4" => "", 
 						"nCostPerHour" => 30, "nCostPerDay" => 130, "nCostPerMonth" => 1200, 
-					    "strDescription" => "A comfortable and private setting for one-on-one appointments, interviews, counselling sessions, consultations or small informal meetings.", 
-					    "strCapacity" => "4 - 6"],
-					   
+					  "strDescription" => "A comfortable and private setting for one-on-one appointments, interviews, counselling sessions, consultations or small informal meetings.", 
+					  "strCapacity" => "4 - 6"],
+					  
 					["strName" => "General Office x 2", 
 						"strImageFilename1" => "office1.jpg", 
-						"strImageFilename2" => "office2.jpg",  
+						"strImageFilename2" => "office2.jpg", 
 						"strImageFilename3" => "", 
 						"strImageFilename4" => "",
 						"nCostPerHour" => 30, "nCostPerDay" => 130, "nCostPerMonth" => 1200, 
-					    "strDescription" => " private and professional workspace suitable for visiting services, client appointments, administration, interviews and short-term or ongoing business use.", 
-					    "strCapacity" => "2 - 4"],
-					   
+					  "strDescription" => " private and professional workspace suitable for visiting services, client appointments, administration, interviews and short-term or ongoing business use.", 
+					  "strCapacity" => "2 - 4"],
+					  
 					["strName" => "Art Room", 
 						"strImageFilename1" => "art_room.jpg", 
 						"strImageFilename2" => "", 
 						"strImageFilename3" => "", 
 						"strImageFilename4" => "",
-					    "nCostPerHour" => 30, "nCostPerDay" => 130, "nCostPerMonth" => 1200, 
-					    "strDescription" => "A practical and welcoming space for art classes, craft groups, creative workshops, community activities and small group programs.", 
-					    "strCapacity" => "12"],
-					   
+					  "nCostPerHour" => 30, "nCostPerDay" => 130, "nCostPerMonth" => 1200, 
+					  "strDescription" => "A practical and welcoming space for art classes, craft groups, creative workshops, community activities and small group programs.", 
+					  "strCapacity" => "12"],
+					  
 					["strName" => "Kitchenette – Tea Room", 
 						"strImageFilename1" => "TeaRoom1.jpg", 
 						"strImageFilename2" => "TeaRoom2.jpg", 
 						"strImageFilename3" => "", 
 						"strImageFilename4" => "",
-					    "nCostPerHour" => 30, "nCostPerDay" => 130, "nCostPerMonth" => 0, 
-					    "strDescription" => "A convenient space for light food preparation, refreshments, small catering activities and programs that require basic kitchen facilities.", 
-					    "strCapacity" => "2 - 4"],
-					   
+					  "nCostPerHour" => 30, "nCostPerDay" => 130, "nCostPerMonth" => 0, 
+					  "strDescription" => "A convenient space for light food preparation, refreshments, small catering activities and programs that require basic kitchen facilities.", 
+					  "strCapacity" => "2 - 4"],
+					  
 					["strName" => "Commercial Kitchen and Dining Room", 
 						"strImageFilename1" => "Kitchen1.jpg", 
 						"strImageFilename2" => "Kitchen2.jpg", 
 						"strImageFilename3" => "DiningRoom1.jpg", 
 						"strImageFilename4" => "DiningRoom3.jpg",
-					    "nCostPerHour" => 40, "nCostPerDay" => 140, "nCostPerMonth" => 0, 
-					    "strDescription" => "A larger space suitable for cooking programs, food preparation, catering, community meals, demonstrations and group dining activities.", 
-					    "strCapacity" => "6 - 60"]
+					  "nCostPerHour" => 40, "nCostPerDay" => 140, "nCostPerMonth" => 0, 
+					  "strDescription" => "A larger space suitable for cooking programs, food preparation, catering, community meals, demonstrations and group dining activities.", 
+					  "strCapacity" => "6 - 60"]
 				];
 
 
@@ -410,21 +410,21 @@ $g_arrayHireRoom = [
 				$nRowCount = 0;
 				$nMaxRowCount = 3;
 				echo "<table border=\"0\" cellpadding=\"5\" cellaspacing=\"0\">\n";
-				echo "    <tr>\n";
+				echo "  <tr>\n";
 				while ($row = $result->fetch_assoc())
 				{
-					echo "        <td>\n";
-					echo "            <a class=\"group_hyperlink\" href=\"group_events.php#" . $row["name"] . "\" onclick=\"DoClickGroupHyperlink('" . $row["name"] . "')\">" . $row["description"] . "</a>";
-					echo "        </td>\n";
+					echo "    <td>\n";
+					echo "      <a class=\"group_hyperlink\" href=\"group_events.php#" . $row["name"] . "\" onclick=\"DoClickGroupHyperlink('" . $row["name"] . "')\">" . $row["description"] . "</a>";
+					echo "    </td>\n";
 					$nRowCount++;
 					if ($nRowCount == $nMaxRowCount)
 					{
-						echo "    </tr>\n";
-						echo "    <tr>\n";
+						echo "  </tr>\n";
+						echo "  <tr>\n";
 						$nRowCount = 0;
 					}
 				}
-				echo "    </tr>\n";
+				echo "  </tr>\n";
 				echo "</table>\n";
 			}
 		}
@@ -504,30 +504,30 @@ $g_arrayHireRoom = [
 		echo "<p>Now you will see some strange folder names scattered through the website source code, abd you should leave them alone. They\n"; 
 		echo "are named:</p>\n";
 		echo "<ul>\n";
-		echo "	  <li>\n";
-		echo "		  <b>_vti_cnf</b> &amp; <b>_vti_pvt</b><br/><br/>\n";
-		echo "		  These folders are generated by MS Expression Web, which it uses to manage the website hyperlink and image tags, and \n";
-		echo "		  the dynamic web template etc.<br/><br/>\n";
-		echo "		  These folders play no part in rendering of your web pages in the web browser, but it is easier to just upload them \n";
-		echo "		  all with the 'real' source code, than to try and exclude these folders.\n";
-		echo "	  </li>\n";
-		echo "	  <li>\n";
-		echo "		  <b>.git</b><br/><br/>\n";
-		echo "		  You will find this folder at the top most level only. This folder is generated by GitHub Desktop and is used by \n";
-		echo "		  that software to manage source code versioning etc. As such the file data in this folder is LARGE and takes a \n";
-		echo "		  long time to upload. So it is best to exclude this folder from upload to the web server, and it also plays no \n";
-		echo "		  part in rendering your web pages.\n";
-		echo "	  </li>\n";
-		echo "    <li>\n";
-		echo "        <b>MySQL: </b><br/><br/>\n";
-		echo "        This folder was created by myself to store the self contained database SQL files. These files can be used \n";
-		echo "        regenerate the database and its contents in the event of a change of web hosting. Refer to the section \n";
-		echo "        below to learn how to use these files.<br/><br/>\n";
-		echo "        They play no part in rendering the web pages, and are just a backup storage of these important files. They \n";
-		echo "        can be excluded from upload to the web server if you wish, so long as they are securely stored else where.\n";
-		echo "        Where ever these files are stored they should be rigously and regularly updated to reflect the current contents \n";
-		echo "        of the database.\n";
-		echo "    </li>\n";
+		echo "	 <li>\n";
+		echo "		 <b>_vti_cnf</b> &amp; <b>_vti_pvt</b><br/><br/>\n";
+		echo "		 These folders are generated by MS Expression Web, which it uses to manage the website hyperlink and image tags, and \n";
+		echo "		 the dynamic web template etc.<br/><br/>\n";
+		echo "		 These folders play no part in rendering of your web pages in the web browser, but it is easier to just upload them \n";
+		echo "		 all with the 'real' source code, than to try and exclude these folders.\n";
+		echo "	 </li>\n";
+		echo "	 <li>\n";
+		echo "		 <b>.git</b><br/><br/>\n";
+		echo "		 You will find this folder at the top most level only. This folder is generated by GitHub Desktop and is used by \n";
+		echo "		 that software to manage source code versioning etc. As such the file data in this folder is LARGE and takes a \n";
+		echo "		 long time to upload. So it is best to exclude this folder from upload to the web server, and it also plays no \n";
+		echo "		 part in rendering your web pages.\n";
+		echo "	 </li>\n";
+		echo "  <li>\n";
+		echo "    <b>MySQL: </b><br/><br/>\n";
+		echo "    This folder was created by myself to store the self contained database SQL files. These files can be used \n";
+		echo "    regenerate the database and its contents in the event of a change of web hosting. Refer to the section \n";
+		echo "    below to learn how to use these files.<br/><br/>\n";
+		echo "    They play no part in rendering the web pages, and are just a backup storage of these important files. They \n";
+		echo "    can be excluded from upload to the web server if you wish, so long as they are securely stored else where.\n";
+		echo "    Where ever these files are stored they should be rigously and regularly updated to reflect the current contents \n";
+		echo "    of the database.\n";
+		echo "  </li>\n";
 		echo "</ul>\n";
 		echo "<h2>MILL HOUSE APP</h2>\n";
 		echo "\n";
@@ -567,22 +567,22 @@ $g_arrayHireRoom = [
 		echo "<p>There are two files in this folder:</p>\n";
 		echo "\n";
 		echo "<ul>\n";
-		echo "    <li>\n";
-		echo "    <b>millhouse_db.sql</b><br/>\n";
-		echo "    This file was generated from MySQL Workbench.\n";
-		echo "    </li>\n";
-		echo "    <li>\n";
-		echo "        <b>millhous_db.sql</b><br/>\n";
-		echo "        This file was generated from phpMyAdmin the cPanel for the current web hosting account \n";
-		echo "        (<a href=\"https://myhost.nz\">cPanel Login</a>).\n";
-		echo "    </li>\n";
+		echo "  <li>\n";
+		echo "  <b>millhouse_db.sql</b><br/>\n";
+		echo "  This file was generated from MySQL Workbench.\n";
+		echo "  </li>\n";
+		echo "  <li>\n";
+		echo "    <b>millhous_db.sql</b><br/>\n";
+		echo "    This file was generated from phpMyAdmin the cPanel for the current web hosting account \n";
+		echo "    (<a href=\"https://myhost.nz\">cPanel Login</a>).\n";
+		echo "  </li>\n";
 		echo "</ul>\n";
 		echo "\n";
 		echo "<p>There is a problem in that the current web hosting account uses an older version of MariaDB that is not completely \n";
 		echo "compatible with SQL files exported from the latest version of MySQL Workbench. However it is possible to do some fairly \n";
 		echo "minor edits to 'millhouse_db.sql' to make it compatible. Instructions on how to do this are detailed below.</p>\n";
 		echo "\n";
-		echo "<p>This is why there is a MariaDB version of the SQL file -  'millhous_db.sql'. This will make re-generating the database \n";
+		echo "<p>This is why there is a MariaDB version of the SQL file - 'millhous_db.sql'. This will make re-generating the database \n";
 		echo "in the web hosting account more convenient.</p>\n";
 		echo "\n";
 		echo "<p>You can use the MySQL version to re-generate the database in MySQL Workbench for testing and debugging purposes on \n";
@@ -591,44 +591,44 @@ $g_arrayHireRoom = [
 		echo "<h3>How do you make 'millhouse_db.sql' compatible with MariaDB?</h3>\n";
 		echo "\n";
 		echo "<p>\n";
-		echo "    Try and import 'millhouse_db.sql' (generated by MySQL Workbench) into cPanel phpMyAdmin like this:<br/>\n";
-		echo "    <a href=\"images/phpMyAdminImportDatabase.jpg\"><img src=\"images/phpMyAdminImportDatabase.jpg\" alt=\"phpMyAdminImportDatabase.jpg\" height=\"300\" /></a>\n";
+		echo "  Try and import 'millhouse_db.sql' (generated by MySQL Workbench) into cPanel phpMyAdmin like this:<br/>\n";
+		echo "  <a href=\"images/phpMyAdminImportDatabase.jpg\"><img src=\"images/phpMyAdminImportDatabase.jpg\" alt=\"phpMyAdminImportDatabase.jpg\" height=\"300\" /></a>\n";
 		echo "</p>\n";
 		echo "\n";
 		echo "<p>\n";
-		echo "    Scroll down and click the 'Import' button.<br/>\n";
-		echo "    <a href=\"images/phpMyAdminImportButton.jpg\"><img src=\"images/phpMyAdminImportButton.jpg\" alt=\"phpMyAdminImportButton.jpg\" height=\"300\" /></a>\n";
+		echo "  Scroll down and click the 'Import' button.<br/>\n";
+		echo "  <a href=\"images/phpMyAdminImportButton.jpg\"><img src=\"images/phpMyAdminImportButton.jpg\" alt=\"phpMyAdminImportButton.jpg\" height=\"300\" /></a>\n";
 		echo "</p>\n";
 		echo "\n";
 		echo "<p>\n";
-		echo "    You will find that you will get this error:<br/>\n";
-		echo "    <a href=\"images/phpMyAdminImportError.jpg\"><img src=\"images/phpMyAdminImportError.jpg\" alt=\"phpMyAdminImportError.jpg\" height=\"300\" /></a><br/>\n";
-		echo "    <b>NOTE: </b>#1273 - Unknown collation: 'utf8mb4_0900_ai_ci'.<br/>\n";
-		echo "    Paste this error message into Google and search and you will get the following...\n";
+		echo "  You will find that you will get this error:<br/>\n";
+		echo "  <a href=\"images/phpMyAdminImportError.jpg\"><img src=\"images/phpMyAdminImportError.jpg\" alt=\"phpMyAdminImportError.jpg\" height=\"300\" /></a><br/>\n";
+		echo "  <b>NOTE: </b>#1273 - Unknown collation: 'utf8mb4_0900_ai_ci'.<br/>\n";
+		echo "  Paste this error message into Google and search and you will get the following...\n";
 		echo "</p>\n";
 		echo "	<hr/>\n";
 		echo "<p><i>\n";
-		echo "    The #1273 - Unknown collation: 'utf8mb4_0900_ai_ci' error occurs because you are trying to import a database \n";
-		echo "    backup from a newer version of MySQL (like MySQL 8.0) into a server running an older version of MySQL (5.7 or \n";
-		echo "    lower) or MariaDB. The target server does not recognize the utf8mb4_0900_ai_ci collation, which became the default starting in \n";
-		echo "    MySQL 8.0. How to fix it...\n";
+		echo "  The #1273 - Unknown collation: 'utf8mb4_0900_ai_ci' error occurs because you are trying to import a database \n";
+		echo "  backup from a newer version of MySQL (like MySQL 8.0) into a server running an older version of MySQL (5.7 or \n";
+		echo "  lower) or MariaDB. The target server does not recognize the utf8mb4_0900_ai_ci collation, which became the default starting in \n";
+		echo "  MySQL 8.0. How to fix it...\n";
 		echo "</i></p>\n";
 		echo "<p><i>\n";
-		echo "    <b><u>Method 1: Find and Replace (Quickest)</u></b><br/>\n";
-		echo "    If you have the database backup as a .sql file, you can edit it directly in a text editor (like Visual Studio \n";
-		echo "    Code, Notepad++, or Sublime Text). Open your .sql file in your preferred text editor. Use the Find and Replace \n";
-		echo "    feature (usually Ctrl + H or Cmd + H). \n";
+		echo "  <b><u>Method 1: Find and Replace (Quickest)</u></b><br/>\n";
+		echo "  If you have the database backup as a .sql file, you can edit it directly in a text editor (like Visual Studio \n";
+		echo "  Code, Notepad++, or Sublime Text). Open your .sql file in your preferred text editor. Use the Find and Replace \n";
+		echo "  feature (usually Ctrl + H or Cmd + H). \n";
 		echo "</i></p>\n";
 		echo "<p><i>\n";
-		echo "    Find: utf8mb4_0900_ai_ci and replace it based on your target database version.<br/><br/> \n";
-		echo "    <b>If importing to MariaDB: </b>Replace with utf8mb4_unicode_520_ci.<br/><br/>\n";
-		echo "    <b>If importing to MySQL 5.7: </b>Replace with utf8mb4_unicode_ci or utf8mb4_general_ci.<br/>\n";
-		echo "    Notepad++ is an ideal text editor to do this with.<br/><br/>\n";
-		echo "    <a href=\"images/phpMyAdminSearchAndReplace.jpg\"><img src=\"images/phpMyAdminSearchAndReplace.jpg\" alt=\"AdminSearchAndReplace.jpg\" height=\"300\" /></a>\n";
+		echo "  Find: utf8mb4_0900_ai_ci and replace it based on your target database version.<br/><br/> \n";
+		echo "  <b>If importing to MariaDB: </b>Replace with utf8mb4_unicode_520_ci.<br/><br/>\n";
+		echo "  <b>If importing to MySQL 5.7: </b>Replace with utf8mb4_unicode_ci or utf8mb4_general_ci.<br/>\n";
+		echo "  Notepad++ is an ideal text editor to do this with.<br/><br/>\n";
+		echo "  <a href=\"images/phpMyAdminSearchAndReplace.jpg\"><img src=\"images/phpMyAdminSearchAndReplace.jpg\" alt=\"AdminSearchAndReplace.jpg\" height=\"300\" /></a>\n";
 		echo "</i></p>\n";
 		echo "	<hr/>\n";
 		echo "<p>\n";
-		echo "    Save the edited SQL file with a different name and try importing it again.\n";
+		echo "  Save the edited SQL file with a different name and try importing it again.\n";
 		echo "</p>\n";
 		echo "\n";
 		echo "<p><button type=\"button\" onclick=\"DoDisplayHidePopup('div_source_code', false)\">CLOSE</button></p>\n";	}
@@ -712,23 +712,23 @@ $g_arrayHireRoom = [
 		// 1. Check if the file was actually uploaded without errors
 		if (isset($_FILES["file_logo_image"]) && ($_FILES["file_logo_image"]["error"] === UPLOAD_ERR_OK)) 
 		{
-    		$strFileTmpPath = $_FILES[$strFileInputID]["tmp_name"];
-    		$strFileName = $_FILES[$strFileInputID]["name"];
-    
-    		// 2. Sanitize filename to prevent directory traversal attacks
-    		$strCleanFileName = basename($strFileName);
-    
-	        // 3. Define the destination directory (Make sure this folder exists and is writeable)
-	        if ($strOverewriteFilename == "")
-	        	$strDestPath = $strDestinationFolder . $strCleanFileName;
-	        else
-	        	$strDestPath = $strDestinationFolder . $strOverewriteFilename;
-    
-    		// 4. Move the file from the temporary directory to the target directory
-    		if (!move_uploaded_file($strFileTmpPath, $strDestPath))
-    		{
-        		DoFlagMessage("The logo image filename could not be saved...", true);
-    		}
+  		$strFileTmpPath = $_FILES[$strFileInputID]["tmp_name"];
+  		$strFileName = $_FILES[$strFileInputID]["name"];
+  
+  		// 2. Sanitize filename to prevent directory traversal attacks
+  		$strCleanFileName = basename($strFileName);
+  
+	    // 3. Define the destination directory (Make sure this folder exists and is writeable)
+	    if ($strOverewriteFilename == "")
+	    	$strDestPath = $strDestinationFolder . $strCleanFileName;
+	    else
+	    	$strDestPath = $strDestinationFolder . $strOverewriteFilename;
+  
+  		// 4. Move the file from the temporary directory to the target directory
+  		if (!move_uploaded_file($strFileTmpPath, $strDestPath))
+  		{
+    		DoFlagMessage("The logo image filename could not be saved...", true);
+  		}
 		} 
 	}
 	
@@ -772,30 +772,30 @@ $g_arrayHireRoom = [
 	{
 		$bResult = true;
 		
-	    // 1. Get the client's IP address
-	    $strClientIP = $_SERVER["REMOTE_ADDR"] ?? '';
+	  // 1. Get the client's IP address
+	  $strClientIP = $_SERVER["REMOTE_ADDR"] ?? '';
 	
-	    // 2. Immediately validate IP presence
-	    if (empty($strClientIP)) 
-	    {
-	        $bResult = false;
-	    }
-	    // 3. Handle local loopbacks (same physical machine)
-	    else if (($strClientIP === "127.0.0.1") || ($strClientIP === "::1"))
-	    {
-	        $bResult = true;
-	    }
-	    else
-	    {
-		    // 4. Use native PHP filters to check if the IP is NOT global (public)
-		    // This flags private ranges (RFC 1918) and reserved link-local ranges
-		    $bResult = filter_var(
+	  // 2. Immediately validate IP presence
+	  if (empty($strClientIP)) 
+	  {
+	    $bResult = false;
+	  }
+	  // 3. Handle local loopbacks (same physical machine)
+	  else if (($strClientIP === "127.0.0.1") || ($strClientIP === "::1"))
+	  {
+	    $bResult = true;
+	  }
+	  else
+	  {
+		  // 4. Use native PHP filters to check if the IP is NOT global (public)
+		  // This flags private ranges (RFC 1918) and reserved link-local ranges
+		  $bResult = filter_var(
 									$strClientIP, 
 									FILTER_VALIDATE_IP, 
 									FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
 								) === false;
 		}
-	    return $bResult;
+	  return $bResult;
 	}
 	
 	function DoGetParentOrCurrentDir()
@@ -969,6 +969,111 @@ $g_arrayHireRoom = [
 				(($dateNow >= $dateStartSummer) && ($dateNow <= $dateEndSummer));
 	}
 	
+	function IsVFLGrandFinal($dateNow = new DateTime())
+	{
+		$bResult = false;
+		$nDOW = (int)$dateNow->format("w");
+		$nWOM = floor((int)$dateNow->format("j") / 7);
+
+		// Sunday: 0, .....Saturday: 6
+		if ($nDOW == 5)
+		{
+			$bResult = $nWOM == 3;	
+		}
+		return $bResult;
+	}
+	
+	function IsMelbourneCup($dateNow = new DateTime())
+	{
+		$bResult = false;
+		
+		// Sunday: 0, .....Saturday: 6
+		$nDOW = (int)$dateNow->format("w");
+		$nMonth = (int)$dateNow->format("m");
+		
+		if (($nDOW == 2) && ($nMonth == 11))
+		{
+			$nWOM = floor((int)$dateNow->format("j") / 7);
+			$bResult = $nWOM == 1;	
+		}
+		return $bResult;
+	}
+	
+	function IsLabourDay($dateNow = new DateTime())
+	{
+		$bResult = false;
+		
+		// Sunday: 0, .....Saturday: 6
+		$nDOW = (int)$dateNow->format("w");
+		$nMonth = (int)$dateNow->format("m");
+		
+		if (($nDOW == 1) && ($nMonth == 3))
+		{
+			$nWOM = floor((int)$dateNow->format("j") / 7);
+			$bResult = $nWOM == 2;	
+		}
+		return $bResult;
+
+	}
+	
+	function IsAustraliaDay($dateNow = new DateTime())
+	{
+		$nMonth = (int)$dateNow->format("m");
+		$nDOM = (int)$dateNow->format("d");
+		
+		return ($nMonth == 1) && ($nDOM == 26);
+	}
+	
+	function IsANZACDay($dateNow = new DateTime())
+	{
+		$nMonth = (int)$dateNow->format("m");
+		$nDOM = (int)$dateNow->format("d");
+		
+		return ($nMonth == 4) && ($nDOM == 25);
+	}
+	
+	function IsMonarchsBirthday($dateNow = new DateTime())
+	{
+		$bResult = false;
+		
+		// Sunday: 0, .....Saturday: 6
+		$nDOW = (int)$dateNow->format("w");
+		$nMonth = (int)$dateNow->format("m");
+
+		if (($nDOW == 1) && ($nMonth == 6))
+		{
+			$nWOM = floor((int)$dateNow->format("j") / 7);
+			$bResult = $nWOM == 2;	
+		}
+		return $bResult;
+	}
+	
+	function DoGetPublicHoliday()
+	{
+		$strPublicHoliday = "";
+		
+		if (IsMonarchsBirthday())
+			$strPublicHoliday = "King's Birthday";
+		else if (IsANZACDay())
+			$strPublicHoliday = "ANZAC Day";
+		else if (IsAustraliaDay())
+			$strPublicHoliday = "Australia Day";
+		else if (IsLabourDay())
+			$strPublicHoliday = "Labour Day";
+		else if (IsMelbourneCup())
+			$strPublicHoliday = "Melbourne Cup";
+		else if (IsVFLGrandFinal())
+			$strPublicHoliday = "VFL Grand Final Parade";
+		else if (IsSchoolHoliday())
+			$strPublicHoliday = "School Holiday";
+		else if (IsXmasNewYear())
+			$strPublicHoliday = "Christmas / New Year Period";
+		else if (IsEaster())
+			$strPublicHoliday = "Easter";
+			
+		return $strPublicHoliday;
+	}
+	
 	//******************************************************************************
 	//******************************************************************************
 	//** 
@@ -1081,7 +1186,7 @@ $g_arrayHireRoom = [
 		catch(Exception $e) 
 		{
 			DoFlagMessage("'" . $e->getMessage() . "' with query '" . $strQuery . "'", true);
-  			//echo "ERROR: '". $e->getMessage() . "'<br><br>With query '" . $strQuery . "'.<br><br>" . $g_strEmailPresident;
+ 			//echo "ERROR: '". $e->getMessage() . "'<br><br>With query '" . $strQuery . "'.<br><br>" . $g_strEmailPresident;
 		}		
 		return $result;
 	}
@@ -1435,7 +1540,7 @@ $g_arrayHireRoom = [
 	{
 		global $g_strQuery;
 		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "'," . 
-			$strColumnName2 . "='" .  $strColumnValue2 . "' WHERE " . 
+			$strColumnName2 . "='" . $strColumnValue2 . "' WHERE " . 
 			$strFindColumnName . "='" . EscapeSingleQuote($strFindColumnValue) . "'";
 
 		return DoQuery($dbConnection, $g_strQuery);
@@ -1456,7 +1561,7 @@ $g_arrayHireRoom = [
 		global $g_strQuery;
 		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "'," . 
 			$strColumnName2 . "='" . EscapeSingleQuote($strColumnValue2) . "'," . $strColumnName3 . "='" . EscapeSingleQuote($strColumnValue3) . "'," .
-			$strColumnName4 . "='" .  $strColumnValue4 . 
+			$strColumnName4 . "='" . $strColumnValue4 . 
 			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
 
 		return DoQuery($dbConnection, $g_strQuery);
@@ -1688,6 +1793,188 @@ $g_arrayHireRoom = [
 		return DoQuery($dbConnection, $g_strQuery);
 	}
 
+	function DoUpdateQuery20($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strFindColumnName, $strFindColumnValue)
+	{
+		global $g_strQuery;
+
+		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "', " . 
+			$strColumnName2 . "='" . EscapeSingleQuote($strColumnValue2) . "', " . $strColumnName3 . "='" . EscapeSingleQuote($strColumnValue3) . "', " .
+			$strColumnName4 . "='" . EscapeSingleQuote($strColumnValue4) . "', " . $strColumnName5 . "='" . EscapeSingleQuote($strColumnValue5) . "', " .
+			$strColumnName6 . "='" . EscapeSingleQuote($strColumnValue6) . "', " . $strColumnName7 . "='" . EscapeSingleQuote($strColumnValue7) . "', " .
+			$strColumnName8 . "='" . EscapeSingleQuote($strColumnValue8) . "', " . $strColumnName9 . "='" . EscapeSingleQuote($strColumnValue9) . "', " .
+			$strColumnName10 . "='" . EscapeSingleQuote($strColumnValue10) . "', " . $strColumnName11 . "='" . EscapeSingleQuote($strColumnValue11) . "', " .
+			$strColumnName12 . "='" . EscapeSingleQuote($strColumnValue12) . "', " . $strColumnName13 . "='" . EscapeSingleQuote($strColumnValue13) . "', " .
+			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
+			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
+			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
+			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . 
+			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
+
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
+	function DoUpdateQuery21($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strFindColumnName, $strFindColumnValue)
+	{
+		global $g_strQuery;
+
+		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "', " . 
+			$strColumnName2 . "='" . EscapeSingleQuote($strColumnValue2) . "', " . $strColumnName3 . "='" . EscapeSingleQuote($strColumnValue3) . "', " .
+			$strColumnName4 . "='" . EscapeSingleQuote($strColumnValue4) . "', " . $strColumnName5 . "='" . EscapeSingleQuote($strColumnValue5) . "', " .
+			$strColumnName6 . "='" . EscapeSingleQuote($strColumnValue6) . "', " . $strColumnName7 . "='" . EscapeSingleQuote($strColumnValue7) . "', " .
+			$strColumnName8 . "='" . EscapeSingleQuote($strColumnValue8) . "', " . $strColumnName9 . "='" . EscapeSingleQuote($strColumnValue9) . "', " .
+			$strColumnName10 . "='" . EscapeSingleQuote($strColumnValue10) . "', " . $strColumnName11 . "='" . EscapeSingleQuote($strColumnValue11) . "', " .
+			$strColumnName12 . "='" . EscapeSingleQuote($strColumnValue12) . "', " . $strColumnName13 . "='" . EscapeSingleQuote($strColumnValue13) . "', " .
+			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
+			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
+			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
+			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
+			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
+
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
+	function DoUpdateQuery22($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strColumnName22, $strColumnValue22, $strFindColumnName, $strFindColumnValue)
+	{
+		global $g_strQuery;
+
+		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "', " . 
+			$strColumnName2 . "='" . EscapeSingleQuote($strColumnValue2) . "', " . $strColumnName3 . "='" . EscapeSingleQuote($strColumnValue3) . "', " .
+			$strColumnName4 . "='" . EscapeSingleQuote($strColumnValue4) . "', " . $strColumnName5 . "='" . EscapeSingleQuote($strColumnValue5) . "', " .
+			$strColumnName6 . "='" . EscapeSingleQuote($strColumnValue6) . "', " . $strColumnName7 . "='" . EscapeSingleQuote($strColumnValue7) . "', " .
+			$strColumnName8 . "='" . EscapeSingleQuote($strColumnValue8) . "', " . $strColumnName9 . "='" . EscapeSingleQuote($strColumnValue9) . "', " .
+			$strColumnName10 . "='" . EscapeSingleQuote($strColumnValue10) . "', " . $strColumnName11 . "='" . EscapeSingleQuote($strColumnValue11) . "', " .
+			$strColumnName12 . "='" . EscapeSingleQuote($strColumnValue12) . "', " . $strColumnName13 . "='" . EscapeSingleQuote($strColumnValue13) . "', " .
+			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
+			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
+			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
+			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
+			$strColumnName22 . "='" . EscapeSingleQuote($strColumnValue22) . "' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
+
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
+	function DoUpdateQuery23($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strColumnName22, $strColumnValue22, $strColumnName23, $strColumnValue23, 
+								$strFindColumnName, $strFindColumnValue)
+	{
+		global $g_strQuery;
+
+		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "', " . 
+			$strColumnName2 . "='" . EscapeSingleQuote($strColumnValue2) . "', " . $strColumnName3 . "='" . EscapeSingleQuote($strColumnValue3) . "', " .
+			$strColumnName4 . "='" . EscapeSingleQuote($strColumnValue4) . "', " . $strColumnName5 . "='" . EscapeSingleQuote($strColumnValue5) . "', " .
+			$strColumnName6 . "='" . EscapeSingleQuote($strColumnValue6) . "', " . $strColumnName7 . "='" . EscapeSingleQuote($strColumnValue7) . "', " .
+			$strColumnName8 . "='" . EscapeSingleQuote($strColumnValue8) . "', " . $strColumnName9 . "='" . EscapeSingleQuote($strColumnValue9) . "', " .
+			$strColumnName10 . "='" . EscapeSingleQuote($strColumnValue10) . "', " . $strColumnName11 . "='" . EscapeSingleQuote($strColumnValue11) . "', " .
+			$strColumnName12 . "='" . EscapeSingleQuote($strColumnValue12) . "', " . $strColumnName13 . "='" . EscapeSingleQuote($strColumnValue13) . "', " .
+			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
+			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
+			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
+			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
+			$strColumnName22 . "='" . EscapeSingleQuote($strColumnValue22) . "', " . $strColumnName23 . "='" . EscapeSingleQuote($strColumnValue23) . "', " . 
+			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
+
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
+	function DoUpdateQuery24($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, $strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, $strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, $strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, $strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, $strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, $strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, $strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, $strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, $strFindColumnName, $strFindColumnValue)
+	{
+		global $g_strQuery;
+
+		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "', " . 
+			$strColumnName2 . "='" . EscapeSingleQuote($strColumnValue2) . "', " . $strColumnName3 . "='" . EscapeSingleQuote($strColumnValue3) . "', " .
+			$strColumnName4 . "='" . EscapeSingleQuote($strColumnValue4) . "', " . $strColumnName5 . "='" . EscapeSingleQuote($strColumnValue5) . "', " .
+			$strColumnName6 . "='" . EscapeSingleQuote($strColumnValue6) . "', " . $strColumnName7 . "='" . EscapeSingleQuote($strColumnValue7) . "', " .
+			$strColumnName8 . "='" . EscapeSingleQuote($strColumnValue8) . "', " . $strColumnName9 . "='" . EscapeSingleQuote($strColumnValue9) . "', " .
+			$strColumnName10 . "='" . EscapeSingleQuote($strColumnValue10) . "', " . $strColumnName11 . "='" . EscapeSingleQuote($strColumnValue11) . "', " .
+			$strColumnName12 . "='" . EscapeSingleQuote($strColumnValue12) . "', " . $strColumnName13 . "='" . EscapeSingleQuote($strColumnValue13) . "', " .
+			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
+			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
+			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
+			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
+			$strColumnName22 . "='" . EscapeSingleQuote($strColumnValue22) . "', " . $strColumnName23 . "='" . EscapeSingleQuote($strColumnValue23) . "', " . 
+			$strColumnName24 . "='" . EscapeSingleQuote($strColumnValue24) . "', " . "' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
+
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+	
+	function DoUpdateQuery25($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17,
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strColumnName22, $strColumnValue22, $strColumnName23, $strColumnValue23, 
+								$strColumnName24, $strColumnValue24, $strColumnName25, $strColumnValue25, 
+							 $strFindColumnName, $strFindColumnValue)
+	{
+		global $g_strQuery;
+
+		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "', " . 
+			$strColumnName2 . "='" . EscapeSingleQuote($strColumnValue2) . "', " . $strColumnName3 . "='" . EscapeSingleQuote($strColumnValue3) . "', " .
+			$strColumnName4 . "='" . EscapeSingleQuote($strColumnValue4) . "', " . $strColumnName5 . "='" . EscapeSingleQuote($strColumnValue5) . "', " .
+			$strColumnName6 . "='" . EscapeSingleQuote($strColumnValue6) . "', " . $strColumnName7 . "='" . EscapeSingleQuote($strColumnValue7) . "', " .
+			$strColumnName8 . "='" . EscapeSingleQuote($strColumnValue8) . "', " . $strColumnName9 . "='" . EscapeSingleQuote($strColumnValue9) . "', " .
+			$strColumnName10 . "='" . EscapeSingleQuote($strColumnValue10) . "', " . $strColumnName11 . "='" . EscapeSingleQuote($strColumnValue11) . "', " .
+			$strColumnName12 . "='" . EscapeSingleQuote($strColumnValue12) . "', " . $strColumnName13 . "='" . EscapeSingleQuote($strColumnValue13) . "', " .
+			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
+			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
+			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
+			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
+			$strColumnName22 . "='" . EscapeSingleQuote($strColumnValue22) . "', " . $strColumnName23 . "='" . EscapeSingleQuote($strColumnValue23) . "', " . 
+			$strColumnName24 . "='" . EscapeSingleQuote($strColumnValue24) . "', " . $strColumnName25 . "='" . EscapeSingleQuote($strColumnValue25) . "', " . 
+			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
+
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
 	function DoDeleteQuery($dbConnection, $strTableName, $strColumnName, $strColumnValue)
 	{
 		global $g_strQuery;
@@ -1811,7 +2098,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue3) . "','" . EscapeSingleQuote($strColumnValue4) . "','" . 
 						EscapeSingleQuote($strColumnValue5) . "','" . EscapeSingleQuote($strColumnValue6) . "','" . 
 						EscapeSingleQuote($strColumnValue7) . "','" . EscapeSingleQuote($strColumnValue8) . "','" . 
-						EscapeSingleQuote($strColumnValue9)  . "','" . EscapeSingleQuote($strColumnValue10) . "')";
+						EscapeSingleQuote($strColumnValue9) . "','" . EscapeSingleQuote($strColumnValue10) . "')";
 		
 		return DoQuery($dbConnection, $g_strQuery);
 	}
@@ -1826,7 +2113,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue2) . "','" . EscapeSingleQuote($strColumnValue3) . "','" . 
 						EscapeSingleQuote($strColumnValue4) . "','" . EscapeSingleQuote($strColumnValue5) . "','" . 
 						EscapeSingleQuote($strColumnValue6) . "','" . EscapeSingleQuote($strColumnValue7) . "','" . 
-						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9)  . "','" . 
+						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9) . "','" . 
 						EscapeSingleQuote($strColumnValue10) . "','" . EscapeSingleQuote($strColumnValue11) . "')";
 		
 		return DoQuery($dbConnection, $g_strQuery);
@@ -1842,7 +2129,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue2) . "','" . EscapeSingleQuote($strColumnValue3) . "','" . 
 						EscapeSingleQuote($strColumnValue4) . "','" . EscapeSingleQuote($strColumnValue5) . "','" . 
 						EscapeSingleQuote($strColumnValue6) . "','" . EscapeSingleQuote($strColumnValue7) . "','" . 
-						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9)  . "','" . 
+						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9) . "','" . 
 						EscapeSingleQuote($strColumnValue10) . "','" . EscapeSingleQuote($strColumnValue11) . "','" . 
 						EscapeSingleQuote($strColumnValue12) . "')";
 		
@@ -1860,7 +2147,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue3) . "','" . EscapeSingleQuote($strColumnValue4) . "','" . 
 						EscapeSingleQuote($strColumnValue5) . "','" . EscapeSingleQuote($strColumnValue6) . "','" . 
 						EscapeSingleQuote($strColumnValue7) . "','" . EscapeSingleQuote($strColumnValue8) . "','" . 
-						EscapeSingleQuote($strColumnValue9)  . "','" . EscapeSingleQuote($strColumnValue10) . "','" . 
+						EscapeSingleQuote($strColumnValue9) . "','" . EscapeSingleQuote($strColumnValue10) . "','" . 
 						EscapeSingleQuote($strColumnValue11) . "','" . EscapeSingleQuote($strColumnValue12) . "','" . 
 						EscapeSingleQuote($strColumnValue13) . "')";
 		
@@ -1878,7 +2165,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue2) . "','" . EscapeSingleQuote($strColumnValue3) . "','" . 
 						EscapeSingleQuote($strColumnValue4) . "','" . EscapeSingleQuote($strColumnValue5) . "','" . 
 						EscapeSingleQuote($strColumnValue6) . "','" . EscapeSingleQuote($strColumnValue7) . "','" . 
-						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9)  . "','" . 
+						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9) . "','" . 
 						EscapeSingleQuote($strColumnValue10) . "','" . EscapeSingleQuote($strColumnValue11) . "','" . 
 						EscapeSingleQuote($strColumnValue12) . "','" . EscapeSingleQuote($strColumnValue13) . "','" . 
 						EscapeSingleQuote($strColumnValue14) . "')";
@@ -1897,7 +2184,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue2) . "','" . EscapeSingleQuote($strColumnValue3) . "','" . 
 						EscapeSingleQuote($strColumnValue4) . "','" . EscapeSingleQuote($strColumnValue5) . "','" . 
 						EscapeSingleQuote($strColumnValue6) . "','" . EscapeSingleQuote($strColumnValue7) . "','" . 
-						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9)  . "','" . 
+						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9) . "','" . 
 						EscapeSingleQuote($strColumnValue10) . "','" . EscapeSingleQuote($strColumnValue11) . "','" . 
 						EscapeSingleQuote($strColumnValue12) . "','" . EscapeSingleQuote($strColumnValue13) . "','" . 
 						EscapeSingleQuote($strColumnValue14) . "','" . EscapeSingleQuote($strColumnValue15) . "')";
@@ -1916,7 +2203,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue2) . "','" . EscapeSingleQuote($strColumnValue3) . "','" . 
 						EscapeSingleQuote($strColumnValue4) . "','" . EscapeSingleQuote($strColumnValue5) . "','" . 
 						EscapeSingleQuote($strColumnValue6) . "','" . EscapeSingleQuote($strColumnValue7) . "','" . 
-						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9)  . "','" . 
+						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9) . "','" . 
 						EscapeSingleQuote($strColumnValue10) . "','" . EscapeSingleQuote($strColumnValue11) . "','" . 
 						EscapeSingleQuote($strColumnValue12) . "','" . EscapeSingleQuote($strColumnValue13) . "','" . 
 						EscapeSingleQuote($strColumnValue14) . "','" . EscapeSingleQuote($strColumnValue15) . "','" . 
@@ -1937,7 +2224,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue2) . "','" . EscapeSingleQuote($strColumnValue3) . "','" . 
 						EscapeSingleQuote($strColumnValue4) . "','" . EscapeSingleQuote($strColumnValue5) . "','" . 
 						EscapeSingleQuote($strColumnValue6) . "','" . EscapeSingleQuote($strColumnValue7) . "','" . 
-						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9)  . "','" . 
+						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9) . "','" . 
 						EscapeSingleQuote($strColumnValue10) . "','" . EscapeSingleQuote($strColumnValue11) . "','" . 
 						EscapeSingleQuote($strColumnValue12) . "','" . EscapeSingleQuote($strColumnValue13) . "','" . 
 						EscapeSingleQuote($strColumnValue14) . "','" . EscapeSingleQuote($strColumnValue15) . "','" . 
@@ -1958,7 +2245,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue2) . "','" . EscapeSingleQuote($strColumnValue3) . "','" . 
 						EscapeSingleQuote($strColumnValue4) . "','" . EscapeSingleQuote($strColumnValue5) . "','" . 
 						EscapeSingleQuote($strColumnValue6) . "','" . EscapeSingleQuote($strColumnValue7) . "','" . 
-						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9)  . "','" . 
+						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9) . "','" . 
 						EscapeSingleQuote($strColumnValue10) . "','" . EscapeSingleQuote($strColumnValue11) . "','" . 
 						EscapeSingleQuote($strColumnValue12) . "','" . EscapeSingleQuote($strColumnValue13) . "','" . 
 						EscapeSingleQuote($strColumnValue14) . "','" . EscapeSingleQuote($strColumnValue15) . "','" . 
@@ -1980,7 +2267,7 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue2) . "','" . EscapeSingleQuote($strColumnValue3) . "','" . 
 						EscapeSingleQuote($strColumnValue4) . "','" . EscapeSingleQuote($strColumnValue5) . "','" . 
 						EscapeSingleQuote($strColumnValue6) . "','" . EscapeSingleQuote($strColumnValue7) . "','" . 
-						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9)  . "','" . 
+						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9) . "','" . 
 						EscapeSingleQuote($strColumnValue10) . "','" . EscapeSingleQuote($strColumnValue11) . "','" . 
 						EscapeSingleQuote($strColumnValue12) . "','" . EscapeSingleQuote($strColumnValue13) . "','" . 
 						EscapeSingleQuote($strColumnValue14) . "','" . EscapeSingleQuote($strColumnValue15) . "','" . 
@@ -1990,6 +2277,226 @@ $g_arrayHireRoom = [
 		return DoQuery($dbConnection, $g_strQuery);
 	}
 	
+	function DoInsertQuery20($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20)
+	{
+		global $g_strQuery;
+		$g_strQuery = "INSERT INTO " . $strTableName . "(" . $strColumnName1 . "," . $strColumnName2 . "," . 
+						$strColumnName3 . "," . $strColumnName4 . "," . $strColumnName5 . "," . $strColumnName6 . "," . 
+						$strColumnName7 . "," . $strColumnName8 . "," . $strColumnName9 . "," . $strColumnName10 . "," . 
+						$strColumnName11 . "," . $strColumnName12 . "," . $strColumnName13 . "," . $strColumnName14 . "," . 
+						$strColumnName15 . "," . $strColumnName16. "," . $strColumnName17. "," . $strColumnName18. "," . 
+						$strColumnName19 . "," . $strColumnName20. ") VALUES('" . EscapeSingleQuote($strColumnValue1) . "','" . 
+						EscapeSingleQuote($strColumnValue2) . "','" . EscapeSingleQuote($strColumnValue3) . "','" . 
+						EscapeSingleQuote($strColumnValue4) . "','" . EscapeSingleQuote($strColumnValue5) . "','" . 
+						EscapeSingleQuote($strColumnValue6) . "','" . EscapeSingleQuote($strColumnValue7) . "','" . 
+						EscapeSingleQuote($strColumnValue8) . "','" . EscapeSingleQuote($strColumnValue9) . "','" . 
+						EscapeSingleQuote($strColumnValue10) . "','" . EscapeSingleQuote($strColumnValue11) . "','" . 
+						EscapeSingleQuote($strColumnValue12) . "','" . EscapeSingleQuote($strColumnValue13) . "','" . 
+						EscapeSingleQuote($strColumnValue14) . "','" . EscapeSingleQuote($strColumnValue15) . "','" . 
+						EscapeSingleQuote($strColumnValue16) . "','" . EscapeSingleQuote($strColumnValue17) . "','" . 
+						EscapeSingleQuote($strColumnValue18) . "','" . EscapeSingleQuote($strColumnValue19) . "'," . 
+						EscapeSingleQuote($strColumnValue20) . "')";
+		
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+	
+	function DoInsertQuery21($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21)
+	{
+		global $g_strQuery;
+		$g_strQuery = "INSERT INTO " . $strTableName . "(" . $strColumnName1 . "," . $strColumnName2 . "," . 
+						$strColumnName3 . "," . $strColumnName4 . "," . $strColumnName5 . "," . $strColumnName6 . "," . 
+						$strColumnName7 . "," . $strColumnName8 . "," . $strColumnName9 . "," . $strColumnName10 . "," . 
+						$strColumnName11 . "," . $strColumnName12 . "," . $strColumnName13 . "," . $strColumnName14 . "," . 
+						$strColumnName15 . "," . $strColumnName16. "," . $strColumnName17. "," . $strColumnName18. "," . 
+						$strColumnName19 . "," . $strColumnName20. "," . $strColumnName21. ") VALUES('" . 
+						EscapeSingleQuote($strColumnValue1) . "','" . EscapeSingleQuote($strColumnValue2) . "','" . 
+						EscapeSingleQuote($strColumnValue3) . "','" . EscapeSingleQuote($strColumnValue4) . "','" . 
+						EscapeSingleQuote($strColumnValue5) . "','" . EscapeSingleQuote($strColumnValue6) . "','" . 
+						EscapeSingleQuote($strColumnValue7) . "','" . EscapeSingleQuote($strColumnValue8) . "','" . 
+						EscapeSingleQuote($strColumnValue9) . "','" . EscapeSingleQuote($strColumnValue10) . "','" . 
+						EscapeSingleQuote($strColumnValue11) . "','" . EscapeSingleQuote($strColumnValue12) . "','" . 
+						EscapeSingleQuote($strColumnValue13) . "','" . EscapeSingleQuote($strColumnValue14) . "','" . 
+						EscapeSingleQuote($strColumnValue15) . "','" . EscapeSingleQuote($strColumnValue16) . "','" . 
+						EscapeSingleQuote($strColumnValue17) . "','" . EscapeSingleQuote($strColumnValue18) . "','" . 
+						EscapeSingleQuote($strColumnValue19) . "'," . EscapeSingleQuote($strColumnValue20) . "'," . 
+						EscapeSingleQuote($strColumnValue21) . "')";
+		
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+	
+	function DoInsertQuery22($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strColumnName22, $strColumnValue22)
+	{
+		global $g_strQuery;
+		$g_strQuery = "INSERT INTO " . $strTableName . "(" . $strColumnName1 . "," . $strColumnName2 . "," . 
+						$strColumnName3 . "," . $strColumnName4 . "," . $strColumnName5 . "," . $strColumnName6 . "," . 
+						$strColumnName7 . "," . $strColumnName8 . "," . $strColumnName9 . "," . $strColumnName10 . "," . 
+						$strColumnName11 . "," . $strColumnName12 . "," . $strColumnName13 . "," . $strColumnName14 . "," . 
+						$strColumnName15 . "," . $strColumnName16. "," . $strColumnName17. "," . $strColumnName18. "," . 
+						$strColumnName19 . "," . $strColumnName20. "," . $strColumnName21. "," . $strColumnName21 . "," . 
+						$strColumnName22. "," . $strColumnName22 . ") VALUES('" . 
+						EscapeSingleQuote($strColumnValue1) . "','" . EscapeSingleQuote($strColumnValue2) . "','" . 
+						EscapeSingleQuote($strColumnValue3) . "','" . EscapeSingleQuote($strColumnValue4) . "','" . 
+						EscapeSingleQuote($strColumnValue5) . "','" . EscapeSingleQuote($strColumnValue6) . "','" . 
+						EscapeSingleQuote($strColumnValue7) . "','" . EscapeSingleQuote($strColumnValue8) . "','" . 
+						EscapeSingleQuote($strColumnValue9) . "','" . EscapeSingleQuote($strColumnValue10) . "','" . 
+						EscapeSingleQuote($strColumnValue11) . "','" . EscapeSingleQuote($strColumnValue12) . "','" . 
+						EscapeSingleQuote($strColumnValue13) . "','" . EscapeSingleQuote($strColumnValue14) . "','" . 
+						EscapeSingleQuote($strColumnValue15) . "','" . EscapeSingleQuote($strColumnValue16) . "','" . 
+						EscapeSingleQuote($strColumnValue17) . "','" . EscapeSingleQuote($strColumnValue18) . "','" . 
+						EscapeSingleQuote($strColumnValue19) . "'," . EscapeSingleQuote($strColumnValue20) . "'," . 
+						EscapeSingleQuote($strColumnValue21) . "'," . EscapeSingleQuote($strColumnValue22) . "'," . "')";
+		
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
+	function DoInsertQuery23($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strColumnName22, $strColumnValue22, $strColumnName23, $strColumnValue23)
+	{
+		global $g_strQuery;
+		$g_strQuery = "INSERT INTO " . $strTableName . "(" . $strColumnName1 . "," . $strColumnName2 . "," . 
+						$strColumnName3 . "," . $strColumnName4 . "," . $strColumnName5 . "," . $strColumnName6 . "," . 
+						$strColumnName7 . "," . $strColumnName8 . "," . $strColumnName9 . "," . $strColumnName10 . "," . 
+						$strColumnName11 . "," . $strColumnName12 . "," . $strColumnName13 . "," . $strColumnName14 . "," . 
+						$strColumnName15 . "," . $strColumnName16. "," . $strColumnName17. "," . $strColumnName18. "," . 
+						$strColumnName19 . "," . $strColumnName20. "," . $strColumnName21. "," . $strColumnName21 . "," . 
+						$strColumnName22. "," . $strColumnName22 . "," . $strColumnName23 . ") VALUES('" . 
+						EscapeSingleQuote($strColumnValue1) . "','" . EscapeSingleQuote($strColumnValue2) . "','" . 
+						EscapeSingleQuote($strColumnValue3) . "','" . EscapeSingleQuote($strColumnValue4) . "','" . 
+						EscapeSingleQuote($strColumnValue5) . "','" . EscapeSingleQuote($strColumnValue6) . "','" . 
+						EscapeSingleQuote($strColumnValue7) . "','" . EscapeSingleQuote($strColumnValue8) . "','" . 
+						EscapeSingleQuote($strColumnValue9) . "','" . EscapeSingleQuote($strColumnValue10) . "','" . 
+						EscapeSingleQuote($strColumnValue11) . "','" . EscapeSingleQuote($strColumnValue12) . "','" . 
+						EscapeSingleQuote($strColumnValue13) . "','" . EscapeSingleQuote($strColumnValue14) . "','" . 
+						EscapeSingleQuote($strColumnValue15) . "','" . EscapeSingleQuote($strColumnValue16) . "','" . 
+						EscapeSingleQuote($strColumnValue17) . "','" . EscapeSingleQuote($strColumnValue18) . "','" . 
+						EscapeSingleQuote($strColumnValue19) . "'," . EscapeSingleQuote($strColumnValue20) . "'," . 
+						EscapeSingleQuote($strColumnValue21) . "'," . EscapeSingleQuote($strColumnValue22) . "'," . 
+						EscapeSingleQuote($strColumnValue23) . "')";
+		
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+	
+	function DoInsertQuery24($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strColumnName22, $strColumnValue22, $strColumnName23, $strColumnValue23, 
+								$strColumnName24, $strColumnValue24)
+	{
+		global $g_strQuery;
+		$g_strQuery = "INSERT INTO " . $strTableName . "(" . $strColumnName1 . "," . $strColumnName2 . "," . 
+						$strColumnName3 . "," . $strColumnName4 . "," . $strColumnName5 . "," . $strColumnName6 . "," . 
+						$strColumnName7 . "," . $strColumnName8 . "," . $strColumnName9 . "," . $strColumnName10 . "," . 
+						$strColumnName11 . "," . $strColumnName12 . "," . $strColumnName13 . "," . $strColumnName14 . "," . 
+						$strColumnName15 . "," . $strColumnName16. "," . $strColumnName17. "," . $strColumnName18. "," . 
+						$strColumnName19 . "," . $strColumnName20. "," . $strColumnName21. "," . $strColumnName21 . "," . 
+						$strColumnName22. "," . $strColumnName22 . "," . $strColumnName23 . "," . $strColumnName23 . 
+						$strColumnName24 . "," . $strColumnName24 . ") VALUES('" . 
+						EscapeSingleQuote($strColumnValue1) . "','" . EscapeSingleQuote($strColumnValue2) . "','" . 
+						EscapeSingleQuote($strColumnValue3) . "','" . EscapeSingleQuote($strColumnValue4) . "','" . 
+						EscapeSingleQuote($strColumnValue5) . "','" . EscapeSingleQuote($strColumnValue6) . "','" . 
+						EscapeSingleQuote($strColumnValue7) . "','" . EscapeSingleQuote($strColumnValue8) . "','" . 
+						EscapeSingleQuote($strColumnValue9) . "','" . EscapeSingleQuote($strColumnValue10) . "','" . 
+						EscapeSingleQuote($strColumnValue11) . "','" . EscapeSingleQuote($strColumnValue12) . "','" . 
+						EscapeSingleQuote($strColumnValue13) . "','" . EscapeSingleQuote($strColumnValue14) . "','" . 
+						EscapeSingleQuote($strColumnValue15) . "','" . EscapeSingleQuote($strColumnValue16) . "','" . 
+						EscapeSingleQuote($strColumnValue17) . "','" . EscapeSingleQuote($strColumnValue18) . "','" . 
+						EscapeSingleQuote($strColumnValue19) . "'," . EscapeSingleQuote($strColumnValue20) . "'," . 
+						EscapeSingleQuote($strColumnValue21) . "'," . EscapeSingleQuote($strColumnValue22) . "'," . 
+						EscapeSingleQuote($strColumnValue23) . "'," . EscapeSingleQuote($strColumnValue24) . "')";
+		
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
+	function DoInsertQuery25($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strColumnName22, $strColumnValue22, $strColumnName23, $strColumnValue23, 
+								$strColumnName24, $strColumnValue24, $strColumnValue25)
+	{
+		global $g_strQuery;
+		
+		$g_strQuery = "INSERT INTO " . $strTableName . "(" . $strColumnName1 . "," . $strColumnName2 . "," . 
+						$strColumnName3 . "," . $strColumnName4 . "," . $strColumnName5 . "," . $strColumnName6 . "," . 
+						$strColumnName7 . "," . $strColumnName8 . "," . $strColumnName9 . "," . $strColumnName10 . "," . 
+						$strColumnName11 . "," . $strColumnName12 . "," . $strColumnName13 . "," . $strColumnName14 . "," . 
+						$strColumnName15 . "," . $strColumnName16. "," . $strColumnName17. "," . $strColumnName18. "," . 
+						$strColumnName19 . "," . $strColumnName20. "," . $strColumnName21. "," . $strColumnName21 . "," . 
+						$strColumnName22. "," . $strColumnName22 . "," . $strColumnName23 . "," . $strColumnName23 . 
+						$strColumnName24 . "," . $strColumnName24 . "," . $strColumnName25 . ") VALUES('" . 
+						EscapeSingleQuote($strColumnValue1) . "','" . EscapeSingleQuote($strColumnValue2) . "','" . 
+						EscapeSingleQuote($strColumnValue3) . "','" . EscapeSingleQuote($strColumnValue4) . "','" . 
+						EscapeSingleQuote($strColumnValue5) . "','" . EscapeSingleQuote($strColumnValue6) . "','" . 
+						EscapeSingleQuote($strColumnValue7) . "','" . EscapeSingleQuote($strColumnValue8) . "','" . 
+						EscapeSingleQuote($strColumnValue9) . "','" . EscapeSingleQuote($strColumnValue10) . "','" . 
+						EscapeSingleQuote($strColumnValue11) . "','" . EscapeSingleQuote($strColumnValue12) . "','" . 
+						EscapeSingleQuote($strColumnValue13) . "','" . EscapeSingleQuote($strColumnValue14) . "','" . 
+						EscapeSingleQuote($strColumnValue15) . "','" . EscapeSingleQuote($strColumnValue16) . "','" . 
+						EscapeSingleQuote($strColumnValue17) . "','" . EscapeSingleQuote($strColumnValue18) . "','" . 
+						EscapeSingleQuote($strColumnValue19) . "'," . EscapeSingleQuote($strColumnValue20) . "'," . 
+						EscapeSingleQuote($strColumnValue21) . "'," . EscapeSingleQuote($strColumnValue22) . "'," . 
+						EscapeSingleQuote($strColumnValue23) . "'," . EscapeSingleQuote($strColumnValue24) . "'," . 
+						EscapeSingleQuote($strColumnValue25) . "')";
+
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
 	function DoDeleteQuery1($dbConnection, $strTableName, $strColumnName, $strColumnValue)
 	{
 		global $g_strQuery;

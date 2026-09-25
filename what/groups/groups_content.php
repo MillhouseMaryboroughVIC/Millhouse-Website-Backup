@@ -82,8 +82,8 @@ using their imagination and dice.</p>
 <a href="https://en.wikipedia.org/wiki/Dungeons_%26_Dragons">Wikipedia D&amp;D</a>.</p>
 
 <p>
-	<a href="../groups/images/dungeons_dragons1.jpg">
-	<img src="../groups/images/dungeons_dragons1.jpg" alt="dungeons_dragons1.jpg" class="content_img" /></a>&nbsp;
+	<a href="images/dungeons_dragons.jpg">
+	<img src="images/dungeons_dragons.jpg" alt="dungeons_dragons1.jpg" class="content_img" /></a>&nbsp;
 	<a href="../groups/images/dungeons_dragons2.jpg">
 	<img src="../groups/images/dungeons_dragons2.jpg" alt="dungeons_dragons2.jpg" class="content_img" /></a>&nbsp;
 </p>
@@ -99,8 +99,8 @@ with others.</p>
 
 <p>
 	<a href="../../images/scrappers.jpg"><img class="content_img" src="../../images/scrappers.jpg" alt="scrappers.jpg" /></a>
-	<a href="images/scrappers1.jpg">
-	<img class="content_img" src="images/scrappers1.jpg" alt="scrappers1.jpg" height="100"/></a>&nbsp;
+	<a href="images/scrappers.jpg">
+	<img class="content_img" src="images/scrappers.jpg" alt="scrappers1.jpg" height="100"/></a>&nbsp;
 	<a href="images/scrappers2.jpg">
 	<img class="content_img" src="images/scrappers2.jpg" alt="scrappers2.jpg" height="100"/></a>&nbsp;
 	<a href="images/scrappers3.jpg">
@@ -167,7 +167,7 @@ others.</p>
     </li>
     <li>
     	Digital Story /Tellers<br/><br/>
-    	<a href="images/u3a_digital_story_telling.jpg"><img class="content_img" src="images/u3a_digital_story_telling.jpg" alt="u3a_digital_story_telling.jpg" height="100"/></a>
+    	<a href="images/u3a_digital_photobooks.jpg"><img class="content_img" src="images/u3a_digital_photobooks.jpg" alt="u3a_digital_story_telling.jpg" height="100"/></a>
     </li>
 </ul>
 

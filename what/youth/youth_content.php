@@ -59,7 +59,7 @@ The “House” Youth Activity Hub runs every Wednesday from 3:30pm to 5:00pm at
 
 <p>
 	<a href="../../images/food_friends.jpg"><img class="content_img" src="../../images/food_friends.jpg" alt="food_friends.jpg" /></a>&nbsp;
-	<a href="images/food_friends1.jpg"><img class="content_img" src="images/food_friends1.jpg" alt="food_friends1.jpg" /></a>&nbsp;
+	<a href="images/food_friends.jpg"><img class="content_img" src="images/food_friends.jpg" alt="food_friends1.jpg" /></a>&nbsp;
 	<a href="images/food_friends2.jpg"><img class="content_img" src="images/food_friends2.jpg" alt="food_friends2.jpg" /></a>
 </p>
 
@@ -156,8 +156,8 @@ using their imagination and dice.</p>
 <a href="https://en.wikipedia.org/wiki/Dungeons_%26_Dragons">Wikipedia D&amp;D</a>.</p>
 
 <p>
-	<a href="../groups/images/dungeons_dragons1.jpg">
-	<img src="../groups/images/dungeons_dragons1.jpg" alt="dungeons_dragons1.jpg" class="content_img" /></a>&nbsp;
+	<a href="../groups/images/dungeons_dragons.jpg">
+	<img src="../groups/images/dungeons_dragons.jpg" alt="dungeons_dragons1.jpg" class="content_img" /></a>&nbsp;
 	<a href="../groups/images/dungeons_dragons2.jpg">
 	<img src="../groups/images/dungeons_dragons2.jpg" alt="dungeons_dragons2.jpg" class="content_img" /></a>&nbsp;
 </p>

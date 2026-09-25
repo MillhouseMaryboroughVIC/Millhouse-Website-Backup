@@ -115,6 +115,7 @@
 
 
 
+
 			td
 			{
 				vertical-align: middle;
@@ -225,7 +226,8 @@
 			<a href="../about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
 				<li class="submenu_item"><a href="../about/people/people.php">&#x1F469; Mill House People</a></li>
-				<li class="submenu_item"><a href="../about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
+				<li class="submenu_item">
+				<a href="../about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
 				<li class="submenu_item">
 				<a href="../about/site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
@@ -306,7 +308,6 @@
 									<a href="../about/about.php">&#x1F50D; About us</a>
 									<a href="../calendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../room/room.php">&#x1F3E8; Room hire</a>
-									<a href="../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../contact/contact.php">&#x1F4DE; Contact</a>
 								</div>
 								<br/>

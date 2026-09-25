@@ -201,15 +201,39 @@
 					}		
 					if ($bGo)
 					{
-						if ($row["exclude_xmas_new_year"] && IsXmasNewYear())
+						if ((bool)$row["exclude_xmas_new_year"] && IsXmasNewYear())
 						{
 							// Do nothing - exclude this group.
 						}
-						else if ($row["exclude_easter"] && IsEaster())
+						else if ((bool)$row["exclude_easter"] && IsEaster())
 						{
 							// Do nothing - exclude this group.
 						}
-						else if ($row["exclude_school_holidays"] && IsSchoolHoliday())
+						else if ((bool)$row["exclude_school_holidays"] && IsSchoolHoliday())
+						{
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$row["exclude_VFL_grand_final"] && IsVFLGrandFinal())
+						{
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$row["exclude_melbourne_cup"] && IsMelbourneCup())
+						{
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$row["exclude_labour_day"] && IsLabourDay())
+						{
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$row["exclude_australia_day"] && IsAustraliaDay())
+						{
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$row["exclude_anzac_day"] && IsANZACDay())
+						{
+							// Do nothing - exclude this group.
+						}
+						else if ((bool)$row["exclude_monarchs_birthday"] && IsMonarchsBirthday())
 						{
 							// Do nothing - exclude this group.
 						}
@@ -281,7 +305,7 @@ if ($row["name"] == "axis_employment")
 				}
 				echo "</table>\n";
 				if ($nCount == 0)
-					echo "<p>No events today...</p><br/>\n";
+					echo "<p>No events today - " . DoGetPublicHoliday() . "...</p><br/>\n";
 			}
 		}
 		if ($strFridayFeastMenu != "")
@@ -407,8 +431,10 @@ if ($row["name"] == "axis_employment")
 			<a href="about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
 				<li class="submenu_item"><a href="about/people/people.php">&#x1F469; Mill House People</a></li>
-				<li class="submenu_item"><a href="about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
-				<li class="submenu_item"><a href="site_history/site_history.php">&#x1F3ED; Site History</a></li>
+				<li class="submenu_item">
+				<a href="about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
+				<li class="submenu_item">
+				<a href="about/site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
 		</li>
 		<li style="display:<?php echo (IsAdminLoggedIn() ? "block" : "none"); ?>;">
@@ -482,7 +508,6 @@ if ($row["name"] == "axis_employment")
 									<a href="about/about.php">&#x1F50D; About us</a>
 									<a href="calendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="room/room.php">&#x1F3E8; Room hire</a>
-									<a href="sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="contact/contact.php">&#x1F4DE; Contact</a>
 								</div>
 								<br/>
@@ -602,7 +627,7 @@ if ($row["name"] == "axis_employment")
 
 <h1>Welcome to the Mill House Neighbourhood House website.</h1>
 
-<p>Mill House a welcoming community space in the heart of Maryborough.
+<p>Mill House a welcoming community space in the heart of Maryborough.</p>
 
 <p>A place to learn, share, volunteer and connect. We provide a welcoming, inclusive, and empowering space that fosters 
 community connection, lifelong learning, social inclusion, and local participation.</p>
@@ -777,11 +802,6 @@ Sarah</p>
 	</tr>
 </table>
 
-<h1>Our sponsors &amp; collaborators</h1>
-<div class="sponsors_container">
-	<?php echo DoGenerateSponsors(); ?>
-</div>
-
 <h1>Mill House Activities</h1>
 <?php require "MillHouseActivities.html"; ?>
 
@@ -790,6 +810,11 @@ Sarah</p>
 
 <h1>Service Providers</h1>
 <?php require "MillHouseServiceProviders.html"; ?>
+
+<h1>Our sponsors &amp; collaborators</h1>
+<div class="sponsors_container">
+	<?php echo DoGenerateSponsors(); ?>
+</div>
 
 <p>&nbsp;</p>
 
@@ -842,6 +867,7 @@ Sarah</p>
 	?>
 	
 </div>
+
 
 								<!-- #EndEditable -->
 							</div>

@@ -24,7 +24,7 @@
 		<title>Milestones</title>
 		
 		<style type="text/css">
-		</style>
+</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -121,7 +121,8 @@
 			<a href="../about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
 				<li class="submenu_item"><a href="../people/people.php">&#x1F469; Mill House People</a></li>
-				<li class="submenu_item"><a href="milestones.php">&#x1F3C6; Milestones</a></li>
+				<li class="submenu_item">
+				<a href="milestones.php">&#x1F3C6; Milestones</a></li>
 				<li class="submenu_item">
 				<a href="../site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
@@ -131,12 +132,14 @@
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
 				<li class="submenu_item">
 				<a href="../../what/meetings/meetings.php">&#x1F3AD; Community groups</a></li>
-				<li class="submenu_item"><a href="../../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
+				<li class="submenu_item">
+				<a href="../../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
 				<li class="submenu_item">
 				<a href="../../what/employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="../../what/food/food.php">&#x1F34E; Food relief</a></li>
 				<li class="submenu_item"><a href="../../what/groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
-				<li class="submenu_item"><a href="../../what/support/support.php">&#x1F49D; Support</a></li>
+				<li class="submenu_item">
+				<a href="../../what/support/support.php">&#x1F49D; Support</a></li>
 				<li class="submenu_item"><a href="../../what/youth/youth.php">&#x1F3AE; Youth</a></li>
 			</ul>
 		</li>
@@ -151,7 +154,8 @@
 				<a href="../../contribute/volunteering.php"><b>&#x1F64B; Become a volunteer</b></a></li>
 				<li class="submenu_item">
 				<a href="../../contribute/request_sponsorship.php"><b>&#x1F4B0; Become a sponsor</b></a></li>
-				<li class="submenu_item"><a href="../../contribute/donation.php"><b>&#x1F4B5; Make a donation</b></a></li>
+				<li class="submenu_item">
+				<a href="../../contribute/donation.php"><b>&#x1F4B5; Make a donation</b></a></li>
 			</ul>
 		</li>
 		<li><a href="../../contact/contact.php">&#x1F4DE; Contact</a></li>
@@ -165,7 +169,8 @@
 				<a href="../../governance/reports/reports.php"><b>&#x1F4D7; Annual Reports</b></a></li>
 				<li class="submenu_item">
 				<a href="../../governance/policies/policies.php"><b>&#x1F4D8; Policies</b></a></li>
-				<li class="submenu_item"><a href="../../governance/plan/plan.php"><b>&#x1F4D9; Strategic Plan</b></a></li>
+				<li class="submenu_item">
+				<a href="../../governance/plan/plan.php"><b>&#x1F4D9; Strategic Plan</b></a></li>
 			</ul>
 		</li>
 		<!--<li><a href="group_events/group_events.php">Group Events</a></li>-->
@@ -204,7 +209,6 @@
 									<a href="../about.php">&#x1F50D; About us</a>
 									<a href="../../calendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../../room/room.php">&#x1F3E8; Room hire</a>
-									<a href="../../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../../contact/contact.php">&#x1F4DE; Contact</a>
 								</div>
 								<br/>

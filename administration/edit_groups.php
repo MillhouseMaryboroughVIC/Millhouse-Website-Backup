@@ -53,6 +53,12 @@
 		$_SESSION["exclude_school_holidays"] = false;
 		$_SESSION["exclude_xmas_new_year"] = false;
 		$_SESSION["exclude_easter"] = false;
+		$_SESSION["exclude_anzac_day"] = false;
+		$_SESSION["exclude_australia_day"] = false;
+		$_SESSION["exclude_monarchs_birthday"] = false;
+		$_SESSION["exclude_labour_day"] = false;
+		$_SESSION["exclude_melbourne_cup"] = false;
+		$_SESSION["exclude_VFL_grand_final"] = false;
 		$_SESSION["password_group"] = "";
 	}
 	if (!isset($_SESSION["group_shortkey"]))
@@ -223,6 +229,42 @@
 		echo "                        <td>\n";
 		echo "	                          <label for=\"exclude_xmas\">Exclude school holidays?</label>\n";
 		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <input type=\"checkbox\" id=\"exclude_anzac_day\" name=\"exclude_anzac_day\" autocomplete=\"on\"" . (($_SESSION["exclude_anzac_day"]) ? "checked" : "") . " />\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <label for=\"exclude_xmas\">Exclude ANZAC day?</label>\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <input type=\"checkbox\" id=\"exclude_australia_day\" name=\"exclude_australia_day\" autocomplete=\"on\"" . (($_SESSION["exclude_australia_day"]) ? "checked" : "") . " />\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <label for=\"exclude_xmas\">Exclude Australia Day?</label>\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <input type=\"checkbox\" id=\"exclude_monarchs_birthday\" name=\"exclude_monarchs_birthday\" autocomplete=\"on\"" . (($_SESSION["exclude_monarchs_birthday"]) ? "checked" : "") . " />\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <label for=\"exclude_xmas\">Exclude Monarch's Birthday?</label>\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <input type=\"checkbox\" id=\"exclude_labour_day\" name=\"exclude_labour_day\" autocomplete=\"on\"" . (($_SESSION["exclude_labour_day"]) ? "checked" : "") . " />\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <label for=\"exclude_xmas\">Exclude Labour Day?</label>\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <input type=\"checkbox\" id=\"exclude_melbourne_cup\" name=\"exclude_melbourne_cup\" autocomplete=\"on\"" . (($_SESSION["exclude_melbourne_cup"]) ? "checked" : "") . " />\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <label for=\"exclude_xmas\">Exclude Melbourne Cup Day?</label>\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <input type=\"checkbox\" id=\"exclude_VFL_grand_final\" name=\"exclude_VFL_grand_final\" autocomplete=\"on\"" . (($_SESSION["exclude_VFL_grand_final"]) ? "checked" : "") . " />\n";
+		echo "                        </td>\n";
+		echo "                        <td>\n";
+		echo "	                          <label for=\"exclude_xmas\">Exclude VFL Grand Final Day?</label>\n";
+		echo "                        </td>\n";
 		echo "	                  </tr>\n";
 		echo "                </table>\n";
 		echo "	          </td>\n";
@@ -306,13 +348,46 @@
 			{
 				if ($_POST["group_shortkey"] == 0)
 				{
-					if ($result = DoInsertQuery19($g_dbMillhouse, "groups", "name", $_POST["name"], "description", $_POST["description"], "password", $_POST["password_group"], "contact", $_POST["contact"], "email", $_POST["email"], "phone", $_POST["phone"], "dow1", $_POST["dow1"], "dow2", $_POST["dow2"], "wom", $_POST["wom"], "time1", $_POST["time1"], "time2", $_POST["time2"], "hours", $_POST["duration"], "cost", $_POST["cost"], "donation", $_POST["donation"], "purpose", $_POST["purpose"], "facebook", $_POST["facebook"], "exclude_xmas_new_year", $_POST["exclude_xmas_new_year"], "exclude_easter", $_POST["exclude_easter"], "exclude_school_holidays", $_POST["exclude_school_holidays"]))
+					if ($result = DoInsertQuery25($g_dbMillhouse, "groups", "name", $_POST["name"], 
+													"description", $_POST["description"], 
+													"password", $_POST["password_group"], "contact", $_POST["contact"], 
+													"email", $_POST["email"], "phone", $_POST["phone"], 
+													"dow1", $_POST["dow1"], "dow2", $_POST["dow2"], "wom", $_POST["wom"], 
+													"time1", $_POST["time1"], "time2", $_POST["time2"], 
+													"hours", $_POST["duration"], "cost", $_POST["cost"], 
+													"donation", $_POST["donation"], "purpose", $_POST["purpose"], 
+													"facebook", $_POST["facebook"], 
+													"exclude_xmas_new_year", $_POST["exclude_xmas_new_year"], 
+													"exclude_easter", $_POST["exclude_easter"], 
+													"exclude_school_holidays", $_POST["exclude_school_holidays"]),
+													"exclude_anzac_day", $_POST["exclude_anzac_day"], 
+													"exclude_australia_day", $_POST["exclude_australia_day"], 
+													"exclude_monarchs_birthday", $_POST["exclude_monarchs_birthday"], 
+													"exclude_labour_day", $_POST["exclude_labour_day"], 
+													"exclude_melbourne_cup", $_POST["exclude_melbourne_cup"], 
+													"exclude_VFL_grand_final", $_POST["exclude_VFL_grand_final"]);
 					{
 					}
 				}
 				else
 				{
-					if ($result = DoUpdateQuery19($g_dbMillhouse, "groups", "name", $_POST["name"], "description", $_POST["description"], "password", $_POST["password_group"], "contact", $_POST["contact"], "email", $_POST["email"], "phone", $_POST["phone"], "dow1", $_POST["dow1"], "dow2", $_POST["dow2"], "wom", $_POST["wom"], "time1", $_POST["time1"], "time2", $_POST["time2"], "hours", $_POST["duration"], "cost", $_POST["cost"], "donation", $_POST["donation"], "purpose", $_POST["purpose"], "facebook", $_POST["facebook"], "exclude_xmas_new_year", $_POST["exclude_xmas_new_year"], "exclude_easter", $_POST["exclude_easter"], "exclude_school_holidays", $_POST["exclude_school_holidays"], "shortkey", $_POST["group_shortkey"]))
+					if ($result = DoUpdateQuery25($g_dbMillhouse, "groups", "name", $_POST["name"], 
+													"description", $_POST["description"], "password", $_POST["password_group"], 
+													"contact", $_POST["contact"], "email", $_POST["email"], "phone", $_POST["phone"], 
+													"dow1", $_POST["dow1"], "dow2", $_POST["dow2"], "wom", $_POST["wom"], 
+													"time1", $_POST["time1"], "time2", $_POST["time2"], "hours", $_POST["duration"], 
+													"cost", $_POST["cost"], "donation", $_POST["donation"], "purpose", $_POST["purpose"], 
+													"facebook", $_POST["facebook"], 
+													"exclude_xmas_new_year", $_POST["exclude_xmas_new_year"], 
+													"exclude_easter", $_POST["exclude_easter"], 
+													"exclude_school_holidays", $_POST["exclude_school_holidays"], 
+													"exclude_anzac_day", $_POST["exclude_anzac_day"], 
+													"exclude_australia_day", $_POST["exclude_australia_day"], 
+													"exclude_monarchs_birthday", $_POST["exclude_monarchs_birthday"], 
+													"exclude_labour_day", $_POST["exclude_labour_day"], 
+													"exclude_melbourne_cup", $_POST["exclude_melbourne_cup"], 
+													"exclude_VFL_grand_final", $_POST["exclude_VFL_grand_final"], 
+													"shortkey", $_POST["group_shortkey"]))
 					{
 					}
 				}
@@ -447,7 +522,7 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title></title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -543,7 +618,8 @@
 			<a href="../about/about.php" onclick="DoClickNavLinkWithSubmenu('about')">&#x1F50D; About Mill House</a>
 			<ul style="display:<?php echo DoShowHideSubmenu("about"); ?>;" id="about">
 				<li class="submenu_item"><a href="../about/people/people.php">&#x1F469; Mill House People</a></li>
-				<li class="submenu_item"><a href="../about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
+				<li class="submenu_item">
+				<a href="../about/milestones/milestones.php">&#x1F3C6; Milestones</a></li>
 				<li class="submenu_item">
 				<a href="../about/site_history/site_history.php">&#x1F3ED; Site History</a></li>
 			</ul>
@@ -626,7 +702,6 @@
 									<a href="../about/about.php">&#x1F50D; About us</a>
 									<a href="../calendar/calendar.php">&#x1F4C5; Calendar</a>
 									<a href="../room/room.php">&#x1F3E8; Room hire</a>
-									<a href="../sponsors/sponsors.php">&#x1F4B0; Our Collaborators</a>
 									<a href="../contact/contact.php">&#x1F4DE; Contact</a>
 								</div>
 								<br/>
