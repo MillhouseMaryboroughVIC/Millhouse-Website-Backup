@@ -167,7 +167,7 @@ others.</p>
     </li>
     <li>
     	Digital Story /Tellers<br/><br/>
-    	<a href="images/u3a_digital_photobooks.jpg"><img class="content_img" src="images/u3a_digital_photobooks.jpg" alt="u3a_digital_story_telling.jpg" height="100"/></a>
+    	<a href="images/u3a_photobooks.jpg"><img class="content_img" src="images/u3a_photobooks.jpg" alt="u3a_digital_story_telling.jpg" height="100"/></a>
     </li>
 </ul>
 
