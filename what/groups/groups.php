@@ -24,11 +24,6 @@
 		<title>Groups &amp; Activities</title>
 		<style type="text/css">
 
-
-
-
-
-			
 			.content_img
 			{
 				height: 200px;
@@ -142,7 +137,6 @@
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
 				<li class="submenu_item"><a href="../meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="../digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="../food/food.php">&#x1F34E; Food relief</a></li>
 				<li class="submenu_item"><a href="groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
 				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>
@@ -338,16 +332,28 @@
 
 	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
 	
-	<p>There are no parts of the content of this page that automated with PHP code. Feel free to edit the HTML of any 
-	part of the page contents. Make sure you confine your editing to only that code that IS NOT highlighed by a yellow 
-	background.</p>
+	<p>Feel free to edit the HTML of any part of the page contents. Make sure you confine your editing to only that 
+	code that IS NOT highlighed by a yellow background.</p>
 	
-	<p><b>However</b> the content of this page can be found in the file 'group_content.html', and <b>not</b> 'group.php'. 
-	The file 'group.php' is just a container that pulls the page contents in from the file 'group_content.html'. So you 
-	need open 'group_content.html' in MS Expression Web.</p>
+	<p>However you need to be aware of two things:</p>
 	
-	<p>This has been done to make the group page work in the mobile app, that is linked to the file 'groupm.php'. This file 
-	is also just a container that pulls the page contents in from the file 'group_content.html'.</p>
+	<h1>PHP generated HTML content</h1>
+	<p>Some of the content of this pages are generated via the PHP functions 'DoGetGroupTOCItems($strType)' and 
+	'DoGetGroupDetails($strType)', which be found in the file 'common.php'. The parameter of both these functions, 
+	'$strType', expects a string value of 'community', 'employment', 'other_support', 'interest', 'activity', 'food', 
+	'support' or 'youth'. This allows those functions to pick out of the 'groups' table in the database groups that 
+	match those types.</p>
+	
+	<p>But also note that some of the support items do not appear as a group in the 'groups' table, e.g. the food pantry 
+	and frozen meals. They have to be manually coded in HTML.</p>
+	
+	<h1>PC &amp; Mobile versions of this page</h1>
+	<p>The content of this page can be found in the file 'groups_content.html', and <b>not</b> 'groups.php'. 
+	The file 'groups.php' is just a container that pulls the page contents in from the file 'groups_content.html'. So 
+	you need open 'groups_content.html' in MS Expression Web.</p>
+	
+	<p>This has been done to make the groups page work in the mobile app, that is linked to the file 'supportm.php'. 
+	This file is also just a container that pulls the page contents in from the file 'groups_content.html'.</p>
 	
 	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
 	

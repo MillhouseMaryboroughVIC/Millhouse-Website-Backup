@@ -6,9 +6,7 @@
 <h1 id="top">Table of contents</h1>
 
 <ul>
-	<li><a href="#theatre">Maryborough Theatre Company</a></li>
-	<li><a href="#stamps">Maryborough Stamp Club</a></li>
-	<li><a href="#alp">Australian Labor Party</a></li>
+	<?php DoGetGroupTOCItems("community"); ?>
 	<li><a href="#fomth">Friends of the Maryborough Town Hall</a></li>
 	<li><a href="#fomop">Friends of Maryborough Outdoor Pool</a></li>
 </ul>
@@ -17,32 +15,27 @@
 
 <p>Mill House provides meeting space for a variety of local clubs, organisations and community groups, including:</p>
 
-<h1 id="theatre">Maryborough Theatre Company</h1>
-<a href="https://www.liveup.org.au/activities/maryborough-theatre-company">
-	<img class="content_img" src="../../images/theatre.jpg" alt="theatre.jpg" height="200"/>
-</a>&nbsp;
-<a href="images/theatres.jpg">
-	<img class="content_img" src="images/theatre.jpg" alt="theatre.jpg" height="200"/>
-</a>
+<!--#########################################################################################################-->
 
-<h1 id="stamps">Maryborough Stamp Club</h1>
-<a href="../what/groups/images/stamps.jpg">
-	<img class="content_img" src="../../images/stamps.jpg" alt="stamps.jpg" height="200"/>
-</a>
+<?php  DoGetGroupDetails("community", 1); ?>
 
-<h1 id="alp">Australian Labor Party</h1>
-<a href="images/labour_party.jpg">
-	<img class="content_img" src="../../images/labour_party.jpg" alt="labour_party.jpg" height="200"/>
-</a>
+<!--#########################################################################################################-->
 
 <h1 id="fomth">Friends of the Maryborough Town Hall</h1>
-<a href="../../images/fomop.jpg">
-	<img class="content_img" src="../../images/fomth.jpg" alt="fomth.jpg" height="200"/>
-</a>
+<p>
+	<a href="../../images/fomth.png"><img class="content_img" src="../../images/fomth.png" alt="fomth.png" height="200"/></a>&nbsp;
+	<a href="images/fomth.jpg"><img class="content_img" src="images/fomth.jpg" alt="fomth.jpg" height="200"/></a>&nbsp;
+	<a href="images/fomth2.jpg"><img class="content_img" src="images/fomth2.jpg" alt="fomth2.jpg" height="200"/></a>
+</p>
 
 <h1 id="fomop">Friends of Maryborough Outdoor Pool</h1>
-<a href="../../images/fomop.png">
-	<img class="content_img" src="../../images/fomop.png" alt="fomop.png" height="200"/>
-</a>
+
+<p>FOMOP is an incorporated community advocacy group formed in early 2025 to push for the repair, rebuilding, and 
+reopening of the heritage-listed Maryborough Municipal Outdoor Pool complex in Victoria.</p>
+
+<p>
+	<a href="../../images/fomop.png"><img class="content_img" src="../../images/fomop.png" alt="fomop.png" height="200"/></a>&nbsp;
+	<a href="images/fomop.jpg"><img class="content_img" src="images/fomop.jpg" alt="fomop.jpg" height="200"/></a>&nbsp;
+</p>
 
 <!--###############################################################################################################-->

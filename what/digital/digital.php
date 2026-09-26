@@ -131,7 +131,6 @@
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
 				<li class="submenu_item"><a href="../meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="../employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="../food/food.php">&#x1F34E; Food relief</a></li>
 				<li class="submenu_item"><a href="../groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
 				<li class="submenu_item"><a href="../support/support.php">&#x1F49D; Support</a></li>

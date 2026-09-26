@@ -340,7 +340,7 @@ if ($row["name"] == "axis_employment")
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>HOME</title>
 		<style type="text/css">
-		</style>
+</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -442,7 +442,6 @@ if ($row["name"] == "axis_employment")
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
 				<li class="submenu_item"><a href="what/meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="what/employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="what/food/food.php">&#x1F34E; Food relief</a></li>
 				<li class="submenu_item"><a href="what/groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
 				<li class="submenu_item"><a href="what/support/support.php">&#x1F49D; Support</a></li>

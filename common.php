@@ -311,6 +311,275 @@ $g_arrayHireRoom = [
 	//******************************************************************************
 	//******************************************************************************
 	
+	function DoGetImageFilePath($strGroupName)
+	{
+		$strImageFilePath = "";
+		$directory = new RecursiveDirectoryIterator(DoGetParentOrCurrentDir() . "what/");
+		$iterator = new RecursiveIteratorIterator($directory);
+		
+		foreach ($iterator as $file)
+		{	
+			// Make sure it's a file, not a directory
+			if ($file->isFile() && (($file->getFilename() == $strGroupName . ".jpg") || ($file->getFilename() == $strGroupName . ".png")) && !str_contains($file->getPathname(), "_vti_cnf"))
+			{
+				$strImageFilePath = $file->getPathname();
+				break;
+			}
+		}				
+		return $strImageFilePath;
+	}
+	
+	function DoGetGroupImages($strGroupName)
+	{
+		$arrayImageList = [];
+		$directory = new RecursiveDirectoryIterator(DoGetParentOrCurrentDir() . "what/");
+		$iterator = new RecursiveIteratorIterator($directory);
+		
+		foreach ($iterator as $file)
+		{	
+			// Make sure it's a file, not a directory
+			if ($file->isFile() && str_contains($file->getFilename(), $strGroupName) && 
+				!str_contains($file->getPathname(), "_vti_cnf") && (str_contains($file->getFilename(), ".jpg") || str_contains($file->getFilename(), ".png")))
+			{
+				$arrayImageList[] = $file->getPathname();
+				break;
+			}
+		}				
+		return $arrayImageList;
+	}
+	
+	function DoGetDOW($nDOW)
+	{
+		$strDOW = "";
+		
+		switch ($nDOW)
+		{
+			case -1:
+				$strDOW = "Monday to Friday";
+				break;
+				
+			case 0:
+				$strDOW = "Sunday";
+				break;
+				
+			case 1:
+				$strDOW = "Monday";
+				break;
+
+			case 2:
+				$strDOW = "Tuesday";
+				break;
+
+			case 3:
+				$strDOW = "Wednesday";
+				break;
+
+			case 4:
+				$strDOW = "Thursday";
+				break;
+
+			case 5:
+				$strDOW = "Friday";
+				break;
+
+			case 6:
+				$strDOW = "Saturday";
+				break;
+
+		}
+		return $strDOW;
+	}
+	
+	function DoGetTimeModifyString($fHours)
+	{
+		$strModifyString = "";
+		
+		$strModifyString = (int)floor($fHours) . " hours";
+		$nMinutes = (int)floor(($fHours - (int)$fHours) * 60);
+		$strModifyString .= " " . $nMinutes . " minutes";
+		
+		return $strModifyString;
+	}
+	
+	function DoGetWhen($nDOW1, $nDOW2, $strTime1, $strTime2, $fDuration, $nWOM)
+	{
+		$strWhen = "";
+		$datetimeStart = new DateTime();
+		$datetimeEnd = new DateTime();
+		
+		
+		switch ($nWOM)
+		{
+			case 0:
+				$strWhen = "Every ";
+				break;
+				
+			case 1:
+				$strWhen = "Every first ";
+				break;
+				
+			case 2:
+				$strWhen = "Every second ";
+				break;
+				
+			case 3:
+				$strWhen = "Every third ";
+				break;
+				
+			case 4:
+				$strWhen = "Every fourth ";
+				break;				
+		}	
+		if (($nDOW1 == -1) && ($nDOW2 == -1))
+		{
+			$strWhen .= DoGetDOW($nDOW1);
+			
+			$datetimeStart = new DateTime($strTime1);
+			$datetimeEnd = new DateTime($strTime1);
+			$datetimeEnd->modify("+" . DoGetTimeModifyString($fDuration));
+			$strWhen .= " from " . $datetimeStart->format("h:i A") . " to " . $datetimeEnd->format("h:i A");
+			
+			if (!is_null($strTime1) && is_null($strTime2))
+			{
+				// Nothing additional to do.
+			}
+			else if (!is_null($strTime1) && !is_null($strTime2))
+			{
+				$datetimeStart = new DateTime($strTime2);
+				$datetimeEnd = $datetimeStart;
+				$datetimeEnd->modify("+" . DoGetTimeModifyString($fDuration));
+				$strWhen .= " and from " . $datetimeStart->format("h:i A") . " to " . $datetimeEnd->format("h:i A");
+			}
+		}
+		else if (($nDOW1 > -1) && ($nDOW2 > -1))
+		{
+			$strWhen .= DoGetDOW($nDOW1);
+			$datetimeStart = new DateTime($strTime1);
+			$datetimeEnd = new DateTime($strTime1);
+			$datetimeEnd->modify("+" . DoGetTimeModifyString($fDuration));
+			$strWhen .= " from " . $datetimeStart->format("h:i A") . " to " . $datetimeEnd->format("h:i A");
+			$strWhen .= " and ";
+			$strWhen .= DoGetDOW($nDOW2);
+			
+			if (is_null($strTime2))
+				$strTime2 = $strTime1;
+			$datetimeStart = new DateTime($strTime2);
+			$datetimeEnd = new DateTime($strTime2);
+			$datetimeEnd->modify("+" . DoGetTimeModifyString($fDuration));
+			$strWhen .= " from " . $datetimeStart->format("h:i A") . " to " . $datetimeEnd->format("h:i A");
+		}
+		else if (($nDOW1 > -1) && ($nDOW2 == -1))
+		{
+			$strWhen .= DoGetDOW($nDOW1);
+			$datetimeStart = new DateTime($strTime1);
+			$datetimeEnd = new DateTime($strTime1);
+			$datetimeEnd->modify("+" . DoGetTimeModifyString($fDuration));
+			$strWhen .= " from " . $datetimeStart->format("h:i A") . " to " . $datetimeEnd->format("h:i A");
+		}
+		else
+		{
+			$strWhen = "DOW not set!";
+		}
+		return $strWhen;
+	}
+	
+	function DoGetGroupDetails($strType, $nHeadingLevel = 3)
+	{
+		global $g_dbMillhouse;
+		$strHeadingLevel = "";
+		
+		switch ($nHeadingLevel)
+		{
+			case 1:
+				$strHeadingLevel = "h1";
+				break;
+				
+			case 2:
+				$strHeadingLevel = "h2";
+				break;
+				
+			case 3:
+				$strHeadingLevel = "h3";
+				break;
+				
+			case 4:
+				$strHeadingLevel = "h4";
+				break;
+				
+			case 5:
+				$strHeadingLevel = "h5";
+				break;
+				
+			case 6:
+				$strHeadingLevel = "h6";
+				break;
+				
+		}
+		$results = DoFindQuery1($g_dbMillhouse, "groups", "type", $strType);
+		
+		if ($results && ($results->num_rows > 0))
+		{
+			while ($row = $results->fetch_assoc())
+			{
+				echo "<" . $strHeadingLevel . " id=\"" . $row["name"] . "\">" .  $row["description"] . "</" . $strHeadingLevel . ">\n";
+				echo "<p>" . $row["purpose"] . "</p>\n";
+				
+				echo "<p>\n";
+				echo "    <b>Group contact: </b>" . $row["contact"] . "<br/>\n";
+				
+				if (!is_null($row["email"]) && ($row["email"] != ""))
+					echo "    <b>Email: </b>" . $row["email"] . "<br/>\n";
+				if (!is_null($row["phone"]) && ($row["phone"] != ""))
+					echo "    <b>Phone: </b>" . $row["phone"] . "<br/>\n";
+				
+				echo "    <b>Day(s): </b>" . 
+					DoGetWhen((int)$row["dow1"], (int)$row["dow2"], $row["time1"], $row["time2"], (float)$row["duration"], (int)$row["wom"]) . 
+					"<br/>\n";
+				
+				if ((float)$row["cost"] > 0)
+				{
+					echo "    <b>Cost: </b>$" . number_format((float)$row["cost"], 2) . "<br/>\n";
+					echo "    <b>Is a donation: </b>" . ((bool)$row["donation"] ? "Yes" : "No") . "<br/>\n";
+				}
+				if (!is_null($row["facebook"]) && ($row["facebook"] != ""))
+					echo "<b>URL: </b><a href=\"" . $row["facebook"] . "\">" . $row["facebook"] . "</a><br/>\n";				
+				echo "</p>\n";
+				
+				$strImageFileName = DoGetParentOrCurrentDir() . "images/" . $row["name"];
+				if (file_exists($strImageFileName . ".jpg"))
+					$strImageFileName .= ".jpg";
+				else if (file_exists($strImageFileName . ".png"))
+					$strImageFileName .= ".png";
+				echo "<a href=\"" . $strImageFileName . "\"><img src=\"" . $strImageFileName . "\" alt=\"" . $row["name"] . "\" class=\"content_img\" /></a>&nbsp;";
+				
+				$arrayGroupImageList = DoGetGroupImages($row["name"]);
+				for ($nI = 0; $nI < count($arrayGroupImageList); $nI++)
+				{
+					echo "<a href=\"" . $arrayGroupImageList[$nI] . "\"><img src=\"" . $arrayGroupImageList[$nI] . 
+							"\" alt=\"" . $arrayGroupImageList[$nI] . "\" class=\"content_img\" /></a>";
+				}
+				echo "</p>\n";
+				echo "<p><a href=\"#top\">Top</a></p>";
+			}
+		}
+	}
+	
+	function DoGetGroupTOCItems($strType)
+	{
+		global $g_dbMillhouse;
+		global $g_strQuery;
+
+		$results = DoFindQuery1($g_dbMillhouse, "groups", "type", $strType);
+			
+		if ($results && ($results->num_rows > 0))
+		{
+			while ($row = $results->fetch_assoc())
+			{
+				echo "<li><a href=\"#" . $row["name"] . "\">" .  $row["description"] . "</a></li>\n";
+			}
+		}
+	}
+	
 	function DoDisplayGroupDivs()
 	{
 		global $g_dbMillhouse;
@@ -1787,7 +2056,7 @@ $g_arrayHireRoom = [
 			$strColumnName12 . "='" . EscapeSingleQuote($strColumnValue12) . "', " . $strColumnName13 . "='" . EscapeSingleQuote($strColumnValue13) . "', " .
 			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
 			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
-			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
+			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . 
 			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
 
 		return DoQuery($dbConnection, $g_strQuery);
@@ -1817,7 +2086,7 @@ $g_arrayHireRoom = [
 			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
 			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
 			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
-			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . 
+			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) .  
 			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
 
 		return DoQuery($dbConnection, $g_strQuery);
@@ -1848,7 +2117,7 @@ $g_arrayHireRoom = [
 			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
 			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
 			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
-			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
+			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . 
 			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
 
 		return DoQuery($dbConnection, $g_strQuery);
@@ -1912,7 +2181,7 @@ $g_arrayHireRoom = [
 			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
 			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
 			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
-			$strColumnName22 . "='" . EscapeSingleQuote($strColumnValue22) . "', " . $strColumnName23 . "='" . EscapeSingleQuote($strColumnValue23) . "', " . 
+			$strColumnName22 . "='" . EscapeSingleQuote($strColumnValue22) . "', " . $strColumnName23 . "='" . EscapeSingleQuote($strColumnValue23) .  
 			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
 
 		return DoQuery($dbConnection, $g_strQuery);
@@ -1935,7 +2204,7 @@ $g_arrayHireRoom = [
 			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
 			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
 			$strColumnName22 . "='" . EscapeSingleQuote($strColumnValue22) . "', " . $strColumnName23 . "='" . EscapeSingleQuote($strColumnValue23) . "', " . 
-			$strColumnName24 . "='" . EscapeSingleQuote($strColumnValue24) . "', " . "' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
+			$strColumnName24 . "='" . EscapeSingleQuote($strColumnValue24) . "' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
 
 		return DoQuery($dbConnection, $g_strQuery);
 	}
@@ -1969,7 +2238,44 @@ $g_arrayHireRoom = [
 			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
 			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
 			$strColumnName22 . "='" . EscapeSingleQuote($strColumnValue22) . "', " . $strColumnName23 . "='" . EscapeSingleQuote($strColumnValue23) . "', " . 
-			$strColumnName24 . "='" . EscapeSingleQuote($strColumnValue24) . "', " . $strColumnName25 . "='" . EscapeSingleQuote($strColumnValue25) . "', " . 
+			$strColumnName24 . "='" . EscapeSingleQuote($strColumnValue24) . "', " . $strColumnName25 . "='" . EscapeSingleQuote($strColumnValue25) . 
+			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
+
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
+	function DoUpdateQuery26($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17,
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strColumnName22, $strColumnValue22, $strColumnName23, $strColumnValue23, 
+								$strColumnName24, $strColumnValue24, $strColumnName25, $strColumnValue25,
+								$strColumnName26, $strColumnValue26,  
+							 $strFindColumnName, $strFindColumnValue)
+	{
+		global $g_strQuery;
+
+		$g_strQuery = "UPDATE " . $strTableName . " SET " . $strColumnName1 . "='" . EscapeSingleQuote($strColumnValue1) . "', " . 
+			$strColumnName2 . "='" . EscapeSingleQuote($strColumnValue2) . "', " . $strColumnName3 . "='" . EscapeSingleQuote($strColumnValue3) . "', " .
+			$strColumnName4 . "='" . EscapeSingleQuote($strColumnValue4) . "', " . $strColumnName5 . "='" . EscapeSingleQuote($strColumnValue5) . "', " .
+			$strColumnName6 . "='" . EscapeSingleQuote($strColumnValue6) . "', " . $strColumnName7 . "='" . EscapeSingleQuote($strColumnValue7) . "', " .
+			$strColumnName8 . "='" . EscapeSingleQuote($strColumnValue8) . "', " . $strColumnName9 . "='" . EscapeSingleQuote($strColumnValue9) . "', " .
+			$strColumnName10 . "='" . EscapeSingleQuote($strColumnValue10) . "', " . $strColumnName11 . "='" . EscapeSingleQuote($strColumnValue11) . "', " .
+			$strColumnName12 . "='" . EscapeSingleQuote($strColumnValue12) . "', " . $strColumnName13 . "='" . EscapeSingleQuote($strColumnValue13) . "', " .
+			$strColumnName14 . "='" . EscapeSingleQuote($strColumnValue14) . "', " . $strColumnName15 . "='" . EscapeSingleQuote($strColumnValue15) . "', " . 
+			$strColumnName16 . "='" . EscapeSingleQuote($strColumnValue16) . "', " . $strColumnName17 . "='" . EscapeSingleQuote($strColumnValue17) . "', " . 
+			$strColumnName18 . "='" . EscapeSingleQuote($strColumnValue18) . "', " . $strColumnName19 . "='" . EscapeSingleQuote($strColumnValue19) . "', " . 
+			$strColumnName20 . "='" . EscapeSingleQuote($strColumnValue20) . "', " . $strColumnName21 . "='" . EscapeSingleQuote($strColumnValue21) . "', " . 
+			$strColumnName22 . "='" . EscapeSingleQuote($strColumnValue22) . "', " . $strColumnName23 . "='" . EscapeSingleQuote($strColumnValue23) . "', " . 
+			$strColumnName24 . "='" . EscapeSingleQuote($strColumnValue24) . "', " . $strColumnName25 . "='" . EscapeSingleQuote($strColumnValue25) . 
+			$strColumnName26 . "='" . EscapeSingleQuote($strColumnValue26) .  
 			"' WHERE " . $strFindColumnName . "='" . $strFindColumnValue . "'";
 
 		return DoQuery($dbConnection, $g_strQuery);
@@ -2468,7 +2774,7 @@ $g_arrayHireRoom = [
 								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
 								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
 								$strColumnName22, $strColumnValue22, $strColumnName23, $strColumnValue23, 
-								$strColumnName24, $strColumnValue24, $strColumnValue25)
+								$strColumnName24, $strColumnValue24, $strColumnName25, $strColumnValue25)
 	{
 		global $g_strQuery;
 		
@@ -2493,6 +2799,49 @@ $g_arrayHireRoom = [
 						EscapeSingleQuote($strColumnValue21) . "'," . EscapeSingleQuote($strColumnValue22) . "'," . 
 						EscapeSingleQuote($strColumnValue23) . "'," . EscapeSingleQuote($strColumnValue24) . "'," . 
 						EscapeSingleQuote($strColumnValue25) . "')";
+
+		return DoQuery($dbConnection, $g_strQuery);
+	}
+
+	function DoInsertQuery26($dbConnection, $strTableName, $strColumnName1, $strColumnValue1, 
+								$strColumnName2, $strColumnValue2, $strColumnName3, $strColumnValue3, 
+								$strColumnName4, $strColumnValue4, $strColumnName5, $strColumnValue5, 
+								$strColumnName6, $strColumnValue6, $strColumnName7, $strColumnValue7, 
+								$strColumnName8, $strColumnValue8, $strColumnName9, $strColumnValue9, 
+								$strColumnName10, $strColumnValue10, $strColumnName11, $strColumnValue11, 
+								$strColumnName12, $strColumnValue12, $strColumnName13, $strColumnValue13, 
+								$strColumnName14, $strColumnValue14, $strColumnName15, $strColumnValue15, 
+								$strColumnName16, $strColumnValue16, $strColumnName17, $strColumnValue17, 
+								$strColumnName18, $strColumnValue18, $strColumnName19, $strColumnValue19, 
+								$strColumnName20, $strColumnValue20, $strColumnName21, $strColumnValue21, 
+								$strColumnName22, $strColumnValue22, $strColumnName23, $strColumnValue23, 
+								$strColumnName24, $strColumnValue24, $strColumnName25, $strColumnValue25, 
+								$strColumnName26, $strColumnValue26)
+	{
+		global $g_strQuery;
+		
+		$g_strQuery = "INSERT INTO " . $strTableName . "(" . $strColumnName1 . "," . $strColumnName2 . "," . 
+						$strColumnName3 . "," . $strColumnName4 . "," . $strColumnName5 . "," . $strColumnName6 . "," . 
+						$strColumnName7 . "," . $strColumnName8 . "," . $strColumnName9 . "," . $strColumnName10 . "," . 
+						$strColumnName11 . "," . $strColumnName12 . "," . $strColumnName13 . "," . $strColumnName14 . "," . 
+						$strColumnName15 . "," . $strColumnName16. "," . $strColumnName17. "," . $strColumnName18. "," . 
+						$strColumnName19 . "," . $strColumnName20. "," . $strColumnName21. "," . $strColumnName21 . "," . 
+						$strColumnName22. "," . $strColumnName22 . "," . $strColumnName23 . "," . $strColumnName23 . 
+						$strColumnName24 . "," . $strColumnName24 . "," . $strColumnName25 . "," . $strColumnName26 . 
+						") VALUES('" . 
+						EscapeSingleQuote($strColumnValue1) . "','" . EscapeSingleQuote($strColumnValue2) . "','" . 
+						EscapeSingleQuote($strColumnValue3) . "','" . EscapeSingleQuote($strColumnValue4) . "','" . 
+						EscapeSingleQuote($strColumnValue5) . "','" . EscapeSingleQuote($strColumnValue6) . "','" . 
+						EscapeSingleQuote($strColumnValue7) . "','" . EscapeSingleQuote($strColumnValue8) . "','" . 
+						EscapeSingleQuote($strColumnValue9) . "','" . EscapeSingleQuote($strColumnValue10) . "','" . 
+						EscapeSingleQuote($strColumnValue11) . "','" . EscapeSingleQuote($strColumnValue12) . "','" . 
+						EscapeSingleQuote($strColumnValue13) . "','" . EscapeSingleQuote($strColumnValue14) . "','" . 
+						EscapeSingleQuote($strColumnValue15) . "','" . EscapeSingleQuote($strColumnValue16) . "','" . 
+						EscapeSingleQuote($strColumnValue17) . "','" . EscapeSingleQuote($strColumnValue18) . "','" . 
+						EscapeSingleQuote($strColumnValue19) . "'," . EscapeSingleQuote($strColumnValue20) . "'," . 
+						EscapeSingleQuote($strColumnValue21) . "'," . EscapeSingleQuote($strColumnValue22) . "'," . 
+						EscapeSingleQuote($strColumnValue23) . "'," . EscapeSingleQuote($strColumnValue24) . "'," . 
+						EscapeSingleQuote($strColumnValue25) . "','" . EscapeSingleQuote($strColumnValue26) . "')";
 
 		return DoQuery($dbConnection, $g_strQuery);
 	}

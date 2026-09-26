@@ -23,7 +23,7 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title>What we do</title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -130,7 +130,6 @@
 			<ul style="display:<?php echo DoShowHideSubmenu("what"); ?>;" id="contribute">
 				<li class="submenu_item"><a href="meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item"><a href="employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="food/food.php">&#x1F34E; Food relief</a></li>
 				<li class="submenu_item"><a href="groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
 				<li class="submenu_item"><a href="support/support.php">&#x1F49D; Support</a></li>
@@ -320,35 +319,7 @@
 																
 <!--#########################################################################################################-->
 
-<h1>A place for everyone</h1>
-
-<p><b>Whether you need practical assistance with:</b></p>
-<ul>
-	<li>Your desktop or laptop.</li>
-	<li>Downloading and installing new software.</li>
-	<li>Installing new hardware.</li>
-	<li>Solving WiFi connectivity problems.</li>
-</ul>
-
-<p><b>If you want to learn new skills in such as:</b></p>
-
-<ul>
-	<li>How to use a particular software package.</li>
-	<li>Video and audio production and editing.</li>
-	<li>Changing operating system settings.</li>
-	<li>Installing a new operatings system or other software.</li>
-</ul>
-
-<p><b>Or if you just want to connect with others to:</b></p>
-
-<ul>
-	<li>Improve your well being.</li>
-	<li>Share your interests with others.</li>
-	<li>Help other members of the central goldfields community.</li>
-</ul>
-
-<p>Then come along and you will be welcolmed with open arms and hearts. Whatever contribution you can make to the Mill 
-House community, it will be greatly appreciated.</p>								
+<p>Mill House offers a broad range of support activities, interest groups and youth engagement programs.</p>
 
 <!--#########################################################################################################-->
 
@@ -401,7 +372,18 @@ are activities for different ages, interests and abilities, with new opportuniti
 <p>Click <a href="groups/groups.php">here</a> to find out more...</p>
 
 <!--#########################################################################################################-->
-								
+				
+<div id="div_page_edit_instructions" class="instruction_popup">
+
+	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
+	
+	<p>All the content of this page is plain HTML. You can edit this HTML code freely if you are confident with 
+	HTML. Make sure you confine your editing to only that code that IS NOT highlighed by a yellow background.</p>
+	
+	<p><button type="button" onclick="DoDisplayHidePopup('div_page_edit_instructions', false)">CLOSE</button></p>		
+	
+</div>
+				
 								<!-- #EndEditable -->
 							</div>
 							<!-- End Content -->

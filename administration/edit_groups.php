@@ -36,6 +36,7 @@
 		$_SESSION["name"] = "";
 		$_SESSION["description"] = "";
 		$_SESSION["photo"] = "";
+		$_SESSION["type"] = "";
 		$_SESSION["contact"] = "";
 		$_SESSION["email"] = "";
 		$_SESSION["phone"] = "";
@@ -208,6 +209,23 @@
 		echo "	          </td>\n";
 		echo "        </tr>\n";
 		echo "        <tr>\n";
+		echo "            <td style=\"text-align: right;\">\n";
+		echo "            </td>\n";
+		echo "                <label for=\"type\">Type of group</label>\n";
+		echo "	          <td>\n";
+		echo "                <select id=\"type\" name=\"type\">\n";
+		echo "                    <option value=\"community\"" . ((!isset($_SESSION["type"]) || ($_SESSION["type"] == "") || ($_SESSION["type"] == "community")) ? " selected" : "") . "\">Community group</option>\n";
+		echo "                    <option value=\"employment\"" . ($_SESSION["type"] == "employment")) ? " selected" : "") . ">Employment service</option>\n";
+		echo "                    <option value=\"other_support\"" . ($_SESSION["type"] == "other_support")) ? " selected" : "") . ">Other support services</option>\n";
+		echo "                    <option value=\"interest\"" . ($_SESSION["type"] == "interest")) ? " selected" : "") . ">Interest group</option>\n";
+		echo "                    <option value=\"activity\"" . ($_SESSION["type"] == "activity")) ? " selected" : "") . ">Mill House activity</option>\n";
+		echo "                    <option value=\"food\"" . ($_SESSION["type"] == "food")) ? " selected" : "") . ">Mill House food relief</option>\n";
+		echo "                    <option value=\"support\"" . ($_SESSION["type"] == "support")) ? " selected" : "") . ">Mill House support services</option>\n";
+		echo "                    <option value=\"youth\"" . ($_SESSION["type"] == "youth")) ? " selected" : "") . ">Youth engagement</option>\n";
+		echo "                </select>\n";
+		echo "	          </td>\n";
+		echo "        </tr>\n";
+		echo "        <tr>\n";
 		echo "	          <td colspan=\"2\">\n";
 		echo "                <table border=\"0\" cellpadding=\"5\" cellspacing=\"0\">\n";
 		echo "	                  <tr>\n";
@@ -348,7 +366,7 @@
 			{
 				if ($_POST["group_shortkey"] == 0)
 				{
-					if ($result = DoInsertQuery25($g_dbMillhouse, "groups", "name", $_POST["name"], 
+					if ($result = DoInsertQuery26($g_dbMillhouse, "groups", "name", $_POST["name"], 
 													"description", $_POST["description"], 
 													"password", $_POST["password_group"], "contact", $_POST["contact"], 
 													"email", $_POST["email"], "phone", $_POST["phone"], 
@@ -365,13 +383,15 @@
 													"exclude_monarchs_birthday", $_POST["exclude_monarchs_birthday"], 
 													"exclude_labour_day", $_POST["exclude_labour_day"], 
 													"exclude_melbourne_cup", $_POST["exclude_melbourne_cup"], 
-													"exclude_VFL_grand_final", $_POST["exclude_VFL_grand_final"]);
+													"exclude_VFL_grand_final", $_POST["exclude_VFL_grand_final"],
+													"type", $_POST["type"]
+													);
 					{
 					}
 				}
 				else
 				{
-					if ($result = DoUpdateQuery25($g_dbMillhouse, "groups", "name", $_POST["name"], 
+					if ($result = DoUpdateQuery26($g_dbMillhouse, "groups", "name", $_POST["name"], 
 													"description", $_POST["description"], "password", $_POST["password_group"], 
 													"contact", $_POST["contact"], "email", $_POST["email"], "phone", $_POST["phone"], 
 													"dow1", $_POST["dow1"], "dow2", $_POST["dow2"], "wom", $_POST["wom"], 
@@ -387,6 +407,7 @@
 													"exclude_labour_day", $_POST["exclude_labour_day"], 
 													"exclude_melbourne_cup", $_POST["exclude_melbourne_cup"], 
 													"exclude_VFL_grand_final", $_POST["exclude_VFL_grand_final"], 
+													"type", $_POST["type"], 
 													"shortkey", $_POST["group_shortkey"]))
 					{
 					}
@@ -460,6 +481,7 @@
 					$_SESSION["group_shortkey"] = $nShortkey;
 					$_SESSION["name"] = $row["name"];
 					$_SESSION["description"] = $row["description"];
+					$_SESSION["type"] = $row["type"];
 					$_SESSION["contact"] = $row["contact"];
 					$_SESSION["email"] = $row["email"];
 					$_SESSION["phone"] = $row["phone"];
@@ -630,8 +652,6 @@
 				<li class="submenu_item">
 				<a href="../what/meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item">
-				<a href="../what/employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="../what/food/food.php">&#x1F34E; Food relief</a></li>
 				<li class="submenu_item"><a href="../what/groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
 				<li class="submenu_item"><a href="../what/support/support.php">&#x1F49D; Support</a></li>

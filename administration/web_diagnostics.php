@@ -847,6 +847,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 
 
 
+
 			.content td
 			{
 				font-size: small;
@@ -1312,8 +1313,6 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
 				<li class="submenu_item">
 				<a href="../what/meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item">
-				<a href="../what/employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="../what/food/food.php">&#x1F34E; Food relief</a></li>
 				<li class="submenu_item"><a href="../what/groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
 				<li class="submenu_item"><a href="../what/support/support.php">&#x1F49D; Support</a></li>

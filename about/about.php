@@ -39,6 +39,7 @@
 		<style type="text/css">
 
 
+
 			.content_img
 			{
 				height: 250px;
@@ -158,8 +159,6 @@
 				<li class="submenu_item">
 				<a href="../what/meetings/meetings.php">&#x1F3AD; Community groups</a></li>
 				<li class="submenu_item"><a href="../what/digital/digital.php">&#x1F4BB; Digital access hub</a></li>
-				<li class="submenu_item">
-				<a href="../what/employment/employment.php">&#x1F477; Employment services</a></li>
 				<li class="submenu_item"><a href="../what/food/food.php">&#x1F34E; Food relief</a></li>
 				<li class="submenu_item"><a href="../what/groups/groups.php">&#x1F3A8; Groups &amp; acitivites</a></li>
 				<li class="submenu_item"><a href="../what/support/support.php">&#x1F49D; Support</a></li>
@@ -353,9 +352,8 @@
 
 	<?php require DoGetParentOrCurrentDir() . "administration/PageEditInstructions.html"; ?>
 	
-	<p>There are no parts of the content of this page that automated with PHP code. Feel free to edit the HTML of any 
-	part of the page contents. Make sure you confine your editing to only that code that IS NOT highlighed by a yellow 
-	background.</p>
+	<p>Feel free to edit the HTML of any part of the page contents. Make sure you confine your editing to only that 
+	code that IS NOT highlighed by a yellow background.</p>
 	
 	<p><b>However</b> the content of this page can be found in the file 'about_content.html', and <b>not</b> 'about.php'. 
 	The file 'about.php' is just a container that pulls the page contents in from the file 'about_content.html'. So you 
