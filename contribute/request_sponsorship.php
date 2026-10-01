@@ -66,6 +66,9 @@
 
 
 
+
+
+
 			.form textarea
 			{
 				width: 70ch;
@@ -827,6 +830,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>

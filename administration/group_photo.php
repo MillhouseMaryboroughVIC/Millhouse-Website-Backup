@@ -180,6 +180,9 @@
 
 
 
+
+
+
 			.div_dynamic
 			{
 				display: block;
@@ -349,6 +352,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>
@@ -961,7 +965,7 @@
 	areas, to the home page. Although the clickable image map is just simple HTML code, it is not easy for a novice 
 	administrator to get it to work properly. Therefore is as been automated via thos form.</p>
 	
-	<p><img src="images/ClickableGroupPhoto.jpg" alt="ClickableGroupPhoto.jpg" height="250"/></p>
+	<p><img src="../coding/images/ClickableGroupPhoto.jpg" alt="ClickableGroupPhoto.jpg" height="250"/></p>
 	
 	<p>The image and the image map HTML code are generated via PHP code using map elements stored in the 'group_image_areas' 
 	table in the database. You use this form to 'populate' that table. The steps are as follows:</p>

@@ -27,6 +27,9 @@
 
 
 
+
+
+
 			.content_img
 			{
 				height: 250px;
@@ -193,6 +196,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>

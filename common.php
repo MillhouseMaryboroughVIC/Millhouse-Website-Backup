@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	//$g_strEmailManager = "manager&millhouse.org.au";
-	$g_strEmailManager = "gregplants&bigpond.com";
+	$g_strEmailManager = "manager&millhouse.org.au";
+	//$g_strEmailManager = "gregplants&bigpond.com";
 	$g_strEmailPresident = "president&millhouse.org.au";	
 	
 	//******************************************************************************
@@ -707,6 +707,17 @@ $g_arrayHireRoom = [
 	//******************************************************************************
 	//******************************************************************************
 	
+	function DoObscureText($strText)
+	{
+		$strNewText = "";
+		
+		for ($nI = 0; $nI < strlen($strText); $nI++)
+		{
+			$strNewText .= '&#x' . dechex(ord($strText[$nI])) . ';';
+		}
+		return $strNewText;
+	}
+	
 	function DoGenerateSourceCodeContent()
 	{
 		echo "<h1>HOSTING DETAILS</h1>\n";
@@ -1116,6 +1127,22 @@ $g_arrayHireRoom = [
 		return $bDisplay;
 	}
 	
+	function DoDisplayCoding4BeginnersMenuAndSubmenu()
+	{
+		if (IsAdminLoggedIn())
+		{
+			echo "<li><a href=\"" . DoGetParentOrCurrentDir() . "coding/coding_4_beginners.php\" onclick=\"DoClickNavLinkWithSubmenu('coding')\">Coding 4 Beginners</a>\n";
+			echo "    <ul style=\"display:" . DoShowHideSubmenu("coding") . ";\" id=\"coding\">\n";
+			echo "        <li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "coding/html_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9EC; HTML 4 Beginners</b></a></li>\n";
+			echo "        <li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "coding/css_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9EC; CSS 4 Beginners</b></a></li>\n";
+			echo "        <li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "coding/javascript_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9EC; JavaScript 4 Beginners</b></a></li>\n";
+			echo "        <li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "coding/expression_web_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9EC; Expression Web 4 Beginners</b></a></li>\n";
+			echo "        <li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "coding/github_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9EC; GitHub 4 Beginners</b></a></li>\n";
+			echo "    </ul>\n";
+			echo "</li>\n";
+		}
+	}
+	
 	function DoDisplayAdministrationSubmenu()
 	{
 		if (IsAdminLoggedIn())
@@ -1128,15 +1155,11 @@ $g_arrayHireRoom = [
 			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/governance.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9F0; Upload governance documents</b></a></li>\n";
 			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/group_photo.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9F0; New group photo</b></a></li>\n";
 			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "governance/forms/forms.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9F0; Blank Forms</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/web_diagnostics.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F4CA; Website diagnostics</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/html_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9EC; HTML 4 Beginners</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/css_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9EC; CSS 4 Beginners</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/javascript_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9EC; JavaScript 4 Beginners</b></a></li>\n";
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/expression_web_4_beginners.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9EC; Expression Web 4 Beginners</b></a></li>\n";
+			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/web_diagnostics.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F4CA; Website diagnostics</b></a></li>\n";			
 		}
 		else if (IsLoggedIn())
 		{
-			echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_group_events.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9F0; Add &amp; Edit Group Events</b></a></li>\n";
+			//echo "<li class=\"submenu_item\"><a href=\"" . DoGetParentOrCurrentDir() . "administration/edit_group_events.php\" tabindex=\"0\" onfocus=\"DoSpeakElement(this)\" onmouseenter=\"DoSpeakElement(this)\"><b>&#x1F9F0; Add &amp; Edit Group Events</b></a></li>\n";
 		}
 	}
 	

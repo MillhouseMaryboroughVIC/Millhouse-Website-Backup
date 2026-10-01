@@ -75,6 +75,9 @@
 
 
 
+
+
+
 			.contents_cell			
 			{
 				background-color: var(--end_color);
@@ -262,6 +265,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>

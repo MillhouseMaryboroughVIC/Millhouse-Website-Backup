@@ -1,14 +1,14 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|26 Sep 2026 10:15:23 -0000
+vti_timelastmodified:TR|28 Sep 2026 04:08:07 -0000
 vti_extenderversion:SR|12.0.0.0
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
 vti_timecreated:TR|17 Sep 2026 14:20:04 -0000
 vti_title:SR|Food relief & support
-vti_backlinkinfo:VX|about/people/people.php about/milestones/milestones.php what/food/food.php about/site_history/site_history.php
-vti_nexttolasttimemodified:TW|26 Sep 2026 08:56:40 -0000
-vti_cacheddtm:TX|26 Sep 2026 10:15:23 -0000
-vti_filesize:IR|19150
+vti_backlinkinfo:VX|about/people/people.php coding/github_4_beginners.php coding/coding_4_beginners.php about/milestones/milestones.php coding/expression_web_4_beginners.php coding/javascript_4_beginners.php coding/css_4_beginners.php coding/html_4_beginners.php what/food/food.php about/site_history/site_history.php
+vti_nexttolasttimemodified:TW|28 Sep 2026 03:58:27 -0000
+vti_cacheddtm:TX|28 Sep 2026 03:58:27 -0000
+vti_filesize:IR|19211
 vti_cachedtitle:SR|Food relief & support
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
 vti_cachedlinkinfo:VX|G|../../master.dwt H|https://www.millhouse.org.au/ Q|../../styles/style4PC.css H|../../favicon.jpg S|../../common.js H|https://fonts.googleapis.com H|https://fonts.gstatic.com Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 H|../../images/MillHouse.jpg S|../../images/MillHouse.jpg H|../../images/MillHouseNeighborhoodHouse1.jpg S|../../images/MillHouseNeighborhoodHouse1.jpg H|../../images/MillHouseNeighborhoodHouse2.jpg S|../../images/MillHouseNeighborhoodHouse2.jpg S|../../images/LoudSpeaker.png H|../../contribute/donation.php S|../../MobileApp/images/Donate.png H|../../index.php H|../../about/about.php H|../../about/people/people.php H|../../about/milestones/milestones.php H|../../about/site_history/site_history.php H|../what.php H|../meetings/meetings.php H|../digital/digital.php H|food.php H|../groups/groups.php H|../support/support.php H|../youth/youth.php H|../../calendar/calendar.php H|../../room/room.php H|../../sponsors/sponsors.php H|../../contribute/contribute.php H|../../contribute/join.php H|../../contribute/volunteering.php H|../../contribute/request_sponsorship.php H|../../contribute/donation.php H|../../contact/contact.php H|../../governance/governance.php H|https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile H|../../governance/rules/rules.php H|../../governance/reports/reports.php H|../../governance/policies/policies.php H|../../governance/plan/plan.php H|../../administration/administration.php H|../../index.php H|../../about/about.php H|../../calendar/calendar.php H|../../room/room.php H|../../contact/contact.php S|../../images/AudioOnOff.png S|../../images/ChooseVoice.png S|../../images/Speaker.png S|../../images/StopWatch.png S|../../images/TuningFork.png S|../../images/ReadText.png

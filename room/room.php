@@ -130,6 +130,9 @@
 
 
 
+
+
+
 			.select_short
 			{
 				box-sizing: border-box;
@@ -313,6 +316,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>

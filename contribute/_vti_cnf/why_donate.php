@@ -1,14 +1,14 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|25 Sep 2026 10:34:14 -0000
+vti_timelastmodified:TR|28 Sep 2026 04:07:26 -0000
 vti_extenderversion:SR|12.0.0.0
 vti_author:SR|LATITUDE-E5430\\gregaryb
 vti_modifiedby:SR|LATITUDE-E5430\\gregaryb
 vti_timecreated:TR|10 Aug 2026 16:27:53 -0000
 vti_title:SR|Why Donate?
 vti_backlinkinfo:VX|
-vti_nexttolasttimemodified:TR|25 Sep 2026 00:32:43 -0000
-vti_cacheddtm:TX|25 Sep 2026 10:34:14 -0000
-vti_filesize:IR|25899
+vti_nexttolasttimemodified:TW|28 Sep 2026 03:58:12 -0000
+vti_cacheddtm:TX|28 Sep 2026 03:39:27 -0000
+vti_filesize:IR|25954
 vti_cachedtitle:SR|Why Donate?
 vti_cachedbodystyle:SR|<body onload="DoOnPageLoadComplete()">
 vti_cachedlinkinfo:VX|G|../master.dwt H|https://www.millhouse.org.au/ Q|../styles/style4PC.css H|../favicon.jpg S|../common.js H|https://fonts.googleapis.com H|https://fonts.gstatic.com Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 Q|https://fonts.googleapis.com/css2 H|../images/MillHouse.jpg S|../images/MillHouse.jpg H|../images/MillHouseNeighborhoodHouse1.jpg S|../images/MillHouseNeighborhoodHouse1.jpg H|../images/MillHouseNeighborhoodHouse2.jpg S|../images/MillHouseNeighborhoodHouse2.jpg S|../images/LoudSpeaker.png H|donation.php S|../MobileApp/images/Donate.png H|../index.php H|../about/about.php H|../about/people/people.php H|../about/milestones/milestones.php H|../about/site_history/site_history.php H|../what/what.php H|../what/meetings/meetings.php H|../what/digital/digital.php H|../what/food/food.php H|../what/groups/groups.php H|../what/support/support.php H|../what/youth/youth.php H|../calendar/calendar.php H|../room/room.php H|../sponsors/sponsors.php H|contribute.php H|join.php H|volunteering.php H|request_sponsorship.php H|donation.php H|../contact/contact.php H|../governance/governance.php H|https://www.acnc.gov.au/charity/charities/a49d2dd7-2daf-e811-a960-000d3ad24282/profile H|../governance/rules/rules.php H|../governance/reports/reports.php H|../governance/policies/policies.php H|../governance/plan/plan.php H|../administration/administration.php H|../index.php H|../about/about.php H|../calendar/calendar.php H|../room/room.php H|../contact/contact.php S|../images/AudioOnOff.png S|../images/ChooseVoice.png S|../images/Speaker.png S|../images/StopWatch.png S|../images/TuningFork.png S|../images/ReadText.png A|../donation_receipt.php

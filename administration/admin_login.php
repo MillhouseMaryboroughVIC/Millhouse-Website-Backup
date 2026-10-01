@@ -142,7 +142,7 @@
 		echo "<p>&nbsp;</p>\n\n";
 	}
 	
-	function DoDisplayLoginFormInstrunctions()
+	function DoDisplayLoginFormInstructions()
 	{
 		echo "<div id=\"div_login_form_instructions\" class=\"instruction_popup\">\n";
 		echo "	<h1>INSTRUCTIONS FOR LOGIN FORM</h1>\n";
@@ -162,7 +162,7 @@
 		echo "	<p>If the forget the admin password then clicking the 'I FOREGET THE PASSWORD' will result in the password being\n"; 
 		echo "	emailed to manager@millhouse.org.au</p>\n";		
 		echo "	<h2>cPANEL</h2>\n";	
-		echo "	<p>Alternative you can login to cPanel of the web hosting account.</p>\n";	
+		echo "	<p>Alternatively you can login to cPanel of the web hosting account.</p>\n";	
 		echo "	<h3>STEP 1</h3>\n";
 		echo "	<p>\n";
 		echo "		Scroll down until you locate the icon phpMyAdmin and click it.<br/><br/>\n";
@@ -213,15 +213,22 @@
 			}
 		}
 		return $bResult;
-	}		
-
-	//******************************************************************************
-	//******************************************************************************
-	//** 
-	//** POST & GET DATA PROCESSING
-	//** 
-	//******************************************************************************
-	//******************************************************************************							
+	}
+	
+	function DoGetPassword($strUserName)
+	{
+		global $g_dbMillhouse;
+		$strPassword = "";
+		
+		$result = DoFindQuery1($g_dbMillhouse, "groups", "name", $strUserName);
+		if ($result && ($result->num_rows > 0))
+		{
+			$row = $result->fetch_assoc();
+			$strPassword = $row["password"];
+		}
+		return $strPassword;
+	}
+	
 		
 	if (!isAdminLoggedIn() && !IsLoggedIn() && isset($_POST["button_admin_login"]))
 	{
@@ -259,7 +266,9 @@
 	}
 	else if (isset($_POST["forgot_password_group"]))
 	{
-		$bResult = mail($g_strEmailManager . "," . $g_strEmailPresident, "", "From: Millhouse Website");	
+		$bResult = mail($g_strEmailManager . "," . $g_strEmailPresident, "Millhouse website password recovery...", 
+							"<b>USERNAME: </b>" . $_POST["select_username"] . "<br/>\n" . 
+							"<b>PASSWORD: </b>" . DoGetPassword($_POST["select_username"]) . "<br/>\n");	
 		
 		if ($bResult == FALSE)
 		{

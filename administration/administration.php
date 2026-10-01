@@ -25,7 +25,7 @@
 		<!-- #BeginEditable "CustomTitle" -->
 		<title></title>
 		<style type="text/css">
-</style>
+		</style>
 		<script type="text/javascript">
 		
 			function DoOnPageLoadComplete()
@@ -178,6 +178,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>
@@ -332,7 +333,7 @@
 	else
 	{
 		DoDisplayLoginForm();
-		DoDisplayLoginFormInstrunctions();
+		DoDisplayLoginFormInstructions();
 	}
 
 ?>

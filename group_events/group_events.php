@@ -141,6 +141,10 @@
 
 
 
+
+
+
+
 			.group_hyperlink
 			{
 				display: inline-block;
@@ -337,6 +341,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>

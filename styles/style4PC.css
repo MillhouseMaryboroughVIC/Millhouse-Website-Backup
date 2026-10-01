@@ -550,6 +550,14 @@ hr
 {
 	font-weight: 600;/*100 - 900*/;
 }
+.content pre
+{
+	padding: 10px 10px 10px 10px;
+	background-color: #FFFAA0;
+	border-radius: 10px;
+	border: thin var(--start_color) solid;
+	overflow: auto;
+}
 .instruction_popup
 {
 	display: none;

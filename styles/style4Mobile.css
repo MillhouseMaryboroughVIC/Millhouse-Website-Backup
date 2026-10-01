@@ -552,6 +552,14 @@ body
   	font-style: var(--font_style);
 	font-size: medium;
 }
+.content pre
+{
+	padding: 10px 10px 10px 10px;
+	background-color: #FFFAA0;
+	border-radius: 10px;
+	border: thin var(--start_color) solid;
+	overflow: auto;
+}
 .content b
 {
 	font-weight: 600;/*100 - 900*/;

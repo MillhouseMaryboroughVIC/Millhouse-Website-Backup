@@ -117,6 +117,9 @@
 
 
 
+
+
+
 			td
 			{
 				vertical-align: middle;
@@ -280,6 +283,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>

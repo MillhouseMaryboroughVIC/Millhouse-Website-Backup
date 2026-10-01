@@ -24,6 +24,9 @@
 		<title>Community support</title>
 		<style type="text/css">
 
+
+
+
 			.content_img
 			{
 				height: 200px;
@@ -182,6 +185,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>

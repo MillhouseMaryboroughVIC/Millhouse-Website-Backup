@@ -42,6 +42,9 @@
 		<title>Events Calendar</title>
 		
 		<style type="text/css">
+
+
+
 		
 			:root
 			{
@@ -349,6 +352,7 @@
 			
 			</ul>
 		</li>
+		<?php DoDisplayCoding4BeginnersMenuAndSubmenu(); ?>
 	</ul>
 	<p>&nbsp;</p>
 </div>
