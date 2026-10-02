@@ -606,15 +606,13 @@ typeof x &amp; typeof(x); // Returns 'boolean'</pre>
 			Denotes an undefined data type.
 		</td>
 		<td class="table_cell_small_text">
-			<pre style="width:490px!important;">
+			<pre style="width:94%!important;">
 let x; // x has no defined value.
 typeof x &amp; typeof(x); // Returns 'undefined'
 
 let x - 10; // x has a defined value of 10.
-typeof x &amp; typeof(x); // Returns 'number'
-			</pre>
+typeof x &amp; typeof(x); // Returns 'number'</pre>
 		</td>
-	</tr>
 	</tr>
 	<tr>
 		<td><a href="https://www.w3schools.com/html/html_symbols.asp">Symbol</a></td>
@@ -630,15 +628,15 @@ typeof x &amp; typeof(x); // Returns 'symbol'</pre>
 		<td>You can think of these like a row of office pigeon holes for mail.</td>
 		<td>
 			<pre style="width:94%">
-			let arrayInts = {2, 45, 23, 56, 32};
-			
-			// Outputs the string "Array element 2 contains 24"
-			document.write("Array element 2 contains " + arrayInts[1]);
-			
-			let arrayInts = {2, "Helo world, true, 3.142, false};
-			
-			// Outputs the string "Array element 2 contains Hello world"
-			document.write("Array element 2 contains " + arrayInts[1]);</pre>
+let arrayInts = {2, 45, 23, 56, 32};
+
+// Outputs the string "Array element 2 contains 24"
+document.write("Array element 2 contains " + arrayInts[1]);
+
+let arrayInts = {2, "Helo world, true, 3.142, false};
+
+// Outputs the string "Array element 2 contains Hello world"
+document.write("Array element 2 contains " + arrayInts[1]);</pre>
 		</td>
 		<td class="table_cell_small_text">
 			<pre style="width:94%">
@@ -649,16 +647,25 @@ typeof x &amp; typeof(x); // Returns 'Array'</pre>
 		<td><a href="https://www.w3schools.com/js/js_objects.asp">Object</a></td>
 		<td>A collection of key-value pairs of data.</td>
 		<td>
-			This is a very simple example of an object:<br/><br/>
-			let objectMap = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
-			In programming it is also called a map, and you access its contents like this:<br/><br/>
-			objectMap.firstName /* Contains the string "John" */<br/>
-			objectMap["firstName"] /* Contains the string "John" */<br/>
-			objectMap.age /* Contains the integer 50 */<br/>
-			objectMap["age"] /* Contains the integer 50 */<br/><br/>
-			Objects can be huge nested data structures, for example, we could add another value pair to the above example:<br/><br/>
-			let objectMap = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue", education:{.......}};
-			Where 'education' is itself an object listing all the qualifications that John has.
+			This is a very simple example of an object:
+			<pre style="width:94%">
+let objectMap = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</pre>
+			
+			In programming it is also called a map, and you access its contents <br/>
+			like this:
+			<pre style="width:94%">
+objectMap.firstName // Contains the string "John"
+objectMap["firstName"] // Contains the string "John"
+objectMap.age // Contains the integer 50
+objectMap["age"] // Contains the integer 50</pre>
+
+			Objects can be huge nested data structures, for example, we could <br/>
+			add another value pair to the above example:
+			<pre style="width:94%">
+let objectMap = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue", education:{.......}};</pre>
+
+			Where 'education' is itself an object listing all the qualifications <br/>
+			that John has.
 		</td>
 		<td class="table_cell_small_text">
 			<pre style="width:94%">
@@ -676,7 +683,10 @@ typeof x &amp; typeof(x); // Returns 'null'</pre>
 	</tr>
 	<tr>
 		<td><a href="https://www.w3schools.com/js/js_strings.asp">String</a></td>
-		<td>A string of characters or text.<br/>You can enclose a string in either double<br/>quotes " or single quotes '.</td>
+		<td>
+			A string of characters or text.<br/>You can enclose a string in either <br/>
+			double quotes " or single quotes '.
+		</td>
 		<td>
 			"Hello world" or 'Hello world'<br/><br/>
 			You can also nest a string within a string by doing this:<br/><br/>
@@ -685,7 +695,8 @@ typeof x &amp; typeof(x); // Returns 'null'</pre>
 			"Hello \"XXXXX\" world"
 			or<br/>
 			'Hello \'XXXXX\' world'<br/><br/>
-			It might seem weird but the necessity to nest strings within strings does crop up.
+			It might seem weird but the necessity to nest strings <br/>
+			within strings does crop up.
 		</td>
 		<td class="table_cell_small_text">
 			<pre style="width:94%">
